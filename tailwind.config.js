@@ -29,6 +29,11 @@ module.exports = {
             'xl': '1280px'
         },
     },
-    plugins: [],
+    plugins: [
+        function ({ addVariant }) {
+            addVariant('child', '& > *');
+            addVariant('child-hover', '& > *:hover');
+        }
+    ],
 }
 
