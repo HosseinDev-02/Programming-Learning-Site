@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'YekanBakh Regular';
+        src: url("../public/fonts/YekanBakh-Regular.ttf") format('truetype');
+    }
+    @font-face {
+        font-family: 'YekanBakh Bold';
+        src: url("../public/fonts/YekanBakh-Bold.ttf") format('truetype');
+    }
+    @font-face {
+        font-family: 'YekanBakh Medium';
+        src: url("../public/fonts/YekanBakh-Medium.ttf") format('truetype');
+    }
+    @font-face {
+        font-family: 'YekanBakh ExtraBold';
+        src: url("../public/fonts/YekanBakh-Fat.ttf") format('truetype');
+    }
+    @font-face {
+        font-family: 'YekanBakh Light';
+        src: url("../public/fonts/YekanBakh-Light.ttf") format('truetype');
+    }
+    @font-face {
+        font-family: 'YekanBakh Thin';
+        src: url("../public/fonts/YekanBakh-Thin.ttf") format('truetype');
+    }
+}
