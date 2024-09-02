@@ -11,7 +11,10 @@ module.exports = {
             },
             container: {
                 center: true,
-                padding: '1.25rem'
+                padding: {
+                    DEFAULT: '0.625rem',
+                    md: '1.25rem'
+                }
             },
             fontFamily: {
                 'YekanBakh-Regular': 'YekanBakh Regular',
@@ -23,6 +26,7 @@ module.exports = {
             }
         },
         screens: {
+            'xs': '480px',
             'sm': '640px',
             'md': '768px',
             'lg': '1024px',

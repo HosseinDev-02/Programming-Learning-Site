@@ -1,5 +1,6 @@
 import Symbol from "../Symbol";
 import Header from "../Header/Header";
+
 function App() {
     return (
         <div className='text-caption font-YekanBakh-Regular'>
@@ -8,5 +9,6 @@ function App() {
         </div>
     )
 }
+
 
 export default App
