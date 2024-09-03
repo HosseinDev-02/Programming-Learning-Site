@@ -9,6 +9,22 @@ root.render(
     <App />
 );
 
+window.addEventListener('load', () => {
+
+    const themeIcon = document.querySelector('#theme-btn > svg > use')
+
+
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        themeIcon.setAttribute('href', '#sun')
+        document.documentElement.classList.add('dark')
+    } else {
+        themeIcon.setAttribute('href', '#moon')
+        document.documentElement.classList.remove('dark')
+    }
+
+
+})
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

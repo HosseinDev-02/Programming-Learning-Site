@@ -1,14 +1,24 @@
+import HeaderBtn from "./Header-Btn";
+
+
 function Header() {
-    function userProfileHandler() {
-        const userProfile = document.querySelector('#user-profile')
-        if(userProfile.className.includes('invisible')) {
-            userProfile.classList.remove('invisible')
-            userProfile.classList.remove('opacity-0')
+
+
+    const changeThemeHandler = (e) => {
+        e.preventDefault()
+        const themeIcon = document.querySelector('#theme-btn > svg > use')
+        console.log(themeIcon)
+        if(document.documentElement.className.includes('dark')){
+            document.documentElement.classList.remove('dark')
+            themeIcon.setAttribute('href', '#moon')
+            localStorage.setItem('theme', 'light')
         }else {
-            userProfile.classList.add('invisible')
-            userProfile.classList.add('opacity-0')
+            document.documentElement.classList.add('dark')
+            themeIcon.setAttribute('href', '#sun')
+            localStorage.setItem('theme', 'dark')
         }
     }
+
     return (
         <header className='h-20 border-b border-b-zinc-200 flex items-center justify-center'>
             <div className='container'>
@@ -426,7 +436,7 @@ function Header() {
                         </ul>
                     </div>
                     <div className='flex items-center gap-3 md:gap-5'>
-                        <a className='hidden lg:flex items-center justify-center rounded-full bg-zinc-100 w-10 h-10' href='#'>
+                        <a onClick={changeThemeHandler} id='theme-btn' className='hidden lg:flex items-center justify-center rounded-full bg-zinc-100 w-10 h-10 light-mode' href='#'>
                             <svg className='w-5 h-5'>
                                 <use href='#moon'></use>
                             </svg>
@@ -443,21 +453,21 @@ function Header() {
                             <span className='absolute -left-1 -top-1 bg-primary flex items-center justify-center rounded-full w-5 h-5 font-semibold text-xs text-white'>2</span>
                             <span className='animate-ping absolute -left-1 -top-1 bg-primary w-5 h-5 rounded-full'></span>
                         </a>
-                        <div className='flex items-center gap-3 group/profile' onClick={userProfileHandler}>
+                        <div className='flex items-center gap-3 group/profile cursor-pointer'>
                             <span className='flex items-center justify-center rounded-full bg-zinc-100 w-10 h-10'>
                                 <svg className='w-5 h-5'>
                                     <use href='#user'></use>
                                 </svg>
                             </span>
-                            <span className='hidden xs:flex flex-col gap-1 items-start text-xs'>
+                            <span className='hidden xs:flex flex-col gap-1 items-start text-xs pointer-events-none'>
                                 <span className='text-title font-semibold tracking-wide'>جلال بهرامی راد</span>
                                 <span className='font-semibold tracking-wide'>خوش آمـــدید</span>
                             </span>
-                            <svg className='w-5 h-5 hidden xs:block'>
+                            <svg className='w-5 h-5 hidden xs:block group-hover/profile:rotate-180 transition-all'>
                                 <use href='#chevron-down'></use>
                             </svg>
                             <div id='user-profile'
-                                className='border border-zinc-200 rounded-xl absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white invisible opacity-0 transition-all delay-75 child:transition-colors'>
+                                className='group-hover/profile:visible group-hover/profile:opacity-100 border border-zinc-200 rounded-xl absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white invisible opacity-0 transition-all delay-75 child:transition-colors'>
                                 <a className='hover:text-primary' href="#">مشاهده پروفایل</a>
                                 <a className='hover:text-primary' href="#">مالی</a>
                                 <a className='hover:text-primary' href="#">دوره ها</a>
