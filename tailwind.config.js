@@ -1,13 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    darkMode: 'class',
     theme: {
         extend: {
             colors: {
                 'primary': '#1d4ed8',
                 'success': '#22c55e',
                 'title': '#09090b',
-                'caption': '#4b5563'
+                'caption': '#4b5563',
+                'mirage': '#17171c'
             },
             container: {
                 center: true,

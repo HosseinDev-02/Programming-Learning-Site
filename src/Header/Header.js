@@ -3,7 +3,6 @@ import HeaderBtn from "./Header-Btn";
 
 function Header() {
 
-
     const changeThemeHandler = (e) => {
         e.preventDefault()
         const themeIcon = document.querySelector('#theme-btn > svg > use')
@@ -21,7 +20,7 @@ function Header() {
 
     return (
         // codding desktop header
-        <header className='h-20 border-b border-b-zinc-200 flex items-center justify-center'>
+        <header className='h-20 border-b border-b-zinc-200 dark:border-b-zinc-800 flex items-center justify-center bg-white dark:bg-black/80'>
             <div className='container'>
                 <nav className='flex items-center justify-between relative'>
                     {/* header right side */}
@@ -39,7 +38,7 @@ function Header() {
                             </span>
                         </a>
                         {/* header menu */}
-                        <ul className='hidden lg:flex items-center gap-5 font-semibold text-sm child-hover:text-title child:transition-colors'>
+                        <ul className='hidden lg:flex items-center gap-5 font-semibold text-sm child-hover:text-title dark:child-hover:text-white child:transition-colors'>
                             <li className='group/categories'>
                                 <a className='flex items-center gap-1' href="#">
                                     <span className='tracking-wide'>دسته بندی آمـــوزشها</span>
@@ -48,7 +47,7 @@ function Header() {
                                     </svg>
                                 </a>
                                 {/* header categories menu */}
-                                <ul className='invisible opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-white border border-zinc-200 w-56 flex flex-col gap-1 child:leading-5 delay-75 transition-all shadow-black/5'>
+                                <ul className='invisible opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 w-56 flex flex-col gap-1 child:leading-5 delay-75 transition-all shadow-black/5 text-title dark:text-white'>
                                     <li className='group/subcategories'>
                                         <a className='flex items-center justify-between p-3 hover:text-primary transition-colors' href="#">
                                             <span>برنامه نویسی وب</span>
@@ -57,7 +56,7 @@ function Header() {
                                             </svg>
                                         </a>
                                         {/* header categories submenu */}
-                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 w-96 absolute right-full -top-px -bottom-px text-base'>
+                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-base text-caption'>
                                             <li className='absolute top-2 font-bold pointer-events-none'>
                                                 محبوب ترین موضوعات
                                             </li>
@@ -130,7 +129,7 @@ function Header() {
                                                 <use href='#chevron-left'></use>
                                             </svg>
                                         </a>
-                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 w-96 absolute right-full -top-px -bottom-px text-base'>
+                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-base text-caption dark:bg-black'>
                                             <li className='absolute top-2 font-bold pointer-events-none'>
                                                 محبوب ترین موضوعات
                                             </li>
@@ -203,7 +202,7 @@ function Header() {
                                                 <use href='#chevron-left'></use>
                                             </svg>
                                         </a>
-                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 w-96 absolute right-full -top-px -bottom-px text-base'>
+                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-base text-caption dark:bg-black'>
                                             <li className='absolute top-2 font-bold pointer-events-none'>
                                                 محبوب ترین موضوعات
                                             </li>
@@ -276,7 +275,7 @@ function Header() {
                                                 <use href='#chevron-left'></use>
                                             </svg>
                                         </a>
-                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 w-96 absolute right-full -top-px -bottom-px text-base'>
+                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-base text-caption dark:bg-black'>
                                             <li className='absolute top-2 font-bold pointer-events-none'>
                                                 محبوب ترین موضوعات
                                             </li>
@@ -349,7 +348,7 @@ function Header() {
                                                 <use href='#chevron-left'></use>
                                             </svg>
                                         </a>
-                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 w-96 absolute right-full -top-px -bottom-px text-base'>
+                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-base text-caption dark:bg-black'>
                                             <li className='absolute top-2 font-bold pointer-events-none'>
                                                 محبوب ترین موضوعات
                                             </li>
@@ -430,7 +429,7 @@ function Header() {
                                     </svg>
                                 </a>
                                 {/* Header links menu */}
-                                <div className='border border-zinc-200 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors'>
+                                <div className='border border-zinc-200 dark:border-zinc-800 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black text-title dark:text-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-semibold text-sm'>
                                     <a className='hover:text-primary' href="#">مشاهده پروفایل</a>
                                     <a className='hover:text-primary' href="#">مالی</a>
                                     <a className='hover:text-primary' href="#">دوره ها</a>
@@ -451,7 +450,7 @@ function Header() {
                         <div className='flex items-center gap-3 group/profile cursor-pointer'>
                             <HeaderBtn icon='#user'></HeaderBtn>
                             <span className='hidden xs:flex flex-col gap-1 items-start text-xs pointer-events-none'>
-                                <span className='text-title font-semibold tracking-wide'>جلال بهرامی راد</span>
+                                <span className='text-title dark:text-white font-semibold tracking-wide'>جلال بهرامی راد</span>
                                 <span className='font-semibold tracking-wide'>خوش آمـــدید</span>
                             </span>
                             <svg className='w-5 h-5 hidden xs:block group-hover/profile:rotate-180 transition-all'>
@@ -459,7 +458,7 @@ function Header() {
                             </svg>
                             {/* header user profile menu */}
                             <div id='user-profile'
-                                className='group-hover/profile:visible group-hover/profile:opacity-100 border border-zinc-200 absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white invisible opacity-0 transition-all delay-75 child:transition-colors font-semibold text-sm'>
+                                className='group-hover/profile:visible group-hover/profile:opacity-100 border border-zinc-200 dark:border-zinc-800 absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black invisible opacity-0 transition-all delay-75 child:transition-colors font-semibold text-sm text-title dark:text-white'>
                                 <a className='hover:text-primary' href="#">مشاهده پروفایل</a>
                                 <a className='hover:text-primary' href="#">مالی</a>
                                 <a className='hover:text-primary' href="#">دوره ها</a>
