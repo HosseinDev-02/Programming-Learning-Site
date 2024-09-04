@@ -18,9 +18,20 @@ function Header() {
         }
     }
 
+    const searchBoxModalHandler = () => {
+        const headerSearchModal = document.querySelector('#header-search-modal')
+        headerSearchModal.classList.toggle('-top-20')
+        headerSearchModal.classList.toggle('-top-px')
+    }
+
+    const searchBoxModalOpen = e => {
+        e.preventDefault()
+        searchBoxModalHandler()
+    }
+
     return (
         // codding desktop header
-        <header className='h-20 border-b border-b-zinc-200 dark:border-b-zinc-800 flex items-center justify-center bg-white dark:bg-black/80'>
+        <header className='h-20 border-b border-b-zinc-200 dark:border-b-zinc-800 flex items-center justify-center bg-white dark:bg-black/80 z-40'>
             <div className='container'>
                 <nav className='flex items-center justify-between relative'>
                     {/* header right side */}
@@ -441,7 +452,22 @@ function Header() {
                     {/* header left side */}
                     <div className='flex items-center gap-3 md:gap-5'>
                         {/* header search btn */}
-                        <HeaderBtn icon='#search'></HeaderBtn>
+                        <HeaderBtn clickEvent={searchBoxModalOpen} icon='#search'></HeaderBtn>
+                        {/* modal search wrapper */}
+                        <div id='header-search-modal' className='transition-all fixed left-0 right-0 -top-20 bg-white z-50 hidden lg:flex items-center justify-center h-20'>
+                            <div className="container">
+                                <div className='flex items-center justify-between gap-5'>
+                                    <form className='block w-full h-10' action="#">
+                                        <input className='placeholder:text-caption w-full h-full outline-none text-title text-lg tracking-wide' placeholder='نام دوره،مقاله و یا دسته بندی را وارد نمایید..' type="text"/>
+                                    </form>
+                                    <span onClick={searchBoxModalHandler} id='search-modal-close-btn' className='flex items-center justify-center w-9 h-9 rounded-full bg-zinc-100 dark:bg-mirage dark:text-white hover:text-red-500 transition-colors cursor-pointer'>
+                                        <svg className='w-6 h-6'>
+                                            <use href='#x-mark'></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                         {/* header change theme btn */}
                         <HeaderBtn clickEvent={changeThemeHandler} id='theme-btn' icon='#moon'></HeaderBtn>
                         {/* header basket btn */}
