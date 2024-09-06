@@ -1,12 +1,12 @@
 import HeaderBtn from "./Header-Btn";
-
+import Logo from "../Logo/Logo";
 
 function Header() {
+
 
     const changeThemeHandler = (e) => {
         e.preventDefault()
         const themeIcon = document.querySelector('#theme-btn > svg > use')
-        console.log(themeIcon)
         if(document.documentElement.className.includes('dark')){
             document.documentElement.classList.remove('dark')
             themeIcon.setAttribute('href', '#moon')
@@ -16,6 +16,10 @@ function Header() {
             themeIcon.setAttribute('href', '#sun')
             localStorage.setItem('theme', 'dark')
         }
+    }
+
+    const mobileMenuHandler = () => {
+        console.log('button')
     }
 
     const searchBoxModalHandler = () => {
@@ -29,25 +33,66 @@ function Header() {
         searchBoxModalHandler()
     }
 
+    const mobileThemeHandler = (event) => {
+        const mobileThemeIcon = document.querySelector('#mobile-theme-icon')
+        if(document.documentElement.className.includes('dark')) {
+            mobileThemeIcon.classList.remove('-translate-x-0.5')
+            mobileThemeIcon.classList.add('-translate-x-[26px]')
+            document.documentElement.classList.remove('dark')
+            localStorage.setItem('theme', 'light')
+        }else {
+            mobileThemeIcon.classList.add('-translate-x-0.5')
+            mobileThemeIcon.classList.remove('-translate-x-[26px]')
+            document.documentElement.classList.add('dark')
+            localStorage.setItem('theme', 'dark')
+        }
+    }
+
     return (
         // codding desktop header
-        <header className='h-20 border-b border-b-zinc-200 dark:border-b-zinc-800 flex items-center justify-center bg-white dark:bg-black/80 z-40'>
+        <header className='h-50 border-b border-b-zinc-200 dark:border-b-zinc-800 flex items-center justify-center bg-white dark:bg-black/80 z-40'>
             <div className='container'>
                 <nav className='flex items-center justify-between relative'>
                     {/* header right side */}
                     <div className='flex items-center gap-3 lg:gap-8'>
                         {/* header mobile menu btn */}
-                        <HeaderBtn icon='#bars-3'></HeaderBtn>
+                        <HeaderBtn clickEvent={mobileMenuHandler} icon='#bars-3'></HeaderBtn>
+                        {/* Mobile Menu */}
+                        <div className='fixed right-0 top-0 bottom-0 bg-white w-72 xs:w-80 z-50 p-4'>
+                            {/*  mobile menu header  */}
+                            <div className='flex items-center justify-between mb-8'>
+                                <Logo></Logo>
+                                <span className='text-title'>
+                                    <svg className='w-6 h-6'>
+                                        <use href='#x-mark'></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            {/*  mobile search box  */}
+                            <div className='space-y-5'>
+                                <form action="#" className='rounded-xl flex items-center bg-zinc-100 relative h-10 px-12 py-2 border border-zinc-200'>
+                                    <span className='absolute right-4 top-0 bottom-0 m-auto flex items-center justify-center text-title'>
+                                        <svg className='w-5 h-5'>
+                                            <use href='#search'></use>
+                                        </svg>
+                                    </span>
+                                    <input placeholder='دنبال چی میگردی ؟' className='w-full h-full bg-transparent outline-none text-title placeholder:text-caption' type="text"/>
+                                </form>
+                                <div className='flex items-center justify-between border-y border-y-zinc-200 py-4'>
+                                    <span className='text-title font-semibold'>
+                                        تم تاریک
+                                    </span>
+                                    <div className=''>
+                                        <label htmlFor="theme-input" className='inline-block border-2 border-zinc-200 h-5 w-11 relative rounded-xl'>
+                                            <span id='mobile-theme-icon' className='transition-all duration-300 inline w-3 h-3 bg-zinc-200 rounded-full absolute -translate-x-[26px] top-0 bottom-0 m-auto'></span>
+                                        </label>
+                                        <input onChange={mobileThemeHandler} id='theme-input' type="checkbox" className='hidden'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         {/* header logo */}
-                        <a className='flex items-center gap-2' href='#'>
-                            <svg className='w-6 h-6 text-primary'>
-                                <use href='#logo'></use>
-                            </svg>
-                            <span className='flex items-start flex-col'>
-                                <span className='text-sm font-semibold font-YekanBakh-Medium'>آکــــادمـــی</span>
-                                <span className='text-primary text-xl font-black font-YekanBakh-ExtraBold'>نـــابــــغه</span>
-                            </span>
-                        </a>
+                        <Logo></Logo>
                         {/* header menu */}
                         <ul className='hidden lg:flex items-center gap-5 font-semibold text-sm child-hover:text-title dark:child-hover:text-white child:transition-colors'>
                             <li className='group/categories'>

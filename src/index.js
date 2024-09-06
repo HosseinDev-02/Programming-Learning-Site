@@ -12,13 +12,18 @@ root.render(
 window.addEventListener('load', () => {
 
     const themeIcon = document.querySelector('#theme-btn > svg > use')
+    const mobileThemeIcon = document.querySelector('#mobile-theme-icon')
 
 
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         themeIcon.setAttribute('href', '#sun')
+        mobileThemeIcon.classList.add('-translate-x-0.5')
+        mobileThemeIcon.classList.remove('-translate-x-[26px]')
         document.documentElement.classList.add('dark')
     } else {
         themeIcon.setAttribute('href', '#moon')
+        mobileThemeIcon.classList.remove('-translate-x-0.5')
+        mobileThemeIcon.classList.add('-translate-x-[26px]')
         document.documentElement.classList.remove('dark')
     }
 

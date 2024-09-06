@@ -22,7 +22,7 @@ function HeaderBtn({icon, clickEvent, id, count}) {
                 :
                 icon === '#bars-3'
                     ?
-                    <span className='flex lg:hidden items-center justify-center rounded-full bg-zinc-100 dark:bg-mirage dark:text-white w-10 h-10'>
+                    <span onClick={clickEvent} className='flex lg:hidden items-center justify-center rounded-full bg-zinc-100 dark:bg-mirage dark:text-white w-10 h-10'>
                             <svg className='w-6 h-6'>
                                 <use href={icon}></use>
                             </svg>
