@@ -36,4 +36,19 @@
             opacity: 0;
         }
     }
+    .mobile-categories--open > ul {
+        display: inline-block !important;
+    }
+    .mobile-categories--open > div > span > svg {
+        transform: rotate(180deg);
+    }
+    .mobile-categories__submenu--open {
+        color: #09090b;
+    }
+    .mobile-categories__submenu--open > ul {
+        display: inline-block !important;
+    }
+    .mobile-categories__submenu--open > a > svg {
+        transform: rotate(-45deg);
+    }
 }
