@@ -36,6 +36,9 @@
             opacity: 0;
         }
     }
+    .mobile__menu--open {
+        right: 0 !important;
+    }
     .mobile-categories--open > ul {
         display: inline-block !important;
     }
@@ -50,5 +53,9 @@
     }
     .mobile-categories__submenu--open > a > svg {
         transform: rotate(-45deg);
+    }
+    .cover--show {
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 }

@@ -3,7 +3,6 @@ import Logo from "../Logo/Logo";
 
 function Header() {
 
-
     const changeThemeHandler = (e) => {
         e.preventDefault()
         const themeIcon = document.querySelector('#theme-btn > svg > use')
@@ -19,7 +18,10 @@ function Header() {
     }
 
     const mobileMenuHandler = () => {
-        console.log('button')
+        const mobileMenu = document.querySelector('#mobile-menu')
+        mobileMenu.classList.add('mobile__menu--open')
+        const coverElem = document.querySelector('#cover-elem')
+        coverElem.classList.add('cover--show')
     }
 
     const searchBoxModalHandler = () => {
@@ -31,6 +33,13 @@ function Header() {
     const searchBoxModalOpen = e => {
         e.preventDefault()
         searchBoxModalHandler()
+    }
+
+    const mobileMenuClose = () => {
+        const mobileMenu = document.querySelector('#mobile-menu')
+        mobileMenu.classList.remove('mobile__menu--open')
+        const coverElem = document.querySelector('#cover-elem')
+        coverElem.classList.remove('cover--show')
     }
 
     const mobileThemeHandler = (event) => {
@@ -66,116 +75,139 @@ function Header() {
                         {/* header mobile menu btn */}
                         <HeaderBtn clickEvent={mobileMenuHandler} icon='#bars-3'></HeaderBtn>
                         {/* Mobile Menu */}
-                        <div className='lg:hidden fixed -right-72 xs:-right-80 top-0 bottom-0 bg-white w-72 xs:w-80 z-50 p-4 space-y-5'>
+                        <div id='mobile-menu'
+                             className='lg:hidden transition-all fixed -right-72 xs:-right-80 top-0 bottom-0 bg-white w-72 xs:w-80 z-50 p-4 space-y-5'>
                             {/*  mobile menu header  */}
                             <div className='flex items-center justify-between mb-8'>
-                                    <Logo></Logo>
-                                    <span className='text-title'>
-                                    <svg className='w-6 h-6'>
-                                        <use href='#x-mark'></use>
-                                    </svg>
-                                </span>
-                                </div>
+                                <Logo></Logo>
+                                <span onClick={mobileMenuClose} className='text-title'>
+                                        <svg className='w-6 h-6'>
+                                            <use href='#x-mark'></use>
+                                        </svg>
+                                    </span>
+                            </div>
                             {/*  mobile search box  */}
-                            <form action="#" className='rounded-xl flex items-center bg-zinc-100 relative h-10 px-12 py-2 border border-zinc-200'>
+                            <form action="#"
+                                  className='rounded-xl flex items-center bg-zinc-100 relative h-10 px-12 py-2 border border-zinc-200'>
                                     <span
                                         className='absolute right-4 top-0 bottom-0 m-auto flex items-center justify-center text-title'>
                                         <svg className='w-5 h-5'>
                                             <use href='#search'></use>
                                         </svg>
                                     </span>
-                                    <input placeholder='دنبال چی میگردی ؟'
-                                           className='w-full h-full bg-transparent outline-none text-title placeholder:text-caption'
-                                           type="text"/>
-                                </form>
+                                <input placeholder='دنبال چی میگردی ؟'
+                                       className='w-full h-full bg-transparent outline-none text-title placeholder:text-caption'
+                                       type="text"/>
+                            </form>
                             {/*  mobile change them wrapper  */}
                             <div className='flex items-center justify-between border-y border-y-zinc-200 py-4'>
                                     <span className='text-title font-semibold'>
                                         تم تاریک
                                     </span>
-                                    <div className=''>
-                                        <label htmlFor="theme-input"
-                                               className='inline-block border-2 border-zinc-200 h-5 w-11 relative rounded-xl'>
+                                <div className=''>
+                                    <label htmlFor="theme-input"
+                                           className='inline-block border-2 border-zinc-200 h-5 w-11 relative rounded-xl'>
                                         <span id='mobile-theme-icon'
                                               className='transition-all duration-300 inline w-3 h-3 bg-zinc-200 rounded-full absolute -translate-x-[26px] top-0 bottom-0 m-auto'></span>
-                                        </label>
-                                        <input onChange={mobileThemeHandler} id='theme-input' type="checkbox"
-                                               className='hidden'/>
-                                    </div>
+                                    </label>
+                                    <input onChange={mobileThemeHandler} id='theme-input' type="checkbox"
+                                           className='hidden'/>
                                 </div>
+                            </div>
                             {/*  Mobile Menu Categories  */}
-                            <div className='py-2'>
-                                    <div onClick={mobileCategoriesMenuHandler} className='flex items-center justify-between'>
-                                        <div className='flex items-center gap-2'>
+                            <div>
+                                <div onClick={mobileCategoriesMenuHandler}
+                                     className='flex items-center justify-between'>
+                                    <div className='flex items-center gap-2'>
                                         <span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#bars-2'></use>
                                             </svg>
                                         </span>
-                                            <span className='text-sm font-semibold'>دسته بندی آموزش ها</span>
-                                        </div>
-                                        <span>
+                                        <span className='text-sm font-semibold'>دسته بندی آموزش ها</span>
+                                    </div>
+                                    <span>
                                         <svg className='w-5 h-5'>
                                             <use href='#chevron-down'></use>
                                         </svg>
                                     </span>
-                                    </div>
-                                    <ul className='child:py-2 hidden relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 before:h-full before:w-px pr-8 mt-4 text-sm text-zinc-400'>
-                                        <li>
-                                            <a onClick={categoriesSubmenuHandler} className='flex items-center gap-1' href="#">
-                                                <svg className='w-4 h-4'>
-                                                    <use href='#chevron-left'></use>
-                                                </svg>
-                                                برنامه نویسی وب
-                                            </a>
-                                            <ul className='child:py-2 relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 before:h-full before:w-px pr-8 mt-4 text-sm text-zinc-400 hidden'>
-                                                <li>
-                                                    <a className='flex items-center gap-2' href="#">
-                                                        <span className='w-2 h-px bg-zinc-200'></span>
-                                                        جاوااسکریپت
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a className='flex items-center gap-2' href="#">
-                                                        <span className='w-2 h-px bg-zinc-200'></span>
-                                                        ری اکت
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a className='flex items-center gap-2' href="#">
-                                                        <span className='w-2 h-px bg-zinc-200'></span>
-                                                        نود جی اس
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a className='flex items-center gap-2' href="#">
-                                                        <span className='w-2 h-px bg-zinc-200'></span>
-                                                        ....
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a className='flex items-center gap-3' href="#">
-                                                <span className='w-2 h-px bg-zinc-200'></span>
-                                                دیتاساینس
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className='flex items-center gap-3' href="#">
-                                                <span className='w-2 h-px bg-zinc-200'></span>
-                                                زبانهای برنامه نویسی
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className='flex items-center gap-3' href="#">
-                                                <span className='w-2 h-px bg-zinc-200'></span>
-                                                ....
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </div>
+                                <ul className='child:py-2 hidden relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 before:h-full before:w-px pr-8 mt-4 text-sm text-zinc-400'>
+                                    <li>
+                                        <a onClick={categoriesSubmenuHandler} className='flex items-center gap-1'
+                                           href="#">
+                                            <svg className='w-4 h-4'>
+                                                <use href='#chevron-left'></use>
+                                            </svg>
+                                            برنامه نویسی وب
+                                        </a>
+                                        <ul className='child:py-2 relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 before:h-full before:w-px pr-8 mt-4 text-sm text-zinc-400 hidden'>
+                                            <li>
+                                                <a className='flex items-center gap-2' href="#">
+                                                    <span className='w-2 h-px bg-zinc-200'></span>
+                                                    جاوااسکریپت
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a className='flex items-center gap-2' href="#">
+                                                    <span className='w-2 h-px bg-zinc-200'></span>
+                                                    ری اکت
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a className='flex items-center gap-2' href="#">
+                                                    <span className='w-2 h-px bg-zinc-200'></span>
+                                                    نود جی اس
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a className='flex items-center gap-2' href="#">
+                                                    <span className='w-2 h-px bg-zinc-200'></span>
+                                                    ....
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a className='flex items-center gap-3' href="#">
+                                            <span className='w-2 h-px bg-zinc-200'></span>
+                                            دیتاساینس
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className='flex items-center gap-3' href="#">
+                                            <span className='w-2 h-px bg-zinc-200'></span>
+                                            زبانهای برنامه نویسی
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className='flex items-center gap-3' href="#">
+                                            <span className='w-2 h-px bg-zinc-200'></span>
+                                            ....
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a className='flex items-center gap-2 text-sm font-semibold' href="#">
+                                <span>
+                                    <svg className='w-5 h-5'>
+                                        <use href='#question-circle'></use>
+                                    </svg>
+                                </span>
+                                پرسش و پاسخ
+                            </a>
+                            <a className='flex items-center gap-2 text-sm font-semibold' href="#">
+                                <span>
+                                    <svg className='w-5 h-5'>
+                                        <use href='#document-text'></use>
+                                    </svg>
+                                </span>
+                                پرسش و پاسخ
+                            </a>
                         </div>
+                        {/*  mobile menu cover elem  */}
+                        <div id='cover-elem'
+                             className='fixed inset-0 w-full h-full bg-zinc-100/80 z-40 invisible opacity-0 transition-all'></div>
                         {/* header logo */}
                         <Logo></Logo>
                         {/* header menu */}
@@ -190,7 +222,8 @@ function Header() {
                                 {/* header categories menu */}
                                 <ul className='invisible opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 w-56 flex flex-col gap-1 child:leading-5 delay-75 transition-all shadow-black/5 text-title dark:text-white'>
                                     <li className='group/subcategories'>
-                                        <a className='flex items-center justify-between p-3 hover:text-primary transition-colors' href="#">
+                                        <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
+                                           href="#">
                                             <span>برنامه نویسی وب</span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#chevron-left'></use>
@@ -264,7 +297,8 @@ function Header() {
                                         </ul>
                                     </li>
                                     <li className='group/subcategories'>
-                                        <a className='flex items-center justify-between p-3 hover:text-primary transition-colors' href="#">
+                                        <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
+                                           href="#">
                                             <span>زبانهای برنامه نویسی</span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#chevron-left'></use>
@@ -337,7 +371,8 @@ function Header() {
                                         </ul>
                                     </li>
                                     <li className='group/subcategories'>
-                                        <a className='flex items-center justify-between p-3 hover:text-primary transition-colors' href="#">
+                                        <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
+                                           href="#">
                                             <span>توسعه بازی</span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#chevron-left'></use>
@@ -410,7 +445,8 @@ function Header() {
                                         </ul>
                                     </li>
                                     <li className='group/subcategories'>
-                                        <a className='flex items-center justify-between p-3 hover:text-primary transition-colors' href="#">
+                                        <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
+                                           href="#">
                                             <span>برنامه نویسی موبایل</span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#chevron-left'></use>
@@ -483,7 +519,8 @@ function Header() {
                                         </ul>
                                     </li>
                                     <li className='group/subcategories'>
-                                        <a className='flex items-center justify-between p-3 hover:text-primary transition-colors' href="#">
+                                        <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
+                                           href="#">
                                             <span>طراحی دیتابیس</span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#chevron-left'></use>
@@ -570,7 +607,8 @@ function Header() {
                                     </svg>
                                 </a>
                                 {/* Header links menu */}
-                                <div className='border border-zinc-200 dark:border-zinc-800 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black text-title dark:text-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-semibold text-sm'>
+                                <div
+                                    className='border border-zinc-200 dark:border-zinc-800 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black text-title dark:text-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-semibold text-sm'>
                                     <a className='hover:text-primary' href="#">مشاهده پروفایل</a>
                                     <a className='hover:text-primary' href="#">مالی</a>
                                     <a className='hover:text-primary' href="#">دوره ها</a>
