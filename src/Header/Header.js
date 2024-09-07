@@ -188,6 +188,7 @@ function Header() {
                                     </li>
                                 </ul>
                             </div>
+                            {/*  mobile menu links  */}
                             <a className='flex items-center gap-2 text-sm font-semibold' href="#">
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -202,12 +203,12 @@ function Header() {
                                         <use href='#document-text'></use>
                                     </svg>
                                 </span>
-                                پرسش و پاسخ
+                                مقالات آموزشی
                             </a>
                         </div>
                         {/*  mobile menu cover elem  */}
-                        <div id='cover-elem'
-                             className='fixed inset-0 w-full h-full bg-zinc-100/80 z-40 invisible opacity-0 transition-all'></div>
+                        <div onClick={mobileMenuClose} id='cover-elem'
+                             className='fixed inset-0 w-full h-full bg-zinc-100/80 dark:bg-mirage/80 z-40 invisible opacity-0 transition-all'></div>
                         {/* header logo */}
                         <Logo></Logo>
                         {/* header menu */}
@@ -608,7 +609,7 @@ function Header() {
                                 </a>
                                 {/* Header links menu */}
                                 <div
-                                    className='border border-zinc-200 dark:border-zinc-800 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black text-title dark:text-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-semibold text-sm'>
+                                    className='rounded-xl border border-zinc-200 dark:border-zinc-800 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black text-title dark:text-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-semibold text-sm'>
                                     <a className='hover:text-primary' href="#">مشاهده پروفایل</a>
                                     <a className='hover:text-primary' href="#">مالی</a>
                                     <a className='hover:text-primary' href="#">دوره ها</a>
@@ -652,7 +653,7 @@ function Header() {
                             </svg>
                             {/* header user profile menu */}
                             <div id='user-profile'
-                                className='group-hover/profile:visible group-hover/profile:opacity-100 border border-zinc-200 dark:border-zinc-800 absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black invisible opacity-0 transition-all delay-75 child:transition-colors font-semibold text-sm text-title dark:text-white'>
+                                className='rounded-xl group-hover/profile:visible group-hover/profile:opacity-100 border border-zinc-200 dark:border-zinc-800 absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black invisible opacity-0 transition-all delay-75 child:transition-colors font-semibold text-sm text-title dark:text-white'>
                                 <a className='hover:text-primary' href="#">مشاهده پروفایل</a>
                                 <a className='hover:text-primary' href="#">مالی</a>
                                 <a className='hover:text-primary' href="#">دوره ها</a>

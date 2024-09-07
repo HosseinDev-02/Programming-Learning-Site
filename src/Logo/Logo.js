@@ -4,7 +4,7 @@ export default function Logo() {
                 <use href='#logo'></use>
             </svg>
             <span className='flex items-start flex-col'>
-                <span className='text-sm font-semibold font-YekanBakh-Medium'>آکــــادمـــی</span>
+                <span className='text-sm font-semibold'>آکــــادمـــی</span>
                 <span className='text-primary text-xl font-black font-YekanBakh-ExtraBold'>نـــابــــغه</span>
             </span>
         </a>)
