@@ -76,11 +76,11 @@ function Header() {
                         <HeaderBtn clickEvent={mobileMenuHandler} icon='#bars-3'></HeaderBtn>
                         {/* Mobile Menu */}
                         <div id='mobile-menu'
-                             className='lg:hidden transition-all fixed -right-72 xs:-right-80 top-0 bottom-0 bg-white w-72 xs:w-80 z-50 p-4 space-y-5'>
+                             className='lg:hidden transition-all fixed -right-72 xs:-right-80 top-0 bottom-0 bg-white dark:bg-black rounded-tl-xl rounded-bl-xl w-72 xs:w-80 z-50 p-4 space-y-5'>
                             {/*  mobile menu header  */}
                             <div className='flex items-center justify-between mb-8'>
                                 <Logo></Logo>
-                                <span onClick={mobileMenuClose} className='text-title'>
+                                <span onClick={mobileMenuClose} className='text-title dark:text-white'>
                                         <svg className='w-6 h-6'>
                                             <use href='#x-mark'></use>
                                         </svg>
@@ -88,9 +88,9 @@ function Header() {
                             </div>
                             {/*  mobile search box  */}
                             <form action="#"
-                                  className='rounded-xl flex items-center bg-zinc-100 relative h-10 px-12 py-2 border border-zinc-200'>
+                                  className='rounded-xl flex items-center bg-zinc-100 dark:bg-mirage relative h-10 px-12 py-2 border border-zinc-200 dark:border-zinc-800'>
                                     <span
-                                        className='absolute right-4 top-0 bottom-0 m-auto flex items-center justify-center text-title'>
+                                        className='absolute right-4 top-0 bottom-0 m-auto flex items-center justify-center text-title dark:text-gray-500'>
                                         <svg className='w-5 h-5'>
                                             <use href='#search'></use>
                                         </svg>
@@ -100,15 +100,15 @@ function Header() {
                                        type="text"/>
                             </form>
                             {/*  mobile change them wrapper  */}
-                            <div className='flex items-center justify-between border-y border-y-zinc-200 py-4'>
-                                    <span className='text-title font-semibold'>
+                            <div className='flex items-center justify-between border-y border-y-zinc-200 dark:border-y-zinc-800 py-4'>
+                                    <span className='text-title font-semibold dark:text-white'>
                                         تم تاریک
                                     </span>
                                 <div className=''>
                                     <label htmlFor="theme-input"
-                                           className='inline-block border-2 border-zinc-200 h-5 w-11 relative rounded-xl'>
+                                           className='inline-block border-2 border-zinc-200 dark:border-primary h-5 w-11 bg-white dark:bg-primary relative rounded-xl'>
                                         <span id='mobile-theme-icon'
-                                              className='transition-all duration-300 inline w-3 h-3 bg-zinc-200 rounded-full absolute -translate-x-[26px] top-0 bottom-0 m-auto'></span>
+                                              className='transition-all duration-300 inline w-3 h-3 bg-zinc-200 dark:bg-black rounded-full absolute -translate-x-[26px] top-0 bottom-0 m-auto'></span>
                                     </label>
                                     <input onChange={mobileThemeHandler} id='theme-input' type="checkbox"
                                            className='hidden'/>
@@ -132,7 +132,7 @@ function Header() {
                                         </svg>
                                     </span>
                                 </div>
-                                <ul className='child:py-2 hidden relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 before:h-full before:w-px pr-8 mt-4 text-sm text-zinc-400'>
+                                <ul className='child:py-2 hidden relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 text-sm text-zinc-400'>
                                     <li>
                                         <a onClick={categoriesSubmenuHandler} className='flex items-center gap-1'
                                            href="#">
@@ -141,28 +141,28 @@ function Header() {
                                             </svg>
                                             برنامه نویسی وب
                                         </a>
-                                        <ul className='child:py-2 relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 before:h-full before:w-px pr-8 mt-4 text-sm text-zinc-400 hidden'>
+                                        <ul className='child:py-2 relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 text-sm text-zinc-400 hidden'>
                                             <li>
                                                 <a className='flex items-center gap-2' href="#">
-                                                    <span className='w-2 h-px bg-zinc-200'></span>
+                                                    <span className='w-2 h-px bg-zinc-200 dark:bg-zinc-800'></span>
                                                     جاوااسکریپت
                                                 </a>
                                             </li>
                                             <li>
                                                 <a className='flex items-center gap-2' href="#">
-                                                    <span className='w-2 h-px bg-zinc-200'></span>
+                                                    <span className='w-2 h-px bg-zinc-200 dark:bg-zinc-800'></span>
                                                     ری اکت
                                                 </a>
                                             </li>
                                             <li>
                                                 <a className='flex items-center gap-2' href="#">
-                                                    <span className='w-2 h-px bg-zinc-200'></span>
+                                                    <span className='w-2 h-px bg-zinc-200 dark:bg-zinc-800'></span>
                                                     نود جی اس
                                                 </a>
                                             </li>
                                             <li>
                                                 <a className='flex items-center gap-2' href="#">
-                                                    <span className='w-2 h-px bg-zinc-200'></span>
+                                                    <span className='w-2 h-px bg-zinc-200 dark:bg-zinc-800'></span>
                                                     ....
                                                 </a>
                                             </li>
@@ -170,19 +170,19 @@ function Header() {
                                     </li>
                                     <li>
                                         <a className='flex items-center gap-3' href="#">
-                                            <span className='w-2 h-px bg-zinc-200'></span>
+                                            <span className='w-2 h-px bg-zinc-200 dark:bg-zinc-800'></span>
                                             دیتاساینس
                                         </a>
                                     </li>
                                     <li>
                                         <a className='flex items-center gap-3' href="#">
-                                            <span className='w-2 h-px bg-zinc-200'></span>
+                                            <span className='w-2 h-px bg-zinc-200 dark:bg-zinc-800'></span>
                                             زبانهای برنامه نویسی
                                         </a>
                                     </li>
                                     <li>
                                         <a className='flex items-center gap-3' href="#">
-                                            <span className='w-2 h-px bg-zinc-200'></span>
+                                            <span className='w-2 h-px bg-zinc-200 dark:bg-zinc-800'></span>
                                             ....
                                         </a>
                                     </li>

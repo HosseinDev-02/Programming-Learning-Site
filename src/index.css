@@ -39,6 +39,9 @@
     .mobile__menu--open {
         right: 0 !important;
     }
+    .mobile-categories--open {
+        @apply text-title dark:text-white
+    }
     .mobile-categories--open > ul {
         display: inline-block !important;
     }
@@ -46,7 +49,7 @@
         transform: rotate(180deg);
     }
     .mobile-categories__submenu--open {
-        color: #09090b;
+        @apply text-title dark:text-white
     }
     .mobile-categories__submenu--open > ul {
         display: inline-block !important;
