@@ -7,6 +7,7 @@ module.exports = {
             colors: {
                 'primary': '#1d4ed8',
                 'success': '#22c55e',
+                'success-dark': '#166534',
                 'title': '#09090b',
                 'caption': '#4b5563',
                 'mirage': '#17171c'
@@ -21,10 +22,8 @@ module.exports = {
             fontFamily: {
                 'YekanBakh-Regular': 'YekanBakh Regular',
                 'YekanBakh-Bold': 'YekanBakh Bold',
-                'YekanBakh-Medium': 'YekanBakh Medium',
-                'YekanBakh-ExtraBold': 'YekanBakh ExtraBold',
-                'YekanBakh-Light': 'YekanBakh Light',
-                'YekanBakh-Thin': 'YekanBakh Thin'
+                'YekanBakh-SemiBold': 'YekanBakh SemiBold',
+                'YekanBakh-Black': 'YekanBakh Black',
             }
         },
         screens: {

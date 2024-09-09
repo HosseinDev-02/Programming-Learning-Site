@@ -96,12 +96,12 @@ function Header() {
                                         </svg>
                                     </span>
                                 <input placeholder='دنبال چی میگردی ؟'
-                                       className='w-full h-full bg-transparent outline-none text-title placeholder:text-caption'
+                                       className='w-full h-full bg-transparent outline-none text-title placeholder:text-caption text-sm'
                                        type="text"/>
                             </form>
                             {/*  mobile change them wrapper  */}
                             <div className='flex items-center justify-between border-y border-y-zinc-200 dark:border-y-zinc-800 py-4'>
-                                    <span className='text-title font-semibold dark:text-white'>
+                                    <span className='text-title font-YekanBakh-Bold text-sm dark:text-white'>
                                         تم تاریک
                                     </span>
                                 <div className=''>
@@ -124,7 +124,7 @@ function Header() {
                                                 <use href='#bars-2'></use>
                                             </svg>
                                         </span>
-                                        <span className='text-sm font-semibold'>دسته بندی آموزش ها</span>
+                                        <span className='text-xs font-YekanBakh-SemiBold'>دسته بندی آموزش ها</span>
                                     </div>
                                     <span>
                                         <svg className='w-5 h-5'>
@@ -132,7 +132,7 @@ function Header() {
                                         </svg>
                                     </span>
                                 </div>
-                                <ul className='child:py-2 hidden relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 text-sm text-zinc-400'>
+                                <ul className='child:py-2 hidden relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 child:text-xs text-zinc-400'>
                                     <li>
                                         <a onClick={categoriesSubmenuHandler} className='flex items-center gap-1'
                                            href="#">
@@ -141,7 +141,7 @@ function Header() {
                                             </svg>
                                             برنامه نویسی وب
                                         </a>
-                                        <ul className='child:py-2 relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 text-sm text-zinc-400 hidden'>
+                                        <ul className='child:py-2 relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 text-xs text-zinc-400 hidden'>
                                             <li>
                                                 <a className='flex items-center gap-2' href="#">
                                                     <span className='w-2 h-px bg-zinc-200 dark:bg-zinc-800'></span>
@@ -189,7 +189,7 @@ function Header() {
                                 </ul>
                             </div>
                             {/*  mobile menu links  */}
-                            <a className='flex items-center gap-2 text-sm font-semibold' href="#">
+                            <a className='flex items-center gap-2 text-xs font-YekanBakh-SemiBold' href="#">
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#question-circle'></use>
@@ -197,7 +197,7 @@ function Header() {
                                 </span>
                                 پرسش و پاسخ
                             </a>
-                            <a className='flex items-center gap-2 text-sm font-semibold' href="#">
+                            <a className='flex items-center gap-2 text-xs font-YekanBakh-SemiBold' href="#">
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#document-text'></use>
@@ -212,10 +212,10 @@ function Header() {
                         {/* header logo */}
                         <Logo></Logo>
                         {/* header menu */}
-                        <ul className='hidden lg:flex items-center gap-5 font-semibold text-sm child-hover:text-title dark:child-hover:text-white child:transition-colors'>
+                        <ul className='hidden lg:flex items-center gap-5 font-YekanBakh-SemiBold text-sm child-hover:text-title dark:child-hover:text-white child:transition-colors'>
                             <li className='group/categories'>
                                 <a className='flex items-center gap-1' href="#">
-                                    <span className='tracking-wide'>دسته بندی آمـــوزشها</span>
+                                    <span className=''>دسته بندی آمـــوزشها</span>
                                     <svg className='w-5 h-5 group-hover/categories:rotate-180 transition-all'>
                                         <use href='#chevron-down'></use>
                                     </svg>
@@ -231,8 +231,8 @@ function Header() {
                                             </svg>
                                         </a>
                                         {/* header categories submenu */}
-                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-base text-caption'>
-                                            <li className='absolute top-2 font-bold pointer-events-none'>
+                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-caption text-sm'>
+                                            <li className='absolute top-2 font-YekanBakh-Bold pointer-events-none'>
                                                 محبوب ترین موضوعات
                                             </li>
                                             <li className='w-1/2'>
@@ -305,8 +305,8 @@ function Header() {
                                                 <use href='#chevron-left'></use>
                                             </svg>
                                         </a>
-                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-base text-caption dark:bg-black'>
-                                            <li className='absolute top-2 font-bold pointer-events-none'>
+                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-sm text-caption dark:bg-black'>
+                                            <li className='absolute top-2 font-YekanBakh-SemiBold pointer-events-none'>
                                                 محبوب ترین موضوعات
                                             </li>
                                             <li className='w-1/2'>
@@ -379,8 +379,8 @@ function Header() {
                                                 <use href='#chevron-left'></use>
                                             </svg>
                                         </a>
-                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-base text-caption dark:bg-black'>
-                                            <li className='absolute top-2 font-bold pointer-events-none'>
+                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-sm text-caption dark:bg-black'>
+                                            <li className='absolute top-2 font-YekanBakh-SemiBold pointer-events-none'>
                                                 محبوب ترین موضوعات
                                             </li>
                                             <li className='w-1/2'>
@@ -453,8 +453,8 @@ function Header() {
                                                 <use href='#chevron-left'></use>
                                             </svg>
                                         </a>
-                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-base text-caption dark:bg-black'>
-                                            <li className='absolute top-2 font-bold pointer-events-none'>
+                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-sm text-caption dark:bg-black'>
+                                            <li className='absolute top-2 font-YekanBakh-SemiBold pointer-events-none'>
                                                 محبوب ترین موضوعات
                                             </li>
                                             <li className='w-1/2'>
@@ -527,8 +527,8 @@ function Header() {
                                                 <use href='#chevron-left'></use>
                                             </svg>
                                         </a>
-                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-base text-caption dark:bg-black'>
-                                            <li className='absolute top-2 font-bold pointer-events-none'>
+                                        <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-sm text-caption dark:bg-black'>
+                                            <li className='absolute top-2 font-YekanBakh-SemiBold pointer-events-none'>
                                                 محبوب ترین موضوعات
                                             </li>
                                             <li className='w-1/2'>
@@ -597,19 +597,19 @@ function Header() {
                             </li>
                             <li>
                                 <a href="#">
-                                    <span className='tracking-widest'>مقالات آموزشی</span>
+                                    <span>مقالات آموزشی</span>
                                 </a>
                             </li>
                             <li className='group/links'>
                                 <a className='flex items-center gap-1' href="#">
-                                    <span className='tracking-widest'>لینکهای مفید</span>
+                                    <span>لینکهای مفید</span>
                                     <svg className='w-5 h-5 group-hover/links:rotate-180 transition-all'>
                                         <use href='#chevron-down'></use>
                                     </svg>
                                 </a>
                                 {/* Header links menu */}
                                 <div
-                                    className='rounded-xl border border-zinc-200 dark:border-zinc-800 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black text-title dark:text-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-semibold text-sm z-20'>
+                                    className='rounded-xl border border-zinc-200 dark:border-zinc-800 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black text-title dark:text-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-YekanBakh-SemiBold text-sm z-20'>
                                     <a className='hover:text-primary' href="#">مشاهده پروفایل</a>
                                     <a className='hover:text-primary' href="#">مالی</a>
                                     <a className='hover:text-primary' href="#">دوره ها</a>
@@ -627,7 +627,7 @@ function Header() {
                             <div className="container">
                                 <div className='flex items-center justify-between gap-5'>
                                     <form className='block w-full h-10' action="#">
-                                        <input className='placeholder:text-caption w-full h-full outline-none text-title text-lg tracking-wide' placeholder='نام دوره،مقاله و یا دسته بندی را وارد نمایید..' type="text"/>
+                                        <input className='placeholder:text-caption w-full h-full outline-none text-title' placeholder='نام دوره،مقاله و یا دسته بندی را وارد نمایید..' type="text"/>
                                     </form>
                                     <span onClick={searchBoxModalHandler} id='search-modal-close-btn' className='flex items-center justify-center w-9 h-9 rounded-full bg-zinc-100 dark:bg-mirage dark:text-white hover:text-red-500 transition-colors cursor-pointer'>
                                         <svg className='w-6 h-6'>
@@ -645,15 +645,15 @@ function Header() {
                         <div className='flex items-center gap-3 group/profile cursor-pointer'>
                             <HeaderBtn icon='#user'></HeaderBtn>
                             <span className='hidden xs:flex flex-col gap-1 items-start text-xs pointer-events-none'>
-                                <span className='text-title dark:text-white font-semibold tracking-wide'>جلال بهرامی راد</span>
-                                <span className='font-semibold tracking-wide'>خوش آمـــدید</span>
+                                <span className='text-title dark:text-white font-YekanBakh-SemiBold'>جلال بهرامی راد</span>
+                                <span className='font-YekanBakh-SemiBold'>خوش آمـــدید</span>
                             </span>
                             <svg className='w-5 h-5 hidden xs:block group-hover/profile:rotate-180 transition-all'>
                                 <use href='#chevron-down'></use>
                             </svg>
                             {/* header user profile menu */}
                             <div id='user-profile'
-                                className='rounded-xl group-hover/profile:visible group-hover/profile:opacity-100 border border-zinc-200 dark:border-zinc-800 absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black invisible opacity-0 transition-all delay-75 child:transition-colors font-semibold text-sm text-title dark:text-white'>
+                                className='rounded-xl group-hover/profile:visible group-hover/profile:opacity-100 border border-zinc-200 dark:border-zinc-800 absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black invisible opacity-0 transition-all delay-75 child:transition-colors font-YekanBakh-SemiBold text-sm text-title dark:text-white'>
                                 <a className='hover:text-primary' href="#">مشاهده پروفایل</a>
                                 <a className='hover:text-primary' href="#">مالی</a>
                                 <a className='hover:text-primary' href="#">دوره ها</a>

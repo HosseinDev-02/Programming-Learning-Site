@@ -7,10 +7,10 @@ export default function SectionTitle() {
                 </svg>
             </span>
             <div>
-                <h2 className='font-YekanBakh-ExtraBold text-lg sm:text-2xl text-primary'>
+                <h2 className='font-YekanBakh-Black text-lg sm:text-2xl text-primary'>
                     آخرین دوره های
                 </h2>
-                <span className='text-title dark:text-white text-sm sm:text-base inline-block mt-2 font-semibold tracking-wider'>
+                <span className='text-title dark:text-white text-sm sm:text-base inline-block mt-2 font-YekanBakh-SemiBold'>
                     منتشر شده
                 </span>
             </div>

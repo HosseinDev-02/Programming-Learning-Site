@@ -16,7 +16,7 @@ export default function Services() {
                 <div className='bg-zinc-100 dark:bg-mirage rounded-2xl flex items-center flex-col'>
                     <div
                         className='inline-flex items-center justify-center rounded-2xl border border-zinc-200 dark:border-zinc-800 h-12 px-8 bg-white dark:bg-black font-semibold -translate-y-1/2'>
-                        <h3 className='text-title dark:text-white text-lg font-YekanBakh-ExtraBold'>
+                        <h3 className='text-title dark:text-white text-lg font-YekanBakh-Black'>
                             چرا آکــــادمــــــی نابغه؟
                         </h3>
                     </div>
