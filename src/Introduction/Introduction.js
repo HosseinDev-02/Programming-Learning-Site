@@ -1,7 +1,7 @@
 
 export default function Introduction () {
     return (
-        <section className='py-5'>
+        <section>
             <div className='container'>
                 <div className='bg-gradient-to-l from-zinc-100 dark:from-mirage to-white dark:to-black rounded-2xl flex flex-col-reverse xl:flex-row items-center justify-center py-16 gap-10'>
                     {/*  introduction right side  */}

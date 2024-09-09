@@ -1,0 +1,14 @@
+export default function SectionLinkBtn() {
+    return (
+        <a className='flex items-center justify-center gap-1 text-title font-semibold text-sm bg-zinc-100 rounded-full w-11 sm:w-auto sm:px-4 h-11 hover:text-primary transition-colors' href="#">
+            <span className='hidden sm:inline-block'>
+                مشاهده همه
+            </span>
+            <span>
+                <svg className='w-5 h-5'>
+                    <use href="#arrow-up-left"></use>
+                </svg>
+            </span>
+        </a>
+    )
+}

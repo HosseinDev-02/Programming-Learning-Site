@@ -221,7 +221,7 @@ function Header() {
                                     </svg>
                                 </a>
                                 {/* header categories menu */}
-                                <ul className='invisible opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 w-56 flex flex-col gap-1 child:leading-5 delay-75 transition-all shadow-black/5 text-title dark:text-white'>
+                                <ul className='invisible opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 w-56 flex flex-col gap-1 child:leading-5 delay-75 transition-all shadow-black/5 text-title dark:text-white z-20'>
                                     <li className='group/subcategories'>
                                         <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
                                            href="#">
@@ -609,7 +609,7 @@ function Header() {
                                 </a>
                                 {/* Header links menu */}
                                 <div
-                                    className='rounded-xl border border-zinc-200 dark:border-zinc-800 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black text-title dark:text-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-semibold text-sm'>
+                                    className='rounded-xl border border-zinc-200 dark:border-zinc-800 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black text-title dark:text-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-semibold text-sm z-20'>
                                     <a className='hover:text-primary' href="#">مشاهده پروفایل</a>
                                     <a className='hover:text-primary' href="#">مالی</a>
                                     <a className='hover:text-primary' href="#">دوره ها</a>
