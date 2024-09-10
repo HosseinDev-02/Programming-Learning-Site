@@ -1,4 +1,4 @@
-import Symbol from "../Symbol";
+import Symbol from "../Symbol/Symbol";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 function App() {
