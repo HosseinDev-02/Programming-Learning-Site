@@ -6,7 +6,7 @@ export default function SectionTitle(props) {
                     <use href='#education'></use>
                 </svg>
             </span>
-            <div className='max-w-80'>
+            <div className='lg:max-w-80'>
                 <h2 className='font-YekanBakh-Black text-lg sm:text-2xl text-primary'>
                     {props.title}
                 </h2>
