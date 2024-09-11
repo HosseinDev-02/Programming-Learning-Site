@@ -2,6 +2,7 @@ import Introduction from "../Introduction/Introduction";
 import Services from "../Services/Services";
 import LatestCourses from "../Latest-Courses/LatestCourses";
 import Comments from "../Comments/Comments";
+import Articles from "../Articles/Articles";
 
 export default function Main () {
     return (
@@ -10,6 +11,7 @@ export default function Main () {
             <Services></Services>
             <LatestCourses></LatestCourses>
             <Comments></Comments>
+            <Articles></Articles>
         </main>
     )
 }

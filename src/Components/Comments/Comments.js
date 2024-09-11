@@ -2,11 +2,11 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 export default function Comments () {
     return (
-        <section>
+        <section className='py-10'>
             <div className="container">
                 <div className='lg:grid lg:grid-cols-12 items-center space-y-5 lg:space-y-0 lg:gap-10'>
                     <div className='lg:col-span-4'>
-                        <SectionTitle title='در مورد نابغه چه میشنویم؟' text='این‌ها، بخش خیلی کوچکی از نظراتی هستند که افراد مختلف در مورد نابغه دارند.'></SectionTitle>
+                        <SectionTitle color='#6b7280' title='در مورد نابغه چه میشنویم؟' text='این‌ها، بخش خیلی کوچکی از نظراتی هستند که افراد مختلف در مورد نابغه دارند.'></SectionTitle>
                     </div>
                     <div className='lg:col-span-8 max-w-xl mx-auto relative'>
                         <div className='inline-flex flex-col items-center gap-8 border border-zinc-200 dark:border-zinc-800 z-20 rounded-2xl p-8 relative bg-white dark:bg-black shadow-xl shadow-black/5'>
