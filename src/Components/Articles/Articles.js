@@ -173,7 +173,7 @@ export default function Articles (){
                                 <div className='relative'>
                                     <a href="#">
                                         <img className='w-full h-full object-cover rounded-xl'
-                                             src="images/courses/04.jpg"
+                                             src="images/Courses/04.jpg"
                                              alt=""/>
                                     </a>
                                     <button type='button'

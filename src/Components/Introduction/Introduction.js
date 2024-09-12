@@ -39,7 +39,7 @@ export default function Introduction () {
                         </a>
                     </div>
                     <div className='max-w-72'>
-                        <img className='w-full h-full object-cover' src="./images/Introduction/header-man.png" alt=""/>
+                        <img className='w-full h-full object-cover' src="./images/Introduction/main.png" alt=""/>
                     </div>
                 </div>
             </div>
