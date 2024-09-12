@@ -7,19 +7,19 @@ import SocialMedia from "./SocialMedia";
 
 export default function Footer() {
     return (
-        <footer className='py-5'>
+        <footer className='pt-20'>
             <div className="container">
                 <div>
                 {/*  footer top link  */}
                     <div className='flex items-center gap-3'>
-                        <div className='h-px w-full border-t border-dashed border-zinc-200'></div>
+                        <div className='h-px w-full border-t border-dashed border-zinc-200 dark:border-zinc-800'></div>
                         <SectionLinkBtn text='رفتن به بالا' icon='#chevron-up'></SectionLinkBtn>
                     </div>
                 {/*  footer content  */}
                     <div>
                     {/*  footer content top  */}
-                        <div className='flex items-center gap-10 py-10'>
-                            <div className='w-5/12'>
+                        <div className='flex items-center justify-between lg:justify-start gap-10 py-10 flex-wrap'>
+                            <div className='lg:w-5/12'>
                                 <Logo></Logo>
                             </div>
                             <div className='flex items-center gap-10'>
@@ -48,9 +48,9 @@ export default function Footer() {
                             </div>
                         </div>
                     {/*  footer content body  */}
-                        <div className='flex items-start gap-10'>
+                        <div className='flex items-start flex-wrap lg:flex-nowrap gap-10'>
                             {/*  footer content body right side  */}
-                            <div className='bg-zinc-100 dark:bg-mirage rounded-3xl p-8 space-y-8 w-5/12 shrink-0'>
+                            <div className='bg-zinc-100 dark:bg-mirage rounded-3xl p-4 md:p-8 space-y-5 lg:w-5/12 w-full shrink-0'>
                                 <FooterTitle title='دربــــاره'></FooterTitle>
                                 <p className='font-YekanBakh-SemiBold text-sm dark:text-zinc-500'>
                                     نابغه یکی از پرتلاش‌ترین و بروزترین وبسایت های آموزشی در سطح ایران
@@ -60,8 +60,8 @@ export default function Footer() {
                                 </p>
                             </div>
                             {/*  footer content body main side  */}
-                            <div className='w-7/12 grid grid-cols-5'>
-                                <div className='space-y-5 shrink-0 col-span-2'>
+                            <div className='lg:w-7/12 w-full flex flex-wrap gap-10 justify-between lg:grid lg:grid-cols-5'>
+                                <div className='space-y-5 shrink-0 lg:col-span-2'>
                                     <FooterTitle title='لینک های مفید'></FooterTitle>
                                     <ul className='flex flex-col gap-1'>
                                         <li>
@@ -79,7 +79,7 @@ export default function Footer() {
                                     </ul>
                                 </div>
                                 {/*  footer content body left side  */}
-                                <div className='col-span-3 space-y-5'>
+                                <div className='lg:col-span-3 space-y-5'>
                                     <FooterTitle title='خبرنامه'></FooterTitle>
                                     <p className='text-sm dark:text-zinc-500'>
                                         برای اطلاع از جدیدترین اخبار و جشنوراه‌های تخفیفی نابغه ایمیل خود را وارد کنید.
@@ -107,6 +107,13 @@ export default function Footer() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    {/*  footer content bottom  */}
+                        <div className='flex items-center gap-3 py-5'>
+                            <p className='text-xs shrink-0'>
+                                © کليه حقوق محفوظ است
+                            </p>
+                            <div className='h-px w-full border-t border-dashed border-zinc-200 dark:border-zinc-800'></div>
                         </div>
                     </div>
                 </div>
