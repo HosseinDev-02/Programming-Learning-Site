@@ -15,8 +15,10 @@ export default function Footer() {
                 {/*  footer content  */}
                     <div>
                     {/*  footer content top  */}
-                        <div className='flex items-center gap-10'>
-                            <Logo></Logo>
+                        <div className='flex items-center gap-10 py-10'>
+                            <div className='w-5/12'>
+                                <Logo></Logo>
+                            </div>
                             <div className='flex items-center gap-10'>
                                 <div className='flex items-center gap-5'>
                                     <FooterIcon icon='#phone'></FooterIcon>
@@ -43,15 +45,32 @@ export default function Footer() {
                             </div>
                         </div>
                     {/*  footer content body  */}
-                        <div>
-                            <div>
+                        <div className='flex gap-10'>
+                            <div className='bg-zinc-100 rounded-3xl p-8 space-y-8 w-5/12'>
                                 <FooterTitle title='دربــــاره'></FooterTitle>
-                                <p>
+                                <p className='font-YekanBakh-SemiBold text-sm'>
                                     نابغه یکی از پرتلاش‌ترین و بروزترین وبسایت های آموزشی در سطح ایران
                                     است که همیشه تلاش کرده تا بتواند جدیدترین و بروزترین مقالات و
                                     دوره‌های آموزشی را در اختیار علاقه‌مندان ایرانی قرار دهد. تبدیل کردن
                                     برنامه نویسان ایرانی به بهترین برنامه نویسان جهان هدف ماست.
                                 </p>
+                            </div>
+                            <div className='space-y-5'>
+                                <FooterTitle title='لینک های مفید'></FooterTitle>
+                                <ul className='flex flex-col gap-1 child-hover:text-primary child:transition-colors font-YekanBakh-SemiBold text-sm'>
+                                    <li>
+                                        <a href="#">قوانین و مقررات</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">مدرسان</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">درباره نابغه</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">ارتباط با ما</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
