@@ -10,7 +10,7 @@ export default function SectionTitle(props) {
                 <h2 className='font-YekanBakh-Black text-lg sm:text-2xl text-primary'>
                     {props.title}
                 </h2>
-                <span style={{color: props.color}} className='text-title dark:text-white text-sm sm:text-base inline-block mt-2 font-YekanBakh-SemiBold'>
+                <span style={{color: props.color}} className='text-title text-sm sm:text-base inline-block mt-2 font-YekanBakh-SemiBold'>
                     {props.text}
                 </span>
             </div>

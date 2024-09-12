@@ -12,20 +12,20 @@ export default function Course(props) {
                                         <use href='#grid-boxes'></use>
                                     </svg>
                                 </span>
-                    <span className='font-semibold text-sm tracking-wider'>
+                    <span className='font-YekanBakh-SemiBold text-sm tracking-wider'>
                                     برنامه نویسی
                                 </span>
                 </a>
             </div>
             <div
-                className='bg-gradient-to-b from-white dark:from-black to-zinc-100 dark:to-mirage mx-5 p-5 rounded-3xl'>
+                className='bg-gradient-to-b from-background to-secondary mx-5 p-5 rounded-3xl'>
                 <div className='flex items-center gap-2'>
                     <span className='block bg-success w-1 h-1 rounded-full'></span>
-                    <span className='text-xs font-black text-success'>
+                    <span className='text-xs font-YekanBakh-Black text-success'>
                           تکمیل شده
                     </span>
                 </div>
-                <h6 className='mt-2 text-title dark:text-white text-sm font-YekanBakh-Bold'>
+                <h6 className='mt-2 text-title text-sm font-YekanBakh-Bold'>
                     <a className='hover:text-primary transition-colors' href="#">
                         {props.title}
                     </a>
@@ -33,7 +33,7 @@ export default function Course(props) {
             </div>
             <div className='p-5'>
                 <div className='flex items-center gap-5'>
-                    <div className='flex items-center gap-1 dark:text-zinc-500'>
+                    <div className='flex items-center gap-1'>
                                     <span>
                                         <svg className='w-5 h-5'>
                                             <use href='#pepers'></use>
@@ -43,7 +43,7 @@ export default function Course(props) {
                                         {props.sections}  فصل
                                     </span>
                     </div>
-                    <div className='flex items-center gap-1 dark:text-zinc-500'>
+                    <div className='flex items-center gap-1'>
                                     <span>
                                         <svg className='w-5 h-5'>
                                             <use href='#clock'></use>
@@ -63,7 +63,7 @@ export default function Course(props) {
                                         <span className='dark:text-zinc-500'>
                                             مدرس دوره :
                                         </span>
-                            <span className='text-title dark:text-white font-YekanBakh-Bold'>
+                            <span className='text-title font-YekanBakh-Bold'>
                                             {props.teacher}
                                         </span>
                         </div>
@@ -85,10 +85,10 @@ export default function Course(props) {
                                 {
                                     props.costPrice !== 0 &&
                                     <div className='flex items-center gap-1'>
-                                        <span className='text-title dark:text-white font-YekanBakh-Black text-xl'>
+                                        <span className='text-title font-YekanBakh-Black text-xl'>
                                             {props.costPrice}
                                         </span>
-                                        <span className='text-xs dark:text-zinc-500'>
+                                        <span className='text-xs'>
                                             تومان
                                         </span>
                                     </div>
@@ -96,12 +96,12 @@ export default function Course(props) {
                             </div>
                                 :
                                 <div className='flex items-center gap-1 h-14'>
-                                    <span className='text-title dark:text-white font-YekanBakh-Black text-xl'>
+                                    <span className='text-title font-YekanBakh-Black text-xl'>
                                         {
                                             props.price
                                         }
                                     </span>
-                                    <span className='text-xs dark:text-zinc-500'>
+                                    <span className='text-xs'>
                                         تومان
                                     </span>
                                 </div>
@@ -110,7 +110,7 @@ export default function Course(props) {
                 <div className='flex items-center gap-3 mt-3'>
                     <a className='flex items-center justify-center gap-2 bg-primary rounded-full text-white w-full h-11 transition-opacity hover:opacity-80'
                        href="#">
-                                    <span className='font-semibold text-sm'>
+                                    <span className='font-YekanBakh-SemiBold text-sm'>
                                         مشاهده دوره
                                     </span>
                         <span>
@@ -120,7 +120,7 @@ export default function Course(props) {
                                     </span>
                     </a>
                     <button
-                        className='flex items-center justify-center w-11 h-11 rounded-full bg-zinc-100 dark:bg-mirage dark:text-zinc-500 shrink-0 hover:text-red-500 dark:hover:text-red-500 transition-colors'
+                        className='flex items-center justify-center w-11 h-11 rounded-full bg-secondary shrink-0 hover:text-red-500 transition-colors'
                         type='button'>
                         <svg className='w-5 h-5'>
                             <use href='#heart'></use>

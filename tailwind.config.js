@@ -8,12 +8,13 @@ module.exports = {
               'xxs': '0.65rem'
             },
             colors: {
-                'primary': '#1d4ed8',
-                'success': '#22c55e',
-                'success-dark': '#166534',
-                'title': '#09090b',
-                'caption': '#4b5563',
-                'mirage': '#17171c'
+                primary: 'rgb(var(--color-primary))',
+                success: 'rgb(var(--color-success))',
+                caption: 'rgb(var(--color-caption))',
+                title: 'rgb(var(--color-title))',
+                secondary: 'rgb(var(--color-secondary))',
+                background: 'rgb(var(--color-background))',
+                border: 'rgb(var(--color-border))',
             },
             container: {
                 center: true,

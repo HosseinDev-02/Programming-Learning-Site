@@ -12,7 +12,7 @@ export default function Footer() {
                 <div>
                 {/*  footer top link  */}
                     <div className='flex items-center gap-3'>
-                        <div className='h-px w-full border-t border-dashed border-zinc-200 dark:border-zinc-800'></div>
+                        <div className='h-px w-full border-t border-dashed border-border'></div>
                         <SectionLinkBtn text='رفتن به بالا' icon='#chevron-up'></SectionLinkBtn>
                     </div>
                 {/*  footer content  */}
@@ -50,9 +50,9 @@ export default function Footer() {
                     {/*  footer content body  */}
                         <div className='flex items-start flex-wrap lg:flex-nowrap gap-10'>
                             {/*  footer content body right side  */}
-                            <div className='bg-zinc-100 dark:bg-mirage rounded-3xl p-4 md:p-8 space-y-5 lg:w-5/12 w-full shrink-0'>
+                            <div className='bg-secondary rounded-3xl p-4 md:p-8 space-y-5 lg:w-5/12 w-full shrink-0'>
                                 <FooterTitle title='دربــــاره'></FooterTitle>
-                                <p className='font-YekanBakh-SemiBold text-sm dark:text-zinc-500'>
+                                <p className='font-YekanBakh-SemiBold text-sm'>
                                     نابغه یکی از پرتلاش‌ترین و بروزترین وبسایت های آموزشی در سطح ایران
                                     است که همیشه تلاش کرده تا بتواند جدیدترین و بروزترین مقالات و
                                     دوره‌های آموزشی را در اختیار علاقه‌مندان ایرانی قرار دهد. تبدیل کردن
@@ -65,33 +65,33 @@ export default function Footer() {
                                     <FooterTitle title='لینک های مفید'></FooterTitle>
                                     <ul className='flex flex-col gap-1'>
                                         <li>
-                                            <a className='font-YekanBakh-SemiBold text-sm dark:text-zinc-500 transition-colors hover:text-primary' href="#">قوانین و مقررات</a>
+                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary' href="#">قوانین و مقررات</a>
                                         </li>
                                         <li>
-                                            <a className='font-YekanBakh-SemiBold text-sm dark:text-zinc-500 transition-colors hover:text-primary' href="#">مدرسان</a>
+                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary' href="#">مدرسان</a>
                                         </li>
                                         <li>
-                                            <a className='font-YekanBakh-SemiBold text-sm dark:text-zinc-500 transition-colors hover:text-primary' href="#">درباره نابغه</a>
+                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary' href="#">درباره نابغه</a>
                                         </li>
                                         <li>
-                                            <a className='font-YekanBakh-SemiBold text-sm dark:text-zinc-500 transition-colors hover:text-primary' href="#">ارتباط با ما</a>
+                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary' href="#">ارتباط با ما</a>
                                         </li>
                                     </ul>
                                 </div>
                                 {/*  footer content body left side  */}
                                 <div className='lg:col-span-3 space-y-5'>
                                     <FooterTitle title='خبرنامه'></FooterTitle>
-                                    <p className='text-sm dark:text-zinc-500'>
+                                    <p className='text-sm'>
                                         برای اطلاع از جدیدترین اخبار و جشنوراه‌های تخفیفی نابغه ایمیل خود را وارد کنید.
                                     </p>
                                     <form className='flex items-center gap-3' action="#">
-                                        <div className='bg-zinc-100 dark:bg-mirage rounded-xl h-11 flex items-center px-4 w-full'>
-                                        <span className='dark:text-zinc-500'>
+                                        <div className='bg-secondary rounded-xl h-11 flex items-center px-4 w-full'>
+                                        <span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#envelope'></use>
                                             </svg>
                                         </span>
-                                            <input className='text-sm text-title dark:text-white placeholder:dark:text-gray-500 pr-2 w-full h-full bg-transparent outline-none' type="text"
+                                            <input className='text-sm text-title placeholder:text-caption pr-2 w-full h-full bg-transparent outline-none' type="text"
                                                    placeholder='آدرس ایمیل'/>
                                         </div>
                                         <button className='bg-primary text-white rounded-xl px-4 h-11 text-xs shrink-0 hover:opacity-80 transition-opacity'

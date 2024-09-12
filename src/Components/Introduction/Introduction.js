@@ -3,7 +3,7 @@ export default function Introduction () {
     return (
         <section>
             <div className='container'>
-                <div className='bg-gradient-to-l from-zinc-100 dark:from-mirage to-white dark:to-black rounded-2xl flex flex-col-reverse xl:flex-row items-center justify-center py-16 gap-10'>
+                <div className='bg-gradient-to-l from-secondary to-background rounded-2xl flex flex-col-reverse xl:flex-row items-center justify-center py-16 gap-10'>
                     {/*  introduction right side  */}
                     <div className='max-w-[645px] space-y-5'>
                         {/*  Introduction right side offer  */}
@@ -14,13 +14,13 @@ export default function Introduction () {
                                         <use href='#receipt-percent'></use>
                                     </svg>
                                 </span>
-                                <span className='text-xs font-semibold'>جشنــــواره تخفیف !</span>
+                                <span className='text-xs font-YekanBakh-SemiBold'>جشنــــواره تخفیف !</span>
                             </div>
-                            <span className='text-xs text-primary font-semibold'>
+                            <span className='text-xs text-primary font-YekanBakh-SemiBold'>
                                 به زودی :)
                             </span>
                         </div>
-                        <h1 className='text-4xl md:text-5xl text-title dark:text-white font-YekanBakh-Black'>
+                        <h1 className='text-4xl md:text-5xl text-title font-YekanBakh-Black'>
                             داستان برنامه نویس شدنت
                             <br/>
                              از اینجا شروع میشه !
