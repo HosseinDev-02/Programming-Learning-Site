@@ -18,7 +18,7 @@ export default function Articles (){
                                 <div className='relative'>
                                     <a href="#">
                                         <img className='w-full h-full object-cover rounded-xl'
-                                             src="images/courses/02.jpg"
+                                             src="images/Courses/02.jpg"
                                              alt=""/>
                                     </a>
                                     <button type='button'
@@ -69,7 +69,7 @@ export default function Articles (){
                                 <div className='relative'>
                                     <a href="#">
                                         <img className='w-full h-full object-cover rounded-xl'
-                                             src="images/courses/01.jpg"
+                                             src="images/Courses/01.jpg"
                                              alt=""/>
                                     </a>
                                     <button type='button'
@@ -122,7 +122,7 @@ export default function Articles (){
                                 <div className='relative'>
                                     <a href="#">
                                         <img className='w-full h-full object-cover rounded-xl'
-                                             src="images/courses/03.jpg"
+                                             src="images/Courses/03.jpg"
                                              alt=""/>
                                     </a>
                                     <button type='button'
