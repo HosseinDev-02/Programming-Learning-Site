@@ -1,15 +1,17 @@
 import Service from "./Service";
+import { useState } from "react";
 
-export default function Services() {
+export default function Services () {
 
-    let services = [
+    const [services] = useState([
         {id: 1, title: 'چالش برانگیز', color: '#10b981', icon: '#puzzle'},
         {id: 2, title: 'پروژه محور', color: '#eab308', icon: '#fire'},
         {id: 3, title: 'جامع', color: '#3b82f6', icon: '#book'},
         {id: 4, title: 'به روز', color: '#22c55e', icon: '#speed'},
         {id: 5, title: 'ویدیویی', color: '#f43f5e', icon: '#video'},
         {id: 6, title: 'منتورشیپ', color: '#06b6d4', icon: '#comments'}
-    ]
+    ])
+
 
     return (
         <section>
