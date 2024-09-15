@@ -19,7 +19,7 @@ export default function Comments () {
                             </p>
                             <div className='flex items-center gap-2'>
                                     <span className='block overflow-hidden w-10 h-10 rounded-full'>
-                                        <img className='w-full h-full object-cover' src="Programming-Learning-Site/images/profile.jpeg" alt=""/>
+                                        <img className='w-full h-full object-cover' src="images/profile.jpeg" alt=""/>
                                     </span>
                                 <div className='flex flex-col gap-1 text-xs'>
                                         <span className='text-title font-YekanBakh-Bold'>
@@ -41,7 +41,7 @@ export default function Comments () {
                             </p>
                             <div className='flex items-center gap-2'>
                                     <span className='block overflow-hidden w-10 h-10 rounded-full'>
-                                        <img className='w-full h-full object-cover' src="Programming-Learning-Site/images/profile.jpeg" alt=""/>
+                                        <img className='w-full h-full object-cover' src="images/profile.jpeg" alt=""/>
                                     </span>
                                 <div className='flex flex-col gap-1 text-xs'>
                                         <span className='text-title font-YekanBakh-Bold'>
