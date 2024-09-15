@@ -2,7 +2,8 @@ function HeaderBtn({icon, clickEvent, id, count}) {
     return (
         count
             ?
-            <a className='flex items-center justify-center rounded-full bg-secondary dark:text-white w-10 h-10 relative' href="#">
+            <a className='flex items-center justify-center rounded-full bg-secondary dark:text-white w-10 h-10 relative'
+               href="#">
                 <svg className='w-5 h-5'>
                     <use href={icon}></use>
                 </svg>
@@ -14,7 +15,8 @@ function HeaderBtn({icon, clickEvent, id, count}) {
             icon === '#user'
                 ?
                 <a onClick={clickEvent} id={id}
-                   className='flex items-center justify-center rounded-full bg-secondary dark:text-white w-10 h-10' href='#'>
+                   className='flex items-center justify-center rounded-full bg-secondary dark:text-white w-10 h-10'
+                   href='#'>
                     <svg className='w-5 h-5'>
                         <use href={icon}></use>
                     </svg>
@@ -22,7 +24,8 @@ function HeaderBtn({icon, clickEvent, id, count}) {
                 :
                 icon === '#bars-3'
                     ?
-                    <span onClick={clickEvent} className='flex lg:hidden items-center justify-center rounded-full bg-secondary dark:text-white w-10 h-10'>
+                    <span onClick={clickEvent}
+                          className='flex lg:hidden items-center justify-center rounded-full bg-secondary dark:text-white w-10 h-10'>
                             <svg className='w-6 h-6'>
                                 <use href={icon}></use>
                             </svg>

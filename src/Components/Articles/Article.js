@@ -1,4 +1,4 @@
-export default function Article (props) {
+export default function Article(props) {
     return (
         props.id === 2 ? <div className='bg-background rounded-xl p-4 sm:mt-8'>
             <div className='relative'>

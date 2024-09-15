@@ -10,14 +10,14 @@ export default function Footer() {
         <footer className='pt-20'>
             <div className="container">
                 <div>
-                {/*  footer top link  */}
+                    {/*  footer top link  */}
                     <div className='flex items-center gap-3'>
                         <div className='h-px w-full border-t border-dashed border-border'></div>
                         <SectionLinkBtn text='رفتن به بالا' icon='#chevron-up'></SectionLinkBtn>
                     </div>
-                {/*  footer content  */}
+                    {/*  footer content  */}
                     <div>
-                    {/*  footer content top  */}
+                        {/*  footer content top  */}
                         <div className='flex items-center justify-between lg:justify-start gap-10 py-10 flex-wrap'>
                             <div className='lg:w-5/12'>
                                 <Logo></Logo>
@@ -47,7 +47,7 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
-                    {/*  footer content body  */}
+                        {/*  footer content body  */}
                         <div className='flex items-start flex-wrap lg:flex-nowrap gap-10'>
                             {/*  footer content body right side  */}
                             <div className='bg-secondary rounded-3xl p-4 md:p-8 space-y-5 lg:w-5/12 w-full shrink-0'>
@@ -60,21 +60,26 @@ export default function Footer() {
                                 </p>
                             </div>
                             {/*  footer content body main side  */}
-                            <div className='lg:w-7/12 w-full flex flex-wrap gap-10 justify-between lg:grid lg:grid-cols-5'>
+                            <div
+                                className='lg:w-7/12 w-full flex flex-wrap gap-10 justify-between lg:grid lg:grid-cols-5'>
                                 <div className='space-y-5 shrink-0 lg:col-span-2'>
                                     <FooterTitle title='لینک های مفید'></FooterTitle>
                                     <ul className='flex flex-col gap-1'>
                                         <li>
-                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary' href="#">قوانین و مقررات</a>
+                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary'
+                                               href="#">قوانین و مقررات</a>
                                         </li>
                                         <li>
-                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary' href="#">مدرسان</a>
+                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary'
+                                               href="#">مدرسان</a>
                                         </li>
                                         <li>
-                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary' href="#">درباره نابغه</a>
+                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary'
+                                               href="#">درباره نابغه</a>
                                         </li>
                                         <li>
-                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary' href="#">ارتباط با ما</a>
+                                            <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary'
+                                               href="#">ارتباط با ما</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -91,11 +96,14 @@ export default function Footer() {
                                                 <use href='#envelope'></use>
                                             </svg>
                                         </span>
-                                            <input className='text-sm text-title placeholder:text-caption pr-2 w-full h-full bg-transparent outline-none' type="text"
-                                                   placeholder='آدرس ایمیل'/>
+                                            <input
+                                                className='text-sm text-title placeholder:text-caption pr-2 w-full h-full bg-transparent outline-none'
+                                                type="text"
+                                                placeholder='آدرس ایمیل'/>
                                         </div>
-                                        <button className='bg-primary text-white rounded-xl px-4 h-11 text-xs shrink-0 hover:opacity-80 transition-opacity'
-                                                type='submit'>
+                                        <button
+                                            className='bg-primary text-white rounded-xl px-4 h-11 text-xs shrink-0 hover:opacity-80 transition-opacity'
+                                            type='submit'>
                                             ثبت ایمیل
                                         </button>
                                     </form>
@@ -108,12 +116,13 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
-                    {/*  footer content bottom  */}
+                        {/*  footer content bottom  */}
                         <div className='flex items-center gap-3 py-5'>
                             <p className='text-xs shrink-0'>
                                 © کليه حقوق محفوظ است
                             </p>
-                            <div className='h-px w-full border-t border-dashed border-zinc-200 dark:border-zinc-800'></div>
+                            <div
+                                className='h-px w-full border-t border-dashed border-zinc-200 dark:border-zinc-800'></div>
                         </div>
                     </div>
                 </div>

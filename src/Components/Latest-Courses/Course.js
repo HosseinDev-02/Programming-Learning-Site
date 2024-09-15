@@ -40,7 +40,7 @@ export default function Course(props) {
                                         </svg>
                                     </span>
                         <span className='text-xs font-YekanBakh-SemiBold'>
-                                        {props.sections}  فصل
+                                        {props.sections} فصل
                                     </span>
                     </div>
                     <div className='flex items-center gap-1'>
@@ -50,7 +50,7 @@ export default function Course(props) {
                                         </svg>
                                     </span>
                         <span className='text-xs font-YekanBakh-SemiBold'>
-                                        {props.time}  ساعت
+                                        {props.time} ساعت
                                     </span>
                     </div>
                 </div>
@@ -77,23 +77,23 @@ export default function Course(props) {
                             </div>
                             :
                             props.costPrice !== 0 ?
-                            <div className='flex items-end h-14 flex-col justify-center'>
+                                <div className='flex items-end h-14 flex-col justify-center'>
                                 <span
                                     className='relative block before:bg-caption before:absolute before:-top-1 before:bottom-0 before:w-full before:my-auto before:h-px before:content[" "] font-YekanBakh-SemiBold'>
                                             {props.price}
                                     </span>
-                                {
-                                    props.costPrice !== 0 &&
-                                    <div className='flex items-center gap-1'>
+                                    {
+                                        props.costPrice !== 0 &&
+                                        <div className='flex items-center gap-1'>
                                         <span className='text-title font-YekanBakh-Black text-xl'>
                                             {props.costPrice}
                                         </span>
-                                        <span className='text-xs'>
+                                            <span className='text-xs'>
                                             تومان
                                         </span>
-                                    </div>
-                                }
-                            </div>
+                                        </div>
+                                    }
+                                </div>
                                 :
                                 <div className='flex items-center gap-1 h-14'>
                                     <span className='text-title font-YekanBakh-Black text-xl'>

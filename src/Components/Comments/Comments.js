@@ -57,6 +57,5 @@ export default function Comments () {
                 </div>
             </div>
         </section>
-    // {{transform: 'translate3d(625px, 2px, 0) rotateZ(2deg) scale(0.9)'}}
     )
 }

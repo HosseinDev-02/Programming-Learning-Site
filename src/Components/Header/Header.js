@@ -6,11 +6,11 @@ function Header() {
     const changeThemeHandler = (e) => {
         e.preventDefault()
         const themeIcon = document.querySelector('#theme-btn > svg > use')
-        if(document.documentElement.className.includes('dark')){
+        if (document.documentElement.className.includes('dark')) {
             document.documentElement.classList.remove('dark')
             themeIcon.setAttribute('href', '#moon')
             localStorage.setItem('theme', 'light')
-        }else {
+        } else {
             document.documentElement.classList.add('dark')
             themeIcon.setAttribute('href', '#sun')
             localStorage.setItem('theme', 'dark')
@@ -44,12 +44,12 @@ function Header() {
 
     const mobileThemeHandler = (event) => {
         const mobileThemeIcon = document.querySelector('#mobile-theme-icon')
-        if(document.documentElement.className.includes('dark')) {
+        if (document.documentElement.className.includes('dark')) {
             mobileThemeIcon.classList.remove('-translate-x-0.5')
             mobileThemeIcon.classList.add('-translate-x-[26px]')
             document.documentElement.classList.remove('dark')
             localStorage.setItem('theme', 'light')
-        }else {
+        } else {
             mobileThemeIcon.classList.add('-translate-x-0.5')
             mobileThemeIcon.classList.remove('-translate-x-[26px]')
             document.documentElement.classList.add('dark')
@@ -67,7 +67,8 @@ function Header() {
 
     return (
         // codding desktop header
-        <header className='h-20 border-b border-b-border backdrop-blur-xl sticky top-0 left-0 right-0 flex items-center justify-center bg-background/80 z-50'>
+        <header
+            className='h-20 border-b border-b-border backdrop-blur-xl sticky top-0 left-0 right-0 flex items-center justify-center bg-background/80 z-50'>
             <div className='container'>
                 <nav className='flex items-center justify-between relative'>
                     {/* header right side */}
@@ -623,13 +624,17 @@ function Header() {
                         {/* header search btn */}
                         <HeaderBtn clickEvent={searchBoxModalOpen} icon='#search'></HeaderBtn>
                         {/* modal search wrapper */}
-                        <div id='header-search-modal' className='transition-all fixed left-0 right-0 -top-20 bg-background z-50 hidden lg:flex items-center justify-center h-20'>
+                        <div id='header-search-modal'
+                             className='transition-all fixed left-0 right-0 -top-20 bg-background z-50 hidden lg:flex items-center justify-center h-20'>
                             <div className="container">
                                 <div className='flex items-center justify-between gap-5'>
                                     <form className='block w-full h-10' action="#">
-                                        <input className='placeholder:text-caption w-full h-full outline-none text-title bg-transparent' placeholder='نام دوره،مقاله و یا دسته بندی را وارد نمایید..' type="text"/>
+                                        <input
+                                            className='placeholder:text-caption w-full h-full outline-none text-title bg-transparent'
+                                            placeholder='نام دوره،مقاله و یا دسته بندی را وارد نمایید..' type="text"/>
                                     </form>
-                                    <span onClick={searchBoxModalHandler} id='search-modal-close-btn' className='flex items-center justify-center w-9 h-9 rounded-full bg-secondary text-title hover:text-red-500 transition-colors cursor-pointer'>
+                                    <span onClick={searchBoxModalHandler} id='search-modal-close-btn'
+                                          className='flex items-center justify-center w-9 h-9 rounded-full bg-secondary text-title hover:text-red-500 transition-colors cursor-pointer'>
                                         <svg className='w-6 h-6'>
                                             <use href='#x-mark'></use>
                                         </svg>
@@ -645,7 +650,8 @@ function Header() {
                         <div className='flex items-center gap-3 group/profile cursor-pointer'>
                             <HeaderBtn icon='#user'></HeaderBtn>
                             <span className='hidden xs:flex flex-col gap-1 items-start text-xs pointer-events-none'>
-                                <span className='text-title dark:text-white font-YekanBakh-SemiBold'>جلال بهرامی راد</span>
+                                <span
+                                    className='text-title dark:text-white font-YekanBakh-SemiBold'>جلال بهرامی راد</span>
                                 <span className='font-YekanBakh-SemiBold'>خوش آمـــدید</span>
                             </span>
                             <svg className='w-5 h-5 hidden xs:block group-hover/profile:rotate-180 transition-all'>
@@ -653,7 +659,7 @@ function Header() {
                             </svg>
                             {/* header user profile menu */}
                             <div id='user-profile'
-                                className='rounded-xl group-hover/profile:visible group-hover/profile:opacity-100 border border-zinc-200 dark:border-zinc-800 absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black invisible opacity-0 transition-all delay-75 child:transition-colors font-YekanBakh-SemiBold text-sm text-title dark:text-white'>
+                                 className='rounded-xl group-hover/profile:visible group-hover/profile:opacity-100 border border-zinc-200 dark:border-zinc-800 absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black invisible opacity-0 transition-all delay-75 child:transition-colors font-YekanBakh-SemiBold text-sm text-title dark:text-white'>
                                 <a className='hover:text-[#1d4ed8]' href="#">مشاهده پروفایل</a>
                                 <a className='hover:text-[#1d4ed8]' href="#">مالی</a>
                                 <a className='hover:text-[#1d4ed8]' href="#">دوره ها</a>
@@ -666,4 +672,5 @@ function Header() {
         </header>
     )
 }
+
 export default Header
