@@ -77,7 +77,7 @@ function Header() {
                         <HeaderBtn clickEvent={mobileMenuHandler} icon='#bars-3'></HeaderBtn>
                         {/* Mobile Menu */}
                         <div id='mobile-menu'
-                             className='lg:hidden transition-all fixed -right-72 xs:-right-80 top-0 bottom-0 bg-white dark:bg-black rounded-tl-xl rounded-bl-xl w-72 xs:w-80 z-50 p-4 space-y-5'>
+                             className='lg:hidden transition-all h-screen fixed -right-72 xs:-right-80 top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 xs:w-80 z-50 p-4 space-y-5'>
                             {/*  mobile menu header  */}
                             <div className='flex items-center justify-between mb-8'>
                                 <Logo></Logo>
