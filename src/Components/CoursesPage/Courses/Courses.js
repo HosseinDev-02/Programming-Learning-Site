@@ -5,26 +5,18 @@ export default function Courses() {
 
     const [showCategories, setShowCategories] = useState(false)
     const [showTypes, setShowTypes] = useState(false)
-
+    const [started, setStarted] = useState(false)
 
     const typesMenuHandler = (e) => {
         e.currentTarget.classList.toggle('text-primary')
         e.currentTarget.classList.toggle('text-title')
-        if(showTypes){
-            setShowTypes(false)
-        }else {
-            setShowTypes(true)
-        }
+        setShowTypes(prevState => !prevState)
     }
 
     const categoriesMenuHandler = (e) => {
         e.currentTarget.classList.toggle('text-primary')
         e.currentTarget.classList.toggle('text-title')
-        if(showCategories){
-            setShowCategories(false)
-        }else {
-            setShowCategories(true)
-        }
+        setShowCategories(prevState => !prevState)
     }
 
     return (
@@ -48,16 +40,20 @@ export default function Courses() {
                                 </form>
                             </div>
                             {/*  Courses Begin CheckBox  */}
-                            <div className="flex items-center justify-between bg-secondary rounded-xl overflow-hidden h-11 px-3 mb-3">
+                            <label
+                                className="flex items-center justify-between bg-secondary rounded-xl overflow-hidden h-11 px-3 mb-3">
                                 <span className="text-title font-YekanBakh-Bold text-sm">
                                     درحال برگزاری
                                 </span>
-                                    <label htmlFor="begin-courses-input" className="inline-block border-2 border-zinc-200 dark:border-[#1d4ed8] h-5 w-11 bg-white dark:bg-[#1d4ed8] relative rounded-xl">
-                                        <span id="mobile-theme-icon" className="transition-all duration-300 inline w-3 h-3 bg-zinc-200 dark:bg-black rounded-full absolute -translate-x-[26px] top-0 bottom-0 m-auto">
-                                        </span>
-                                    </label>
-                                    <input id="begin-courses-input" type="checkbox" className="hidden"/>
-                            </div>
+                                <input id='courses-filtered-started'
+                                       onChange={() => setStarted(prevState => !prevState)}
+                                       className='peer sr-only'
+                                       type="checkbox"/>
+                                <div
+                                    className='inline-block cursor-pointer border-2 border-zinc-200 dark:border-[#1d4ed8] h-5 w-11 bg-white dark:bg-[#1d4ed8] relative rounded-xl before:w-3 before:h-3 before:bg-zinc-200 before:absolute before:left-0 before:transition-all peer-checked:border-primary before:translate-x-[2px] before:rounded-full before:top-0 before:bottom-0 before:my-auto peer-checked:bg-primary peer-checked:before:bg-background peer-checked:before:translate-x-[26px] transition-all'>
+
+                                </div>
+                            </label>
                             {/*  Courses Accordion boxes  */}
                             <div className='divide-y divide-border'>
                                 {/*  Courses Accordion Free Or Not Free Filtering  */}
@@ -75,7 +71,7 @@ export default function Courses() {
                                         </span>
                                         </div>
                                         <span>
-                                        <svg className='w-5 h-5'>
+                                        <svg style={showTypes ? {transform: 'rotate(180deg)'} : {transform: 'rotate(0deg)'}} className='w-5 h-5 rotate-180'>
                                             <use href='#chevron-down'></use>
                                         </svg>
                                     </span>
@@ -137,7 +133,7 @@ export default function Courses() {
                                         </span>
                                         </div>
                                         <span>
-                                        <svg className='w-5 h-5'>
+                                        <svg style={showCategories ? {transform: 'rotate(180deg)'} : {transform: 'rotate(0deg)'}} className='w-5 h-5 transition-all'>
                                             <use href='#chevron-down'></use>
                                         </svg>
                                     </span>
