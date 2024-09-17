@@ -1,4 +1,4 @@
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionTitle from "../../SectionTitle/SectionTitle";
 import Article from "./Article";
 import {useState} from "react";
 
@@ -8,7 +8,7 @@ export default function Articles() {
         {
             id: 1,
             title: 'دوره پروژه محور React و Next Js',
-            img: 'images/Courses/01.jpg',
+            img: 'images/CoursesPage/01.jpg',
             time: 20,
             writer: 'حسین رستمی',
             writerImg: 'images/profile.jpeg',
@@ -17,7 +17,7 @@ export default function Articles() {
         {
             id: 2,
             title: 'دوره پروژه محور React و Next Js',
-            img: 'images/Courses/02.jpg',
+            img: 'images/CoursesPage/02.jpg',
             time: 15,
             writer: 'حسین رستمی',
             writerImg: 'images/profile.jpeg',
@@ -26,7 +26,7 @@ export default function Articles() {
         {
             id: 3,
             title: 'دوره پروژه محور React و Next Js',
-            img: 'images/Courses/03.jpg',
+            img: 'images/CoursesPage/03.jpg',
             time: 32,
             writer: 'حسین رستمی',
             writerImg: 'images/profile.jpeg',
@@ -35,7 +35,7 @@ export default function Articles() {
         {
             id: 4,
             title: 'دوره پروژه محور React و Next Js',
-            img: 'images/Courses/04.jpg',
+            img: 'images/CoursesPage/04.jpg',
             time: 10,
             writer: 'حسین رستمی',
             writerImg: 'images/profile.jpeg',

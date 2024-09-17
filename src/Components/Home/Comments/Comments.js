@@ -1,4 +1,4 @@
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionTitle from "../../SectionTitle/SectionTitle";
 
 export default function Comments () {
     return (

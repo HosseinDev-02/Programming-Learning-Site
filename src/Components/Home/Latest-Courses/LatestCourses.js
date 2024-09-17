@@ -1,5 +1,5 @@
-import SectionTitle from "../SectionTitle/SectionTitle";
-import SectionLinkBtn from "../SectionLinkBtn/SectionLinkBtn";
+import SectionTitle from "../../SectionTitle/SectionTitle";
+import SectionLinkBtn from "../../SectionLinkBtn/SectionLinkBtn";
 import Course from "./Course";
 import {useState} from "react";
 
@@ -16,7 +16,7 @@ export default function LatestCourses() {
             sections: 12,
             isCompleted: true,
             teacher: 'حسین رستمی',
-            img: 'images/Courses/03.jpg',
+            img: 'images/CoursesPage/03.jpg',
             teacherImg: 'images/profile.jpeg'
         },
         {
@@ -29,7 +29,7 @@ export default function LatestCourses() {
             sections: 24,
             isCompleted: true,
             teacher: 'حسین رستمی',
-            img: 'images/Courses/01.jpg',
+            img: 'images/CoursesPage/01.jpg',
             teacherImg: 'images/profile.jpeg'
         },
         {
@@ -42,7 +42,7 @@ export default function LatestCourses() {
             sections: 4,
             isCompleted: true,
             teacher: 'حسین رستمی',
-            img: 'images/Courses/02.jpg',
+            img: 'images/CoursesPage/02.jpg',
             teacherImg: 'images/profile.jpeg'
         }
     ])
