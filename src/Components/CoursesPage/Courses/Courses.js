@@ -1,11 +1,15 @@
 import SectionTitle from "../../SectionTitle/SectionTitle";
 import {useState} from "react";
+import Course from "../../Home/Latest-Courses/Course";
+import data from "../../../data";
 
 export default function Courses() {
 
     const [showCategories, setShowCategories] = useState(false)
     const [showTypes, setShowTypes] = useState(false)
     const [started, setStarted] = useState(false)
+    const [showFilteringModal, setShowFilteringModal] = useState(false)
+    const [filtering, setFiltering] = useState('')
 
     const typesMenuHandler = (e) => {
         e.currentTarget.classList.toggle('text-primary')
@@ -19,19 +23,27 @@ export default function Courses() {
         setShowCategories(prevState => !prevState)
     }
 
+    const filteringModalHandler = () => {
+        setShowFilteringModal(prevState => !prevState)
+    }
+
+    const filteringCoursesHandler = (e) => {
+        setFiltering(e.target.innerHTML)
+    }
+
     return (
         <main className='py-5'>
             <div className="container">
                 <div className='space-y-8'>
                     <SectionTitle lineHeight='16px' fontSize='12px' title='دوره های آموزشی' text='دوره ببین، تمرین کن، برنامه نویس شو'></SectionTitle>
-                    <div className='grid grid-cols-12 gap-5'>
+                    <div className='md:grid grid-cols-12 gap-5 items-start'>
                         {/*  Courses Side Bar  */}
-                        <div className='col-span-3'>
+                        <div className='col-span-4 lg:col-span-3 hidden md:block md:sticky md:top-24'>
                             {/*  Courses Search Box  */}
                             <div className='mb-3'>
                                 <span className='text-sm text-title font-YekanBakh-Bold inline-block mb-3'>جستجو دوره</span>
                                 <form className='flex items-center px-3 bg-secondary rounded-xl overflow-hidden h-11' action="#">
-                                    <input placeholder='عنوان دوره ...' className='bg-transparent outline-none w-full text-sm' type="text"/>
+                                    <input placeholder='عنوان دوره ...' className='bg-transparent outline-none w-full h-full text-sm' type="text"/>
                                     <span className='shrink-0'>
                                         <svg className='w-5 h-5'>
                                             <use href='#search'></use>
@@ -45,8 +57,7 @@ export default function Courses() {
                                 <span className="text-title font-YekanBakh-Bold text-sm">
                                     درحال برگزاری
                                 </span>
-                                <input id='courses-filtered-started'
-                                       onChange={() => setStarted(prevState => !prevState)}
+                                <input onChange={() => setStarted(prevState => !prevState)}
                                        className='peer sr-only'
                                        type="checkbox"/>
                                 <div
@@ -77,7 +88,7 @@ export default function Courses() {
                                     </span>
                                     </button>
                                     <div style={showTypes ? {display: 'block'} : {display: 'none'}} className='p-3 rounded-xl overflow-hidden bg-secondary space-y-2'>
-                                        <label className='flex items-center justify-between text-sm'>
+                                        <label className='flex items-center justify-between text-sm cursor-pointer'>
                                             <div className='flex items-center gap-3'>
                                                 <input
                                                     className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
@@ -90,7 +101,7 @@ export default function Courses() {
                                                 18
                                             </span>
                                         </label>
-                                        <label className='flex items-center justify-between text-sm'>
+                                        <label className='flex items-center justify-between text-sm cursor-pointer'>
                                             <div className='flex items-center gap-3'>
                                                 <input
                                                     className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
@@ -103,7 +114,7 @@ export default function Courses() {
                                                 9
                                             </span>
                                         </label>
-                                        <label className='flex items-center justify-between text-sm'>
+                                        <label className='flex items-center justify-between text-sm cursor-pointer'>
                                             <div className='flex items-center gap-3'>
                                                 <input
                                                     className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
@@ -139,7 +150,7 @@ export default function Courses() {
                                     </span>
                                     </button>
                                     <div style={showCategories ? {display: 'block'} : {display: 'none'}} className='p-3 rounded-xl overflow-hidden bg-secondary space-y-2'>
-                                        <label className='flex items-center gap-3 text-sm'>
+                                        <label className='flex items-center gap-3 text-sm cursor-pointer'>
                                             <input
                                                 className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
                                                 type="radio" name='category'/>
@@ -147,7 +158,7 @@ export default function Courses() {
                                                 فرانت اند
                                             </span>
                                         </label>
-                                        <label className='flex items-center gap-3 text-sm'>
+                                        <label className='flex items-center gap-3 text-sm cursor-pointer'>
                                             <input
                                                 className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
                                                 type="radio" name='category'/>
@@ -155,7 +166,7 @@ export default function Courses() {
                                                 بک اند
                                             </span>
                                         </label>
-                                        <label className='flex items-center gap-3 text-sm'>
+                                        <label className='flex items-center gap-3 text-sm cursor-pointer'>
                                             <input
                                                 className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
                                                 type="radio" name='category'/>
@@ -163,7 +174,7 @@ export default function Courses() {
                                                 امنیت
                                             </span>
                                         </label>
-                                        <label className='flex items-center gap-3 text-sm'>
+                                        <label className='flex items-center gap-3 text-sm cursor-pointer'>
                                             <input
                                                 className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
                                                 type="radio" name='category'/>
@@ -171,7 +182,7 @@ export default function Courses() {
                                                 شبکه
                                             </span>
                                         </label>
-                                        <label className='flex items-center gap-3 text-sm'>
+                                        <label className='flex items-center gap-3 text-sm cursor-pointer'>
                                             <input
                                                 className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
                                                 type="radio" name='category'/>
@@ -183,8 +194,58 @@ export default function Courses() {
                                 </div>
                             </div>
                         </div>
-                        <div className='col-span-9'>
-
+                        {/*  Courses Wrapper  */}
+                        <div className='col-span-8 lg:col-span-9'>
+                            {/*  Courses Wrapper Header  */}
+                            <div className='flex gap-3 mb-3'>
+                                <div className='flex items-center gap-1 h-11'>
+                                    <span>
+                                        <svg className='w-5 h-5'>
+                                            <use href='#adjustments'></use>
+                                        </svg>
+                                    </span>
+                                    <span className='text-xs font-YekanBakh-SemiBold'>مرتب سازی :</span>
+                                </div>
+                                <div className='w-52 bg-secondary rounded-2xl'>
+                                    <button onClick={filteringModalHandler} className='flex items-center w-full justify-between px-4 outline-none h-11 text-title font-YekanBakh-SemiBold'>
+                                        <span className='text-xs'>
+                                            {
+                                                filtering ? filtering : 'انتخاب کنید'
+                                            }
+                                        </span>
+                                        <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#chevron-down'></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <div style={showFilteringModal ? {height: '216px'} : {height: '0'}} className='bg-white shadow-lg rounded-bl-2xl rounded-br-2xl overflow-hidden transition-all'>
+                                        <ul onClick={filteringCoursesHandler} className='text-xs font-YekanBakh-SemiBold flex flex-col gap-1'>
+                                            <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
+                                                جدیدترین ها
+                                            </li>
+                                            <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
+                                                پرفروش ترین ها
+                                            </li>
+                                            <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
+                                                در حال برگزاری
+                                            </li>
+                                            <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
+                                                تکمیل شده
+                                            </li>
+                                            <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
+                                                خریداری شده
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            {/*  Courses wrapper Content  */}
+                            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
+                                {
+                                    data.map(course => (<Course key={course.id} {...course}></Course>))
+                                }
+                            </div>
                         </div>
                         {/*  Courses Wrapper  */}
                     </div>

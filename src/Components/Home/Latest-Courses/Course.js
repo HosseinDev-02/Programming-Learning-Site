@@ -26,7 +26,7 @@ export default function Course(props) {
                     </span>
                 </div>
                 <h6 className='mt-2 text-title text-sm font-YekanBakh-Bold'>
-                    <a className='hover:text-primary transition-colors' href="#">
+                    <a className='hover:text-primary transition-colors line-clamp-1' href="#">
                         {props.title}
                     </a>
                 </h6>
@@ -54,16 +54,16 @@ export default function Course(props) {
                                     </span>
                     </div>
                 </div>
-                <div className='flex items-center justify-between mt-3'>
+                <div className='flex items-center justify-between gap-5 mt-3'>
                     <div className='flex items-center gap-2'>
-                                    <span className='block overflow-hidden w-10 h-10 rounded-full'>
+                                    <span className='block overflow-hidden w-10 h-10 rounded-full shrink-0'>
                                         <img className='w-full h-full object-cover' src={props.teacherImg} alt=""/>
                                     </span>
                         <div className='flex flex-col gap-1 text-xs font-YekanBakh-SemiBold'>
-                                        <span className='dark:text-zinc-500'>
+                                        <span className='dark:text-zinc-500 line-clamp-1'>
                                             مدرس دوره :
                                         </span>
-                            <span className='text-title font-YekanBakh-Bold'>
+                            <span className='text-title font-YekanBakh-Bold line-clamp-1'>
                                             {props.teacher}
                                         </span>
                         </div>
@@ -71,7 +71,7 @@ export default function Course(props) {
                     {
                         props.isFree ?
                             <div className='flex items-center justify-center h-14'>
-                        <span className='text-success font-YekanBakh-Black text-xl'>
+                        <span className='text-success font-YekanBakh-Black text-xl line-clamp-1'>
                                         رایگان !
                                 </span>
                             </div>
@@ -80,16 +80,13 @@ export default function Course(props) {
                                 <div className='flex items-end h-14 flex-col justify-center'>
                                 <span
                                     className='relative block before:bg-caption before:absolute before:-top-1 before:bottom-0 before:w-full before:my-auto before:h-px before:content[" "] font-YekanBakh-SemiBold'>
-                                            {props.price}
+                                            {props.price.toLocaleString()}
                                     </span>
                                     {
                                         props.costPrice !== 0 &&
                                         <div className='flex items-center gap-1'>
                                         <span className='text-title font-YekanBakh-Black text-xl'>
-                                            {props.costPrice}
-                                        </span>
-                                            <span className='text-xs'>
-                                            تومان
+                                            {props.costPrice.toLocaleString()}
                                         </span>
                                         </div>
                                     }
@@ -98,11 +95,8 @@ export default function Course(props) {
                                 <div className='flex items-center gap-1 h-14'>
                                     <span className='text-title font-YekanBakh-Black text-xl'>
                                         {
-                                            props.price
+                                            props.price.toLocaleString()
                                         }
-                                    </span>
-                                    <span className='text-xs'>
-                                        تومان
                                     </span>
                                 </div>
                     }
