@@ -1,68 +1,32 @@
 import HeaderBtn from "./Header-Btn";
 import Logo from "../Logo/Logo";
+import {useState} from "react";
 
 function Header() {
 
-    const changeThemeHandler = (e) => {
-        e.preventDefault()
-        const themeIcon = document.querySelector('#theme-btn > svg > use')
-        if (document.documentElement.className.includes('dark')) {
-            document.documentElement.classList.remove('dark')
-            themeIcon.setAttribute('href', '#moon')
-            localStorage.setItem('theme', 'light')
-        } else {
-            document.documentElement.classList.add('dark')
-            themeIcon.setAttribute('href', '#sun')
-            localStorage.setItem('theme', 'dark')
-        }
-    }
+    let localStorageValue = localStorage.getItem('theme')
 
-    const mobileMenuHandler = () => {
-        const mobileMenu = document.querySelector('#mobile-menu')
-        mobileMenu.classList.add('mobile__menu--open')
-        const coverElem = document.querySelector('#cover-elem')
-        coverElem.classList.add('cover--show')
-    }
+    const [mobileMenuShow, setMobileMenuShow] = useState(false)
+    const [searchModalShow, setSearchModalShow] = useState(false)
+    const [darkMode, setDarkMode] = useState(localStorageValue)
+    const [showMobileCategoryMenu, setShowMobileCategoryMenu] = useState(false)
+    const [showMobileCategorySubMenu, setShowMobileCategorySubMenu] = useState(false)
 
-    const searchBoxModalHandler = () => {
-        const headerSearchModal = document.querySelector('#header-search-modal')
-        headerSearchModal.classList.toggle('-top-20')
-        headerSearchModal.classList.toggle('-top-px')
-    }
-
-    const searchBoxModalOpen = e => {
-        e.preventDefault()
-        searchBoxModalHandler()
-    }
-
-    const mobileMenuClose = () => {
-        const mobileMenu = document.querySelector('#mobile-menu')
-        mobileMenu.classList.remove('mobile__menu--open')
-        const coverElem = document.querySelector('#cover-elem')
-        coverElem.classList.remove('cover--show')
-    }
-
-    const mobileThemeHandler = (event) => {
-        const mobileThemeIcon = document.querySelector('#mobile-theme-icon')
-        if (document.documentElement.className.includes('dark')) {
-            mobileThemeIcon.classList.remove('-translate-x-0.5')
-            mobileThemeIcon.classList.add('-translate-x-[26px]')
+    const themeHandler = () => {
+        if(darkMode === 'dark') {
             document.documentElement.classList.remove('dark')
             localStorage.setItem('theme', 'light')
-        } else {
-            mobileThemeIcon.classList.add('-translate-x-0.5')
-            mobileThemeIcon.classList.remove('-translate-x-[26px]')
+        }else {
             document.documentElement.classList.add('dark')
             localStorage.setItem('theme', 'dark')
         }
-    }
-
-    const mobileCategoriesMenuHandler = (e) => {
-        e.currentTarget.parentElement.classList.toggle('mobile-categories--open')
-    }
-
-    const categoriesSubmenuHandler = (e) => {
-        e.currentTarget.parentElement.classList.toggle('mobile-categories__submenu--open')
+        setDarkMode(prevStat => {
+            if(prevStat === 'dark') {
+                return 'light'
+            }else {
+                return 'dark'
+            }
+        })
     }
 
     return (
@@ -75,7 +39,7 @@ function Header() {
                         {/* header right side */}
                         <div className='flex items-center gap-3 lg:gap-8'>
                             {/* header mobile menu btn */}
-                            <HeaderBtn clickEvent={mobileMenuHandler} icon='#bars-3'></HeaderBtn>
+                            <HeaderBtn clickEvent={() => setMobileMenuShow(true)} icon='#bars-3'></HeaderBtn>
                             {/* header logo */}
                             <Logo></Logo>
                             {/* header menu */}
@@ -488,18 +452,19 @@ function Header() {
                         {/* header left side */}
                         <div className='flex items-center gap-3 md:gap-5'>
                             {/* header search btn */}
-                            <HeaderBtn clickEvent={searchBoxModalOpen} icon='#search'></HeaderBtn>
+                            <HeaderBtn clickEvent={() => setSearchModalShow(true)} icon='#search'></HeaderBtn>
                             {/* modal search wrapper */}
-                            <div id='header-search-modal'
+                            <div style={searchModalShow ? {top: '0'} : {}} id='header-search-modal'
                                  className='transition-all fixed left-0 right-0 -top-20 bg-background z-50 hidden lg:flex items-center justify-center h-20'>
                                 <div className="container">
                                     <div className='flex items-center justify-between gap-5'>
                                         <form className='block w-full h-10' action="#">
                                             <input
                                                 className='placeholder:text-caption w-full h-full outline-none text-title bg-transparent'
-                                                placeholder='نام دوره،مقاله و یا دسته بندی را وارد نمایید..' type="text"/>
+                                                placeholder='نام دوره،مقاله و یا دسته بندی را وارد نمایید..'
+                                                type="text"/>
                                         </form>
-                                        <span onClick={searchBoxModalHandler} id='search-modal-close-btn'
+                                        <span onClick={() => setSearchModalShow(false)} id='search-modal-close-btn'
                                               className='flex items-center justify-center w-9 h-9 rounded-full bg-secondary text-title hover:text-red-500 transition-colors cursor-pointer'>
                                         <svg className='w-6 h-6'>
                                             <use href='#x-mark'></use>
@@ -509,7 +474,13 @@ function Header() {
                                 </div>
                             </div>
                             {/* header change theme btn */}
-                            <HeaderBtn clickEvent={changeThemeHandler} id='theme-btn' icon='#moon'></HeaderBtn>
+                            {
+                                darkMode === 'dark' ? (
+                                    <HeaderBtn clickEvent={themeHandler} id='theme-btn' icon='#sun'></HeaderBtn>
+                                ) : (
+                                    <HeaderBtn clickEvent={themeHandler} id='theme-btn' icon='#moon'></HeaderBtn>
+                                )
+                            }
                             {/* header basket btn */}
                             <HeaderBtn count={2} icon='#bag'></HeaderBtn>
                             {/* header user profile btn */}
@@ -537,12 +508,12 @@ function Header() {
                 </div>
             </header>
             {/* Mobile Menu */}
-            <div id='mobile-menu'
+            <div style={mobileMenuShow ? {right: '0'} : {}} id='mobile-menu'
                  className='lg:hidden transition-all h-screen fixed -right-72 xs:-right-80 top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 xs:w-80 p-4 space-y-5 z-40'>
                 {/*  mobile menu header  */}
                 <div className='flex items-center justify-between mb-8'>
                     <Logo></Logo>
-                    <span onClick={mobileMenuClose} className='text-title'>
+                    <span onClick={() => setMobileMenuShow(false)} className='text-title'>
                                         <svg className='w-6 h-6'>
                                             <use href='#x-mark'></use>
                                         </svg>
@@ -562,23 +533,20 @@ function Header() {
                            type="text"/>
                 </form>
                 {/*  mobile change them wrapper  */}
-                <div className='flex items-center justify-between border-y border-y-border py-4'>
-                                    <span className='text-title font-YekanBakh-Bold text-sm'>
+                <label
+                    className="flex items-center justify-between border-y border-y-border py-4">
+                                <span className='text-title font-YekanBakh-Bold text-sm'>
                                         تم تاریک
                                     </span>
-                    <div className=''>
-                        <label htmlFor="theme-input"
-                               className='inline-block border-2 border-zinc-200 dark:border-[#1d4ed8] h-5 w-11 bg-white dark:bg-[#1d4ed8] relative rounded-xl'>
-                                        <span id='mobile-theme-icon'
-                                              className='transition-all duration-300 inline w-3 h-3 bg-zinc-200 dark:bg-black rounded-full absolute -translate-x-[26px] top-0 bottom-0 m-auto'></span>
-                        </label>
-                        <input onChange={mobileThemeHandler} id='theme-input' type="checkbox"
-                               className='hidden'/>
+                    <input onChange={themeHandler} className='peer sr-only' type="checkbox"/>
+                    <div
+                        className='inline-block cursor-pointer border-2 border-zinc-200 dark:border-[#1d4ed8] h-5 w-11 bg-white dark:bg-[#1d4ed8] relative rounded-xl transition-all'>
+                        <span style={darkMode === 'dark' ? {transform: 'translateX(26px)', backgroundColor: '#000'} : {}} className='w-3 h-3 bg-zinc-200 absolute left-0 translate-x-[2px] rounded-full top-0 bottom-0 my-auto transition-all'></span>
                     </div>
-                </div>
+                </label>
                 {/*  Mobile Menu Categories  */}
                 <div>
-                    <div onClick={mobileCategoriesMenuHandler}
+                    <div style={showMobileCategoryMenu ? {color: 'rgb(var(--color-title))'} : {}}  onClick={() => setShowMobileCategoryMenu(prevState => !prevState)}
                          className='flex items-center justify-between'>
                         <div className='flex items-center gap-2'>
                                         <span>
@@ -589,21 +557,21 @@ function Header() {
                             <span className='text-xs font-YekanBakh-SemiBold'>دسته بندی آموزش ها</span>
                         </div>
                         <span>
-                                        <svg className='w-5 h-5'>
+                                        <svg style={showMobileCategoryMenu ? {transform: 'rotate(180deg)'} : {}} className='w-5 h-5'>
                                             <use href='#chevron-down'></use>
                                         </svg>
                                     </span>
                     </div>
-                    <ul className='child:py-2 hidden relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 child:text-xs text-zinc-400'>
+                    <ul style={showMobileCategoryMenu ? {display: 'inline-block'} : {}} className='child:py-2 hidden relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 child:text-xs text-zinc-400'>
                         <li>
-                            <a onClick={categoriesSubmenuHandler} className='flex items-center gap-1'
+                            <a style={showMobileCategorySubMenu ? {color: 'rgb(var(--color-title))'} : {}}  onClick={() => setShowMobileCategorySubMenu(prevState => !prevState)} className='flex items-center gap-1'
                                href="#">
-                                <svg className='w-4 h-4'>
+                                <svg style={showMobileCategorySubMenu ? {transform: 'rotate(-45deg)'} : {}} className='w-4 h-4'>
                                     <use href='#chevron-left'></use>
                                 </svg>
                                 برنامه نویسی وب
                             </a>
-                            <ul className='child:py-2 relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 text-xs text-zinc-400 hidden'>
+                            <ul style={showMobileCategorySubMenu ? {display: 'inline-block'} : {}} className='child:py-2 relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 text-xs text-zinc-400 hidden'>
                                 <li>
                                     <a className='flex items-center gap-2' href="#">
                                         <span className='w-2 h-px bg-border'></span>
@@ -669,7 +637,8 @@ function Header() {
                 </a>
             </div>
             {/*  mobile menu cover elem  */}
-            <div onClick={mobileMenuClose} id='cover-elem'
+            <div onClick={() => setMobileMenuShow(false)}
+                 style={mobileMenuShow ? {visibility: 'visible', opacity: '1'} : {}} id='cover-elem'
                  className='fixed inset-0 bg-secondary/80 z-10 invisible opacity-0 transition-all'></div>
         </>
     )
