@@ -68,7 +68,7 @@ function Header() {
     return (
         // codding desktop header
         <header
-            className='h-20 border-b border-b-border backdrop-blur-xl sticky top-0 left-0 right-0 flex items-center justify-center bg-background/80 z-50'>
+            className='h-20 border-b border-b-border backdrop-blur-xl sticky top-0 left-0 right-0 flex items-center justify-center bg-background/80 z-30'>
             <div className='container'>
                 <nav className='flex items-center justify-between relative'>
                     {/* header right side */}
