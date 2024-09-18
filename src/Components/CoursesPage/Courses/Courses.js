@@ -208,7 +208,7 @@ export default function Courses() {
                                     </span>
                                     <span className='text-xs font-YekanBakh-SemiBold hidden sm:inline'>مرتب سازی :</span>
                                 </div>
-                                <div className='w-52 bg-secondary rounded-2xl'>
+                                <div className='w-52 bg-secondary rounded-2xl relative'>
                                     <button onClick={filteringModalHandler}
                                             className='flex items-center w-full justify-between px-4 outline-none h-11 text-title font-YekanBakh-SemiBold'>
                                         <span className='text-xs'>
@@ -223,9 +223,9 @@ export default function Courses() {
                                         </span>
                                     </button>
                                     <div style={showFilteringModal ? {height: '216px'} : {height: '0'}}
-                                         className='bg-white shadow-lg rounded-bl-2xl rounded-br-2xl overflow-hidden transition-all'>
+                                         className='bg-background shadow dark:shadow-white/10 rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
                                         <ul onClick={filteringCoursesHandler}
-                                            className='text-xs font-YekanBakh-SemiBold flex flex-col gap-1'>
+                                            className='text-xs font-YekanBakh-SemiBold flex flex-col gap-1 text-title'>
                                             <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
                                                 جدیدترین ها
                                             </li>
