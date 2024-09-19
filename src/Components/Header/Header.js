@@ -1,6 +1,7 @@
 import HeaderBtn from "./Header-Btn";
 import Logo from "../Logo/Logo";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 function Header() {
 
@@ -11,6 +12,7 @@ function Header() {
     const [darkMode, setDarkMode] = useState(localStorageValue)
     const [showMobileCategoryMenu, setShowMobileCategoryMenu] = useState(false)
     const [showMobileCategorySubMenu, setShowMobileCategorySubMenu] = useState(false)
+    const [userProfileShow, setUserProfileShow] = useState(false)
 
     const themeHandler = () => {
         if(darkMode === 'dark') {
@@ -53,7 +55,7 @@ function Header() {
                                     {/* header categories menu */}
                                     <ul className='invisible opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-background border border-border w-56 flex flex-col gap-1 child:leading-5 delay-75 transition-all shadow-black/5 text-title z-20'>
                                         <li className='group/subcategories'>
-                                            <a className='flex items-center justify-between p-3 hover:text-[#1d4ed8] transition-colors'
+                                            <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
                                                href="#">
                                                 <span>برنامه نویسی وب</span>
                                                 <svg className='w-5 h-5'>
@@ -66,61 +68,61 @@ function Header() {
                                                     محبوب ترین موضوعات
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         جاوااسکریپت
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         نود جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ریکت جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ویو جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         تیلویند
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         جاوااسکریپت
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         نود جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ریکت جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ویو جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         تیلویند
                                                     </a>
@@ -128,7 +130,7 @@ function Header() {
                                             </ul>
                                         </li>
                                         <li className='group/subcategories'>
-                                            <a className='flex items-center justify-between p-3 hover:text-[#1d4ed8] transition-colors'
+                                            <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
                                                href="#">
                                                 <span>زبانهای برنامه نویسی</span>
                                                 <svg className='w-5 h-5'>
@@ -140,61 +142,61 @@ function Header() {
                                                     محبوب ترین موضوعات
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         جاوااسکریپت
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         نود جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ریکت جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ویو جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         تیلویند
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         جاوااسکریپت
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         نود جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ریکت جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ویو جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         تیلویند
                                                     </a>
@@ -202,73 +204,73 @@ function Header() {
                                             </ul>
                                         </li>
                                         <li className='group/subcategories'>
-                                            <a className='flex items-center justify-between p-3 hover:text-[#1d4ed8] transition-colors'
+                                            <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
                                                href="#">
                                                 <span>توسعه بازی</span>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#chevron-left'></use>
                                                 </svg>
                                             </a>
-                                            <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-sm text-caption dark:bg-black'>
+                                            <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 border border-border w-96 absolute right-full -top-px -bottom-px text-sm text-caption bg-background'>
                                                 <li className='absolute top-2 font-YekanBakh-SemiBold pointer-events-none'>
                                                     محبوب ترین موضوعات
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         جاوااسکریپت
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         نود جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ریکت جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ویو جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         تیلویند
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         جاوااسکریپت
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         نود جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ریکت جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ویو جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         تیلویند
                                                     </a>
@@ -276,73 +278,73 @@ function Header() {
                                             </ul>
                                         </li>
                                         <li className='group/subcategories'>
-                                            <a className='flex items-center justify-between p-3 hover:text-[#1d4ed8] transition-colors'
+                                            <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
                                                href="#">
                                                 <span>برنامه نویسی موبایل</span>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#chevron-left'></use>
                                                 </svg>
                                             </a>
-                                            <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-sm text-caption dark:bg-black'>
+                                            <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 border border-border w-96 absolute right-full -top-px -bottom-px text-sm text-caption bg-background'>
                                                 <li className='absolute top-2 font-YekanBakh-SemiBold pointer-events-none'>
                                                     محبوب ترین موضوعات
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         جاوااسکریپت
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         نود جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ریکت جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ویو جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         تیلویند
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         جاوااسکریپت
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         نود جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ریکت جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ویو جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         تیلویند
                                                     </a>
@@ -350,73 +352,73 @@ function Header() {
                                             </ul>
                                         </li>
                                         <li className='group/subcategories'>
-                                            <a className='flex items-center justify-between p-3 hover:text-[#1d4ed8] transition-colors'
+                                            <a className='flex items-center justify-between p-3 hover:text-primary transition-colors'
                                                href="#">
                                                 <span>طراحی دیتابیس</span>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#chevron-left'></use>
                                                 </svg>
                                             </a>
-                                            <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-white border border-zinc-200 dark:border-zinc-800 w-96 absolute right-full -top-px -bottom-px text-sm text-caption dark:bg-black'>
+                                            <ul className='invisible opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-background border border-border w-96 absolute right-full -top-px -bottom-px text-sm text-caption'>
                                                 <li className='absolute top-2 font-YekanBakh-SemiBold pointer-events-none'>
                                                     محبوب ترین موضوعات
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         جاوااسکریپت
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         نود جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ریکت جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ویو جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         تیلویند
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         جاوااسکریپت
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         نود جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ریکت جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         ویو جی اس
                                                     </a>
                                                 </li>
                                                 <li className='w-1/2'>
-                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-[#1d4ed8] transition-colors hover:before:bg-[#1d4ed8]'
+                                                    <a className='relative before:w-1 before:h-1 before:bg-caption before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                        href="#">
                                                         تیلویند
                                                     </a>
@@ -439,11 +441,11 @@ function Header() {
                                     </a>
                                     {/* Header links menu */}
                                     <div
-                                        className='rounded-xl border border-zinc-200 dark:border-zinc-800 absolute top-full w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black text-title dark:text-white invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-YekanBakh-SemiBold text-sm z-20'>
-                                        <a className='hover:text-[#1d4ed8]' href="#">مشاهده پروفایل</a>
-                                        <a className='hover:text-[#1d4ed8]' href="#">مالی</a>
-                                        <a className='hover:text-[#1d4ed8]' href="#">دوره ها</a>
-                                        <a className='text-red-500 hover:text-red-700' href="#">خروج از حساب</a>
+                                        className='rounded-xl shadow border border-border absolute top-full w-56 p-3 flex flex-col bg-background text-title invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-YekanBakh-SemiBold text-xs z-20'>
+                                        <a className='hover:text-primary py-2 px-3' href="#">مشاهده پروفایل</a>
+                                        <a className='hover:text-primary py-2 px-3' href="#">مالی</a>
+                                        <Link to='/courses' className='hover:text-primary py-2 px-3' href="#">دوره ها</Link>
+                                        <a className='text-red-500 hover:text-red-700 py-2 px-3' href="#">خروج از حساب</a>
                                     </div>
                                 </li>
                             </ul>
@@ -483,23 +485,72 @@ function Header() {
                             {/* header basket btn */}
                             <HeaderBtn count={2} icon='#bag'></HeaderBtn>
                             {/* header user profile btn */}
-                            <div className='flex items-center gap-3 group/profile cursor-pointer'>
-                                <HeaderBtn icon='#user'></HeaderBtn>
-                                <span className='hidden xs:flex flex-col gap-1 items-start text-xs pointer-events-none'>
+                            <div className='group/profile'>
+                                <button type='button' onClick={() => setUserProfileShow(prevState => !prevState)} className='flex items-center gap-3 cursor-pointer'>
+                                    <HeaderBtn icon='#user'></HeaderBtn>
+                                    <span className='hidden xs:flex flex-col gap-1 items-start text-xs pointer-events-none'>
                                 <span
-                                    className='text-title dark:text-white font-YekanBakh-SemiBold'>جلال بهرامی راد</span>
+                                    className='text-title font-YekanBakh-SemiBold'>جلال بهرامی راد</span>
                                 <span className='font-YekanBakh-SemiBold'>خوش آمـــدید</span>
                             </span>
-                                <svg className='w-5 h-5 hidden xs:block group-hover/profile:rotate-180 transition-all'>
-                                    <use href='#chevron-down'></use>
-                                </svg>
+                                    <svg style={userProfileShow ? {transform: 'rotate(180deg)'} : {}} className='w-5 h-5 hidden xs:block transition-all'>
+                                        <use href='#chevron-down'></use>
+                                    </svg>
+                                </button>
                                 {/* header user profile menu */}
                                 <div id='user-profile'
-                                     className='rounded-xl group-hover/profile:visible group-hover/profile:opacity-100 border border-zinc-200 dark:border-zinc-800 absolute top-full left-0 w-56 p-3 flex flex-col gap-3 bg-white dark:bg-black invisible opacity-0 transition-all delay-75 child:transition-colors font-YekanBakh-SemiBold text-sm text-title dark:text-white'>
-                                    <a className='hover:text-[#1d4ed8]' href="#">مشاهده پروفایل</a>
-                                    <a className='hover:text-[#1d4ed8]' href="#">مالی</a>
-                                    <a className='hover:text-[#1d4ed8]' href="#">دوره ها</a>
-                                    <a className='text-red-500 hover:text-red-700' href="#">خروج از حساب</a>
+                                     style={userProfileShow ? {visibility: 'visible', opacity: '1'} : {}}
+                                     className='rounded-xl shadow border border-border absolute top-full left-0 w-56 p-3 flex flex-col bg-background invisible opacity-0 transition-all delay-75 child:transition-colors font-YekanBakh-SemiBold text-xs text-title'>
+                                    <a className='hover:text-primary flex items-center gap-2 py-2 px-3' href="#">
+                                        <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#stars'></use>
+                                            </svg>
+                                        </span>
+                                        <span>
+                                            مشاهده پروفایل
+                                        </span>
+                                    </a>
+                                    <a className='hover:text-primary flex items-center gap-2 py-2 px-3' href="#">
+                                        <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#education-outline'></use>
+                                            </svg>
+                                        </span>
+                                        <span>
+                                            دوره ها
+                                        </span>
+                                    </a>
+                                    <a className='hover:text-primary flex items-center gap-2 py-2 px-3' href="#">
+                                        <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#money'></use>
+                                            </svg>
+                                        </span>
+                                        <span>
+                                            مالی
+                                        </span>
+                                    </a>
+                                    <a className='hover:text-primary flex items-center gap-2 py-2 px-3' href="#">
+                                        <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#comment'></use>
+                                            </svg>
+                                        </span>
+                                        <span>
+                                            پرسش و دیدگاه ها
+                                        </span>
+                                    </a>
+                                    <a className='hover:text-red-700 text-red-500 flex items-center gap-2 py-2 px-3' href="#">
+                                        <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#logout'></use>
+                                            </svg>
+                                        </span>
+                                        <span>
+                                            خروج از حساب
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -539,7 +590,7 @@ function Header() {
                                     </span>
                     <input onChange={themeHandler} className='peer sr-only' type="checkbox"/>
                     <div
-                        className='inline-block cursor-pointer border-2 border-zinc-200 dark:border-[#1d4ed8] h-5 w-11 bg-white dark:bg-[#1d4ed8] relative rounded-xl transition-all'>
+                        className='inline-block cursor-pointer border-2 border-zinc-200 dark:border-primary h-5 w-11 bg-white dark:bg-primary relative rounded-xl transition-all'>
                         <span style={darkMode === 'dark' ? {transform: 'translateX(26px)', backgroundColor: '#000'} : {}} className='w-3 h-3 bg-zinc-200 absolute left-0 translate-x-[2px] rounded-full top-0 bottom-0 my-auto transition-all'></span>
                     </div>
                 </label>
