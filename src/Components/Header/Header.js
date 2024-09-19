@@ -30,10 +30,9 @@ function Header() {
     }
 
     return (
-        // codding desktop header
         <>
             <header
-                className='h-20 border-b border-b-border backdrop-blur-xl sticky top-0 left-0 right-0 flex items-center justify-center bg-background/80'>
+                className='h-20 border-b border-b-border backdrop-blur-xl sticky top-0 left-0 right-0 flex items-center justify-center bg-background/80 z-30'>
                 <div className='container'>
                     <nav className='flex items-center justify-between relative'>
                         {/* header right side */}
@@ -509,7 +508,7 @@ function Header() {
             </header>
             {/* Mobile Menu */}
             <div style={mobileMenuShow ? {right: '0'} : {}} id='mobile-menu'
-                 className='lg:hidden transition-all h-screen fixed -right-72 xs:-right-80 top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 xs:w-80 p-4 space-y-5 z-40'>
+                 className='lg:hidden transition-all h-screen fixed -right-72 xs:-right-80 top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 xs:w-80 p-4 space-y-5 z-50'>
                 {/*  mobile menu header  */}
                 <div className='flex items-center justify-between mb-8'>
                     <Logo></Logo>
@@ -639,7 +638,7 @@ function Header() {
             {/*  mobile menu cover elem  */}
             <div onClick={() => setMobileMenuShow(false)}
                  style={mobileMenuShow ? {visibility: 'visible', opacity: '1'} : {}} id='cover-elem'
-                 className='fixed inset-0 bg-secondary/80 z-10 invisible opacity-0 transition-all'></div>
+                 className='fixed inset-0 bg-secondary/80 z-40 invisible opacity-0 transition-all'></div>
         </>
     )
 }

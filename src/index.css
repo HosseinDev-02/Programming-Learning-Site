@@ -54,6 +54,13 @@
         --color-border: 39 39 42;
     }
 
+    body {
+        background-color: rgb(var(--color-background));
+        color: rgb(var(--color-caption));
+        min-height: 100vh;
+        font-family: "YekanBakh Regular";
+    }
+
 }
 
 @layer components {

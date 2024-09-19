@@ -2,7 +2,6 @@ import SectionTitle from "../../SectionTitle/SectionTitle";
 import {useState} from "react";
 import Course from "../../Home/Latest-Courses/Course";
 import data from "../../../data";
-import Logo from "../../Logo/Logo";
 
 export default function Courses() {
 
@@ -206,7 +205,8 @@ export default function Courses() {
                                             <use href='#adjustments'></use>
                                         </svg>
                                     </span>
-                                    <span className='text-xs font-YekanBakh-SemiBold hidden sm:inline'>مرتب سازی :</span>
+                                    <span
+                                        className='text-xs font-YekanBakh-SemiBold hidden sm:inline'>مرتب سازی :</span>
                                 </div>
                                 <div className='w-52 bg-secondary rounded-2xl relative'>
                                     <button onClick={filteringModalHandler}
@@ -259,7 +259,7 @@ export default function Courses() {
                                 </button>
                                 {/*  Courses Filtering Menu  */}
                                 <div style={filteringMenu ? {right: '0'} : {right: '-18rem'}}
-                                    className='transition-all h-screen fixed top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 z-50 p-4 md:hidden'>
+                                     className='transition-all h-screen fixed top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 z-50 p-4 md:hidden'>
                                     <div className='flex items-center justify-between mb-8 text-title'>
                                         <span className='font-YekanBakh-Bold text-sm'>
                                             فیلتر دوره ها
@@ -440,10 +440,8 @@ export default function Courses() {
                                 </div>
                                 {/*  Courses Filtering Menu Cover  */}
 
-                                {
-                                    filteringMenu && <div onClick={() => setFilteringMenu(prevState => !prevState)}
-                                             className='fixed inset-0 z-40 w-full h-full bg-black/10 transition-all md:hidden'></div>
-                                }
+                                <div style={filteringMenu ? {visibility: 'visible', opacity: '1'} : {}} onClick={() => setFilteringMenu(prevState => !prevState)}
+                                     className='fixed inset-0 bg-secondary/80 z-40 invisible opacity-0 transition-all'></div>
                             </div>
                             {/*  Courses wrapper Content  */}
                             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
