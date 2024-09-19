@@ -60,7 +60,7 @@ export default function Course(props) {
                                         <img className='w-full h-full object-cover' src={props.teacherImg} alt=""/>
                                     </span>
                         <div className='flex flex-col gap-1 text-xs font-YekanBakh-SemiBold'>
-                                        <span className='dark:text-zinc-500 line-clamp-1'>
+                                        <span className='line-clamp-1'>
                                             مدرس دوره :
                                         </span>
                             <span className='text-title font-YekanBakh-Bold line-clamp-1'>

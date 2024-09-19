@@ -13,7 +13,7 @@ export default function Footer() {
                     {/*  footer top link  */}
                     <div className='flex items-center gap-3'>
                         <div className='h-px w-full border-t border-dashed border-border'></div>
-                        <SectionLinkBtn text='رفتن به بالا' icon='#chevron-up'></SectionLinkBtn>
+                        <SectionLinkBtn text='برگشت به بالا' icon='#chevron-up'></SectionLinkBtn>
                     </div>
                     {/*  footer content  */}
                     <div>
@@ -29,7 +29,7 @@ export default function Footer() {
                                         <span className='text-primary text-sm'>
                                             شماره تلفن
                                         </span>
-                                        <span className='text-title dark:text-white'>
+                                        <span className='text-title'>
                                             021-1234567
                                         </span>
                                     </div>
@@ -40,7 +40,7 @@ export default function Footer() {
                                         <span className='text-primary text-sm'>
                                             ساعت کاری
                                         </span>
-                                        <span className='text-title dark:text-white'>
+                                        <span className='text-title'>
                                             09:00 - 17:00
                                         </span>
                                     </div>
@@ -122,7 +122,7 @@ export default function Footer() {
                                 © کليه حقوق محفوظ است
                             </p>
                             <div
-                                className='h-px w-full border-t border-dashed border-zinc-200 dark:border-zinc-800'></div>
+                                className='h-px w-full border-t border-dashed border-border'></div>
                         </div>
                     </div>
                 </div>

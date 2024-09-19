@@ -28,7 +28,7 @@ export default function Article(props) {
                                                  src={props.writerImg}
                                                  alt=""/>
                                         </span>
-                        <a className='hover:text-primary transition-colors text-xs font-YekanBakh-Bold text-title dark:text-white dark:hover:text-primary'
+                        <a className='hover:text-primary transition-colors text-xs font-YekanBakh-Bold text-title'
                            href="#">
                             {props.writer}
                         </a>
@@ -39,7 +39,7 @@ export default function Article(props) {
                     </a>
                 </div>
                 <div
-                    className='flex items-center gap-1 text-xs justify-end font-YekanBakh-SemiBold dark:text-gray-500'>
+                    className='flex items-center gap-1 text-xs justify-end font-YekanBakh-SemiBold'>
                                     <span>
                                         <svg className='w-5 h-5'>
                                             <use href='#clock-outline'></use>
@@ -79,7 +79,7 @@ export default function Article(props) {
                                                  src={props.writerImg}
                                                  alt=""/>
                                         </span>
-                        <a className='hover:text-primary transition-colors text-xs font-YekanBakh-Bold text-title dark:text-white dark:hover:text-primary'
+                        <a className='hover:text-primary transition-colors text-xs font-YekanBakh-Bold text-title'
                            href="#">
                             {props.writer}
                         </a>
@@ -90,7 +90,7 @@ export default function Article(props) {
                     </a>
                 </div>
                 <div
-                    className='flex items-center gap-1 text-xs justify-end font-YekanBakh-SemiBold dark:text-gray-500'>
+                    className='flex items-center gap-1 text-xs justify-end font-YekanBakh-SemiBold'>
                                     <span>
                                         <svg className='w-5 h-5'>
                                             <use href='#clock-outline'></use>
