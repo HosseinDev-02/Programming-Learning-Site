@@ -71,4 +71,8 @@
     .session--open > span > svg {
         transform: rotate(180deg);
     }
+
+    .active-tab {
+        background-color: rgb(var(--color-background));
+    }
 }
