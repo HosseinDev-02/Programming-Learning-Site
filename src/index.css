@@ -64,5 +64,11 @@
 }
 
 @layer components {
+    .session--open{
+        color: rgb(var(--color-title));
+    }
 
+    .session--open > span > svg {
+        transform: rotate(180deg);
+    }
 }

@@ -1,8 +1,26 @@
 import FooterTitle from "../Footer/FooterTitle";
 import LikeButton from "../Buttons/LikeButton";
 import PrimaryButton from "../Buttons/PrimaryButton";
+import Box from "./Box";
+import {useState} from "react";
+import Footer from "../Footer/Footer";
+import SectionLinkBtn from "../SectionLinkBtn/SectionLinkBtn";
+
 
 export default function CourseDetail() {
+
+    const [boxes, setBoxes] = useState([
+        {id: 1, icon: '#clock', title: 'مدت دوره', text: '14:53:42'},
+        {id: 2, icon: '#grid-boxes', title: 'تعداد جلسات', text: '99'},
+        {id: 3, icon: '#info', title: 'نوع دوره', text: 'ویژه / نقدی'},
+        {id: 4, icon: '#users', title: 'شرکت کنندگان', text: '132 دانشجو'},
+    ])
+
+    const sessionsMenuHandler = e => {
+        e.currentTarget.classList.toggle('session--open')
+        e.currentTarget.nextElementSibling.classList.toggle('hidden')
+    }
+
     return (
         <section className='py-5'>
             <div className="container">
@@ -22,65 +40,306 @@ export default function CourseDetail() {
                                 دوره پروژه محور React و Next
                             </h1>
                             <p className='text-sm'>
-                                ساخت وبسایت فروشگاهی با React عنوان دوره پروژه محور react در نابغه است که قصد داریم در قالب این دوره react را در قالب پروژه به شما آموزش دهیم.
+                                ساخت وبسایت فروشگاهی با React عنوان دوره پروژه محور react در نابغه است که قصد داریم در
+                                قالب این دوره react را در قالب پروژه به شما آموزش دهیم.
                             </p>
                         </div>
-                    {/*  course detail boxes  */}
+                        {/*  course detail boxes  */}
                         <div className='grid grid-cols-4 mt-5 gap-5'>
-                            <div
-                                className='bg-secondary rounded-2xl flex flex-col items-center justify-center gap-3 border border-border p-3'>
-                                <div className='w-12 h-12 rounded-full bg-background flex items-center justify-center'>
-                                    <span className='text-primary'>
-                                        <svg className='w-5 h-5'>
-                                            <use href='#clock'></use>
-                                        </svg>
-                                    </span>
-                                </div>
-                                <div className='flex flex-col items-center gap-1 font-YekanBakh-Bold'>
-                                    <span className='text-xs'>مدت دوره</span>
-                                    <span className='text-sm text-title'>14:53:45</span>
+                            {
+                                boxes.map(box => (
+                                    <Box key={box.id} {...box}></Box>
+                                ))
+                            }
+                        </div>
+                        {/*  course detail menu  */}
+                        <div className='inline-block bg-secondary border border-border rounded-3xl mt-10 p-1'>
+                            <ul className='inline-flex items-center gap-2'>
+                                <li>
+                                    <button className='flex items-center gap-2 text-sm font-YekanBakh-SemiBold px-4 py-2 rounded-3xl bg-background'>
+                                        <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#edit'></use>
+                                            </svg>
+                                        </span>
+                                        معرفی
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className='flex items-center gap-2 text-sm font-YekanBakh-SemiBold px-4 py-2 rounded-3xl'>
+                                        <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#list'></use>
+                                            </svg>
+                                        </span>
+                                        سرفصل ها
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className='flex items-center gap-2 text-sm font-YekanBakh-SemiBold px-4 py-2 rounded-3xl'>
+                                        <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#comments'></use>
+                                            </svg>
+                                        </span>
+                                        دیدگاه و پرسش
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        {/*  course detail description  */}
+                        <div className='space-y-5 p-5 mt-5'>
+                            <FooterTitle title='معرفی دوره'></FooterTitle>
+                            <p className='text-sm'>
+                                بدون شک در حال حاضر یکی از پرکاربردترین فریمورک‌های جاوا اسکریپتی که می‌توانید در دنیای
+                                وب پیدا بکنید React است. زمانی که یک فریمورک در زمینه‌های مختلف کاربرد داشته باشد نیز در
+                                نهایت باعث خواهد شد که فرصت‌های شغلی بسیار زیادی داشته باشد. اما آیا فکر می‌کنید برای
+                                قبول شدن در یک فرصت شغلی مناسب، تمام موارد لازم را در اختیار دارید؟ اگر حس می‌کنید در
+                                رابطه با این قضیه مطمئن نیستید و شک دارید، بهتر است با این دوره آموزشی همراه باشید.
+                            </p>
+                            <div>
+                                <h2 className='font-YekanBakh-Black mb-3 text-xl text-title'>
+                                    دوره آموزشی پروژه محور react و next
+                                </h2>
+                                <div>
+                                    <img className='w-full rounded-3xl' src="images/Courses/01.jpg" alt=""/>
                                 </div>
                             </div>
-                            <div
-                                className='bg-secondary rounded-2xl flex flex-col items-center justify-center gap-3 border border-border p-3'>
-                                <div className='w-12 h-12 rounded-full bg-background flex items-center justify-center'>
-                                    <span className='text-primary'>
-                                        <svg className='w-5 h-5'>
-                                            <use href='#grid-boxes'></use>
-                                        </svg>
-                                    </span>
-                                </div>
-                                <div className='flex flex-col items-center gap-1 font-YekanBakh-Bold'>
-                                    <span className='text-xs'>تعداد جلسات</span>
-                                    <span className='text-sm text-title'>99</span>
-                                </div>
+                            <p className='text-sm'>
+                                زمانی که شما با موضوعات مختلف یک ابزار آشنایی پیدا کردید، یک نکته مهم که باید در نظر
+                                داشته باشید این است که چگونه با کنار هم قرار دادن ویژگی‌های مختلف خواهید توانست یک پروژه
+                                واقعی را ایجاد کنید. این موضوع دقیقا هدفی است که یک آموزش پروژه محور دنبال می‌کند. در یک آموزش پروژه محور در ابتدا شما به صورت مستقیم یا غیر مستقیم با مفاهیم اولیه آشنا شده و سپس فرایند یادگیری موضوعات جدید را در خلال ایجاد پروژه شروع خواهید کرد.
+                            </p>
+                            <p className='text-sm'>
+                                منظور از غیر مستقیم بودن یادگیری مفاهیم اولیه این است که در برخی از وبسایت‌های آموزشی از جمله وبسایت آموزشی نابغه ما دوره‌های مقدماتی را پیشتر ضبط کرده و از شما انتظار داریم که ابتدا آن‌ها را به خوبی نگاه کرده و یاد گرفته باشید. به همین دلیل است که ما در پایان نوشته‌های مربوط به هر دوره یک قسمت اختصاصی به نام «پیش‌نیازها» را ایجاد کرده و در آنجا خواهیم گفت که برای یادگیری این دوره آموزشی نیاز خواهید داشت چه پیش‌نیازهایی را در ابتدا طی کنید.
+                            </p>
+                            {/*  course structure  */}
+                            <div>
+                                <h3 className='text-lg text-title font-YekanBakh-Black mb-3'>
+                                    ساختار دوره آموزشی پروژه محور React
+                                </h3>
+                                <p className='text-sm'>
+                                    در ساختار این دوره مانند دوره‌های آموزشی دیگر، ما از یک سرفصل‌بندی جامع و دقیق
+                                    استفاده خواهیم کرد. در ادامه ما سعی می‌کنیم این ساختار را به صورت تمام و کمال به شما
+                                    معرفی کنیم. هدف از انجام این کار نیز آشنایی هر چه بیشتر شما با این دوره آموزشی است.
+                                    در اولین دوره این دوره نیز از ساختار دوره صحبت‌های بسیاری شده و می‌توانید از آن نیز
+                                    استفاده کنید.
+                                </p>
                             </div>
-                            <div
-                                className='bg-secondary rounded-2xl flex flex-col items-center justify-center gap-3 border border-border p-3'>
-                                <div className='w-12 h-12 rounded-full bg-background flex items-center justify-center'>
-                                    <span className='text-primary'>
+                        </div>
+                        {/*  course detail sessions  */}
+                        <div>
+                            <FooterTitle title='سرفصل ها'></FooterTitle>
+                            <div className='mt-5 space-y-3'>
+                                <div>
+                                    <button onClick={sessionsMenuHandler}
+                                        className='flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors'>
+                                        <div className='flex items-center gap-6'>
+                                            <span className='text-title'>فصل اول</span>
+                                            <span>معرفی</span>
+                                        </div>
+                                        <span>
                                         <svg className='w-5 h-5'>
-                                            <use href='#info'></use>
+                                            <use href='#chevron-down'></use>
                                         </svg>
                                     </span>
+                                    </button>
+                                    <div className='py-3 mx-8 hidden'>
+                                        <ul className='flex flex-col gap-1'>
+                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-5'>
+                                                    <span>1</span>
+                                                    <a href='#'
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>معرفی
+                                                        دوره</a>
+                                                </div>
+                                                <div className='flex items-center gap-5'>
+                                                    <div className='flex items-center gap-1'>
+                                                        <span>03:54</span>
+                                                        <span>
+                                                        <svg className='w-4 h-4'>
+                                                            <use href='#clock-outline'></use>
+                                                        </svg>
+                                                    </span>
+                                                    </div>
+                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
+                                                                    text='مشاهده'
+                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                </div>
+                                            </li>
+                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-5'>
+                                                    <span>1</span>
+                                                    <a href='#'
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                        پیش نیاز مشاهده این دوره
+                                                    </a>
+                                                </div>
+                                                <div className='flex items-center gap-5'>
+                                                    <div className='flex items-center gap-1'>
+                                                        <span>03:54</span>
+                                                        <span>
+                                                        <svg className='w-4 h-4'>
+                                                            <use href='#clock-outline'></use>
+                                                        </svg>
+                                                    </span>
+                                                    </div>
+                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
+                                                                    text='مشاهده'
+                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                </div>
+                                            </li>
+                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-5'>
+                                                    <span>1</span>
+                                                    <a href='#'
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                        چرا باید این دوره را مشاهده کنیم؟
+                                                    </a>
+                                                </div>
+                                                <div className='flex items-center gap-5'>
+                                                    <div className='flex items-center gap-1'>
+                                                        <span>03:54</span>
+                                                        <span>
+                                                        <svg className='w-4 h-4'>
+                                                            <use href='#clock-outline'></use>
+                                                        </svg>
+                                                    </span>
+                                                    </div>
+                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
+                                                                    text='مشاهده'
+                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                </div>
+                                            </li>
+                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-5'>
+                                                    <span>1</span>
+                                                    <a href='#'
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                        در این پروژه از typescript هم استفاده می‌شود
+                                                    </a>
+                                                </div>
+                                                <div className='flex items-center gap-5'>
+                                                    <div className='flex items-center gap-1'>
+                                                        <span>03:54</span>
+                                                        <span>
+                                                        <svg className='w-4 h-4'>
+                                                            <use href='#clock-outline'></use>
+                                                        </svg>
+                                                    </span>
+                                                    </div>
+                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
+                                                                    text='مشاهده'
+                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div className='flex flex-col items-center gap-1 font-YekanBakh-Bold'>
-                                    <span className='text-xs'>نوع دوره</span>
-                                    <span className='text-sm text-title'>ویژه / نقدی</span>
-                                </div>
-                            </div>
-                            <div
-                                className='bg-secondary rounded-2xl flex flex-col items-center justify-center gap-3 border border-border p-3'>
-                                <div className='w-12 h-12 rounded-full bg-background flex items-center justify-center'>
-                                    <span className='text-primary'>
+                                <div>
+                                    <button onClick={sessionsMenuHandler}
+                                        className='flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors'>
+                                        <div className='flex items-center gap-6'>
+                                            <span className='text-title'>فصل دوم</span>
+                                            <span>پیاده سازی ساختار پروژه</span>
+                                        </div>
+                                        <span>
                                         <svg className='w-5 h-5'>
-                                            <use href='#users'></use>
+                                            <use href='#chevron-down'></use>
                                         </svg>
                                     </span>
-                                </div>
-                                <div className='flex flex-col items-center gap-1 font-YekanBakh-Bold'>
-                                    <span className='text-xs'>شرکت کنندگان</span>
-                                    <span className='text-sm text-title'>132 دانشجو</span>
+                                    </button>
+                                    <div className='py-3 mx-8 hidden'>
+                                        <ul className='flex flex-col gap-1'>
+                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-5'>
+                                                    <span>1</span>
+                                                    <a href='#'
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>معرفی
+                                                        دوره</a>
+                                                </div>
+                                                <div className='flex items-center gap-5'>
+                                                    <div className='flex items-center gap-1'>
+                                                        <span>03:54</span>
+                                                        <span>
+                                                        <svg className='w-4 h-4'>
+                                                            <use href='#clock-outline'></use>
+                                                        </svg>
+                                                    </span>
+                                                    </div>
+                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
+                                                                    text='مشاهده'
+                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                </div>
+                                            </li>
+                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-5'>
+                                                    <span>1</span>
+                                                    <a href='#'
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                        پیش نیاز مشاهده این دوره
+                                                    </a>
+                                                </div>
+                                                <div className='flex items-center gap-5'>
+                                                    <div className='flex items-center gap-1'>
+                                                        <span>03:54</span>
+                                                        <span>
+                                                        <svg className='w-4 h-4'>
+                                                            <use href='#clock-outline'></use>
+                                                        </svg>
+                                                    </span>
+                                                    </div>
+                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
+                                                                    text='مشاهده'
+                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                </div>
+                                            </li>
+                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-5'>
+                                                    <span>1</span>
+                                                    <a href='#'
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                        چرا باید این دوره را مشاهده کنیم؟
+                                                    </a>
+                                                </div>
+                                                <div className='flex items-center gap-5'>
+                                                    <div className='flex items-center gap-1'>
+                                                        <span>03:54</span>
+                                                        <span>
+                                                        <svg className='w-4 h-4'>
+                                                            <use href='#clock-outline'></use>
+                                                        </svg>
+                                                    </span>
+                                                    </div>
+                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
+                                                                    text='مشاهده'
+                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                </div>
+                                            </li>
+                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-5'>
+                                                    <span>1</span>
+                                                    <a href='#'
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                        در این پروژه از typescript هم استفاده می‌شود
+                                                    </a>
+                                                </div>
+                                                <div className='flex items-center gap-5'>
+                                                    <div className='flex items-center gap-1'>
+                                                        <span>03:54</span>
+                                                        <span>
+                                                        <svg className='w-4 h-4'>
+                                                            <use href='#clock-outline'></use>
+                                                        </svg>
+                                                    </span>
+                                                    </div>
+                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
+                                                                    text='مشاهده'
+                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
