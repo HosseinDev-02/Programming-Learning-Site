@@ -74,5 +74,6 @@
 
     .active-tab {
         background-color: rgb(var(--color-background));
+        color: rgb(var(--color-title));
     }
 }

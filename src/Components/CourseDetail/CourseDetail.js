@@ -32,9 +32,9 @@ export default function CourseDetail() {
     return (
         <section className='py-5'>
             <div className="container">
-                <div className='flex items-start gap-5'>
+                <div className='flex md:flex-row flex-col md:items-start gap-5'>
                     {/*  course detail right side  */}
-                    <div className='w-8/12'>
+                    <div className='md:w-8/12 pb-5'>
                         {/*  course image  */}
                         <div>
                             <img className='w-full rounded-3xl' src="images/Courses/01.jpg" alt=""/>
@@ -53,7 +53,7 @@ export default function CourseDetail() {
                             </p>
                         </div>
                         {/*  course detail boxes  */}
-                        <div className='grid grid-cols-4 mt-5 gap-5'>
+                        <div className='grid grid-cols-2 lg:grid-cols-4 mt-5 gap-5'>
                             {
                                 boxes.map(box => (
                                     <Box key={box.id} {...box}></Box>
@@ -61,36 +61,46 @@ export default function CourseDetail() {
                             }
                         </div>
                         {/*  course detail menu  */}
-                        <div className='inline-block bg-secondary border border-border rounded-3xl mt-10 p-1 sticky top-24'>
+                        <div
+                            className='block md:inline-block bg-secondary border border-border rounded-3xl mt-10 p-1 z-10 sticky top-24 overflow-auto'>
                             <ul className='inline-flex items-center gap-2'>
                                 <li>
-                                    <button data-type='tabOne' onClick={tabViewHandler} className='flex items-center gap-2 text-sm font-YekanBakh-SemiBold px-4 py-2 rounded-3xl active-tab'>
+                                    <button data-type='tabOne' onClick={tabViewHandler}
+                                            className='flex items-center gap-2 text-sm font-YekanBakh-SemiBold px-4 py-2 rounded-3xl active-tab'>
                                         <span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#edit'></use>
                                             </svg>
                                         </span>
-                                        معرفی
+                                        <span className='text-nowrap'>
+                                            معرفی
+                                        </span>
                                     </button>
                                 </li>
                                 <li>
-                                    <button data-type='tabTwo' onClick={tabViewHandler} className='flex items-center gap-2 text-sm font-YekanBakh-SemiBold px-4 py-2 rounded-3xl'>
+                                    <button data-type='tabTwo' onClick={tabViewHandler}
+                                            className='flex items-center gap-2 text-sm font-YekanBakh-SemiBold px-4 py-2 rounded-3xl'>
                                         <span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#list'></use>
                                             </svg>
                                         </span>
-                                        سرفصل ها
+                                        <span className='text-nowrap'>
+                                            سرفصل ها
+                                        </span>
                                     </button>
                                 </li>
                                 <li>
-                                    <button data-type='tabThree' onClick={tabViewHandler} className='flex items-center gap-2 text-sm font-YekanBakh-SemiBold px-4 py-2 rounded-3xl'>
+                                    <button data-type='tabThree' onClick={tabViewHandler}
+                                            className='flex items-center gap-2 text-sm font-YekanBakh-SemiBold px-4 py-2 rounded-3xl'>
                                         <span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#comments'></use>
                                             </svg>
                                         </span>
-                                        دیدگاه و پرسش
+                                        <span className='text-nowrap'>
+                                            دیدگاه و پرسش
+                                        </span>
                                     </button>
                                 </li>
                             </ul>
@@ -116,10 +126,17 @@ export default function CourseDetail() {
                             <p className='text-sm'>
                                 زمانی که شما با موضوعات مختلف یک ابزار آشنایی پیدا کردید، یک نکته مهم که باید در نظر
                                 داشته باشید این است که چگونه با کنار هم قرار دادن ویژگی‌های مختلف خواهید توانست یک پروژه
-                                واقعی را ایجاد کنید. این موضوع دقیقا هدفی است که یک آموزش پروژه محور دنبال می‌کند. در یک آموزش پروژه محور در ابتدا شما به صورت مستقیم یا غیر مستقیم با مفاهیم اولیه آشنا شده و سپس فرایند یادگیری موضوعات جدید را در خلال ایجاد پروژه شروع خواهید کرد.
+                                واقعی را ایجاد کنید. این موضوع دقیقا هدفی است که یک آموزش پروژه محور دنبال می‌کند. در یک
+                                آموزش پروژه محور در ابتدا شما به صورت مستقیم یا غیر مستقیم با مفاهیم اولیه آشنا شده و
+                                سپس فرایند یادگیری موضوعات جدید را در خلال ایجاد پروژه شروع خواهید کرد.
                             </p>
                             <p className='text-sm'>
-                                منظور از غیر مستقیم بودن یادگیری مفاهیم اولیه این است که در برخی از وبسایت‌های آموزشی از جمله وبسایت آموزشی نابغه ما دوره‌های مقدماتی را پیشتر ضبط کرده و از شما انتظار داریم که ابتدا آن‌ها را به خوبی نگاه کرده و یاد گرفته باشید. به همین دلیل است که ما در پایان نوشته‌های مربوط به هر دوره یک قسمت اختصاصی به نام «پیش‌نیازها» را ایجاد کرده و در آنجا خواهیم گفت که برای یادگیری این دوره آموزشی نیاز خواهید داشت چه پیش‌نیازهایی را در ابتدا طی کنید.
+                                منظور از غیر مستقیم بودن یادگیری مفاهیم اولیه این است که در برخی از وبسایت‌های آموزشی از
+                                جمله وبسایت آموزشی نابغه ما دوره‌های مقدماتی را پیشتر ضبط کرده و از شما انتظار داریم که
+                                ابتدا آن‌ها را به خوبی نگاه کرده و یاد گرفته باشید. به همین دلیل است که ما در پایان
+                                نوشته‌های مربوط به هر دوره یک قسمت اختصاصی به نام «پیش‌نیازها» را ایجاد کرده و در آنجا
+                                خواهیم گفت که برای یادگیری این دوره آموزشی نیاز خواهید داشت چه پیش‌نیازهایی را در ابتدا
+                                طی کنید.
                             </p>
                             {/*  course structure  */}
                             <div>
@@ -141,7 +158,7 @@ export default function CourseDetail() {
                             <div className='mt-5 space-y-3'>
                                 <div>
                                     <button onClick={sessionsMenuHandler}
-                                        className='flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors'>
+                                            className='flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors'>
                                         <div className='flex items-center gap-6'>
                                             <span className='text-title'>فصل اول</span>
                                             <span>معرفی</span>
@@ -154,14 +171,14 @@ export default function CourseDetail() {
                                     </button>
                                     <div className='py-3 mx-8 hidden'>
                                         <ul className='flex flex-col gap-1'>
-                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
-                                                <div className='flex items-center gap-5'>
+                                            <li className='flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-2 md:gap-5'>
                                                     <span>1</span>
                                                     <a href='#'
-                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>معرفی
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1'>معرفی
                                                         دوره</a>
                                                 </div>
-                                                <div className='flex items-center gap-5'>
+                                                <div className='flex justify-end md:justify-start items-center gap-5'>
                                                     <div className='flex items-center gap-1'>
                                                         <span>03:54</span>
                                                         <span>
@@ -170,20 +187,29 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                     </div>
-                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
-                                                                    text='مشاهده'
-                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                    <a
+                                                       className='flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0'
+                                                       href="#">
+                                                            <span className='font-YekanBakh-SemiBold'>
+                                                                مشاهده
+                                                            </span>
+                                                            <span>
+                                                                <svg className='w-5 h-5'>
+                                                                    <use href='#arrow-up-left'></use>
+                                                                </svg>
+                                                            </span>
+                                                    </a>
                                                 </div>
                                             </li>
-                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
-                                                <div className='flex items-center gap-5'>
+                                            <li className='flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-2 md:gap-5'>
                                                     <span>1</span>
                                                     <a href='#'
-                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1'>
                                                         پیش نیاز مشاهده این دوره
                                                     </a>
                                                 </div>
-                                                <div className='flex items-center gap-5'>
+                                                <div className='flex justify-end md:justify-start items-center gap-5'>
                                                     <div className='flex items-center gap-1'>
                                                         <span>03:54</span>
                                                         <span>
@@ -192,20 +218,29 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                     </div>
-                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
-                                                                    text='مشاهده'
-                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                    <a
+                                                        className='flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0'
+                                                        href="#">
+                                                            <span className='font-YekanBakh-SemiBold'>
+                                                                مشاهده
+                                                            </span>
+                                                        <span>
+                                                                <svg className='w-5 h-5'>
+                                                                    <use href='#arrow-up-left'></use>
+                                                                </svg>
+                                                            </span>
+                                                    </a>
                                                 </div>
                                             </li>
-                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
-                                                <div className='flex items-center gap-5'>
+                                            <li className='flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-2 md:gap-5'>
                                                     <span>1</span>
                                                     <a href='#'
-                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1'>
                                                         چرا باید این دوره را مشاهده کنیم؟
                                                     </a>
                                                 </div>
-                                                <div className='flex items-center gap-5'>
+                                                <div className='flex justify-end md:justify-start items-center gap-5'>
                                                     <div className='flex items-center gap-1'>
                                                         <span>03:54</span>
                                                         <span>
@@ -214,20 +249,29 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                     </div>
-                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
-                                                                    text='مشاهده'
-                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                    <a
+                                                        className='flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0'
+                                                        href="#">
+                                                            <span className='font-YekanBakh-SemiBold'>
+                                                                مشاهده
+                                                            </span>
+                                                        <span>
+                                                                <svg className='w-5 h-5'>
+                                                                    <use href='#arrow-up-left'></use>
+                                                                </svg>
+                                                            </span>
+                                                    </a>
                                                 </div>
                                             </li>
-                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
-                                                <div className='flex items-center gap-5'>
+                                            <li className='flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-2 md:gap-5'>
                                                     <span>1</span>
                                                     <a href='#'
-                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1'>
                                                         در این پروژه از typescript هم استفاده می‌شود
                                                     </a>
                                                 </div>
-                                                <div className='flex items-center gap-5'>
+                                                <div className='flex justify-end md:justify-start items-center gap-5'>
                                                     <div className='flex items-center gap-1'>
                                                         <span>03:54</span>
                                                         <span>
@@ -236,9 +280,18 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                     </div>
-                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
-                                                                    text='مشاهده'
-                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                    <a
+                                                        className='flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0'
+                                                        href="#">
+                                                            <span className='font-YekanBakh-SemiBold'>
+                                                                مشاهده
+                                                            </span>
+                                                        <span>
+                                                                <svg className='w-5 h-5'>
+                                                                    <use href='#arrow-up-left'></use>
+                                                                </svg>
+                                                            </span>
+                                                    </a>
                                                 </div>
                                             </li>
                                         </ul>
@@ -246,7 +299,7 @@ export default function CourseDetail() {
                                 </div>
                                 <div>
                                     <button onClick={sessionsMenuHandler}
-                                        className='flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors'>
+                                            className='flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors'>
                                         <div className='flex items-center gap-6'>
                                             <span className='text-title'>فصل دوم</span>
                                             <span>پیاده سازی ساختار پروژه</span>
@@ -259,14 +312,14 @@ export default function CourseDetail() {
                                     </button>
                                     <div className='py-3 mx-8 hidden'>
                                         <ul className='flex flex-col gap-1'>
-                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
-                                                <div className='flex items-center gap-5'>
+                                            <li className='flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-2 md:gap-5'>
                                                     <span>1</span>
                                                     <a href='#'
-                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>معرفی
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1'>معرفی
                                                         دوره</a>
                                                 </div>
-                                                <div className='flex items-center gap-5'>
+                                                <div className='flex justify-end md:justify-start items-center gap-5'>
                                                     <div className='flex items-center gap-1'>
                                                         <span>03:54</span>
                                                         <span>
@@ -275,20 +328,29 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                     </div>
-                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
-                                                                    text='مشاهده'
-                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                    <a
+                                                        className='flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0'
+                                                        href="#">
+                                                            <span className='font-YekanBakh-SemiBold'>
+                                                                مشاهده
+                                                            </span>
+                                                        <span>
+                                                                <svg className='w-5 h-5'>
+                                                                    <use href='#arrow-up-left'></use>
+                                                                </svg>
+                                                            </span>
+                                                    </a>
                                                 </div>
                                             </li>
-                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
-                                                <div className='flex items-center gap-5'>
+                                            <li className='flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-2 md:gap-5'>
                                                     <span>1</span>
                                                     <a href='#'
-                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1'>
                                                         پیش نیاز مشاهده این دوره
                                                     </a>
                                                 </div>
-                                                <div className='flex items-center gap-5'>
+                                                <div className='flex justify-end md:justify-start items-center gap-5'>
                                                     <div className='flex items-center gap-1'>
                                                         <span>03:54</span>
                                                         <span>
@@ -297,20 +359,29 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                     </div>
-                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
-                                                                    text='مشاهده'
-                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                    <a
+                                                        className='flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0'
+                                                        href="#">
+                                                            <span className='font-YekanBakh-SemiBold'>
+                                                                مشاهده
+                                                            </span>
+                                                        <span>
+                                                                <svg className='w-5 h-5'>
+                                                                    <use href='#arrow-up-left'></use>
+                                                                </svg>
+                                                            </span>
+                                                    </a>
                                                 </div>
                                             </li>
-                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
-                                                <div className='flex items-center gap-5'>
+                                            <li className='flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-2 md:gap-5'>
                                                     <span>1</span>
                                                     <a href='#'
-                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1'>
                                                         چرا باید این دوره را مشاهده کنیم؟
                                                     </a>
                                                 </div>
-                                                <div className='flex items-center gap-5'>
+                                                <div className='flex justify-end md:justify-start items-center gap-5'>
                                                     <div className='flex items-center gap-1'>
                                                         <span>03:54</span>
                                                         <span>
@@ -319,20 +390,29 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                     </div>
-                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
-                                                                    text='مشاهده'
-                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                    <a
+                                                        className='flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0'
+                                                        href="#">
+                                                            <span className='font-YekanBakh-SemiBold'>
+                                                                مشاهده
+                                                            </span>
+                                                        <span>
+                                                                <svg className='w-5 h-5'>
+                                                                    <use href='#arrow-up-left'></use>
+                                                                </svg>
+                                                            </span>
+                                                    </a>
                                                 </div>
                                             </li>
-                                            <li className='flex items-center justify-between border border-border px-3 py-1 rounded-xl text-xs'>
-                                                <div className='flex items-center gap-5'>
+                                            <li className='flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs'>
+                                                <div className='flex items-center gap-2 md:gap-5'>
                                                     <span>1</span>
                                                     <a href='#'
-                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary'>
+                                                       className='text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1'>
                                                         در این پروژه از typescript هم استفاده می‌شود
                                                     </a>
                                                 </div>
-                                                <div className='flex items-center gap-5'>
+                                                <div className='flex justify-end md:justify-start items-center gap-5'>
                                                     <div className='flex items-center gap-1'>
                                                         <span>03:54</span>
                                                         <span>
@@ -341,9 +421,18 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                     </div>
-                                                    <SectionLinkBtn style={{fontSize: '12px', height: '36px', color: 'rgb(var(--color-caption))'}}
-                                                                    text='مشاهده'
-                                                                    icon='#arrow-up-left'></SectionLinkBtn>
+                                                    <a
+                                                        className='flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0'
+                                                        href="#">
+                                                            <span className='font-YekanBakh-SemiBold'>
+                                                                مشاهده
+                                                            </span>
+                                                        <span>
+                                                                <svg className='w-5 h-5'>
+                                                                    <use href='#arrow-up-left'></use>
+                                                                </svg>
+                                                            </span>
+                                                    </a>
                                                 </div>
                                             </li>
                                         </ul>
@@ -352,31 +441,36 @@ export default function CourseDetail() {
                             </div>
                         </div>
                         {/*  course detail comments  */}
-                        <div id='tabThree' className='pt-8'>
+                        <div id='tabThree' className='pt-8 pb-5'>
                             <FooterTitle title='دیدگاه و پرسش'></FooterTitle>
                             <div className='p-5 rounded-3xl my-5 border border-border'>
                                 <FooterTitle fontSize='12px' title='ارسال دیدگاه یا پرسش'></FooterTitle>
-                                <div className='flex items-center justify-between my-5'>
-                                    <div className='flex items-center gap-3'>
+                                <div className='flex items-end md:items-center flex-wrap gap-y-5 justify-between my-5'>
+                                    <div className='flex md:flex-row flex-col items-start md:items-center gap-3'>
                                         <UserInfo text='دوهفته پیش' title='حسین رستمی'></UserInfo>
-                                        <span className='bg-secondary w-1 h-1 rounded-full'></span>
-                                        <span className='text-xs'>
+                                        <div className='flex items-center gap-3'>
+                                            <span className='bg-secondary w-1 h-1 rounded-full'></span>
+                                            <span className='text-xs'>
                                             در پاسخ به
                                         </span>
-                                        <span className='bg-secondary w-1 h-1 rounded-full'></span>
-                                        <span className='text-sm font-YekanBakh-SemiBold text-title'>
+                                            <span className='bg-secondary w-1 h-1 rounded-full'></span>
+                                            <span className='text-sm font-YekanBakh-SemiBold text-title'>
                                             حسین رستمی
                                         </span>
+                                        </div>
                                     </div>
                                     <button className='text-red-500 font-YekanBakh-SemiBold text-sm'>
                                         لغو پاسخ
                                     </button>
                                 </div>
                                 <form className='flex flex-col items-end gap-5' action="#">
-                                    <textarea rows='10' placeholder='متن مورد نظر خود را وارد کنید ...' className='p-5 bg-secondary rounded-xl text-sm text-title overflow-hidden w-full outline-none'>
+                                    <textarea rows='10' placeholder='متن مورد نظر خود را وارد کنید ...'
+                                              className='p-5 bg-secondary rounded-xl text-sm text-title overflow-hidden w-full outline-none'>
 
                                     </textarea>
-                                    <PrimaryButton style={{display: 'inline-flex', width: 'auto', padding: '0 16px'}} title='ثبت دیدگاه یا پرسش' icon='arrow-up-left' type='submit'></PrimaryButton>
+                                    <PrimaryButton style={{display: 'inline-flex', width: 'auto', padding: '0 16px'}}
+                                                   title='ثبت دیدگاه یا پرسش' icon='arrow-up-left'
+                                                   type='submit'></PrimaryButton>
                                 </form>
                             </div>
                             <div>
@@ -398,7 +492,8 @@ export default function CourseDetail() {
                                         بیشتر مد نظرمه)
                                     </p>
                                 </div>
-                                <div className='pr-16 space-y-3 relative before:w-px before:bg-border before:content-[""] before:absolute before:h-[calc(100%-24px)] before:right-6 before:-top-3 after:bg-border after:content-[""] after:h-px after:w-10 after:right-6 after:absolute after:bottom-9'>
+                                <div
+                                    className='pr-16 space-y-3 relative before:w-px before:bg-border before:content-[""] before:absolute before:h-[calc(100%-24px)] before:right-6 before:-top-3 after:bg-border after:content-[""] after:h-px after:w-10 after:right-6 after:absolute after:bottom-9'>
                                     <div className='p-5 rounded-2xl border border-border'>
                                         <div className='flex items-center justify-between pb-4 border-b border-border'>
                                             <UserInfo text='2 هفته پیش' title='حسین رستمی'></UserInfo>
@@ -444,7 +539,7 @@ export default function CourseDetail() {
                         </div>
                     </div>
                     {/*  course detail left side  */}
-                    <div className='w-4/12 space-y-8 sticky top-24'>
+                    <div className='md:w-4/12 space-y-8 md:sticky md:top-24'>
                         <div className='bg-gradient-to-b from-secondary to-background rounded-2xl px-5 pb-5'>
                             <div className='bg-background rounded-bl-2xl rounded-br-2xl p-5 mb-5'>
                                 <FooterTitle title='نام نویسی در دوره'></FooterTitle>
@@ -459,7 +554,7 @@ export default function CourseDetail() {
                                 </span>
                                     <div className='flex items-center gap-1'>
                                         <span className='text-xl text-title font-YekanBakh-Black'>1,070,000</span>
-                                        <span className='text-xs'>تومان</span>
+                                        <span className='text-xs hidden lg:inline-block'>تومان</span>
                                     </div>
                                 </div>
                             </div>
