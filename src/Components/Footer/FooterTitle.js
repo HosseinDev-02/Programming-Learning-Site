@@ -5,7 +5,7 @@ export default function FooterTitle(props) {
                 <span className='w-1 h-1 rounded-full bg-black dark:bg-white'></span>
                 <span className='w-2 h-2 rounded-full bg-black dark:bg-white'></span>
             </div>
-            <h4>
+            <h4 style={{fontSize: props.fontSize}}>
                 {props.title}
             </h4>
         </div>
