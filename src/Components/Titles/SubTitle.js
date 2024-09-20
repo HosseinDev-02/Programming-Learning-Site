@@ -1,4 +1,4 @@
-export default function FooterTitle(props) {
+export default function SubTitle(props) {
     return (
         <div className='text-title font-YekanBakh-Black flex items-center gap-3'>
             <div className='flex items-center gap-1'>

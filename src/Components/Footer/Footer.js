@@ -1,7 +1,7 @@
 import Logo from "../Logo/Logo";
-import SectionLinkBtn from "../SectionLinkBtn/SectionLinkBtn";
+import SectionLinkBtn from "../Buttons/SectionLinkBtn";
 import FooterIcon from "./FooterIcon";
-import FooterTitle from "./FooterTitle";
+import SubTitle from "../Titles/SubTitle";
 import SocialMedia from "./SocialMedia";
 
 
@@ -51,7 +51,7 @@ export default function Footer() {
                         <div className='flex items-start flex-wrap lg:flex-nowrap gap-10'>
                             {/*  footer content body right side  */}
                             <div className='bg-secondary rounded-3xl p-4 md:p-8 space-y-5 lg:w-5/12 w-full shrink-0'>
-                                <FooterTitle title='دربــــاره'></FooterTitle>
+                                <SubTitle title='دربــــاره'></SubTitle>
                                 <p className='font-YekanBakh-SemiBold text-sm'>
                                     نابغه یکی از پرتلاش‌ترین و بروزترین وبسایت های آموزشی در سطح ایران
                                     است که همیشه تلاش کرده تا بتواند جدیدترین و بروزترین مقالات و
@@ -63,7 +63,7 @@ export default function Footer() {
                             <div
                                 className='lg:w-7/12 w-full flex flex-wrap gap-10 justify-between lg:grid lg:grid-cols-5'>
                                 <div className='space-y-5 shrink-0 lg:col-span-2'>
-                                    <FooterTitle title='لینک های مفید'></FooterTitle>
+                                    <SubTitle title='لینک های مفید'></SubTitle>
                                     <ul className='flex flex-col gap-1'>
                                         <li>
                                             <a className='font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary'
@@ -85,7 +85,7 @@ export default function Footer() {
                                 </div>
                                 {/*  footer content body left side  */}
                                 <div className='lg:col-span-3 space-y-5'>
-                                    <FooterTitle title='خبرنامه'></FooterTitle>
+                                    <SubTitle title='خبرنامه'></SubTitle>
                                     <p className='text-sm'>
                                         برای اطلاع از جدیدترین اخبار و جشنوراه‌های تخفیفی نابغه ایمیل خود را وارد کنید.
                                     </p>
@@ -107,7 +107,7 @@ export default function Footer() {
                                             ثبت ایمیل
                                         </button>
                                     </form>
-                                    <FooterTitle title='شبکه های اجتماعی'></FooterTitle>
+                                    <SubTitle title='شبکه های اجتماعی'></SubTitle>
                                     <div className='flex items-center gap-5'>
                                         <SocialMedia icon='#instagram'></SocialMedia>
                                         <SocialMedia icon='#telegram'></SocialMedia>

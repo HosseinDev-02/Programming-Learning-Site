@@ -1,10 +1,9 @@
-import FooterTitle from "../Footer/FooterTitle";
+import SubTitle from "../Titles/SubTitle";
 import LikeButton from "../Buttons/LikeButton";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import Box from "./Box";
 import {useState} from "react";
-import Footer from "../Footer/Footer";
-import SectionLinkBtn from "../SectionLinkBtn/SectionLinkBtn";
+import SectionLinkBtn from "../Buttons/SectionLinkBtn";
 import UserInfo from "../UserInfo/UserInfo";
 
 
@@ -107,7 +106,7 @@ export default function CourseDetail() {
                         </div>
                         {/*  course detail description  */}
                         <div id='tabOne' className='space-y-5 p-5 mt-5'>
-                            <FooterTitle title='معرفی دوره'></FooterTitle>
+                            <SubTitle title='معرفی دوره'></SubTitle>
                             <p className='text-sm'>
                                 بدون شک در حال حاضر یکی از پرکاربردترین فریمورک‌های جاوا اسکریپتی که می‌توانید در دنیای
                                 وب پیدا بکنید React است. زمانی که یک فریمورک در زمینه‌های مختلف کاربرد داشته باشد نیز در
@@ -154,7 +153,7 @@ export default function CourseDetail() {
                         </div>
                         {/*  course detail sessions  */}
                         <div id='tabTwo'>
-                            <FooterTitle title='سرفصل ها'></FooterTitle>
+                            <SubTitle title='سرفصل ها'></SubTitle>
                             <div className='mt-5 space-y-3'>
                                 <div>
                                     <button onClick={sessionsMenuHandler}
@@ -442,9 +441,9 @@ export default function CourseDetail() {
                         </div>
                         {/*  course detail comments  */}
                         <div id='tabThree' className='pt-8 pb-5'>
-                            <FooterTitle title='دیدگاه و پرسش'></FooterTitle>
+                            <SubTitle title='دیدگاه و پرسش'></SubTitle>
                             <div className='p-5 rounded-3xl my-5 border border-border'>
-                                <FooterTitle fontSize='12px' title='ارسال دیدگاه یا پرسش'></FooterTitle>
+                                <SubTitle fontSize='12px' title='ارسال دیدگاه یا پرسش'></SubTitle>
                                 <div className='flex items-end md:items-center flex-wrap gap-y-5 justify-between my-5'>
                                     <div className='flex md:flex-row flex-col items-start md:items-center gap-3'>
                                         <UserInfo text='دوهفته پیش' title='حسین رستمی'></UserInfo>
@@ -542,7 +541,7 @@ export default function CourseDetail() {
                     <div className='md:w-4/12 space-y-8 md:sticky md:top-24'>
                         <div className='bg-gradient-to-b from-secondary to-background rounded-2xl px-5 pb-5'>
                             <div className='bg-background rounded-bl-2xl rounded-br-2xl p-5 mb-5'>
-                                <FooterTitle title='نام نویسی در دوره'></FooterTitle>
+                                <SubTitle title='نام نویسی در دوره'></SubTitle>
                             </div>
                             <div className='flex items-center justify-between'>
                             <span className='font-YekanBakh-Bold'>
@@ -564,7 +563,7 @@ export default function CourseDetail() {
                             </div>
                         </div>
                         <div className='space-y-3'>
-                            <FooterTitle fontSize='14px' title='مدرس دوره'></FooterTitle>
+                            <SubTitle fontSize='14px' title='مدرس دوره'></SubTitle>
                             <div>
                                 <UserInfo text='دیدن رزومه' title='حسین رستمی'></UserInfo>
                                 <div className='p-5 bg-secondary rounded-tl-2xl rounded-bl-2xl rounded-br-2xl mt-3'>

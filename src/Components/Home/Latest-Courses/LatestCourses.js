@@ -1,5 +1,5 @@
-import SectionTitle from "../../SectionTitle/SectionTitle";
-import SectionLinkBtn from "../../SectionLinkBtn/SectionLinkBtn";
+import SectionTitle from "../../Titles/SectionTitle";
+import SectionLinkBtn from "../../Buttons/SectionLinkBtn";
 import Course from "./Course";
 import {useState} from "react";
 import data from "../../../data";

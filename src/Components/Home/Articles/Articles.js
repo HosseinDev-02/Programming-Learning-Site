@@ -1,4 +1,4 @@
-import SectionTitle from "../../SectionTitle/SectionTitle";
+import SectionTitle from "../../Titles/SectionTitle";
 import Article from "./Article";
 import {useState} from "react";
 
