@@ -1,3 +1,5 @@
+import PrimaryButton from "../../Buttons/PrimaryButton";
+import LikeButton from "../../Buttons/LikeButton";
 export default function Course(props) {
     return (
         <div>
@@ -102,24 +104,8 @@ export default function Course(props) {
                     }
                 </div>
                 <div className='flex items-center gap-3 mt-3'>
-                    <a className='flex items-center justify-center gap-2 bg-primary rounded-full text-white w-full h-11 transition-opacity hover:opacity-80'
-                       href="#">
-                                    <span className='font-YekanBakh-SemiBold text-sm'>
-                                        مشاهده دوره
-                                    </span>
-                        <span>
-                                        <svg className='w-5 h-5'>
-                                            <use href='#arrow-up-left'></use>
-                                        </svg>
-                                    </span>
-                    </a>
-                    <button
-                        className='flex items-center justify-center w-11 h-11 rounded-full bg-secondary shrink-0 hover:text-red-500 transition-colors'
-                        type='button'>
-                        <svg className='w-5 h-5'>
-                            <use href='#heart'></use>
-                        </svg>
-                    </button>
+                    <PrimaryButton href='#' title='مشاهده دوره'></PrimaryButton>
+                    <LikeButton></LikeButton>
                 </div>
             </div>
         </div>

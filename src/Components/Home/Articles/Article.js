@@ -1,3 +1,5 @@
+import LikeButton from "../../Buttons/LikeButton";
+
 export default function Article(props) {
     return (
         props.id === 2 ? <div className='bg-background rounded-xl p-4 sm:mt-8'>
@@ -7,12 +9,7 @@ export default function Article(props) {
                          src={props.img}
                          alt=""/>
                 </a>
-                <button type='button'
-                        className='flex items-center justify-center rounded-full w-9 h-9 bg-secondary absolute left-3 -bottom-3 hover:text-red-500 transition-colors'>
-                    <svg className='w-5 h-5'>
-                        <use href='#heart'></use>
-                    </svg>
-                </button>
+                <LikeButton style={{position: 'absolute', left: '12px', bottom: '-12px', width: '2.25rem', height: '2.25rem'}}></LikeButton>
             </div>
             <div className='space-y-3 mt-3'>
                 <h6 className='mt-2 text-title text-sm font-YekanBakh-Bold'>
@@ -58,12 +55,7 @@ export default function Article(props) {
                          src={props.img}
                          alt=""/>
                 </a>
-                <button type='button'
-                        className='flex items-center justify-center rounded-full w-9 h-9 bg-secondary absolute left-3 -bottom-3 hover:text-red-500 transition-colors'>
-                    <svg className='w-5 h-5'>
-                        <use href='#heart'></use>
-                    </svg>
-                </button>
+                <LikeButton style={{position: 'absolute', left: '12px', bottom: '-12px', width: '2.25rem', height: '2.25rem'}}></LikeButton>
             </div>
             <div className='space-y-3 mt-3'>
                 <h6 className='mt-2 text-title text-sm font-YekanBakh-Bold'>

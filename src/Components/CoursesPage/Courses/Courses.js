@@ -244,7 +244,7 @@ export default function Courses() {
                                         </ul>
                                     </div>
                                 </div>
-                                {/*  Courses Filtering Button  */}
+                                {/*  Courses Filtering Buttons  */}
                                 <button onClick={() => setFilteringMenu(prevState => !prevState)}
                                         className='flex md:hidden items-center gap-1 h-11 px-4 text-title bg-secondary rounded-2xl'>
                                     <span>
