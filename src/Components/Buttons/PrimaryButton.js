@@ -1,7 +1,6 @@
 export default function PrimaryButton(props) {
     return (
-        <a className='flex items-center justify-center gap-2 bg-primary rounded-full text-white w-full h-11 transition-opacity hover:opacity-80'
-           href={props.href}>
+        <button style={props.style} type={props.type} className='flex items-center justify-center gap-2 bg-primary rounded-full text-white w-full h-11 transition-opacity hover:opacity-80'>
             <span className='font-YekanBakh-SemiBold text-sm'>
                 {
                     props.title
@@ -12,6 +11,6 @@ export default function PrimaryButton(props) {
                     <use href='#arrow-up-left'></use>
                 </svg>
             </span>
-        </a>
+        </button>
     )
 }

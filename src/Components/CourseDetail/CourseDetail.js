@@ -5,6 +5,7 @@ import Box from "./Box";
 import {useState} from "react";
 import Footer from "../Footer/Footer";
 import SectionLinkBtn from "../SectionLinkBtn/SectionLinkBtn";
+import UserInfo from "../UserInfo/UserInfo";
 
 
 export default function CourseDetail() {
@@ -343,6 +344,97 @@ export default function CourseDetail() {
                                 </div>
                             </div>
                         </div>
+                        {/*  course detail comments  */}
+                        <div className=' mt-8'>
+                            <FooterTitle title='دیدگاه و پرسش'></FooterTitle>
+                            <div className='p-5 rounded-3xl my-5 border border-border'>
+                                <FooterTitle fontSize='12px' title='ارسال دیدگاه یا پرسش'></FooterTitle>
+                                <div className='flex items-center justify-between my-5'>
+                                    <div className='flex items-center gap-3'>
+                                        <UserInfo text='دوهفته پیش' title='حسین رستمی'></UserInfo>
+                                        <span className='bg-secondary w-1 h-1 rounded-full'></span>
+                                        <span className='text-xs'>
+                                            در پاسخ به
+                                        </span>
+                                        <span className='bg-secondary w-1 h-1 rounded-full'></span>
+                                        <span className='text-sm font-YekanBakh-SemiBold text-title'>
+                                            حسین رستمی
+                                        </span>
+                                    </div>
+                                    <button className='text-red-500 font-YekanBakh-SemiBold text-sm'>
+                                        لغو پاسخ
+                                    </button>
+                                </div>
+                                <form className='flex flex-col items-end gap-5' action="#">
+                                    <textarea rows='10' placeholder='متن مورد نظر خود را وارد کنید ...' className='p-5 bg-secondary rounded-xl text-sm text-title overflow-hidden w-full outline-none'>
+
+                                    </textarea>
+                                    <PrimaryButton style={{display: 'inline-flex', width: 'auto', padding: '0 16px'}} title='ثبت دیدگاه یا پرسش' icon='arrow-up-left' type='submit'></PrimaryButton>
+                                </form>
+                            </div>
+                            <div>
+                                <div className='p-5 rounded-2xl border border-border mb-3'>
+                                    <div className='flex items-center justify-between pb-4 border-b border-border'>
+                                        <UserInfo text='2 هفته پیش' title='حسین رستمی'></UserInfo>
+                                        <div className='flex items-center gap-3'>
+                                            <SectionLinkBtn style={{
+                                                color: 'rgb(var(--color-caption))',
+                                                fontSize: '12px',
+                                                height: '36px'
+                                            }} icon='#arrow-back' text='پاسخ'></SectionLinkBtn>
+                                            <LikeButton style={{width: '36px', height: '36px'}} count='3'></LikeButton>
+                                        </div>
+                                    </div>
+                                    <p className='text-sm mt-3'>
+                                        من این دوره رو خریدم و میخوام نکست هم بعدا یاد بگیرم چون نیاز بیشتری دارم به
+                                        اموزش های این دوره میشه بدون اینکه دوره نکست رو ببینم این دوره رو ببینم(بخش6دوره
+                                        بیشتر مد نظرمه)
+                                    </p>
+                                </div>
+                                <div className='pr-16 space-y-3 relative before:w-px before:bg-border before:content-[""] before:absolute before:h-[calc(100%-24px)] before:right-6 before:-top-3 after:bg-border after:content-[""] after:h-px after:w-10 after:right-6 after:absolute after:bottom-9'>
+                                    <div className='p-5 rounded-2xl border border-border'>
+                                        <div className='flex items-center justify-between pb-4 border-b border-border'>
+                                            <UserInfo text='2 هفته پیش' title='حسین رستمی'></UserInfo>
+                                            <div className='flex items-center gap-3'>
+                                                <SectionLinkBtn style={{
+                                                    color: 'rgb(var(--color-caption))',
+                                                    fontSize: '12px',
+                                                    height: '36px'
+                                                }} icon='#arrow-back' text='پاسخ'></SectionLinkBtn>
+                                                <LikeButton style={{width: '36px', height: '36px'}}
+                                                            count='3'></LikeButton>
+                                            </div>
+                                        </div>
+                                        <p className='text-sm mt-3'>
+                                            من این دوره رو خریدم و میخوام نکست هم بعدا یاد بگیرم چون نیاز بیشتری دارم به
+                                            اموزش های این دوره میشه بدون اینکه دوره نکست رو ببینم این دوره رو
+                                            ببینم(بخش6دوره
+                                            بیشتر مد نظرمه)
+                                        </p>
+                                    </div>
+                                    <div className='p-5 rounded-2xl border border-border'>
+                                        <div className='flex items-center justify-between pb-4 border-b border-border'>
+                                            <UserInfo text='2 هفته پیش' title='حسین رستمی'></UserInfo>
+                                            <div className='flex items-center gap-3'>
+                                                <SectionLinkBtn style={{
+                                                    color: 'rgb(var(--color-caption))',
+                                                    fontSize: '12px',
+                                                    height: '36px'
+                                                }} icon='#arrow-back' text='پاسخ'></SectionLinkBtn>
+                                                <LikeButton style={{width: '36px', height: '36px'}}
+                                                            count='3'></LikeButton>
+                                            </div>
+                                        </div>
+                                        <p className='text-sm mt-3'>
+                                            من این دوره رو خریدم و میخوام نکست هم بعدا یاد بگیرم چون نیاز بیشتری دارم به
+                                            اموزش های این دوره میشه بدون اینکه دوره نکست رو ببینم این دوره رو
+                                            ببینم(بخش6دوره
+                                            بیشتر مد نظرمه)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     {/*  course detail left side  */}
                     <div className='w-4/12 space-y-8'>
@@ -372,19 +464,7 @@ export default function CourseDetail() {
                         <div className='space-y-3'>
                             <FooterTitle fontSize='14px' title='مدرس دوره'></FooterTitle>
                             <div>
-                                <div className='flex items-center gap-3'>
-                                    <span className='block overflow-hidden w-10 h-10 rounded-full shrink-0'>
-                                        <img className='w-full h-full object-cover' src='images/profile.jpeg' alt=""/>
-                                    </span>
-                                    <div className='flex flex-col gap-1 text-xs font-YekanBakh-SemiBold'>
-                                        <a href='#' className='text-title line-clamp-1 font-YekanBakh-Bold text-sm'>
-                                            حسین رستمی
-                                        </a>
-                                        <a href='#' className='line-clamp-1 text-xs text-primary'>
-                                            دیدن رزومه
-                                        </a>
-                                    </div>
-                                </div>
+                                <UserInfo text='دیدن رزومه' title='حسین رستمی'></UserInfo>
                                 <div className='p-5 bg-secondary rounded-tl-2xl rounded-bl-2xl rounded-br-2xl mt-3'>
                                     <p className='text-sm'>
                                         اول داستان، طراح گرافیک بودم و ۲ سالی به عنوان طراح مشغول بودم، بعد به
