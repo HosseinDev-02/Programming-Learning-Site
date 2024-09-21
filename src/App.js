@@ -16,7 +16,7 @@ export default function App() {
     }
 
     return (
-        <div className='flex flex-col justify-between min-h-screen'>
+        <div className='flex flex-col min-h-screen'>
             <Symbol></Symbol>
             <Header></Header>
             {router}
