@@ -3,6 +3,7 @@ import {useState} from "react";
 import UserInfo from "../UserInfo/UserInfo";
 import UserCourses from "./UserCourses/UserCourses";
 import Favorites from "./Favorites/Favorites";
+import Transactions from "./Transactions/Transactions";
 
 export default function DashBoard() {
 
@@ -124,7 +125,7 @@ export default function DashBoard() {
                             ) : activeTab === 'favorites' ? (
                                 <Favorites></Favorites>
                             ) : activeTab === 'wallet' ? (
-                                <UserCourses></UserCourses>
+                                <Transactions></Transactions>
                             ) : activeTab === 'questions' ? (
                                 <UserCourses></UserCourses>
                             ) : activeTab === 'notification' ? (
