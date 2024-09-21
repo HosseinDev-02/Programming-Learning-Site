@@ -5,6 +5,7 @@ import UserCourses from "./UserCourses/UserCourses";
 import Favorites from "./Favorites/Favorites";
 import Transactions from "./Transactions/Transactions";
 import Questions from "./Questions/Questions";
+import Notifications from "./Notifications/Notifications";
 
 export default function DashBoard() {
 
@@ -129,8 +130,8 @@ export default function DashBoard() {
                                 <Transactions></Transactions>
                             ) : activeTab === 'questions' ? (
                                 <Questions></Questions>
-                            ) : activeTab === 'notification' ? (
-                                <UserCourses></UserCourses>
+                            ) : activeTab === 'notifications' ? (
+                                <Notifications></Notifications>
                             ) : activeTab === 'edit' ? (
                                 <UserCourses></UserCourses>
                             ) : (
