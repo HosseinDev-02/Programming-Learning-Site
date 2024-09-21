@@ -2,10 +2,17 @@ import Counter from "./Counter/Counter";
 import {useState} from "react";
 import UserInfo from "../UserInfo/UserInfo";
 import UserCourses from "./UserCourses/UserCourses";
+import Favorites from "./Favorites/Favorites";
 
 export default function DashBoard() {
 
     const [activeTab, setActiveTab] = useState('counter')
+
+    const dashboardMenuHandler = (e) => {
+        document.querySelector('.dashboard__item--active').classList.remove('dashboard__item--active')
+        e.currentTarget.classList.add('dashboard__item--active')
+        setActiveTab(e.currentTarget.dataset.key)
+    }
 
     return (
         <main className='pt-5'>
@@ -25,9 +32,8 @@ export default function DashBoard() {
                                 </span>
                             </div>
                         </div>
-                        <div className='bg-secondary rounded-2xl p-5 space-y-3 mt-5'>
-                            <button
-                                className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11 dashboard__item--active'>
+                        <ul className='flex flex-col gap-3 bg-secondary rounded-2xl p-5 mt-5'>
+                            <li data-key='counter' onClick={dashboardMenuHandler} className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11 cursor-pointer dashboard__item--active'>
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#counter'></use>
@@ -36,8 +42,8 @@ export default function DashBoard() {
                                 <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     پیشخوان
                                 </span>
-                            </button>
-                            <button className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11'>
+                            </li>
+                            <li data-key='courses' onClick={dashboardMenuHandler} className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11 cursor-pointer'>
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#education-outline'></use>
@@ -46,8 +52,8 @@ export default function DashBoard() {
                                 <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     دوره ها
                                 </span>
-                            </button>
-                            <button className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11'>
+                            </li>
+                            <li data-key='favorites' onClick={dashboardMenuHandler} className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11 cursor-pointer'>
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#heart-outline'></use>
@@ -56,8 +62,8 @@ export default function DashBoard() {
                                 <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     علاقه مندی ها
                                 </span>
-                            </button>
-                            <button className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11'>
+                            </li>
+                            <li data-key='wallet' onClick={dashboardMenuHandler} className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11 cursor-pointer'>
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#wallet'></use>
@@ -66,8 +72,8 @@ export default function DashBoard() {
                                 <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     مالی و اشتراک
                                 </span>
-                            </button>
-                            <button className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11'>
+                            </li>
+                            <li data-key='questions' onClick={dashboardMenuHandler} className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11 cursor-pointer'>
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#comments-outline'></use>
@@ -76,8 +82,8 @@ export default function DashBoard() {
                                 <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     دیدگاه و پرسش های شما
                                 </span>
-                            </button>
-                            <button className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11'>
+                            </li>
+                            <li data-key='notifications' onClick={dashboardMenuHandler} className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11 cursor-pointer'>
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#notification'></use>
@@ -86,8 +92,8 @@ export default function DashBoard() {
                                 <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     اعلانات
                                 </span>
-                            </button>
-                            <button className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11'>
+                            </li>
+                            <li data-key='edit' onClick={dashboardMenuHandler} className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11 cursor-pointer'>
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#edit-profile'></use>
@@ -96,8 +102,8 @@ export default function DashBoard() {
                                 <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     ویرایش پروفایل
                                 </span>
-                            </button>
-                            <button className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11'>
+                            </li>
+                            <li data-key='logout' onClick={dashboardMenuHandler} className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11 cursor-pointer'>
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#logout'></use>
@@ -106,17 +112,27 @@ export default function DashBoard() {
                                 <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     خروج از حساب
                                 </span>
-                            </button>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
                     <div className='md:col-span-8 lg:col-span-9'>
                         {
                             activeTab === 'counter' ? (
+                                <Counter></Counter>
+                            ) : activeTab === 'courses' ? (
+                                <UserCourses></UserCourses>
+                            ) : activeTab === 'favorites' ? (
+                                <Favorites></Favorites>
+                            ) : activeTab === 'wallet' ? (
+                                <UserCourses></UserCourses>
+                            ) : activeTab === 'questions' ? (
+                                <UserCourses></UserCourses>
+                            ) : activeTab === 'notification' ? (
+                                <UserCourses></UserCourses>
+                            ) : activeTab === 'edit' ? (
                                 <UserCourses></UserCourses>
                             ) : (
-                                <h1>
-                                    State not set to counter
-                                </h1>
+                                <UserCourses></UserCourses>
                             )
                         }
                     </div>

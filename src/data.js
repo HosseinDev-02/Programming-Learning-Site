@@ -85,5 +85,34 @@ const userCourses = [
     },
 ]
 
+const userFavoritesCourses = [
+    {
+        id: 1,
+        title: 'آموزش پروژه محور ری اکت و نکست',
+        price: 1_560_000,
+        costPrice: 890_000,
+        isFree: false,
+        time: 32,
+        sections: 24,
+        isCompleted: true,
+        teacher: 'حسین رستمی',
+        img: 'images/Courses/01.jpg',
+        teacherImg: 'images/profile.jpeg'
+    },
+    {
+        id: 2,
+        title: 'قدم صفر برنامه نویسی',
+        price: 0,
+        costPrice: 0,
+        isFree: true,
+        time: 8,
+        sections: 4,
+        isCompleted: true,
+        teacher: 'حسین رستمی',
+        img: 'images/Courses/02.jpg',
+        teacherImg: 'images/profile.jpeg'
+    }
+]
+
 export default data
-export {userCourses}
+export {userCourses, userFavoritesCourses}
