@@ -81,4 +81,9 @@
         background-color: rgb(var(--color-primary)) !important;
         color: white !important;
     }
+
+    .user-courses-menu__item--active {
+        background-color: rgb(var(--color-background)) !important;
+        color: rgb(var(--color-title));
+    }
 }

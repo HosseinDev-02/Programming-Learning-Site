@@ -1,6 +1,7 @@
-import Counter from "./Counter";
+import Counter from "./Counter/Counter";
 import {useState} from "react";
 import UserInfo from "../UserInfo/UserInfo";
+import UserCourses from "./UserCourses/UserCourses";
 
 export default function DashBoard() {
 
@@ -9,8 +10,8 @@ export default function DashBoard() {
     return (
         <main className='pt-5'>
             <div className="container">
-                <div className='grid grid-cols-12 items-start gap-5'>
-                    <div className='col-span-3'>
+                <div className='md:grid md:grid-cols-12 md:items-start md:gap-5'>
+                    <div className='md:col-span-4 lg:col-span-3 mb-5 md:mb-0'>
                         <div className='flex items-center gap-3'>
                             <span className='block overflow-hidden w-10 h-10 rounded-full shrink-0'>
                                 <img className='w-full h-full object-cover' src='images/profile.jpeg' alt=""/>
@@ -32,7 +33,7 @@ export default function DashBoard() {
                                         <use href='#counter'></use>
                                     </svg>
                                 </span>
-                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     پیشخوان
                                 </span>
                             </button>
@@ -42,7 +43,7 @@ export default function DashBoard() {
                                         <use href='#education-outline'></use>
                                     </svg>
                                 </span>
-                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     دوره ها
                                 </span>
                             </button>
@@ -52,7 +53,7 @@ export default function DashBoard() {
                                         <use href='#heart-outline'></use>
                                     </svg>
                                 </span>
-                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     علاقه مندی ها
                                 </span>
                             </button>
@@ -62,7 +63,7 @@ export default function DashBoard() {
                                         <use href='#wallet'></use>
                                     </svg>
                                 </span>
-                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     مالی و اشتراک
                                 </span>
                             </button>
@@ -72,7 +73,7 @@ export default function DashBoard() {
                                         <use href='#comments-outline'></use>
                                     </svg>
                                 </span>
-                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     دیدگاه و پرسش های شما
                                 </span>
                             </button>
@@ -82,7 +83,7 @@ export default function DashBoard() {
                                         <use href='#notification'></use>
                                     </svg>
                                 </span>
-                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     اعلانات
                                 </span>
                             </button>
@@ -92,7 +93,7 @@ export default function DashBoard() {
                                         <use href='#edit-profile'></use>
                                     </svg>
                                 </span>
-                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     ویرایش پروفایل
                                 </span>
                             </button>
@@ -102,16 +103,16 @@ export default function DashBoard() {
                                         <use href='#logout'></use>
                                     </svg>
                                 </span>
-                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     خروج از حساب
                                 </span>
                             </button>
                         </div>
                     </div>
-                    <div className='col-span-9'>
+                    <div className='md:col-span-8 lg:col-span-9'>
                         {
                             activeTab === 'counter' ? (
-                                <Counter></Counter>
+                                <UserCourses></UserCourses>
                             ) : (
                                 <h1>
                                     State not set to counter
