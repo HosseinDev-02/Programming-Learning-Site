@@ -14,7 +14,7 @@ export default function LatestCourses() {
                 {/*  Section Header  */}
                 <div
                     className='bg-gradient-to-l from-secondary to-background rounded-2xl flex items-center justify-between p-2.5 sm:p-5'>
-                    <SectionTitle color='#09090B' title='آخرین دوره های' text='منتشر شده'></SectionTitle>
+                    <SectionTitle color='rgb(var(--color-title))' title='آخرین دوره های' text='منتشر شده'></SectionTitle>
                     <SectionLinkBtn icon='#arrow-up-left' text='مشاهده همه'></SectionLinkBtn>
                 </div>
                 {/*  Section Content  */}
