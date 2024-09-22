@@ -87,4 +87,26 @@
         background-color: rgb(var(--color-background)) !important;
         color: rgb(var(--color-title));
     }
+
+    /* width */
+    .user-edit-date-menu::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    /* Track */
+    .user-edit-date-menu::-webkit-scrollbar-track {
+        background: rgb(var(--color-background));
+        border-radius: 20px;
+    }
+
+    /* Handle */
+    .user-edit-date-menu::-webkit-scrollbar-thumb {
+        background: rgb(var(--color-secondary));
+        border-radius: 20px;
+    }
+
+    /* Handle on hover */
+    /*.user-edit-date-menu::-webkit-scrollbar-thumb:hover {*/
+    /*    background: rgb(var(--color-title));*/
+    /*}*/
 }
