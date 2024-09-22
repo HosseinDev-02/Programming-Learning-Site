@@ -39,7 +39,7 @@ export default function UserQuestion(props) {
                             props.text
                         }
                     </p>
-                    <PrimaryButton style={{width: 'auto', padding: '0 16px'}}
+                    <PrimaryButton icon='#arrow-up-left' style={{width: 'auto', padding: '0 16px'}}
                                    title='مشاهده در صفحه دوره'></PrimaryButton>
                 </div>
             </div>

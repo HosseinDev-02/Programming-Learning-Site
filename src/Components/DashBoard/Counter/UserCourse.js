@@ -113,7 +113,7 @@ export default function UserCourse(props) {
                         <div style={{width: props.completed}} className='h-full bg-primary'></div>
                     </div>
                 </div>
-                <PrimaryButton href='#' title='ادامه یادگیری'></PrimaryButton>
+                <PrimaryButton icon='#arrow-up-left' href='#' title='ادامه یادگیری'></PrimaryButton>
             </div>
         </div>
     )

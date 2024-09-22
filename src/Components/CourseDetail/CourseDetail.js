@@ -468,7 +468,7 @@ export default function CourseDetail() {
 
                                     </textarea>
                                     <PrimaryButton style={{display: 'inline-flex', width: 'auto', padding: '0 16px'}}
-                                                   title='ثبت دیدگاه یا پرسش' icon='arrow-up-left'
+                                                   title='ثبت دیدگاه یا پرسش' icon='#arrow-up-left'
                                                    type='submit'></PrimaryButton>
                                 </form>
                             </div>
@@ -558,7 +558,7 @@ export default function CourseDetail() {
                                 </div>
                             </div>
                             <div className='flex items-center gap-3 mt-3'>
-                                <PrimaryButton href='#' title='اضافه به سبد'></PrimaryButton>
+                                <PrimaryButton icon='#arrow-up-left' href='#' title='اضافه به سبد'></PrimaryButton>
                                 <LikeButton></LikeButton>
                             </div>
                         </div>

@@ -104,7 +104,7 @@ export default function Course(props) {
                     }
                 </div>
                 <div className='flex items-center gap-3 mt-3'>
-                    <PrimaryButton href='#' title='مشاهده دوره'></PrimaryButton>
+                    <PrimaryButton icon='#arrow-up-left' href='#' title='مشاهده دوره'></PrimaryButton>
                     <LikeButton></LikeButton>
                 </div>
             </div>
