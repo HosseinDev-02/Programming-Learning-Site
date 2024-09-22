@@ -10,14 +10,14 @@ export default function Questions() {
             id: 1,
             text: 'من این دوره رو خریدم و میخوام نکست هم بعدا یادبگیرم چون نیاز بیشتری دارم به آموزش های این دوره میشه بدون اینکه نکست رو ببینم این دوره رو ببینم ؟',
             title: 'دوره پروژه محور React و Next',
-            img: 'images/Courses/04.jpg',
+            img: '../images/Courses/04.jpg',
             status: true
         },
         {
             id: 2,
             text: 'من این دوره رو خریدم و میخوام نکست هم بعدا یادبگیرم چون نیاز بیشتری دارم به آموزش های این دوره میشه بدون اینکه نکست رو ببینم این دوره رو ببینم ؟',
             title: 'دوره پروژه محور React و Next',
-            img: 'images/Courses/03.jpg',
+            img: '../images/Courses/03.jpg',
             status: false
         },
     ])

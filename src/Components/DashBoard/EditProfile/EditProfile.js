@@ -1,7 +1,30 @@
 import SubTitle from "../../Titles/SubTitle";
 import PrimaryButton from "../../Buttons/PrimaryButton";
+import {useState} from "react";
 
 export default function EditProfile () {
+
+    const [yearMenuShow, setYearMenuShow] = useState(false)
+    const [monthMenuShow, setMonthMenuShow] = useState(false)
+    const [dayMenuShow, setDayMenuShow] = useState(false)
+    const [day, setDay] = useState('انتخاب روز')
+    const [month, setMonth] = useState('انتخاب ماه')
+    const [year, setYear] = useState('انتخاب سال')
+
+
+    const yearSelectionHandler = (e) => {
+        setYear(e.target.innerHTML)
+        setYearMenuShow(prevState => !prevState)
+    }
+    const monthSelectionHandler = (e) => {
+        setMonth(e.target.innerHTML)
+        setMonthMenuShow(prevState => !prevState)
+    }
+    const daySelectionHandler = (e) => {
+        setDay(e.target.innerHTML)
+        setDayMenuShow(prevState => !prevState)
+    }
+
     return (
         <div>
             <div className='my-5'>
@@ -106,10 +129,12 @@ export default function EditProfile () {
                     <span className='text-xs font-YekanBakh-Bold'>تاریخ تولد</span>
                     <div className='sm:grid sm:grid-cols-3 sm:gap-5 space-y-5 sm:space-y-0 w-full'>
                         <div>
-                            <button
+                            <button onClick={() => setYearMenuShow(prevState => !prevState)}
                                 className='flex items-center justify-between px-3 rounded-xl bg-secondary h-11 w-full border border-border text-title'>
                             <span className='text-xs font-YekanBakh-Bold'>
-                                انتخاب سال
+                                {
+                                    year
+                                }
                             </span>
                                 <span>
                                 <svg className='w-5 h-5'>
@@ -118,7 +143,7 @@ export default function EditProfile () {
                             </span>
                             </button>
                             <div className='relative'>
-                                <ul className='text-center absolute top-2 left-0 right-0 w-full rounded-xl border border-border user-edit-date-menu z-10 bg-background flex flex-col child:py-2 child:rounded-xl child:px-4 child-hover:bg-secondary child:cursor-pointer text-xs font-YekanBakh-SemiBold text-title h-48 overflow-y-auto'>
+                                <ul onClick={yearSelectionHandler} style={yearMenuShow ? {display: 'flex'} : {}} className='text-center absolute top-2 left-0 right-0 w-full rounded-xl border border-border user-edit-date-menu z-10 bg-background hidden flex-col child:py-2 child:rounded-xl child:px-4 child-hover:bg-secondary child:cursor-pointer text-xs font-YekanBakh-SemiBold text-title h-48 overflow-y-auto'>
                                     <li>1399</li>
                                     <li>1398</li>
                                     <li>1397</li>
@@ -143,10 +168,12 @@ export default function EditProfile () {
                             </div>
                         </div>
                         <div>
-                            <button
+                            <button onClick={() => setMonthMenuShow(prevState => !prevState)}
                                 className='flex items-center justify-between px-3 rounded-xl bg-secondary h-11 w-full border border-border text-title'>
                             <span className='text-xs font-YekanBakh-Bold'>
-                                انتخاب ماه
+                                {
+                                    month
+                                }
                             </span>
                                 <span>
                                 <svg className='w-5 h-5'>
@@ -155,7 +182,7 @@ export default function EditProfile () {
                             </span>
                             </button>
                             <div className='relative'>
-                                <ul className='text-center absolute top-2 left-0 right-0 w-full rounded-xl border border-border user-edit-date-menu z-10 bg-background flex flex-col child:py-2 child:rounded-xl child:px-4 child-hover:bg-secondary child:cursor-pointer text-xs font-YekanBakh-SemiBold text-title h-48 overflow-y-auto'>
+                                <ul onClick={monthSelectionHandler} style={monthMenuShow ? {display: 'flex'} : {}} className='text-center absolute top-2 left-0 right-0 w-full rounded-xl border border-border user-edit-date-menu z-10 bg-background hidden flex-col child:py-2 child:rounded-xl child:px-4 child-hover:bg-secondary child:cursor-pointer text-xs font-YekanBakh-SemiBold text-title h-48 overflow-y-auto'>
                                     <li>فروردین</li>
                                     <li>اردیبهشت</li>
                                     <li>خرداد</li>
@@ -172,10 +199,12 @@ export default function EditProfile () {
                             </div>
                         </div>
                         <div>
-                            <button
+                            <button onClick={() => setDayMenuShow(prevState => !prevState)}
                                 className='flex items-center justify-between px-3 rounded-xl bg-secondary h-11 w-full border border-border text-title'>
                             <span className='text-xs font-YekanBakh-Bold'>
-                                انتخاب روز
+                                {
+                                    day
+                                }
                             </span>
                                 <span>
                                 <svg className='w-5 h-5'>
@@ -184,7 +213,7 @@ export default function EditProfile () {
                             </span>
                             </button>
                             <div className='relative'>
-                                <ul className='text-center absolute top-2 left-0 right-0 w-full rounded-xl border border-border user-edit-date-menu z-10 bg-background flex flex-col child:py-2 child:rounded-xl child:px-4 child-hover:bg-secondary child:cursor-pointer text-xs font-YekanBakh-SemiBold text-title h-48 overflow-y-auto'>
+                                <ul onClick={daySelectionHandler} style={dayMenuShow ? {display: 'flex'} : {}} className='text-center absolute top-2 left-0 right-0 w-full rounded-xl border border-border user-edit-date-menu z-10 bg-background hidden flex-col child:py-2 child:rounded-xl child:px-4 child-hover:bg-secondary child:cursor-pointer text-xs font-YekanBakh-SemiBold text-title h-48 overflow-y-auto'>
                                     <li>1</li>
                                     <li>2</li>
                                     <li>3</li>

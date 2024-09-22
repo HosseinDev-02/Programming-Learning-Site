@@ -4,6 +4,13 @@ import CourseDetail from "./Components/CourseDetail/CourseDetail";
 import LoginRegister from "./Components/Login-Register/LoginRegister";
 import Basket from "./Components/Basket/Basket";
 import DashBoard from "./Components/DashBoard/DashBoard";
+import Counter from "./Components/DashBoard/Counter/Counter";
+import UserCourses from "./Components/DashBoard/UserCourses/UserCourses";
+import Favorites from "./Components/DashBoard/Favorites/Favorites";
+import Transactions from "./Components/DashBoard/Transactions/Transactions";
+import Questions from "./Components/DashBoard/Questions/Questions";
+import Notifications from "./Components/DashBoard/Notifications/Notifications";
+import EditProfile from "./Components/DashBoard/EditProfile/EditProfile";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -11,7 +18,15 @@ let routes = [
     {path: '/course', element: <CourseDetail />},
     {path: '/login-register', element: <LoginRegister />},
     {path: '/basket', element: <Basket />},
-    {path: '/dashboard', element: <DashBoard />}
+    {path: '/dashboard', element: <DashBoard />, children: [
+            {path: 'counter', element: <Counter></Counter>},
+            {path: 'courses', element: <UserCourses></UserCourses>},
+            {path: 'favorites', element: <Favorites></Favorites>},
+            {path: 'wallet', element: <Transactions></Transactions>},
+            {path: 'questions', element: <Questions></Questions>},
+            {path: 'notifications', element: <Notifications></Notifications>},
+            {path: 'edit', element: <EditProfile></EditProfile>},
+        ]}
 ]
 
 export default routes

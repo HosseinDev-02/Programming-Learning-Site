@@ -51,8 +51,8 @@ const userCourses = [
         sections: 12,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: 'images/Courses/03.jpg',
-        teacherImg: 'images/profile.jpeg',
+        img: '../images/Courses/03.jpg',
+        teacherImg: '../images/profile.jpeg',
         completed: '75%'
     },
     {
@@ -65,8 +65,8 @@ const userCourses = [
         sections: 24,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: 'images/Courses/01.jpg',
-        teacherImg: 'images/profile.jpeg',
+        img: '../images/Courses/01.jpg',
+        teacherImg: '../images/profile.jpeg',
         completed: '35%'
     },
     {
@@ -79,8 +79,8 @@ const userCourses = [
         sections: 45,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: 'images/Courses/02.jpg',
-        teacherImg: 'images/profile.jpeg',
+        img: '../images/Courses/02.jpg',
+        teacherImg: '../images/profile.jpeg',
         completed: '50%'
     },
 ]
@@ -96,8 +96,8 @@ const userFavoritesCourses = [
         sections: 24,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: 'images/Courses/01.jpg',
-        teacherImg: 'images/profile.jpeg'
+        img: '../images/Courses/01.jpg',
+        teacherImg: '../images/profile.jpeg'
     },
     {
         id: 2,
@@ -109,8 +109,8 @@ const userFavoritesCourses = [
         sections: 4,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: 'images/Courses/02.jpg',
-        teacherImg: 'images/profile.jpeg'
+        img: '../../images/Courses/02.jpg',
+        teacherImg: '../../images/profile.jpeg'
     }
 ]
 
