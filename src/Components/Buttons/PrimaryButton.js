@@ -8,7 +8,7 @@ export default function PrimaryButton(props) {
             </span>
             <span>
                 <svg className='w-5 h-5'>
-                    <use href='#arrow-up-left'></use>
+                    <use href={props.icon}></use>
                 </svg>
             </span>
         </button>

@@ -1,4 +1,5 @@
 import SubTitle from "../../Titles/SubTitle";
+import PrimaryButton from "../../Buttons/PrimaryButton";
 
 export default function EditProfile () {
     return (
@@ -64,8 +65,8 @@ export default function EditProfile () {
             </div>
             <div className='mt-8 space-y-5'>
                 <SubTitle title='اطلاعات حساب'></SubTitle>
-                <div className='grid grid-cols-2 grid-rows-2 gap-5'>
-                    <div className='flex flex-col gap-2 items-start'>
+                <div className='sm:grid sm:grid-cols-12 sm:grid-rows-2 sm:gap-5 space-y-5 sm:space-y-0'>
+                    <div className='sm:col-span-6 flex flex-col gap-2 items-start'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             نام و نام خانوادگی (فارسی)
                         </label>
@@ -73,7 +74,7 @@ export default function EditProfile () {
                             className='bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                             type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start'>
+                    <div className='sm:col-span-6 flex flex-col gap-2 items-start'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             ایمیل
                         </label>
@@ -84,11 +85,11 @@ export default function EditProfile () {
                             در حال حاضر ایمیل قلبل تغییر نمی باشد
                         </span>
                     </div>
-                    <div className='flex flex-col gap-2 items-start'>
+                    <div className='sm:col-span-full lg:col-span-6 flex flex-col gap-2 items-start'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             آدرس پروفایل
                         </label>
-                        <div className='flex items-center gap-2 w-full'>
+                        <div className='flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full'>
                             <input
                                 className='bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                 type="text"/>
@@ -99,6 +100,97 @@ export default function EditProfile () {
                     </div>
                 </div>
             </div>
+            <div className='mt-8'>
+                <SubTitle title='اطلاعات فردی'></SubTitle>
+                <div className='mt-8 flex flex-col items-start gap-2'>
+                    <span className='text-xs font-YekanBakh-Bold'>تاریخ تولد</span>
+                    <div className='sm:grid sm:grid-cols-3 sm:gap-5 space-y-5 sm:space-y-0 w-full'>
+                        <div>
+                            <button
+                                className='flex items-center justify-between px-3 rounded-xl bg-secondary h-11 w-full border border-border text-title'>
+                            <span className='text-xs font-YekanBakh-Bold'>
+                                انتخاب سال
+                            </span>
+                                <span>
+                                <svg className='w-5 h-5'>
+                                    <use href='#chevron-down'></use>
+                                </svg>
+                            </span>
+                            </button>
+                        </div>
+                        <div>
+                            <button
+                                className='flex items-center justify-between px-3 rounded-xl bg-secondary h-11 w-full border border-border text-title'>
+                            <span className='text-xs font-YekanBakh-Bold'>
+                                انتخاب ماه
+                            </span>
+                                <span>
+                                <svg className='w-5 h-5'>
+                                    <use href='#chevron-down'></use>
+                                </svg>
+                            </span>
+                            </button>
+                        </div>
+                        <div>
+                            <button
+                                className='flex items-center justify-between px-3 rounded-xl bg-secondary h-11 w-full border border-border text-title'>
+                            <span className='text-xs font-YekanBakh-Bold'>
+                                انتخاب روز
+                            </span>
+                                <span>
+                                <svg className='w-5 h-5'>
+                                    <use href='#chevron-down'></use>
+                                </svg>
+                            </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div className='flex flex-col gap-2 w-full mt-5'>
+                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                            درباره من
+                        </label>
+                        <textarea className='bg-secondary rounded-xl border border-border text-title outline-none overflow-hidden p-3 w-full' rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div className='mt-8 mb-5'>
+                <SubTitle title='راه های ارتباطی'></SubTitle>
+                <div className='sm:grid sm:grid-cols-2 sm:gap-5 space-y-5 sm:space-y-0 mt-5'>
+                    <div className='flex flex-col gap-2 items-start'>
+                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                            وب سایت
+                        </label>
+                        <input dir='ltr'
+                            className='bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                            type="text"/>
+                    </div>
+                    <div className='flex flex-col gap-2 items-start'>
+                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                            گیت هاب
+                        </label>
+                        <input dir='ltr'
+                            className='bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                            type="text"/>
+                    </div>
+                    <div className='flex flex-col gap-2 items-start'>
+                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                            لینکدین
+                        </label>
+                        <input dir='ltr'
+                            className='bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                            type="text"/>
+                    </div>
+                    <div className='flex flex-col gap-2 items-start'>
+                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                            تلگرام
+                        </label>
+                        <input dir='ltr'
+                            className='bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                            type="text"/>
+                    </div>
+                </div>
+            </div>
+            <PrimaryButton style={{width: 'auto', padding: '0 16px', marginRight: 'auto'}} icon='#arrow-path' title='بروزرسانی'></PrimaryButton>
         </div>
     )
 }
