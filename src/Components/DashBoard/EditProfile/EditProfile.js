@@ -296,7 +296,9 @@ export default function EditProfile () {
                     </div>
                 </div>
             </div>
-            <PrimaryButton style={{width: 'auto', padding: '0 16px', marginRight: 'auto'}} icon='#arrow-path' title='بروزرسانی'></PrimaryButton>
+            <div className='flex sm:block'>
+                <PrimaryButton style={{float: 'left'}} icon='#arrow-path' href='#' title='بروزرسانی'></PrimaryButton>
+            </div>
         </div>
     )
 }

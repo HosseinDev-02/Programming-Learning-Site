@@ -101,7 +101,7 @@ export default function Basket () {
                                         </div>
 
                                         <div className='flex items-center gap-3 mt-3'>
-                                            <PrimaryButton icon='#arrow-up-left' href='#' title='مشاهده دوره'></PrimaryButton>
+                                            <PrimaryButton icon='#arrow-up-left' href='/course' title='مشاهده دوره'></PrimaryButton>
                                             <LikeButton></LikeButton>
                                         </div>
                                     </div>
@@ -193,7 +193,7 @@ export default function Basket () {
                                         </div>
 
                                         <div className='flex items-center gap-3 mt-3'>
-                                            <PrimaryButton icon='#arrow-up-left' href='#' title='مشاهده دوره'></PrimaryButton>
+                                            <PrimaryButton icon='#arrow-up-left' href='/course' title='مشاهده دوره'></PrimaryButton>
                                             <LikeButton></LikeButton>
                                         </div>
                                     </div>

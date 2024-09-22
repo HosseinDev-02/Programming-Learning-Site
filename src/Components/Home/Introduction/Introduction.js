@@ -1,3 +1,5 @@
+import PrimaryButton from "../../Buttons/PrimaryButton";
+
 export default function Introduction() {
     return (
         <section>
@@ -30,15 +32,7 @@ export default function Introduction() {
                             یادگیری برنامه‌نویسی آرزو نیست، فقط نیاز هست که تلاش و تمرین داشته
                             باشید، بقیه‌اش با نابغه
                         </p>
-                        <a className='inline-flex rounded-3xl h-11 px-4 items-center gap-1 bg-primary text-white font-YekanBakh-SemiBold text-sm transition-opacity hover:opacity-80'
-                           href="#">
-                            شروع یادگیری برنامه نویسی
-                            <span>
-                                <svg className='w-5 h-5'>
-                                    <use href='#arrow-up-left'></use>
-                                </svg>
-                            </span>
-                        </a>
+                        <PrimaryButton href='/courses' icon='#arrow-up-left' title='شروع یادگیری برنامه نویسی'></PrimaryButton>
                     </div>
                     <div className='max-w-72'>
                         <img className='w-full h-full object-cover' src="images/Introduction/main.png" alt=""/>
