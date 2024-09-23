@@ -1,7 +1,6 @@
-import HeaderBtn from "./Header-Btn";
 import Logo from "../Logo/Logo";
 import {useState} from "react";
-import {Link} from "react-router-dom";
+import RoundButton from "../Buttons/RoundButton";
 
 function Header() {
 
@@ -40,7 +39,7 @@ function Header() {
                         {/* header right side */}
                         <div className='flex items-center gap-3 lg:gap-8'>
                             {/* header mobile menu btn */}
-                            <HeaderBtn clickEvent={() => setMobileMenuShow(true)} icon='#bars-3'></HeaderBtn>
+                            <RoundButton clickEvent={() => setMobileMenuShow(true)} icon='#bars-3'></RoundButton>
                             {/* header logo */}
                             <Logo></Logo>
                             {/* header menu */}
@@ -453,7 +452,7 @@ function Header() {
                         {/* header left side */}
                         <div className='flex items-center gap-3 md:gap-5'>
                             {/* header search btn */}
-                            <HeaderBtn clickEvent={() => setSearchModalShow(true)} icon='#search'></HeaderBtn>
+                            <RoundButton hidden={true} clickEvent={() => setSearchModalShow(true)} icon='#search'></RoundButton>
                             {/* modal search wrapper */}
                             <div style={searchModalShow ? {top: '0'} : {}} id='header-search-modal'
                                  className='transition-all fixed left-0 right-0 -top-20 bg-background z-50 hidden lg:flex items-center justify-center h-20'>
@@ -465,29 +464,24 @@ function Header() {
                                                 placeholder='نام دوره،مقاله و یا دسته بندی را وارد نمایید..'
                                                 type="text"/>
                                         </form>
-                                        <span onClick={() => setSearchModalShow(false)} id='search-modal-close-btn'
-                                              className='flex items-center justify-center w-9 h-9 rounded-full bg-secondary text-title hover:text-red-500 transition-colors cursor-pointer'>
-                                        <svg className='w-6 h-6'>
-                                            <use href='#x-mark'></use>
-                                        </svg>
-                                    </span>
+                                        <RoundButton style={{width: '36px', height: '36px', flexShrink: '0'}} icon='#x-mark' clickEvent={() => setSearchModalShow(false)}></RoundButton>
                                     </div>
                                 </div>
                             </div>
                             {/* header change theme btn */}
                             {
                                 darkMode === 'dark' ? (
-                                    <HeaderBtn clickEvent={themeHandler} icon='#sun'></HeaderBtn>
+                                    <RoundButton hidden={true} clickEvent={themeHandler} icon='#sun'></RoundButton>
                                 ) : (
-                                    <HeaderBtn clickEvent={themeHandler} icon='#moon'></HeaderBtn>
+                                    <RoundButton hidden={true} clickEvent={themeHandler} icon='#moon'></RoundButton>
                                 )
                             }
                             {/* header basket btn */}
-                            <HeaderBtn count={2} icon='#bag'></HeaderBtn>
+                            <RoundButton link={true} href='/basket' count={2} icon='#bag'></RoundButton>
                             {/* header user profile btn */}
                             <div className='group/profile'>
                                 <button type='button' onClick={() => setUserProfileShow(prevState => !prevState)} className='flex items-center gap-3 cursor-pointer'>
-                                    <HeaderBtn icon='#user'></HeaderBtn>
+                                    <RoundButton icon='#user'></RoundButton>
                                     <span className='hidden xs:flex flex-col gap-1 items-start text-xs pointer-events-none'>
                                 <span
                                     className='text-title font-YekanBakh-SemiBold'>جلال بهرامی راد</span>
