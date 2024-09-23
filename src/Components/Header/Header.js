@@ -39,7 +39,7 @@ function Header() {
                         {/* header right side */}
                         <div className='flex items-center gap-3 lg:gap-8'>
                             {/* header mobile menu btn */}
-                            <RoundButton clickEvent={() => setMobileMenuShow(true)} icon='#bars-3'></RoundButton>
+                            <RoundButton className={'flex lg:hidden'} clickEvent={() => setMobileMenuShow(true)} icon='#bars-3'></RoundButton>
                             {/* header logo */}
                             <Logo></Logo>
                             {/* header menu */}
@@ -452,7 +452,7 @@ function Header() {
                         {/* header left side */}
                         <div className='flex items-center gap-3 md:gap-5'>
                             {/* header search btn */}
-                            <RoundButton style={{cursor: 'pointer'}} hidden={true} clickEvent={() => setSearchModalShow(true)} icon='#search'></RoundButton>
+                            <RoundButton className={'hidden lg:flex cursor-pointer'} clickEvent={() => setSearchModalShow(true)} icon='#search'></RoundButton>
                             {/* modal search wrapper */}
                             <div style={searchModalShow ? {top: '0'} : {}} id='header-search-modal'
                                  className='transition-all fixed left-0 right-0 -top-20 bg-background z-50 hidden lg:flex items-center justify-center h-20'>
@@ -471,9 +471,9 @@ function Header() {
                             {/* header change theme btn */}
                             {
                                 darkMode === 'dark' ? (
-                                    <RoundButton style={{cursor: 'pointer'}} hidden={true} clickEvent={themeHandler} icon='#sun'></RoundButton>
+                                    <RoundButton className={'hidden lg:flex cursor-pointer'} clickEvent={themeHandler} icon='#sun'></RoundButton>
                                 ) : (
-                                    <RoundButton style={{cursor: 'pointer'}} hidden={true} clickEvent={themeHandler} icon='#moon'></RoundButton>
+                                    <RoundButton className={'hidden lg:flex cursor-pointer'} clickEvent={themeHandler} icon='#moon'></RoundButton>
                                 )
                             }
                             {/* header basket btn */}
