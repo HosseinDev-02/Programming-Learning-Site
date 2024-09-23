@@ -3,6 +3,8 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 import SectionTitle from "../Titles/SectionTitle";
 import LikeButton from "../Buttons/LikeButton";
 import LatestCourses from "../Home/Latest-Courses/LatestCourses";
+import SectionHeader from "../SectionHeader/SectionHeader";
+import SectionLinkBtn from "../Buttons/SectionLinkBtn";
 
 export default function Basket () {
     return (
@@ -10,9 +12,9 @@ export default function Basket () {
             <div className="container space-y-14">
                 <div className='flex flex-col md:flex-row items-center md:items-start gap-5'>
                     <div className='md:w-7/12 lg:w-8/12'>
-                        <div className='bg-gradient-to-l from-secondary to-background rounded-2xl p-5'>
+                        <SectionHeader>
                             <SectionTitle fontSize='12px' lineHeight='1rem' title='سبد خرید شما' text='2 دوره به سبد اضافه کرده اید'></SectionTitle>
-                        </div>
+                        </SectionHeader>
                         {/*  basket content  */}
                         <div className='divide-y divide-border divide-dashed'>
                             <div

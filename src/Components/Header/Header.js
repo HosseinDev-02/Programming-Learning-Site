@@ -442,10 +442,10 @@ function Header() {
                                     {/* Header links menu */}
                                     <div
                                         className='rounded-xl shadow border border-border absolute top-full w-56 p-3 flex flex-col bg-background text-title invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-YekanBakh-SemiBold text-xs z-20'>
-                                        <Link to='/dashboard' className='hover:text-primary py-2 px-3'>پنل کاربری</Link>
-                                        <Link to='/login-register' className='hover:text-primary py-2 px-3'>ورود / ثبت نام</Link>
-                                        <Link to='/courses' className='hover:text-primary py-2 px-3'>دوره ها</Link>
-                                        <Link to='/basket' className='text-red-500 hover:text-red-700 py-2 px-3'>سبد خرید</Link>
+                                        <a href='/dashboard' className='hover:text-primary py-2 px-3'>پنل کاربری</a>
+                                        <a href='/login-register' className='hover:text-primary py-2 px-3'>ورود / ثبت نام</a>
+                                        <a href='/courses' className='hover:text-primary py-2 px-3'>دوره ها</a>
+                                        <a href='/basket' className='text-red-500 hover:text-red-700 py-2 px-3'>سبد خرید</a>
                                     </div>
                                 </li>
                             </ul>
@@ -477,9 +477,9 @@ function Header() {
                             {/* header change theme btn */}
                             {
                                 darkMode === 'dark' ? (
-                                    <HeaderBtn clickEvent={themeHandler} id='theme-btn' icon='#sun'></HeaderBtn>
+                                    <HeaderBtn clickEvent={themeHandler} icon='#sun'></HeaderBtn>
                                 ) : (
-                                    <HeaderBtn clickEvent={themeHandler} id='theme-btn' icon='#moon'></HeaderBtn>
+                                    <HeaderBtn clickEvent={themeHandler} icon='#moon'></HeaderBtn>
                                 )
                             }
                             {/* header basket btn */}

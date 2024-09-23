@@ -5,7 +5,7 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 export default function LoginRegister() {
     return (
         <div className='flex items-center justify-center pt-20'>
-            <div className='max-w-sm w-full flex flex-col space-y-5'>
+            <div className='max-w-sm w-full flex flex-col space-y-10'>
                 <div className='bg-gradient-to-b from-secondary to-background rounded-2xl px-5'>
                     <div className='flex items-center rounded-2xl bg-background p-5'>
                         <Logo></Logo>
@@ -22,13 +22,13 @@ export default function LoginRegister() {
                             <input dir='ltr'
                                    className='outline-none h-11 rounded-2xl bg-secondary border border-border px-5 w-full text-title'
                                    type="text"/>
-                            <PrimaryButton title='برو بریم' type='submit'></PrimaryButton>
+                            <PrimaryButton style={{display: 'flex'}} icon='#arrow-up-left' title='برو بریم' href='#'></PrimaryButton>
                         </form>
                     </div>
                 </div>
                 <div className='bg-secondary rounded-xl p-5 flex items-center justify-center'>
                     <p className='text-xs flex items-center flex-wrap gap-1 text-center justify-center'>
-                        ورود شما به معنای پذیرش <a className='underline hover:text-primary transition-colors text-title font-YekanBakh-SemiBold text-nowrap' href="#">شرایط</a> و <a className='underline hover:text-primary transition-colors text-title font-YekanBakh-SemiBold text-nowrap' href="#">قوانین حریم خصوصی</a> است.
+                        ورود شما به معنای پذیرش <a className='hover:text-primary transition-colors text-title font-YekanBakh-SemiBold text-nowrap' href="#">شرایط</a> و <a className='hover:text-primary transition-colors text-title font-YekanBakh-SemiBold text-nowrap' href="#">قوانین حریم خصوصی</a> است.
                     </p>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import SectionLinkBtn from "../../Buttons/SectionLinkBtn";
 import Course from "./Course";
 import {useState} from "react";
 import data from "../../../data";
+import SectionHeader from "../../SectionHeader/SectionHeader";
 
 export default function LatestCourses() {
 
@@ -12,11 +13,10 @@ export default function LatestCourses() {
         <section>
             <div className="container">
                 {/*  Section Header  */}
-                <div
-                    className='bg-gradient-to-l from-secondary to-background rounded-2xl flex items-center justify-between p-2.5 sm:p-5'>
-                    <SectionTitle color='rgb(var(--color-title))' title='آخرین دوره های' text='منتشر شده'></SectionTitle>
-                    <SectionLinkBtn icon='#arrow-up-left' text='مشاهده همه'></SectionLinkBtn>
-                </div>
+                    <SectionHeader>
+                        <SectionTitle title='آخرین دوره های' text='منتشر شده'></SectionTitle>
+                        <SectionLinkBtn icon='#arrow-up-left' text='مشاهده همه'></SectionLinkBtn>
+                    </SectionHeader>
                 {/*  Section Content  */}
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-8 gap-5'>
                     {
