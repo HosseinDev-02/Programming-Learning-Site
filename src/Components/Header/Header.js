@@ -452,7 +452,7 @@ function Header() {
                         {/* header left side */}
                         <div className='flex items-center gap-3 md:gap-5'>
                             {/* header search btn */}
-                            <RoundButton hidden={true} clickEvent={() => setSearchModalShow(true)} icon='#search'></RoundButton>
+                            <RoundButton style={{cursor: 'pointer'}} hidden={true} clickEvent={() => setSearchModalShow(true)} icon='#search'></RoundButton>
                             {/* modal search wrapper */}
                             <div style={searchModalShow ? {top: '0'} : {}} id='header-search-modal'
                                  className='transition-all fixed left-0 right-0 -top-20 bg-background z-50 hidden lg:flex items-center justify-center h-20'>
@@ -464,16 +464,16 @@ function Header() {
                                                 placeholder='نام دوره،مقاله و یا دسته بندی را وارد نمایید..'
                                                 type="text"/>
                                         </form>
-                                        <RoundButton style={{width: '36px', height: '36px', flexShrink: '0'}} icon='#x-mark' clickEvent={() => setSearchModalShow(false)}></RoundButton>
+                                        <RoundButton style={{width: '36px', height: '36px', flexShrink: '0', cursor: 'pointer'}} icon='#x-mark' clickEvent={() => setSearchModalShow(false)}></RoundButton>
                                     </div>
                                 </div>
                             </div>
                             {/* header change theme btn */}
                             {
                                 darkMode === 'dark' ? (
-                                    <RoundButton hidden={true} clickEvent={themeHandler} icon='#sun'></RoundButton>
+                                    <RoundButton style={{cursor: 'pointer'}} hidden={true} clickEvent={themeHandler} icon='#sun'></RoundButton>
                                 ) : (
-                                    <RoundButton hidden={true} clickEvent={themeHandler} icon='#moon'></RoundButton>
+                                    <RoundButton style={{cursor: 'pointer'}} hidden={true} clickEvent={themeHandler} icon='#moon'></RoundButton>
                                 )
                             }
                             {/* header basket btn */}
