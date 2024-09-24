@@ -11,6 +11,7 @@ import Transactions from "./Components/DashBoard/Transactions/Transactions";
 import Questions from "./Components/DashBoard/Questions/Questions";
 import Notifications from "./Components/DashBoard/Notifications/Notifications";
 import EditProfile from "./Components/DashBoard/EditProfile/EditProfile";
+import Panel from "./Components/Panel/Panel";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -26,7 +27,9 @@ let routes = [
             {path: 'questions', element: <Questions></Questions>},
             {path: 'notifications', element: <Notifications></Notifications>},
             {path: 'edit', element: <EditProfile></EditProfile>},
-        ]}
+        ]
+    },
+    {path: '/admin-panel', element: <Panel></Panel>}
 ]
 
 export default routes

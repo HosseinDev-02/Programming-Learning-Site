@@ -441,7 +441,8 @@ function Header() {
                                     {/* Header links menu */}
                                     <div
                                         className='rounded-xl shadow border border-border absolute top-full w-56 p-3 flex flex-col bg-background text-title invisible opacity-0 group-hover/links:visible group-hover/links:opacity-100 transition-all delay-75 child:transition-colors font-YekanBakh-SemiBold text-xs z-20'>
-                                        <a href='/dashboard' className='hover:text-primary py-2 px-3'>پنل کاربری</a>
+                                        <a href='/admin-panel' className='hover:text-primary py-2 px-3'>پنل ادمین</a>
+                                        <a href='/dashboard' className='hover:text-primary py-2 px-3'>داشبورد</a>
                                         <a href='/login-register' className='hover:text-primary py-2 px-3'>ورود / ثبت
                                             نام</a>
                                         <a href='/courses' className='hover:text-primary py-2 px-3'>دوره ها</a>

@@ -1,12 +1,15 @@
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import routes from "./routes";
-import {useRoutes} from "react-router-dom";
+import {useLocation, useRoutes} from "react-router-dom";
 import Symbol from "./Components/Symbol/Symbol";
 
 
 export default function App() {
 
+    const location = useLocation()
+    const locationPath = location.pathname
+    console.log(location.pathname)
     let router = useRoutes(routes)
 
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -16,10 +19,8 @@ export default function App() {
     }
 
     return (
-        <div className='flex flex-col min-h-screen'>
-            <Symbol></Symbol>
-            <Header></Header>
+        <>
             {router}
-            <Footer></Footer>
-        </div>
-    )}
+        </>
+    )
+}
