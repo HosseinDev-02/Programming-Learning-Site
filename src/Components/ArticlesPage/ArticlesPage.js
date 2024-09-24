@@ -3,11 +3,14 @@ import SectionTitle from "../Titles/SectionTitle";
 import SectionHeader from "../SectionHeader/SectionHeader";
 import {useState} from "react";
 import Course from "../Home/Latest-Courses/Course";
-import {articles as data} from "../../data";
+import {articles as data, articleCategories} from "../../data";
 import Article from "../Home/Articles/Article";
+import Accordion from "../Accordion/Accordion";
 
 export default function ArticlesPage() {
+    const [categories] = useState(articleCategories)
     const [articles] = useState(data)
+    const [selectedCategory, setSelectedCategory] = useState(null)
     const [showCategories, setShowCategories] = useState(false)
     const [showFilteringModal, setShowFilteringModal] = useState(false)
     const [filtering, setFiltering] = useState('')
@@ -16,6 +19,7 @@ export default function ArticlesPage() {
     const categoriesMenuHandler = (e) => {
         e.currentTarget.classList.toggle('text-primary')
         e.currentTarget.classList.toggle('text-title')
+        console.log(showCategories)
         setShowCategories(prevState => !prevState)
     }
 
@@ -25,6 +29,10 @@ export default function ArticlesPage() {
 
     const filteringCoursesHandler = (e) => {
         setFiltering(e.target.innerHTML)
+    }
+
+    const itemsHandler = (elem) => {
+        setSelectedCategory(elem.target.value)
     }
 
     return (
@@ -89,71 +97,7 @@ export default function ArticlesPage() {
                                 {/*  Courses Accordion boxes  */}
                                 <div className='divide-y divide-border'>
                                     {/*  Courses Accordion Categories Filtering  */}
-                                    <div className='pt-3 space-y-2'>
-                                        <button onClick={categoriesMenuHandler} type='button'
-                                                className='text-sm font-YekanBakh-SemiBold text-title flex items-center justify-between bg-secondary rounded-xl overflow-hidden h-11 w-full px-3'>
-                                            <div className='flex items-center gap-2'>
-                                        <span>
-                                            <svg className='w-5 h-5'>
-                                                <use href='#grid-boxes-outline'></use>
-                                            </svg>
-                                        </span>
-                                                <span>
-                                            دسته بندی دوره
-                                        </span>
-                                            </div>
-                                            <span>
-                                        <svg
-                                            style={showCategories ? {transform: 'rotate(180deg)'} : {transform: 'rotate(0deg)'}}
-                                            className='w-5 h-5 transition-all'>
-                                            <use href='#chevron-down'></use>
-                                        </svg>
-                                    </span>
-                                        </button>
-                                        <div style={showCategories ? {display: 'block'} : {display: 'none'}}
-                                             className='p-3 rounded-xl overflow-hidden bg-secondary space-y-2'>
-                                            <label className='flex items-center gap-3 text-sm cursor-pointer'>
-                                                <input
-                                                    className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
-                                                    type="radio" name='category'/>
-                                                <span>
-                                                فرانت اند
-                                            </span>
-                                            </label>
-                                            <label className='flex items-center gap-3 text-sm cursor-pointer'>
-                                                <input
-                                                    className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
-                                                    type="radio" name='category'/>
-                                                <span>
-                                                بک اند
-                                            </span>
-                                            </label>
-                                            <label className='flex items-center gap-3 text-sm cursor-pointer'>
-                                                <input
-                                                    className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
-                                                    type="radio" name='category'/>
-                                                <span>
-                                                امنیت
-                                            </span>
-                                            </label>
-                                            <label className='flex items-center gap-3 text-sm cursor-pointer'>
-                                                <input
-                                                    className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
-                                                    type="radio" name='category'/>
-                                                <span>
-                                                شبکه
-                                            </span>
-                                            </label>
-                                            <label className='flex items-center gap-3 text-sm cursor-pointer'>
-                                                <input
-                                                    className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
-                                                    type="radio" name='category'/>
-                                                <span>
-                                                مهارت های نرم
-                                            </span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                    <Accordion itemSelectionHandler={() => itemsHandler} items={categories} title='دسته بندی مقالات' state={showCategories} clickEvent={categoriesMenuHandler}></Accordion>
                                 </div>
                             </div>
                             {/*  Courses Wrapper  */}

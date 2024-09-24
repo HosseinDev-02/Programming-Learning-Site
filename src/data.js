@@ -153,5 +153,13 @@ const articles = [
     },
 ]
 
+const articleCategories = [
+    {id: '1', title: 'فرانت اند'},
+    {id: '2', title: 'بک اند'},
+    {id: '3', title: 'امنیت'},
+    {id: '4', title: 'طراحی سایت'},
+    {id: '5', title: 'فلاتر'}
+]
+
 export default data
-export {userCourses, userFavoritesCourses, articles}
+export {userCourses, userFavoritesCourses, articles, articleCategories}
