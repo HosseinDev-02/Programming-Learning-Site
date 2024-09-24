@@ -55,7 +55,7 @@ export default function Articles() {
                         color='#6b7280'
                     >
                     </SectionTitle>
-                    <div className='grid grid-cols-1 grid-rows-2 sm:grid-cols-2 gap-5'>
+                    <div className='grid grid-cols-1 grid-rows-2 sm:grid-cols-2 gap-5 sm:pb-8'>
                         {
                             articles.map(article => {
                                 return <Article key={article.id} {...article}></Article>

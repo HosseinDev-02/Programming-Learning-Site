@@ -3,6 +3,7 @@ import SectionLinkBtn from "../Buttons/SectionLinkBtn";
 import FooterIcon from "./FooterIcon";
 import SubTitle from "../Titles/SubTitle";
 import SocialMedia from "./SocialMedia";
+import RoundButton from "../Buttons/RoundButton";
 
 
 export default function Footer() {
@@ -24,7 +25,7 @@ export default function Footer() {
                             </div>
                             <div className='flex items-center gap-10'>
                                 <div className='flex items-center gap-5'>
-                                    <FooterIcon icon='#phone'></FooterIcon>
+                                    <RoundButton className='w-12 h-12' icon='#phone'></RoundButton>
                                     <div className='flex flex-col gap-2 font-YekanBakh-Black'>
                                         <span className='text-primary text-sm'>
                                             شماره تلفن
@@ -35,7 +36,7 @@ export default function Footer() {
                                     </div>
                                 </div>
                                 <div className='flex items-center gap-5'>
-                                    <FooterIcon icon='#clock'></FooterIcon>
+                                    <RoundButton className='w-12 h-12' icon='#clock'></RoundButton>
                                     <div className='flex flex-col gap-2 font-YekanBakh-Black'>
                                         <span className='text-primary text-sm'>
                                             ساعت کاری
@@ -109,9 +110,9 @@ export default function Footer() {
                                     </form>
                                     <SubTitle title='شبکه های اجتماعی'></SubTitle>
                                     <div className='flex items-center gap-5'>
-                                        <SocialMedia icon='#instagram'></SocialMedia>
-                                        <SocialMedia icon='#telegram'></SocialMedia>
-                                        <SocialMedia icon='#youtube'></SocialMedia>
+                                        <RoundButton className='w-12 h-12' link={true} href='#instagram' icon='#instagram'></RoundButton>
+                                        <RoundButton className='w-12 h-12' link={true} href='#telegram' icon='#telegram'></RoundButton>
+                                        <RoundButton className='w-12 h-12' link={true} href='#youtube' icon='#youtube'></RoundButton>
                                     </div>
                                 </div>
                             </div>

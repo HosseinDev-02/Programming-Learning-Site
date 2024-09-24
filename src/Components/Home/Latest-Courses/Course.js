@@ -1,5 +1,6 @@
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import LikeButton from "../../Buttons/LikeButton";
+import UserInfo from "../../UserInfo/UserInfo";
 export default function Course(props) {
     return (
         <div>
@@ -57,19 +58,7 @@ export default function Course(props) {
                     </div>
                 </div>
                 <div className='flex items-center justify-between gap-5 mt-3'>
-                    <div className='flex items-center gap-2'>
-                                    <span className='block overflow-hidden w-10 h-10 rounded-full shrink-0'>
-                                        <img className='w-full h-full object-cover' src={props.teacherImg} alt=""/>
-                                    </span>
-                        <div className='flex flex-col gap-1 text-xs font-YekanBakh-SemiBold'>
-                                        <span className='line-clamp-1'>
-                                            مدرس دوره :
-                                        </span>
-                            <span className='text-title font-YekanBakh-Bold line-clamp-1'>
-                                            {props.teacher}
-                                        </span>
-                        </div>
-                    </div>
+                    <UserInfo title='مدرس دوره :' text={props.teacher} img={props.img}></UserInfo>
                     {
                         props.isFree ?
                             <div className='flex items-center justify-center h-14'>
