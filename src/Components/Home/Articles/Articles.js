@@ -1,47 +1,10 @@
 import SectionTitle from "../../Titles/SectionTitle";
 import Article from "./Article";
 import {useState} from "react";
-
+import {articles as data} from "../../../data";
 export default function Articles() {
 
-    const [articles] = useState([
-        {
-            id: 1,
-            title: 'دوره پروژه محور React و Next Js',
-            img: 'images/Courses/01.jpg',
-            time: 20,
-            writer: 'حسین رستمی',
-            writerImg: 'images/profile.jpeg',
-            category: 'فرانت اند'
-        },
-        {
-            id: 2,
-            title: 'دوره پروژه محور React و Next Js',
-            img: 'images/Courses/02.jpg',
-            time: 15,
-            writer: 'حسین رستمی',
-            writerImg: 'images/profile.jpeg',
-            category: 'امنیت'
-        },
-        {
-            id: 3,
-            title: 'دوره پروژه محور React و Next Js',
-            img: 'images/Courses/03.jpg',
-            time: 32,
-            writer: 'حسین رستمی',
-            writerImg: 'images/profile.jpeg',
-            category: 'بک اند'
-        },
-        {
-            id: 4,
-            title: 'دوره پروژه محور React و Next Js',
-            img: 'images/Courses/04.jpg',
-            time: 10,
-            writer: 'حسین رستمی',
-            writerImg: 'images/profile.jpeg',
-            category: 'اندروید'
-        },
-    ])
+    const [articles] = useState(data)
 
     return (
         <section>
@@ -58,7 +21,7 @@ export default function Articles() {
                     <div className='grid grid-cols-1 grid-rows-2 sm:grid-cols-2 gap-5 sm:pb-8'>
                         {
                             articles.map(article => {
-                                return <Article key={article.id} {...article}></Article>
+                                return <Article roundedImg={true} key={article.id} {...article}></Article>
                             })
                         }
                     </div>

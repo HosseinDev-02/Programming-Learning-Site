@@ -114,5 +114,44 @@ const userFavoritesCourses = [
     }
 ]
 
+const articles = [
+    {
+        id: 1,
+        title: 'دوره پروژه محور React و Next Js',
+        img: 'images/Courses/01.jpg',
+        time: 20,
+        writer: 'حسین رستمی',
+        writerImg: 'images/profile.jpeg',
+        category: 'فرانت اند'
+    },
+    {
+        id: 2,
+        title: 'دوره پروژه محور React و Next Js',
+        img: 'images/Courses/02.jpg',
+        time: 15,
+        writer: 'حسین رستمی',
+        writerImg: 'images/profile.jpeg',
+        category: 'امنیت'
+    },
+    {
+        id: 3,
+        title: 'دوره پروژه محور React و Next Js',
+        img: 'images/Courses/03.jpg',
+        time: 32,
+        writer: 'حسین رستمی',
+        writerImg: 'images/profile.jpeg',
+        category: 'بک اند'
+    },
+    {
+        id: 4,
+        title: 'دوره پروژه محور React و Next Js',
+        img: 'images/Courses/04.jpg',
+        time: 10,
+        writer: 'حسین رستمی',
+        writerImg: 'images/profile.jpeg',
+        category: 'اندروید'
+    },
+]
+
 export default data
-export {userCourses, userFavoritesCourses}
+export {userCourses, userFavoritesCourses, articles}

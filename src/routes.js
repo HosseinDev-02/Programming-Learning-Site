@@ -12,6 +12,7 @@ import Questions from "./Components/DashBoard/Questions/Questions";
 import Notifications from "./Components/DashBoard/Notifications/Notifications";
 import EditProfile from "./Components/DashBoard/EditProfile/EditProfile";
 import Panel from "./Components/Panel/Panel";
+import ArticlesPage from "./Components/ArticlesPage/ArticlesPage";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -19,6 +20,7 @@ let routes = [
     {path: '/course', element: <CourseDetail />},
     {path: '/login-register', element: <LoginRegister />},
     {path: '/basket', element: <Basket />},
+    {path: '/articles', element: <ArticlesPage></ArticlesPage>},
     {path: '/dashboard', element: <DashBoard />, children: [
             {path: 'counter', element: <Counter></Counter>},
             {path: 'courses', element: <UserCourses></UserCourses>},

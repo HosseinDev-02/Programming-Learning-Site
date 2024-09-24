@@ -3,47 +3,20 @@ import UserInfo from "../../UserInfo/UserInfo";
 
 export default function Article(props) {
     return (
-        props.id === 2 || props.id === 4 ? <div className='bg-background rounded-xl p-4 sm:translate-y-8'>
+        <div className={`bg-background rounded-xl p-4 ${props.className}`}>
             <div className='relative'>
                 <a href="#">
-                    <img className='w-full h-full object-cover rounded-xl'
-                         src={props.img}
-                         alt=""/>
-                </a>
-                <LikeButton className='left-3 -bottom-3 !absolute w-9 h-9'></LikeButton>
-            </div>
-            <div className='space-y-3 mt-3'>
-                <h6 className='mt-2 text-title text-sm font-YekanBakh-Bold'>
-                    <a className='hover:text-primary transition-colors' href="#">
-                        {props.title}
-                    </a>
-                </h6>
-                <div className='flex items-center justify-between'>
-                    <UserInfo text={props.writer} img={props.writerImg}></UserInfo>
-                    <a href='#'
-                       className='flex items-center justify-center px-4 h-8 rounded-full bg-primary/10 hover:opacity-80 transition-opacity'>
-                        <span className='text-xxs text-primary font-YekanBakh-Bold'>{props.category}</span>
-                    </a>
-                </div>
-                <div
-                    className='flex items-center gap-1 text-xs justify-end font-YekanBakh-SemiBold'>
-                                    <span>
-                                        <svg className='w-5 h-5'>
-                                            <use href='#clock-outline'></use>
-                                        </svg>
-                                    </span>
-                    <span>زمان مطالعه :</span>
-                    <span className='dark:text-white'>
-                                        {props.time}
-                                    </span>
-                </div>
-            </div>
-        </div> : <div className='bg-background rounded-xl p-4'>
-            <div className='relative'>
-                <a href="#">
-                    <img className='w-full h-full object-cover rounded-xl'
-                         src={props.img}
-                         alt=""/>
+                    {
+                        props.roundedImg ? (
+                            <img className='w-full h-full object-cover rounded-xl'
+                                 src={props.img}
+                                 alt=""/>
+                        ) : (
+                            <img className='w-full h-full object-cover'
+                                 src={props.img}
+                                 alt=""/>
+                        )
+                    }
                 </a>
                 <LikeButton className='w-9 h-9 !absolute -bottom-3 left-3'></LikeButton>
             </div>
