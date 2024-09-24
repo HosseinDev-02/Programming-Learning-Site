@@ -103,7 +103,7 @@ export default function FavoriteCourse(props) {
 
                     <div className='flex items-center gap-3 mt-3'>
                         <PrimaryButton icon='#arrow-up-left' href='/course' title='مشاهده دوره'></PrimaryButton>
-                        <LikeButton isLiked={true}></LikeButton>
+                        <LikeButton className={'text-red-500'}></LikeButton>
                     </div>
                 </div>
             </div>

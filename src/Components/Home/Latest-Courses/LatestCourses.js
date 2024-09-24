@@ -15,7 +15,7 @@ export default function LatestCourses() {
                 {/*  Section Header  */}
                     <SectionHeader>
                         <SectionTitle title='آخرین دوره های' text='منتشر شده'></SectionTitle>
-                        <SectionLinkBtn icon='#arrow-up-left' text='مشاهده همه'></SectionLinkBtn>
+                        <SectionLinkBtn href='/courses' icon='#arrow-up-left' text='مشاهده همه'></SectionLinkBtn>
                     </SectionHeader>
                 {/*  Section Content  */}
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-8 gap-5'>

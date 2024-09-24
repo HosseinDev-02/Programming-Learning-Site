@@ -20,9 +20,9 @@ export default function LoginRegister() {
                         </p>
                         <form action="#" className='mt-3 space-y-3'>
                             <input dir='ltr'
-                                   className='outline-none h-11 rounded-2xl bg-secondary border border-border px-5 w-full text-title'
+                                   className='outline-none h-11 rounded-2xl bg-secondary border border-border px-2 w-full text-title'
                                    type="text"/>
-                            <PrimaryButton style={{display: 'flex'}} icon='#arrow-up-left' title='برو بریم' href='#'></PrimaryButton>
+                            <PrimaryButton className={'flex'} icon='#arrow-up-left' title='برو بریم' href='#'></PrimaryButton>
                         </form>
                     </div>
                 </div>

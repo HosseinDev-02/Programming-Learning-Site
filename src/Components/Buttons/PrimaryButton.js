@@ -1,6 +1,6 @@
 export default function PrimaryButton(props) {
     return (
-        <a href={props.href ? props.href : '#'} style={props.style} className='flex sm:inline-flex items-center justify-center gap-2 bg-primary rounded-full text-white h-11 transition-opacity hover:opacity-80 font-YekanBakh-SemiBold text-sm px-4 flex-grow'>
+        <a href={props.href ? props.href : '#'} className={`flex sm:inline-flex items-center justify-center gap-2 bg-primary rounded-full text-white h-11 transition-opacity hover:opacity-80 font-YekanBakh-SemiBold text-sm px-4 flex-grow ${props.className}`}>
             <span>
                 {
                     props.title

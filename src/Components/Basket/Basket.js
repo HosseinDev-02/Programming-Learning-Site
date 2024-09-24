@@ -5,6 +5,7 @@ import LikeButton from "../Buttons/LikeButton";
 import LatestCourses from "../Home/Latest-Courses/LatestCourses";
 import SectionHeader from "../SectionHeader/SectionHeader";
 import SectionLinkBtn from "../Buttons/SectionLinkBtn";
+import RoundButton from "../Buttons/RoundButton";
 
 export default function Basket () {
     return (
@@ -24,14 +25,7 @@ export default function Basket () {
                                        href="#">
                                         <img className='w-full h-full object-cover' src="images/Courses/01.jpg" alt=""/>
                                     </a>
-                                    <button
-                                        className='flex items-center justify-center rounded-full bg-red-500 dark:bg-red-700 text-white w-11 h-11 mx-auto -translate-y-1/2'>
-                                        <span>
-                                            <svg className='w-6 h-6'>
-                                                <use href='#x-mark'></use>
-                                            </svg>
-                                        </span>
-                                    </button>
+                                    <RoundButton icon='#x-mark' className={'-translate-y-1/2 mx-auto w-11 h-11 !bg-red-500 text-white'}></RoundButton>
                                 </div>
                                 <div
                                     className='w-full sm:w-8/12 lg:w-8/12 md:w-full bg-gradient-to-b from-secondary to-background px-5 pb-5 rounded-3xl'>
@@ -116,14 +110,7 @@ export default function Basket () {
                                        href="#">
                                         <img className='w-full h-full object-cover' src="images/Courses/01.jpg" alt=""/>
                                     </a>
-                                    <button
-                                        className='flex items-center justify-center rounded-full bg-red-500 dark:bg-red-700 text-white w-11 h-11 mx-auto -translate-y-1/2'>
-                                        <span>
-                                            <svg className='w-6 h-6'>
-                                                <use href='#x-mark'></use>
-                                            </svg>
-                                        </span>
-                                    </button>
+                                    <RoundButton icon='#x-mark' className={'-translate-y-1/2 mx-auto w-11 h-11 !bg-red-500 text-white'}></RoundButton>
                                 </div>
                                 <div
                                     className='w-full sm:w-8/12 lg:w-8/12 md:w-full bg-gradient-to-b from-secondary to-background px-5 pb-5 rounded-3xl'>
