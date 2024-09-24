@@ -14,7 +14,7 @@ export default function Basket () {
                 <div className='flex flex-col md:flex-row items-center md:items-start gap-5'>
                     <div className='md:w-7/12 lg:w-8/12'>
                         <SectionHeader>
-                            <SectionTitle fontSize='12px' lineHeight='1rem' title='سبد خرید شما' text='2 دوره به سبد اضافه کرده اید'></SectionTitle>
+                            <SectionTitle textColor='#6b7280' fontSize='12px' lineHeight='1rem' title='سبد خرید شما' text='2 دوره به سبد اضافه کرده اید'></SectionTitle>
                         </SectionHeader>
                         {/*  basket content  */}
                         <div className='divide-y divide-border divide-dashed'>

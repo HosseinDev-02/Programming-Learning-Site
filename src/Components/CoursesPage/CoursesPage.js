@@ -2,6 +2,7 @@ import SectionTitle from "../Titles/SectionTitle";
 import {useState} from "react";
 import Course from "../Home/Latest-Courses/Course";
 import data from "../../data";
+import SectionHeader from "../SectionHeader/SectionHeader";
 
 export default function CoursesPage() {
 
@@ -36,7 +37,9 @@ export default function CoursesPage() {
         <main className='py-5'>
             <div className="container">
                 <div className='space-y-8'>
-                    <SectionTitle lineHeight='16px' fontSize='12px' title='دوره های آموزشی' text='دوره ببین، تمرین کن، برنامه نویس شو'></SectionTitle>
+                    <SectionHeader>
+                        <SectionTitle lineHeight='1rem' fontSize='12px' title='دوره های آموزشی' text='دوره ببین، تمرین کن، برنامه نویس شو'></SectionTitle>
+                    </SectionHeader>
                     <div className='md:grid grid-cols-12 gap-5 items-start'>
                         {/*  Courses Side Bar  */}
                         <div className='col-span-4 lg:col-span-3 hidden md:block md:sticky md:top-24'>

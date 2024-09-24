@@ -1,8 +1,6 @@
 import Logo from "../Logo/Logo";
 import SectionLinkBtn from "../Buttons/SectionLinkBtn";
-import FooterIcon from "./FooterIcon";
 import SubTitle from "../Titles/SubTitle";
-import SocialMedia from "./SocialMedia";
 import RoundButton from "../Buttons/RoundButton";
 
 
@@ -110,9 +108,9 @@ export default function Footer() {
                                     </form>
                                     <SubTitle title='شبکه های اجتماعی'></SubTitle>
                                     <div className='flex items-center gap-5'>
-                                        <RoundButton className='w-12 h-12' link={true} href='#instagram' icon='#instagram'></RoundButton>
-                                        <RoundButton className='w-12 h-12' link={true} href='#telegram' icon='#telegram'></RoundButton>
-                                        <RoundButton className='w-12 h-12' link={true} href='#youtube' icon='#youtube'></RoundButton>
+                                        <RoundButton className='w-12 h-12 hover:text-primary transition-colors' link={true} href='#instagram' icon='#instagram'></RoundButton>
+                                        <RoundButton className='w-12 h-12 hover:text-primary transition-colors' link={true} href='#telegram' icon='#telegram'></RoundButton>
+                                        <RoundButton className='w-12 h-12 hover:text-primary transition-colors' link={true} href='#youtube' icon='#youtube'></RoundButton>
                                     </div>
                                 </div>
                             </div>

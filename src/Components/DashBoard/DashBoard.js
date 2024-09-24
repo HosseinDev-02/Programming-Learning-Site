@@ -108,7 +108,7 @@ export default function DashBoard() {
                                     ویرایش پروفایل
                                 </span>
                             </Link>
-                            <Link to='' data-key='logout' onClick={dashboardMenuHandler} className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-primary hover:text-white transition-colors w-full h-11 cursor-pointer'>
+                            <a href='/' data-key='logout' onClick={dashboardMenuHandler} className='flex items-center gap-3 rounded-full px-5 bg-background hover:bg-red-500 text-red-500 hover:text-white transition-colors w-full h-11 cursor-pointer'>
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#logout'></use>
@@ -117,7 +117,7 @@ export default function DashBoard() {
                                 <span className='text-xs font-YekanBakh-SemiBold line-clamp-1'>
                                     خروج از حساب
                                 </span>
-                            </Link>
+                            </a>
                         </ul>
                     </div>
                     <div className='md:col-span-8 lg:col-span-9'>
@@ -134,10 +134,8 @@ export default function DashBoard() {
                                 <Questions></Questions>
                             ) : activeTab === 'notifications' ? (
                                 <Notifications></Notifications>
-                            ) : activeTab === 'edit' ? (
+                            ) : activeTab === 'edit' && (
                                 <EditProfile></EditProfile>
-                            ) : (
-                                <UserCourses></UserCourses>
                             )
                         }
                     </div>

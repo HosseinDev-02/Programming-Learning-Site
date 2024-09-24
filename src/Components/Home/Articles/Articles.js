@@ -51,8 +51,8 @@ export default function Articles() {
                     <SectionTitle
                         text='نوشتن کار جالبیه که از هزاران سال همراه ما بوده و کمک کرده تا همیشه به روز باشیم، ما در نابغه فضای رو به شکلی آماده کردیم تا شما  بتونید ایده‌ها و مطالب جالب حوزه برنامه‌نویسی رو در اختیار هزاران برنامه‌نویس عضو نابغه قرار بدید.'
                         title='از گوشه و اطراف دنیای برنامه نویسی'
-                        alignItems='start'
-                        color='#6b7280'
+                        className={'!items-start'}
+                        textColor='#6b7280'
                     >
                     </SectionTitle>
                     <div className='grid grid-cols-1 grid-rows-2 sm:grid-cols-2 gap-5 sm:pb-8'>
