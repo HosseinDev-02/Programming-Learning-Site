@@ -6,11 +6,15 @@ export default function PrimaryButton(props) {
                     props.title
                 }
             </span>
-            <span>
+            {
+                props.icon && (
+                    <span>
                 <svg className='w-5 h-5'>
                     <use href={props.icon}></use>
                 </svg>
             </span>
+                )
+            }
         </a>
     )
 }
