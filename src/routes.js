@@ -13,6 +13,7 @@ import Notifications from "./Components/DashBoard/Notifications/Notifications";
 import EditProfile from "./Components/DashBoard/EditProfile/EditProfile";
 import Panel from "./Components/Panel/Panel";
 import ArticlesPage from "./Components/ArticlesPage/ArticlesPage";
+import ArticleDetail from "./Components/ArticleDetail/ArticleDetail";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -21,6 +22,7 @@ let routes = [
     {path: '/login-register', element: <LoginRegister />},
     {path: '/basket', element: <Basket />},
     {path: '/articles', element: <ArticlesPage></ArticlesPage>},
+    {path: '/article-detail', element: <ArticleDetail></ArticleDetail>},
     {path: '/dashboard', element: <DashBoard />, children: [
             {path: 'counter', element: <Counter></Counter>},
             {path: 'courses', element: <UserCourses></UserCourses>},

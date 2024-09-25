@@ -2,7 +2,6 @@ import SiteStructure from "../SiteStructure/SiteStructure";
 import SectionTitle from "../Titles/SectionTitle";
 import SectionHeader from "../SectionHeader/SectionHeader";
 import {useState} from "react";
-import Course from "../Home/Latest-Courses/Course";
 import {articles as data, articleCategories} from "../../data";
 import Article from "../Home/Articles/Article";
 import Accordion from "../Accordion/Accordion";
@@ -40,10 +39,7 @@ export default function ArticlesPage() {
             <main className='py-5'>
                 <div className="container">
                     <div className='space-y-8'>
-                        <SectionHeader>
-                            <SectionTitle lineHeight='1rem' fontSize='12px' title='دوره های آموزشی'
-                                          text='دوره ببین، تمرین کن، برنامه نویس شو'></SectionTitle>
-                        </SectionHeader>
+                        <SectionTitle lineHeight='1rem' fontSize='12px' title='مقالات آموزشی' text='از گوشه و اطراف دنیای برنامه نویسی'></SectionTitle>
                         <div className='md:grid grid-cols-12 gap-5 items-start'>
                             {/*  Courses Side Bar  */}
                             <div className='col-span-4 lg:col-span-3 hidden md:block md:sticky md:top-24'>
@@ -113,7 +109,7 @@ export default function ArticlesPage() {
                                         <span
                                             className='text-xs font-YekanBakh-SemiBold hidden sm:inline'>مرتب سازی :</span>
                                     </div>
-                                    <div className='w-52 bg-secondary rounded-2xl relative'>
+                                    <div className='w-52 bg-secondary rounded-2xl relative space-y-2'>
                                         <button onClick={filteringModalHandler}
                                                 className='flex items-center w-full justify-between px-4 outline-none h-11 text-title font-YekanBakh-SemiBold'>
                                         <span className='text-xs'>
@@ -127,23 +123,23 @@ export default function ArticlesPage() {
                                             </svg>
                                         </span>
                                         </button>
-                                        <div style={showFilteringModal ? {height: '216px'} : {height: '0'}}
-                                             className='bg-background shadow dark:shadow-white/10 rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
+                                        <div style={showFilteringModal ? {display: 'block'} : {display: 'none'}}
+                                             className='bg-secondary shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
                                             <ul onClick={filteringCoursesHandler}
-                                                className='text-xs font-YekanBakh-SemiBold flex flex-col gap-1 text-title'>
-                                                <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
+                                                className='text-xs font-YekanBakh-SemiBold flex flex-col gap-1'>
+                                                <li className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
                                                     جدیدترین ها
                                                 </li>
-                                                <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
+                                                <li className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
                                                     پرفروش ترین ها
                                                 </li>
-                                                <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
+                                                <li className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
                                                     در حال برگزاری
                                                 </li>
-                                                <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
+                                                <li className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
                                                     تکمیل شده
                                                 </li>
-                                                <li className='py-3 px-4 hover:bg-secondary cursor-pointer'>
+                                                <li className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
                                                     خریداری شده
                                                 </li>
                                             </ul>
@@ -303,8 +299,7 @@ export default function ArticlesPage() {
                                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
                                     {
                                         articles.map(article => (
-                                            <Article className={'rounded-none shadow-lg'} roundedImg={false}
-                                                     key={article.id} {...article}></Article>))
+                                            <Article className={'!rounded-none shadow-lg'} roundedImg={false} key={article.id} {...article}></Article>))
                                     }
                                 </div>
                             </div>
