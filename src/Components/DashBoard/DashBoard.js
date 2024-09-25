@@ -28,7 +28,7 @@ export default function DashBoard() {
                         <div className='md:col-span-4 lg:col-span-3 mb-5 md:mb-0'>
                             <div className='flex items-center gap-3'>
                             <span className='block overflow-hidden w-10 h-10 rounded-full shrink-0'>
-                                <img className='w-full h-full object-cover' src='../images/profile.jpeg' alt=""/>
+                                <img className='w-full h-full object-cover' src='./../images/profile.jpeg' alt=""/>
                             </span>
                                 <div className='flex flex-col gap-1 text-xs font-YekanBakh-SemiBold'>
                                 <span className='line-clamp-1 text-xs'>

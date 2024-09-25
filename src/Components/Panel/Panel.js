@@ -1,4 +1,3 @@
-import SectionTitle from "../Titles/SectionTitle";
 import Users from "./Users/Users";
 
 export default function Panel() {
