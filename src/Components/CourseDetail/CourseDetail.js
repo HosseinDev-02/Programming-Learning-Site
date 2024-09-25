@@ -9,7 +9,7 @@ import UserInfo from "../UserInfo/UserInfo";
 
 export default function CourseDetail() {
 
-    const [boxes, setBoxes] = useState([
+    const [boxes] = useState([
         {id: 1, icon: '#clock', title: 'مدت دوره', text: '14:53:42'},
         {id: 2, icon: '#grid-boxes', title: 'تعداد جلسات', text: '99'},
         {id: 3, icon: '#info', title: 'نوع دوره', text: 'ویژه / نقدی'},
@@ -467,8 +467,7 @@ export default function CourseDetail() {
                                               className='p-5 bg-secondary rounded-xl text-sm text-title overflow-hidden w-full outline-none'>
 
                                     </textarea>
-                                    <PrimaryButton style={{display: 'inline-flex', width: 'auto', padding: '0 16px'}}
-                                                   title='ثبت دیدگاه یا پرسش' icon='#arrow-up-left' href='#'></PrimaryButton>
+                                    <PrimaryButton title='ثبت دیدگاه یا پرسش' icon='#arrow-up-left' href='#'></PrimaryButton>
                                 </form>
                             </div>
                             <div>

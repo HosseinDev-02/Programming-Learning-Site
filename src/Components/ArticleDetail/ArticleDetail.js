@@ -18,7 +18,7 @@ export default function ArticleDetail() {
                         <div className='md:w-8/12 pb-5'>
                             {/*  course image  */}
                             <div>
-                                <img className='w-full rounded-3xl' src="images/Courses/01.jpg" alt=""/>
+                                <img className='w-full rounded-3xl' src="/images/Courses/01.jpg" alt=""/>
                             </div>
                             {/*  course infos  */}
                             <div
@@ -121,9 +121,7 @@ export default function ArticleDetail() {
                                               className='p-5 bg-secondary rounded-xl text-sm text-title overflow-hidden w-full outline-none'>
 
                                     </textarea>
-                                        <PrimaryButton
-                                            style={{display: 'inline-flex', width: 'auto', padding: '0 16px'}}
-                                            title='ثبت دیدگاه یا پرسش' icon='#arrow-up-left' href='#'></PrimaryButton>
+                                        <PrimaryButton title='ثبت دیدگاه یا پرسش' icon='#arrow-up-left' href='#'></PrimaryButton>
                                     </form>
                                 </div>
                                 <div>

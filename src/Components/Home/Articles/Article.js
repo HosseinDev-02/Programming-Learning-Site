@@ -1,11 +1,10 @@
 import LikeButton from "../../Buttons/LikeButton";
-import UserInfo from "../../UserInfo/UserInfo";
 
 export default function Article(props) {
     return (
         <div className={`bg-background rounded-xl p-4 ${props.className}`}>
             <div className='relative'>
-                <a href="#">
+                <a href="/article-detail">
                     {
                         props.roundedImg ? (
                             <img className='w-full h-full object-cover rounded-xl'
@@ -22,7 +21,7 @@ export default function Article(props) {
             </div>
             <div className='space-y-3 mt-3'>
                 <h6 className='mt-2 text-title text-sm font-YekanBakh-Bold'>
-                    <a className='hover:text-primary transition-colors' href="#">
+                    <a className='hover:text-primary transition-colors' href="/article-detail">
                         {props.title}
                     </a>
                 </h6>
