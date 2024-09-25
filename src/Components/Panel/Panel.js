@@ -1,4 +1,5 @@
 import SectionTitle from "../Titles/SectionTitle";
+import Users from "./Users/Users";
 
 export default function Panel() {
 
@@ -71,7 +72,7 @@ export default function Panel() {
 
 
             </svg>
-            <div className='bg-background w-80 rounded-l-2xl p-5 divide-y divide-border'>
+            <div className='bg-background w-80 rounded-l-2xl divide-y divide-border p-5 shrink-0'>
                 <div className='flex flex-col items-center gap-2 pb-4'>
                     <h1 className='font-YekanBakh-Black text-primary text-2xl text-center'>
                         پنل کاربری
@@ -271,8 +272,8 @@ export default function Panel() {
                 </div>
             </div>
             {/*  Admin Panel Left Side  */}
-            <div>
-
+            <div className='flex items-center justify-center w-full p-5'>
+                <Users></Users>
             </div>
         </div>
     )
