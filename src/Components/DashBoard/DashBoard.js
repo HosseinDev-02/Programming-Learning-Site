@@ -1,6 +1,5 @@
 import Counter from "./Counter/Counter";
 import {useState} from "react";
-import UserInfo from "../UserInfo/UserInfo";
 import UserCourses from "./UserCourses/UserCourses";
 import Favorites from "./Favorites/Favorites";
 import Transactions from "./Transactions/Transactions";

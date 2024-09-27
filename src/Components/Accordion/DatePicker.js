@@ -5,7 +5,7 @@ export default function DatePicker(props) {
                     className={`flex items-center justify-between px-3 rounded-xl bg-secondary h-11 w-full border border-border text-title ${props.buttonStyle}`}>
                             <span className='text-xs font-YekanBakh-Bold'>
                                 {
-                                    props.dateState
+                                    props.dateState ? props.dateState : 'انتخاب کنید ...'
                                 }
                             </span>
                 <span>

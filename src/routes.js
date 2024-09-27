@@ -14,7 +14,7 @@ import EditProfile from "./Components/DashBoard/EditProfile/EditProfile";
 import Panel from "./Components/Panel/Panel";
 import ArticlesPage from "./Components/ArticlesPage/ArticlesPage";
 import ArticleDetail from "./Components/ArticleDetail/ArticleDetail";
-import UserForm from "./Components/Panel/Users/UserForm";
+import Users from "./Components/Panel/Users/Users";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -34,8 +34,8 @@ let routes = [
             {path: 'edit', element: <EditProfile></EditProfile>},
         ]
     },
-    {path: '/admin-panel', element: <Panel></Panel>, children: [
-            {path: 'user-form', element: <UserForm></UserForm>}
+    {path: '/admin-panel', element: <Panel />, children: [
+            {path: 'users', element: <Home></Home>}
         ]}
 ]
 

@@ -7,11 +7,11 @@ export default function UserForm () {
     const [yearMenuShow, setYearMenuShow] = useState(false)
     const [monthMenuShow, setMonthMenuShow] = useState(false)
     const [dayMenuShow, setDayMenuShow] = useState(false)
-    const [day, setDay] = useState('انتخاب روز')
+    const [day, setDay] = useState('')
     const [days] = useState(allDays)
-    const [month, setMonth] = useState('انتخاب ماه')
+    const [month, setMonth] = useState('')
     const [months] = useState(allMonth)
-    const [year, setYear] = useState('انتخاب سال')
+    const [year, setYear] = useState('')
     const [years] = useState(allYears)
 
 
@@ -30,10 +30,10 @@ export default function UserForm () {
 
 
     return (
-        <div>
+        <div className='space-y-5'>
             <div className='flex flex-col gap-5'>
                 <span className='text-xs font-YekanBakh-Bold'>اطلاعات فردی</span>
-                <div className='flex items-start justify-between gap-5 mb-5'>
+                <div className='flex items-start justify-between gap-5'>
                     <div className='flex flex-col gap-2 items-start w-1/3'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             نام
@@ -60,27 +60,43 @@ export default function UserForm () {
                     </div>
                 </div>
             </div>
+            <div className='flex items-center gap-2 text-title'>
+                <span className='text-sm font-YekanBakh-Bold'>تاریخ تولد :</span>
+                <div className='flex items-center gap-1'>
+                    <span className='text-sm font-YekanBakh-SemiBold'>{day}</span>
+                    <span className='text-sm font-YekanBakh-SemiBold'>{month}</span>
+                    <span className='text-sm font-YekanBakh-SemiBold'>{year}</span>
+                </div>
+            </div>
             <div className='flex flex-col gap-5 items-start'>
-                <span className='text-xs font-YekanBakh-Bold'>تاریخ تولد</span>
                 <div className='flex gap-5 justify-between w-full'>
-                    <DatePicker className={'w-1/3 flex flex-col gap-2 items-start'}
-                                buttonStyle={'!bg-background'}
-                                modalBg={'rgb(var(--color-background))'}
-                                dateModalShow={yearMenuShow}
-                                dateModalHandler={() => setYearMenuShow(prevState => !prevState)} items={years}
-                                dateState={year} setDateState={() => yearSelectionHandler}></DatePicker>
-                    <DatePicker className={'w-1/3 flex flex-col gap-2 items-start'}
-                                buttonStyle={'!bg-background'}
-                                modalBg={'rgb(var(--color-background))'}
-                                dateModalShow={monthMenuShow}
-                                dateModalHandler={() => setMonthMenuShow(prevState => !prevState)} items={months}
-                                dateState={month} setDateState={() => monthSelectionHandler}></DatePicker>
-                    <DatePicker className={'w-1/3 flex flex-col gap-2 items-start'}
-                                buttonStyle={'!bg-background'}
-                                modalBg={'rgb(var(--color-background))'}
-                                dateModalShow={dayMenuShow}
-                                dateModalHandler={() => setDayMenuShow(prevState => !prevState)}
-                                items={days} dateState={day} setDateState={() => daySelectionHandler}></DatePicker>
+                    <div className='flex gap-2 flex-col w-1/3'>
+                        <span className='text-xs font-YekanBakh-Bold'>سال تولد</span>
+                        <DatePicker className={'flex flex-col gap-2 items-start'}
+                                    buttonStyle={'!bg-background'}
+                                    modalBg={'rgb(var(--color-background))'}
+                                    dateModalShow={yearMenuShow}
+                                    dateModalHandler={() => setYearMenuShow(prevState => !prevState)} items={years}
+                                    dateState={year} setDateState={() => yearSelectionHandler}></DatePicker>
+                    </div>
+                    <div className='flex gap-2 flex-col w-1/3'>
+                        <span className='text-xs font-YekanBakh-Bold'>ماه تولد</span>
+                        <DatePicker className={'flex flex-col gap-2 items-start'}
+                                    buttonStyle={'!bg-background'}
+                                    modalBg={'rgb(var(--color-background))'}
+                                    dateModalShow={monthMenuShow}
+                                    dateModalHandler={() => setMonthMenuShow(prevState => !prevState)} items={months}
+                                    dateState={month} setDateState={() => monthSelectionHandler}></DatePicker>
+                    </div>
+                    <div className='flex gap-2 flex-col w-1/3'>
+                        <span className='text-xs font-YekanBakh-Bold'>روز تولد</span>
+                        <DatePicker className={'flex flex-col gap-2 items-start'}
+                                    buttonStyle={'!bg-background'}
+                                    modalBg={'rgb(var(--color-background))'}
+                                    dateModalShow={dayMenuShow}
+                                    dateModalHandler={() => setDayMenuShow(prevState => !prevState)}
+                                    items={days} dateState={day} setDateState={() => daySelectionHandler}></DatePicker>
+                    </div>
                 </div>
             </div>
         </div>
