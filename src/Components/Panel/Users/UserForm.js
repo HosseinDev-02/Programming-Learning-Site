@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {days as allDays, months as allMonth, years as allYears} from "../../../data";
 import DatePicker from "../../Accordion/DatePicker";
+import PrimaryButton from "../../Buttons/PrimaryButton";
 
 export default function UserForm () {
 
@@ -28,9 +29,8 @@ export default function UserForm () {
         setDayMenuShow(prevState => !prevState)
     }
 
-
     return (
-        <div className='space-y-5'>
+        <div className='space-y-5 pb-10 border-b border-b-border'>
             <div className='flex flex-col gap-5'>
                 <span className='text-xs font-YekanBakh-Bold'>اطلاعات فردی</span>
                 <div className='flex items-start justify-between gap-5'>
@@ -98,6 +98,10 @@ export default function UserForm () {
                                     items={days} dateState={day} setDateState={() => daySelectionHandler}></DatePicker>
                     </div>
                 </div>
+            </div>
+            <div className='inline-flex items-center gap-3'>
+                <PrimaryButton icon='#check' title='ثبت کاربر'></PrimaryButton>
+                <PrimaryButton clickEvent={() => {window.history.back()}} icon='#x-mark' className='bg-red-500' title='لغو'></PrimaryButton>
             </div>
         </div>
     )

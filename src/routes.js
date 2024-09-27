@@ -15,6 +15,7 @@ import Panel from "./Components/Panel/Panel";
 import ArticlesPage from "./Components/ArticlesPage/ArticlesPage";
 import ArticleDetail from "./Components/ArticleDetail/ArticleDetail";
 import Users from "./Components/Panel/Users/Users";
+import UserForm from "./Components/Panel/Users/UserForm";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -35,7 +36,9 @@ let routes = [
         ]
     },
     {path: '/admin-panel', element: <Panel />, children: [
-            {path: 'users', element: <Home></Home>}
+            {path: 'users', element: <Users></Users>, children: [
+                    {path: 'user-form', element: <UserForm></UserForm>}
+                ]}
         ]}
 ]
 

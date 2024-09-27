@@ -7,9 +7,6 @@ import Symbol from "./Components/Symbol/Symbol";
 
 export default function App() {
 
-    const location = useLocation()
-    const locationPath = location.pathname
-    console.log(location.pathname)
     let router = useRoutes(routes)
 
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
