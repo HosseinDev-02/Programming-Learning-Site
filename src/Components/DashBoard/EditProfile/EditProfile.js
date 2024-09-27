@@ -1,6 +1,8 @@
 import SubTitle from "../../Titles/SubTitle";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import {useState} from "react";
+import {years as allYears, months as allMonth, days as allDays} from "../../../data";
+import DatePicker from "../../Accordion/DatePicker";
 
 export default function EditProfile () {
 
@@ -8,8 +10,11 @@ export default function EditProfile () {
     const [monthMenuShow, setMonthMenuShow] = useState(false)
     const [dayMenuShow, setDayMenuShow] = useState(false)
     const [day, setDay] = useState('انتخاب روز')
+    const [days] = useState(allDays)
     const [month, setMonth] = useState('انتخاب ماه')
+    const [months] = useState(allMonth)
     const [year, setYear] = useState('انتخاب سال')
+    const [years] = useState(allYears)
 
 
     const yearSelectionHandler = (e) => {
@@ -128,126 +133,9 @@ export default function EditProfile () {
                 <div className='mt-8 flex flex-col items-start gap-2'>
                     <span className='text-xs font-YekanBakh-Bold'>تاریخ تولد</span>
                     <div className='sm:grid sm:grid-cols-3 sm:gap-5 space-y-5 sm:space-y-0 w-full'>
-                        <div>
-                            <button onClick={() => setYearMenuShow(prevState => !prevState)}
-                                className='flex items-center justify-between px-3 rounded-xl bg-secondary h-11 w-full border border-border text-title'>
-                            <span className='text-xs font-YekanBakh-Bold'>
-                                {
-                                    year
-                                }
-                            </span>
-                                <span>
-                                <svg className='w-5 h-5'>
-                                    <use href='#chevron-down'></use>
-                                </svg>
-                            </span>
-                            </button>
-                            <div className='relative'>
-                                <ul onClick={yearSelectionHandler} style={yearMenuShow ? {display: 'flex'} : {}} className='text-center absolute top-2 left-0 right-0 w-full rounded-xl border border-border user-edit-date-menu z-10 bg-background hidden flex-col child:py-2 child:rounded-xl child:px-4 child-hover:bg-secondary child:cursor-pointer text-xs font-YekanBakh-SemiBold text-title h-48 overflow-y-auto'>
-                                    <li>1399</li>
-                                    <li>1398</li>
-                                    <li>1397</li>
-                                    <li>1396</li>
-                                    <li>1395</li>
-                                    <li>1394</li>
-                                    <li>1393</li>
-                                    <li>1392</li>
-                                    <li>1391</li>
-                                    <li>1390</li>
-                                    <li>1389</li>
-                                    <li>1388</li>
-                                    <li>1387</li>
-                                    <li>1386</li>
-                                    <li>1385</li>
-                                    <li>1384</li>
-                                    <li>1383</li>
-                                    <li>1382</li>
-                                    <li>1381</li>
-                                    <li>1380</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div>
-                            <button onClick={() => setMonthMenuShow(prevState => !prevState)}
-                                className='flex items-center justify-between px-3 rounded-xl bg-secondary h-11 w-full border border-border text-title'>
-                            <span className='text-xs font-YekanBakh-Bold'>
-                                {
-                                    month
-                                }
-                            </span>
-                                <span>
-                                <svg className='w-5 h-5'>
-                                    <use href='#chevron-down'></use>
-                                </svg>
-                            </span>
-                            </button>
-                            <div className='relative'>
-                                <ul onClick={monthSelectionHandler} style={monthMenuShow ? {display: 'flex'} : {}} className='text-center absolute top-2 left-0 right-0 w-full rounded-xl border border-border user-edit-date-menu z-10 bg-background hidden flex-col child:py-2 child:rounded-xl child:px-4 child-hover:bg-secondary child:cursor-pointer text-xs font-YekanBakh-SemiBold text-title h-48 overflow-y-auto'>
-                                    <li>فروردین</li>
-                                    <li>اردیبهشت</li>
-                                    <li>خرداد</li>
-                                    <li>تیر</li>
-                                    <li>مرداد</li>
-                                    <li>شهریور</li>
-                                    <li>مهر</li>
-                                    <li>آبان</li>
-                                    <li>آذر</li>
-                                    <li>دی</li>
-                                    <li>بهمن</li>
-                                    <li>اسفند</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div>
-                            <button onClick={() => setDayMenuShow(prevState => !prevState)}
-                                className='flex items-center justify-between px-3 rounded-xl bg-secondary h-11 w-full border border-border text-title'>
-                            <span className='text-xs font-YekanBakh-Bold'>
-                                {
-                                    day
-                                }
-                            </span>
-                                <span>
-                                <svg className='w-5 h-5'>
-                                    <use href='#chevron-down'></use>
-                                </svg>
-                            </span>
-                            </button>
-                            <div className='relative'>
-                                <ul onClick={daySelectionHandler} style={dayMenuShow ? {display: 'flex'} : {}} className='text-center absolute top-2 left-0 right-0 w-full rounded-xl border border-border user-edit-date-menu z-10 bg-background hidden flex-col child:py-2 child:rounded-xl child:px-4 child-hover:bg-secondary child:cursor-pointer text-xs font-YekanBakh-SemiBold text-title h-48 overflow-y-auto'>
-                                    <li>1</li>
-                                    <li>2</li>
-                                    <li>3</li>
-                                    <li>4</li>
-                                    <li>5</li>
-                                    <li>6</li>
-                                    <li>7</li>
-                                    <li>8</li>
-                                    <li>9</li>
-                                    <li>10</li>
-                                    <li>11</li>
-                                    <li>12</li>
-                                    <li>13</li>
-                                    <li>14</li>
-                                    <li>15</li>
-                                    <li>16</li>
-                                    <li>17</li>
-                                    <li>18</li>
-                                    <li>19</li>
-                                    <li>20</li>
-                                    <li>21</li>
-                                    <li>22</li>
-                                    <li>23</li>
-                                    <li>24</li>
-                                    <li>25</li>
-                                    <li>26</li>
-                                    <li>27</li>
-                                    <li>28</li>
-                                    <li>29</li>
-                                    <li>30</li>
-                                    <li>31</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <DatePicker dateModalShow={yearMenuShow} dateModalHandler={() => setYearMenuShow(prevState => !prevState)} items={years} dateState={year} setDateState={() => yearSelectionHandler}></DatePicker>
+                        <DatePicker dateModalShow={monthMenuShow} dateModalHandler={() => setMonthMenuShow(prevState => !prevState)} items={months} dateState={month} setDateState={() => monthSelectionHandler}></DatePicker>
+                        <DatePicker dateModalShow={dayMenuShow} dateModalHandler={() => setDayMenuShow(prevState => !prevState)} items={days} dateState={day} setDateState={() => daySelectionHandler}></DatePicker>
                     </div>
                     <div className='flex flex-col gap-2 w-full mt-5'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
