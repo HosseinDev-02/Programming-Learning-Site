@@ -1,9 +1,14 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {days as allDays, months as allMonth, years as allYears} from "../../../data";
 import DatePicker from "../../Accordion/DatePicker";
 import PrimaryButton from "../../Buttons/PrimaryButton";
+import supabase from "../../../database";
 
 export default function UserForm () {
+
+    useEffect(() => {
+        addNewUser()
+    }, [])
 
     const [yearMenuShow, setYearMenuShow] = useState(false)
     const [monthMenuShow, setMonthMenuShow] = useState(false)
@@ -14,6 +19,10 @@ export default function UserForm () {
     const [months] = useState(allMonth)
     const [year, setYear] = useState('')
     const [years] = useState(allYears)
+    const [userFirstName, setUserFirstName] = useState('')
+    const [userLastName, setUserLastName] = useState('')
+    const [userPhoneNumber, setUserPhoneNumber] = useState('')
+    const [userBirthDay, setUserBirthday] = useState('')
 
 
     const yearSelectionHandler = (e) => {
@@ -27,6 +36,15 @@ export default function UserForm () {
     const daySelectionHandler = (e) => {
         setDay(e.target.innerHTML)
         setDayMenuShow(prevState => !prevState)
+    }
+
+    async function addNewUser () {
+        let newUser = {
+            
+        }
+        const { data, error } = await supabase.from('users').insert(
+
+        )
     }
 
     return (
