@@ -2,7 +2,7 @@ import SubTitle from "../../Titles/SubTitle";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import {Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
-import supabase from "../../../database";
+import getUsers from "../utils";
 
 
 export default function Users() {
@@ -10,13 +10,17 @@ export default function Users() {
     const [users, setUsers] = useState([])
 
     useEffect( () => {
-        getUsers()
+        getAllUsers()
     }, [])
 
-    async function getUsers() {
-        const { data } = await supabase.from("users").select('*')
+
+    async function getAllUsers() {
+        const data = await getUsers()
         setUsers(data)
     }
+
+
+
 
     return (
         <div className='w-full h-full'>

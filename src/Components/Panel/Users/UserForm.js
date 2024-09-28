@@ -2,13 +2,14 @@ import {useEffect, useState} from "react";
 import {days as allDays, months as allMonth, years as allYears} from "../../../data";
 import DatePicker from "../../Accordion/DatePicker";
 import PrimaryButton from "../../Buttons/PrimaryButton";
+import getUsers from "../utils";
 import supabase from "../../../database";
 
 export default function UserForm () {
 
     useEffect(() => {
-        addNewUser()
-    }, [])
+        getAllUsers()
+    }, []);
 
     const [yearMenuShow, setYearMenuShow] = useState(false)
     const [monthMenuShow, setMonthMenuShow] = useState(false)
@@ -16,6 +17,7 @@ export default function UserForm () {
     const [day, setDay] = useState('')
     const [days] = useState(allDays)
     const [month, setMonth] = useState('')
+    const [monthIndex, setMonthIndex] = useState('')
     const [months] = useState(allMonth)
     const [year, setYear] = useState('')
     const [years] = useState(allYears)
@@ -23,13 +25,14 @@ export default function UserForm () {
     const [userLastName, setUserLastName] = useState('')
     const [userPhoneNumber, setUserPhoneNumber] = useState('')
     const [userBirthDay, setUserBirthday] = useState('')
-
+    const [users, setUsers] = useState([])
 
     const yearSelectionHandler = (e) => {
         setYear(e.target.innerHTML)
         setYearMenuShow(prevState => !prevState)
     }
     const monthSelectionHandler = (e) => {
+        setMonthIndex(e.target.dataset.id)
         setMonth(e.target.innerHTML)
         setMonthMenuShow(prevState => !prevState)
     }
@@ -38,13 +41,24 @@ export default function UserForm () {
         setDayMenuShow(prevState => !prevState)
     }
 
-    async function addNewUser () {
-        let newUser = {
-            
-        }
-        const { data, error } = await supabase.from('users').insert(
+    async function getAllUsers () {
+        const data = await getUsers()
+        setUsers(data)
+    }
 
-        )
+    async function addNewUser () {
+
+        let newUser = {
+            id: users.length + 1,
+            firstname: userFirstName,
+            lastname: userLastName,
+            phonenumber: userPhoneNumber,
+            birthday: `${year}-${monthIndex}-${day}`
+        }
+
+        const {data, error} = await supabase.from('users').insert(newUser).select()
+
+        console.log(data)
     }
 
     return (
@@ -56,7 +70,7 @@ export default function UserForm () {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             نام
                         </label>
-                        <input
+                        <input onChange={(e) => setUserFirstName(e.target.value)}
                             className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                             type="text"/>
                     </div>
@@ -64,7 +78,7 @@ export default function UserForm () {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             نام خانوادگی
                         </label>
-                        <input
+                        <input onChange={(e) => setUserLastName(e.target.value)}
                             className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                             type="text"/>
                     </div>
@@ -72,7 +86,7 @@ export default function UserForm () {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             شماره تماس
                         </label>
-                        <input
+                        <input onChange={(e) => setUserPhoneNumber(e.target.value)}
                             className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                             type="text"/>
                     </div>
@@ -118,7 +132,7 @@ export default function UserForm () {
                 </div>
             </div>
             <div className='inline-flex items-center gap-3'>
-                <PrimaryButton icon='#check' title='ثبت کاربر'></PrimaryButton>
+                <PrimaryButton clickEvent={() => addNewUser()} icon='#check' title='ثبت کاربر'></PrimaryButton>
                 <PrimaryButton clickEvent={() => {window.history.back()}} icon='#x-mark' className='bg-red-500' title='لغو'></PrimaryButton>
             </div>
         </div>
