@@ -4,7 +4,20 @@ import PrimaryButton from "../../Buttons/PrimaryButton";
 import {Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
 
+// const supabase = createClient(process.env["REACT_APP_SUPABASE_URL "],process.env["REACT_APP_SUPABASE_KEY "])
+
+console.log(process.env["REACT_APP_SUPABASE_URL "])
+
 export default function Users() {
+
+    // useEffect(() => {
+    //     getUsers()
+    // }, [])
+    //
+    // async function getUsers() {
+    //     const {data} = await supabase.from('users').select('*')
+    //     console.log(data)
+    // }
 
     return (
         <div className='w-full h-full'>
