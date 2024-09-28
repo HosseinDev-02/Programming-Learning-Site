@@ -3,6 +3,7 @@ import PrimaryButton from "../../../Buttons/PrimaryButton";
 import {Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
 import getUsers from "../utils";
+import supabase from "../../../../database";
 
 
 export default function Users() {
@@ -11,12 +12,17 @@ export default function Users() {
 
     useEffect( () => {
         getAllUsers()
-    }, [])
+    }, [users])
 
 
     async function getAllUsers() {
         const data = await getUsers()
         setUsers(data)
+    }
+
+    async function removeUserHandler(userId) {
+        const data = await supabase.from('users').delete().eq('id', userId)
+        console.log(data)
     }
 
 
@@ -81,20 +87,20 @@ export default function Users() {
                                     </td>
                                     <td>
                                         <div className='flex items-center justify-center text-primary'>
-                    <span className='cursor-pointer'>
-                    <svg className='w-6 h-6'>
-                    <use href='#edit'></use>
-                    </svg>
-                    </span>
+                                            <span className='cursor-pointer'>
+                                                <svg className='w-6 h-6'>
+                                                    <use href='#edit'></use>
+                                                </svg>
+                                            </span>
                                         </div>
                                     </td>
                                     <td>
                                         <div className='flex items-center justify-center text-red-500'>
-                    <span className='cursor-pointer'>
-                    <svg className='w-6 h-6'>
-                    <use href='#x-mark'></use>
-                    </svg>
-                    </span>
+                                            <span onClick={() => removeUserHandler(user.id)} className='cursor-pointer'>
+                                                <svg className='w-6 h-6'>
+                                                    <use href='#x-mark'></use>
+                                                </svg>
+                                            </span>
                                         </div>
                                     </td>
                                 </tr>
