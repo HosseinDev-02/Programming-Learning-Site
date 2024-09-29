@@ -1,9 +1,9 @@
 import SubTitle from "../../../Titles/SubTitle";
-import PrimaryButton from "../../../Buttons/PrimaryButton";
 import {useEffect, useState} from "react";
 import getUsers from "../../../../utils";
 import supabase from "../../../../database";
 import {MySwal} from "../../../../utils";
+import {Link} from "react-router-dom";
 
 
 export default function Users() {
@@ -44,6 +44,10 @@ export default function Users() {
                     }
                 }
             })
+    }
+
+    async function updateUserHandler(userId) {
+        console.log(userId)
     }
 
 
@@ -105,11 +109,11 @@ export default function Users() {
                                         </td>
                                         <td>
                                             <div className='flex items-center justify-center text-primary'>
-                                            <span className='cursor-pointer'>
+                                            <Link to={`../user-form/${user.user_id}`} onClick={() => updateUserHandler(user.user_id)} className='cursor-pointer'>
                                                 <svg className='w-6 h-6'>
                                                     <use href='#edit'></use>
                                                 </svg>
-                                            </span>
+                                            </Link>
                                             </div>
                                         </td>
                                         <td>

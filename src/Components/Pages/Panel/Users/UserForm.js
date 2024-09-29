@@ -5,6 +5,7 @@ import PrimaryButton from "../../../Buttons/PrimaryButton";
 import getUsers, {MySwal} from "../../../../utils";
 import supabase from "../../../../database";
 import SubTitle from "../../../Titles/SubTitle";
+import {useParams} from "react-router-dom";
 
 export default function UserForm () {
 
@@ -21,12 +22,21 @@ export default function UserForm () {
     const [userFirstName, setUserFirstName] = useState('')
     const [userLastName, setUserLastName] = useState('')
     const [userPhoneNumber, setUserPhoneNumber] = useState('')
-    const [userBirthDay, setUserBirthday] = useState('')
-    const [users, setUsers] = useState([])
+    const params = useParams()
+    const userId = params.id
 
     useEffect(() => {
-        getAllUsers()
+        getMainUser()
     }, []);
+
+    const getMainUser = async () => {
+        const data = await getUsers().then(data => {
+            let mainUser = data.find(user => user.user_id === userId)
+            setUserFirstName(mainUser.firstname)
+            setUserLastName(mainUser.lastname)
+            setUserPhoneNumber(mainUser.phonenumber)
+        })
+    }
 
 
     const yearSelectionHandler = (e) => {
@@ -43,10 +53,6 @@ export default function UserForm () {
         setDayMenuShow(prevState => !prevState)
     }
 
-    async function getAllUsers () {
-        const data = await getUsers()
-        setUsers(data)
-    }
 
     function clearStates () {
         setUserFirstName('')
@@ -82,9 +88,11 @@ export default function UserForm () {
     }
 
     return (
-        <div className='pb-10 w-full'>
-            <SubTitle title='افزودن کاربر جدید'></SubTitle>
-            <div className='flex flex-col gap-5 mt-10'>
+        <div className='w-full h-full'>
+            <div className='h-20 flex items-center'>
+                <SubTitle fontSize='24px' title='افزودن کاربر'></SubTitle>
+            </div>
+            <div className='flex flex-col gap-5 pt-10'>
                 <span className='text-xs font-YekanBakh-Bold'>اطلاعات فردی</span>
                 <div className='flex items-start justify-between gap-5'>
                     <div className='flex flex-col gap-2 items-start w-1/3'>
@@ -153,7 +161,7 @@ export default function UserForm () {
                 </div>
             </div>
             <div className='inline-flex items-center gap-3 mt-5'>
-                <PrimaryButton clickEvent={() => addNewUser()} icon='#check' title='ثبت کاربر'></PrimaryButton>
+                <PrimaryButton clickEvent={() => addNewUser()} icon='#check' title='ثبت کاربر جدید'></PrimaryButton>
             </div>
         </div>
     )
