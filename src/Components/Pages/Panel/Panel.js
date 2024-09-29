@@ -3,7 +3,7 @@ import SideBar from "./SideBar";
 
 export default function Panel() {
     return (
-        <div className='flex gap-5 bg-secondary min-h-screen font-YekanBakh-Regular'>
+        <div className='flex bg-secondary min-h-screen font-YekanBakh-Regular'>
             <svg className='hidden'>
                 <symbol id='arrow-long-left' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         strokeWidth="1.5"

@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {days as allDays, months as allMonth, years as allYears} from "../../../../data";
 import DatePicker from "../../../Accordion/DatePicker";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
-import getUsers from "../utils";
+import getUsers, {MySwal} from "../../../../utils";
 import supabase from "../../../../database";
 
 export default function UserForm () {
@@ -64,8 +64,14 @@ export default function UserForm () {
             phonenumber: userPhoneNumber,
             birthday: `${year}-${monthIndex}-${day}`
         }
-        const data = await supabase.from('users').insert(newUser)
-        console.log(data)
+        const response = await supabase.from('users').insert(newUser)
+        if(response.status === 201) {
+            MySwal.fire({
+                title: 'کاربر با موفقیت ثبت شد',
+                icon: 'success',
+                confirmButtonText: 'اوکی'
+            })
+        }
         clearStates()
     }
 

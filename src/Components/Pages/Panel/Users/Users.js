@@ -2,12 +2,9 @@ import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
 import {Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
-import getUsers from "../utils";
-import Swal from "sweetalert2";
-import withReactContent from 'sweetalert2-react-content'
+import getUsers from "../../../../utils";
 import supabase from "../../../../database";
-
-const MySwal = withReactContent(Swal)
+import {MySwal} from "../../../../utils";
 
 
 export default function Users() {
@@ -85,46 +82,72 @@ export default function Users() {
                         </thead>
                         <tbody>
                         {
-                            users.map(user => (
-                                <tr key={user.id}
-                                    className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
-                                    <td className='text-title font-YekanBakh-Black'>
-                                        {
-                                            user.id
-                                        }
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        {user.firstname}
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        {user.lastname}
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        {user.phonenumber}
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        {user.birthday}
-                                    </td>
-                                    <td>
-                                        <div className='flex items-center justify-center text-primary'>
+                            users.length ? (
+                                users.map(user => (
+                                    <tr key={user.id}
+                                        className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
+                                        <td className='text-title font-YekanBakh-Black'>
+                                            {
+                                                user.id
+                                            }
+                                        </td>
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            {user.firstname}
+                                        </td>
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            {user.lastname}
+                                        </td>
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            {user.phonenumber}
+                                        </td>
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            {user.birthday}
+                                        </td>
+                                        <td>
+                                            <div className='flex items-center justify-center text-primary'>
                                             <span className='cursor-pointer'>
                                                 <svg className='w-6 h-6'>
                                                     <use href='#edit'></use>
                                                 </svg>
                                             </span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className='flex items-center justify-center text-red-500'>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className='flex items-center justify-center text-red-500'>
                                             <span onClick={() => removeUserHandler(user.id)} className='cursor-pointer'>
                                                 <svg className='w-6 h-6'>
                                                     <use href='#x-mark'></use>
                                                 </svg>
                                             </span>
-                                        </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
+                                    <td className='text-title font-YekanBakh-Black'>
+                                        ---
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
+                                        ---
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
+                                        ---
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
+                                        ---
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
+                                        ---
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
                                     </td>
                                 </tr>
-                            ))
+                            )
                         }
                         </tbody>
                     </table>
