@@ -4,12 +4,9 @@ import DatePicker from "../../../Accordion/DatePicker";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
 import getUsers, {MySwal} from "../../../../utils";
 import supabase from "../../../../database";
+import SubTitle from "../../../Titles/SubTitle";
 
 export default function UserForm () {
-
-    useEffect(() => {
-        getAllUsers()
-    }, []);
 
     const [yearMenuShow, setYearMenuShow] = useState(false)
     const [monthMenuShow, setMonthMenuShow] = useState(false)
@@ -26,6 +23,11 @@ export default function UserForm () {
     const [userPhoneNumber, setUserPhoneNumber] = useState('')
     const [userBirthDay, setUserBirthday] = useState('')
     const [users, setUsers] = useState([])
+
+    useEffect(() => {
+        getAllUsers()
+    }, []);
+
 
     const yearSelectionHandler = (e) => {
         setYear(e.target.innerHTML)
@@ -58,7 +60,6 @@ export default function UserForm () {
     async function addNewUser () {
 
         let newUser = {
-            id: users.length + 1,
             firstname: userFirstName,
             lastname: userLastName,
             phonenumber: userPhoneNumber,
@@ -71,13 +72,19 @@ export default function UserForm () {
                 icon: 'success',
                 confirmButtonText: 'اوکی'
             })
+                .then(res => {
+                    if(res.isConfirmed) {
+                        clearStates()
+                    }
+                })
         }
-        clearStates()
+        console.log(response)
     }
 
     return (
-        <div className='space-y-5 pb-10 border-b border-b-border'>
-            <div className='flex flex-col gap-5'>
+        <div className='pb-10 w-full'>
+            <SubTitle title='افزودن کاربر جدید'></SubTitle>
+            <div className='flex flex-col gap-5 mt-10'>
                 <span className='text-xs font-YekanBakh-Bold'>اطلاعات فردی</span>
                 <div className='flex items-start justify-between gap-5'>
                     <div className='flex flex-col gap-2 items-start w-1/3'>
@@ -106,7 +113,7 @@ export default function UserForm () {
                     </div>
                 </div>
             </div>
-            <div className='flex items-center gap-2 text-title'>
+            <div className='flex items-center gap-2 text-title mt-5'>
                 <span className='text-sm font-YekanBakh-Bold'>تاریخ تولد :</span>
                 <div className='flex items-center gap-1'>
                     <span className='text-sm font-YekanBakh-SemiBold'>{day}</span>
@@ -114,7 +121,7 @@ export default function UserForm () {
                     <span className='text-sm font-YekanBakh-SemiBold'>{year}</span>
                 </div>
             </div>
-            <div className='flex flex-col gap-5 items-start'>
+            <div className='flex flex-col gap-5 items-start mt-5'>
                 <div className='flex gap-5 justify-between w-full'>
                     <div className='flex gap-2 flex-col w-1/3'>
                         <span className='text-xs font-YekanBakh-Bold'>سال تولد</span>
@@ -145,9 +152,8 @@ export default function UserForm () {
                     </div>
                 </div>
             </div>
-            <div className='inline-flex items-center gap-3'>
+            <div className='inline-flex items-center gap-3 mt-5'>
                 <PrimaryButton clickEvent={() => addNewUser()} icon='#check' title='ثبت کاربر'></PrimaryButton>
-                <PrimaryButton clickEvent={() => {window.history.back()}} icon='#x-mark' className='bg-red-500' title='لغو'></PrimaryButton>
             </div>
         </div>
     )

@@ -36,9 +36,8 @@ let routes = [
         ]
     },
     {path: '/admin-panel', element: <Panel />, children: [
-            {path: 'users', element: <Users></Users>, children: [
-                    {path: 'user-form', element: <UserForm></UserForm>}
-                ]}
+            {path: 'users', element: <Users></Users>},
+            {path: 'user-form', element: <UserForm></UserForm>}
         ]}
 ]
 
