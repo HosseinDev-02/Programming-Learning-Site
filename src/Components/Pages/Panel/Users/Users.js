@@ -3,14 +3,18 @@ import PrimaryButton from "../../../Buttons/PrimaryButton";
 import {Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
 import getUsers from "../utils";
+import Swal from "sweetalert2";
+import withReactContent from 'sweetalert2-react-content'
 import supabase from "../../../../database";
+
+const MySwal = withReactContent(Swal)
 
 
 export default function Users() {
 
     const [users, setUsers] = useState([])
 
-    useEffect( () => {
+    useEffect(() => {
         getAllUsers()
     }, [users])
 
@@ -21,11 +25,26 @@ export default function Users() {
     }
 
     async function removeUserHandler(userId) {
-        const data = await supabase.from('users').delete().eq('id', userId)
-        console.log(data)
+        MySwal.fire({
+            title: 'از حذف کاربر اطمینان دارید ؟',
+            icon: 'question',
+            showCancelButton: true,
+            cancelButtonText: 'خیر' ,
+            confirmButtonText: 'بله'
+        })
+            .then(async res => {
+                if(res.isConfirmed) {
+                   const response = await supabase.from('users').delete().eq('id', userId)
+                    if(response.status === 204) {
+                        MySwal.fire({
+                            title: 'کاربر با موفقیت حذف شد',
+                            icon: 'success',
+                            confirmButtonText: 'اوکی'
+                        })
+                    }
+                }
+            })
     }
-
-
 
 
     return (
@@ -67,7 +86,8 @@ export default function Users() {
                         <tbody>
                         {
                             users.map(user => (
-                                <tr key={user.id} className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
+                                <tr key={user.id}
+                                    className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
                                     <td className='text-title font-YekanBakh-Black'>
                                         {
                                             user.id

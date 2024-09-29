@@ -56,6 +56,7 @@ export default function UserForm () {
     }
 
     async function addNewUser () {
+
         let newUser = {
             id: users.length + 1,
             firstname: userFirstName,
@@ -64,6 +65,7 @@ export default function UserForm () {
             birthday: `${year}-${monthIndex}-${day}`
         }
         const data = await supabase.from('users').insert(newUser)
+        console.log(data)
         clearStates()
     }
 
