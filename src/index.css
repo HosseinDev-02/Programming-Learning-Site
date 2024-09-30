@@ -105,8 +105,7 @@
         border-radius: 20px;
     }
 
-    /* Handle on hover */
-    /*.user-edit-date-menu::-webkit-scrollbar-thumb:hover {*/
-    /*    background: rgb(var(--color-title));*/
-    /*}*/
+    .swal2-modal {
+        background-color: rgb(var(--color-background)) !important;
+    }
 }

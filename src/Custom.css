@@ -1,0 +1,45 @@
+.swal2-popup{
+    background-color: rgb(var(--color-background)) !important;
+}
+
+.swal2-title {
+    color: rgb(var(--color-caption)) !important;
+}
+
+.swal2-icon {
+    color: rgb(var(--color-primary)) !important;
+    border-color: rgb(var(--color-primary)) !important;
+}
+
+div:where(.swal2-icon).swal2-success {
+    color: rgb(var(--color-success)) !important;
+    border-color: rgb(var(--color-success)) !important;
+}
+
+div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=left] {
+    background-color: rgb(var(--color-background)) !important;
+}
+
+div:where(.swal2-icon).swal2-success [class^=swal2-success-line] {
+    background-color: rgb(var(--color-success)) !important;
+}
+
+div:where(.swal2-icon).swal2-success .swal2-success-fix {
+    background-color: rgb(var(--color-background)) !important;
+}
+
+div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-circular-line-right {
+    background-color: rgb(var(--color-background)) !important;
+}
+
+div:where(.swal2-icon).swal2-success .swal2-success-ring {
+    border: 0.25em solid rgba(var(--color-success) / 30%);
+}
+
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+    background-color: rgb(var(--color-primary)) !important;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel) {
+    background-color: rgb(239, 68, 68) !important;
+}
