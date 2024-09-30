@@ -14,7 +14,6 @@ export default function Courses() {
     async function getCourses() {
         const {data} = await supabase.from('courses').select('*')
         setCourses(data)
-        console.log(data)
     }
 
     function removeCourseHandler(courseId) {
@@ -53,6 +52,12 @@ export default function Courses() {
                                 قیمت نهایی
                             </th>
                             <th>
+                                تایم آموزش
+                            </th>
+                            <th>
+                                فصل ها
+                            </th>
+                            <th>
                                 مدرس
                             </th>
                             <th>
@@ -84,12 +89,13 @@ export default function Courses() {
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
                                             <div className='flex items-center justify-center'>
-                                                <img className='w-20 h-16 rounded-xl' src={course.courseImg} alt={course.title}/>
+                                                <img className='w-20 h-16 rounded-xl' src={course.courseImg}
+                                                     alt={course.title}/>
                                             </div>
                                         </td>
                                         <td className='font-YekanBakh-SemiBold hidden md:table-cell'>
                                             {
-                                                course.price
+                                                course.price.toLocaleString()
                                             }
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
@@ -99,7 +105,17 @@ export default function Courses() {
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
                                             {
-                                                course.costPrice
+                                                course.costPrice.toLocaleString()
+                                            }
+                                        </td>
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            {
+                                                course.totalTime
+                                            }
+                                        </td>
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            {
+                                                course.sections
                                             }
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
@@ -109,7 +125,8 @@ export default function Courses() {
                                         </td>
                                         <td>
                                             <div className='flex items-center justify-center'>
-                                                <img className='w-20 h-16 rounded-xl' src={course.teacherImg} alt={course.teacherName}/>
+                                                <img className='w-20 h-16 rounded-xl' src={course.teacherImg}
+                                                     alt={course.teacherName}/>
                                             </div>
                                         </td>
                                         <td>
