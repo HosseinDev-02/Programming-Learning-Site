@@ -3,7 +3,8 @@ import {useState} from "react";
 
 export default function SideBar() {
 
-    const [menuItemsShow, setMenuItemsShow] = useState(false)
+    const [userMenuShow, setUserMenuShow] = useState(false)
+    const [coursesMenuShow, setCoursesMenuShow] = useState(false)
 
     return (
         <div className='md:block hidden bg-background w-80 rounded-l-2xl divide-y divide-border p-5 shrink-0'>
@@ -18,27 +19,29 @@ export default function SideBar() {
             <div className='pt-8'>
                 <ul className='flex flex-col gap-3'>
                     <li className='relative'>
-                        <button onClick={() => setMenuItemsShow(prevState => !prevState)} className='bg-secondary h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
-                             <span>کاربران</span>
-                            <span>
-                                <svg style={menuItemsShow ? {rotate: '180deg'} : {}} className='w-5 h-5'>
-                                    <use href='#chevron-down'></use>
-                                </svg>
-                            </span>
-                        </button>
-                        <div style={menuItemsShow ? {display: 'block'} : {display: 'none'}} className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
-                            <Link to='users'
-                                  className='flex items-center justify-between gap-2 bg-secondary hover:bg-primary transition-colors hover:text-white rounded-xl px-4 h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
-                                <div className='flex items-center gap-2'>
+                        <button style={userMenuShow ? {backgroundColor: 'rgb(var(--color-primary))', color: 'white'} : {}} onClick={() => setUserMenuShow(prevState => !prevState)}
+                                className='bg-secondary h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                            <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
                                         <use href='#users'></use>
                                     </svg>
                                 </span>
-                                    <span>
+                                <span>کاربران</span>
+                            </div>
+                            <span>
+                                <svg style={userMenuShow ? {rotate: '180deg'} : {}} className='w-5 h-5'>
+                                    <use href='#chevron-down'></use>
+                                </svg>
+                            </span>
+                        </button>
+                        <div style={userMenuShow ? {display: 'block'} : {display: 'none'}}
+                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                            <Link to='users'
+                                  className='flex items-center justify-between gap-2 bg-secondary hover:bg-border transition-colors rounded-xl px-4 h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                <span>
                                     کاربران
                                 </span>
-                                </div>
                                 <span>
                                 <svg className='w-5 h-5'>
                                     <use href='#arrow-long-left'></use>
@@ -46,17 +49,53 @@ export default function SideBar() {
                             </span>
                             </Link>
                             <Link to='user-form'
-                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary hover:bg-primary transition-colors hover:text-white rounded-xl px-4 h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
-                                <div className='flex items-center gap-2'>
+                                  className='flex items-center justify-between gap-2 bg-secondary hover:bg-border transition-colors rounded-xl px-4 h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
                                 <span>
-                                    <svg className='w-5 h-5'>
-                                        <use href='#users'></use>
-                                    </svg>
-                                </span>
-                                    <span>
                                     افزودن کاربر
                                 </span>
-                                </div>
+                                <span>
+                                <svg className='w-5 h-5'>
+                                    <use href='#arrow-long-left'></use>
+                                </svg>
+                            </span>
+                            </Link>
+                        </div>
+                    </li>
+                    <li className='relative'>
+                        <button style={coursesMenuShow ? {backgroundColor: 'rgb(var(--color-primary))', color: 'white'} : {}} onClick={() => setCoursesMenuShow(prevState => !prevState)}
+                                className='bg-secondary h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                            <div className='flex items-center gap-2'>
+                                <span>
+                                    <svg className='w-5 h-5'>
+                                        <use href='#courses'></use>
+                                    </svg>
+                                </span>
+                                <span>دوره ها</span>
+                            </div>
+                            <span>
+                                <svg style={coursesMenuShow ? {rotate: '180deg'} : {}} className='w-5 h-5'>
+                                    <use href='#chevron-down'></use>
+                                </svg>
+                            </span>
+                        </button>
+                        <div style={coursesMenuShow ? {display: 'block'} : {display: 'none'}}
+                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                            <Link to='courses'
+                                  className='flex items-center justify-between gap-2 bg-secondary hover:bg-border transition-colors rounded-xl px-4 h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                    <span>
+                                    دوره ها
+                                </span>
+                                <span>
+                                <svg className='w-5 h-5'>
+                                    <use href='#arrow-long-left'></use>
+                                </svg>
+                            </span>
+                            </Link>
+                            <Link to='course-form'
+                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary hover:bg-border transition-colors rounded-xl px-4 h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                <span>
+                                    افزودن دوره
+                                </span>
                                 <span>
                                 <svg className='w-5 h-5'>
                                     <use href='#arrow-long-left'></use>
@@ -68,5 +107,5 @@ export default function SideBar() {
                 </ul>
             </div>
         </div>
-)
+    )
 }

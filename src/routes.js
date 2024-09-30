@@ -16,6 +16,7 @@ import ArticlesPage from "./Components/Pages/ArticlesPage/ArticlesPage";
 import ArticleDetail from "./Components/Pages/ArticleDetail/ArticleDetail";
 import Users from "./Components/Pages/Panel/Users/Users";
 import UserForm from "./Components/Pages/Panel/Users/UserForm";
+import Courses from "./Components/Pages/Panel/Courses/Courses";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -38,8 +39,12 @@ let routes = [
     {path: '/admin-panel', element: <Panel />, children: [
             {path: 'users', element: <Users></Users>},
             {path: 'user-form', element: <UserForm></UserForm>},
-            {path: 'user-form/:id', element: <UserForm></UserForm>}
-        ]}
+            {path: 'user-form/:id', element: <UserForm></UserForm>},
+            {path: 'courses', element: <Courses></Courses>},
+            {path: 'course-form', element: <UserForm></UserForm>},
+            {path: 'course-form/:id', element: <UserForm></UserForm>}
+        ]
+    }
 ]
 
 export default routes

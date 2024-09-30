@@ -84,7 +84,13 @@ export default function UserForm() {
     return (
         <div className='w-full h-full'>
             <div className='h-20 flex items-center'>
-                <SubTitle fontSize='24px' title='افزودن کاربر'></SubTitle>
+                {
+                    userId ? (
+                        <SubTitle fontSize='24px' title='ویرایش کاربر'></SubTitle>
+                    ) : (
+                        <SubTitle fontSize='24px' title='افزودن کاربر'></SubTitle>
+                    )
+                }
             </div>
             <div className='flex flex-col gap-5 pt-10'>
                 <div className='flex flex-col sm:flex-row md:flex-col lg:flex-row items-center sm:items-start md:items-center lg:items-start justify-between gap-5'>
