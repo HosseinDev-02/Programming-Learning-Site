@@ -46,10 +46,6 @@ export default function Users() {
             })
     }
 
-    async function updateUserHandler(userId) {
-        console.log(userId)
-    }
-
 
     return (
         <div className='w-full h-full'>
@@ -59,22 +55,22 @@ export default function Users() {
             <div>
                 <div className='space-y-2 pt-10'>
                     <table className='w-full'>
-                        <thead className='text-sm h-12 text-center font-YekanBakh-Black text-title'>
+                        <thead className='text-xs md:text-sm h-12 text-center font-YekanBakh-Black text-title'>
                         <tr className='border-b border-border'>
-                            <th>
+                            <th className='md:hidden'>
+                                نام کامل
+                            </th>
+                            <th className='hidden md:table-cell'>
                                 شناسه
                             </th>
-                            <th>
+                            <th className='hidden md:table-cell'>
                                 نام
                             </th>
-                            <th>
+                            <th className='hidden md:table-cell line-clamp-1 text-nowrap'>
                                 نام خانوادگی
                             </th>
                             <th>
                                 شماره تماس
-                            </th>
-                            <th>
-                                تاریخ تولد
                             </th>
                             <th>
                                 ویرایش
@@ -89,37 +85,40 @@ export default function Users() {
                             users.length ? (
                                 users.map((user, index) => (
                                     <tr key={user.user_id}
-                                        className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
-                                        <td className='text-title font-YekanBakh-Black'>
+                                        className='text-center text-xs md:text-sm h-16 md:h-20 odd:bg-background even:bg-secondary child:px-4'>
+                                        <td className='font-YekanBakh-SemiBold md:hidden'>
+                                            {
+                                                `${user.firstname} ${user.lastname}`
+                                            }
+                                        </td>
+                                        <td className='text-title font-YekanBakh-Black hidden md:table-cell'>
                                             {
                                                 index + 1
                                             }
                                         </td>
-                                        <td className='font-YekanBakh-SemiBold'>
+                                        <td className='font-YekanBakh-SemiBold hidden md:table-cell'>
                                             {user.firstname}
                                         </td>
-                                        <td className='font-YekanBakh-SemiBold'>
+                                        <td className='font-YekanBakh-SemiBold hidden md:table-cell'>
                                             {user.lastname}
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
                                             {user.phonenumber}
                                         </td>
-                                        <td className='font-YekanBakh-SemiBold'>
-                                            {user.birthday}
-                                        </td>
                                         <td>
                                             <div className='flex items-center justify-center text-primary'>
-                                            <Link to={`../user-form/${user.user_id}`} onClick={() => updateUserHandler(user.user_id)} className='cursor-pointer'>
-                                                <svg className='w-6 h-6'>
-                                                    <use href='#edit'></use>
-                                                </svg>
-                                            </Link>
+                                                <Link to={`../user-form/${user.user_id}`} className='cursor-pointer'>
+                                                    <svg className='w-4 h-4 md:w-6 md:h-6'>
+                                                        <use href='#edit'></use>
+                                                    </svg>
+                                                </Link>
                                             </div>
                                         </td>
                                         <td>
                                             <div className='flex items-center justify-center text-red-500'>
-                                            <span onClick={() => removeUserHandler(user.user_id)} className='cursor-pointer'>
-                                                <svg className='w-6 h-6'>
+                                            <span onClick={() => removeUserHandler(user.user_id)}
+                                                  className='cursor-pointer'>
+                                                <svg className='w-4 h-4 md:w-6 md:h-6'>
                                                     <use href='#x-mark'></use>
                                                 </svg>
                                             </span>

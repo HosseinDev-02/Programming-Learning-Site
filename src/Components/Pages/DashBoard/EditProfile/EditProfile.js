@@ -1,34 +1,7 @@
 import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
-import {useState} from "react";
-import {years as allYears, months as allMonth, days as allDays} from '../../../../data'
-import DatePicker from "../../../Accordion/DatePicker";
 
 export default function EditProfile () {
-
-    const [yearMenuShow, setYearMenuShow] = useState(false)
-    const [monthMenuShow, setMonthMenuShow] = useState(false)
-    const [dayMenuShow, setDayMenuShow] = useState(false)
-    const [day, setDay] = useState('انتخاب روز')
-    const [days] = useState(allDays)
-    const [month, setMonth] = useState('انتخاب ماه')
-    const [months] = useState(allMonth)
-    const [year, setYear] = useState('انتخاب سال')
-    const [years] = useState(allYears)
-
-
-    const yearSelectionHandler = (e) => {
-        setYear(e.target.innerHTML)
-        setYearMenuShow(prevState => !prevState)
-    }
-    const monthSelectionHandler = (e) => {
-        setMonth(e.target.innerHTML)
-        setMonthMenuShow(prevState => !prevState)
-    }
-    const daySelectionHandler = (e) => {
-        setDay(e.target.innerHTML)
-        setDayMenuShow(prevState => !prevState)
-    }
 
     return (
         <div>
@@ -131,12 +104,6 @@ export default function EditProfile () {
             <div className='mt-8'>
                 <SubTitle title='اطلاعات فردی'></SubTitle>
                 <div className='mt-8 flex flex-col items-start gap-2'>
-                    <span className='text-xs font-YekanBakh-Bold'>تاریخ تولد</span>
-                    <div className='sm:grid sm:grid-cols-3 sm:gap-5 space-y-5 sm:space-y-0 w-full'>
-                        <DatePicker dateModalShow={yearMenuShow} dateModalHandler={() => setYearMenuShow(prevState => !prevState)} items={years} dateState={year} setDateState={() => yearSelectionHandler}></DatePicker>
-                        <DatePicker dateModalShow={monthMenuShow} dateModalHandler={() => setMonthMenuShow(prevState => !prevState)} items={months} dateState={month} setDateState={() => monthSelectionHandler}></DatePicker>
-                        <DatePicker dateModalShow={dayMenuShow} dateModalHandler={() => setDayMenuShow(prevState => !prevState)} items={days} dateState={day} setDateState={() => daySelectionHandler}></DatePicker>
-                    </div>
                     <div className='flex flex-col gap-2 w-full mt-5'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             درباره من

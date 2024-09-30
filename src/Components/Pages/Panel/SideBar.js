@@ -6,7 +6,7 @@ export default function SideBar() {
     const [menuItemsShow, setMenuItemsShow] = useState(false)
 
     return (
-        <div className='bg-background w-80 rounded-l-2xl divide-y divide-border p-5 shrink-0'>
+        <div className='md:block hidden bg-background w-80 rounded-l-2xl divide-y divide-border p-5 shrink-0'>
             <div className='flex flex-col items-center gap-2 pb-4'>
                 <h1 className='font-YekanBakh-Black text-primary text-2xl text-center'>
                     پنل کاربری
