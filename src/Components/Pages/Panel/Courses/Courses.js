@@ -2,14 +2,16 @@ import SubTitle from "../../../Titles/SubTitle";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import supabase from "../../../../database";
+import {MySwal} from "../../../../utils";
 
 export default function Courses() {
 
     const [courses, setCourses] = useState([])
+    const [getData, setGetData] = useState(false)
 
     useEffect(() => {
         getCourses()
-    }, []);
+    }, [getData]);
 
     async function getCourses() {
         const {data} = await supabase.from('courses').select('*')
@@ -17,7 +19,29 @@ export default function Courses() {
     }
 
     function removeCourseHandler(courseId) {
-        console.log(courseId)
+        MySwal.fire({
+            title: 'از حذف دوره اطمینان دارید ؟',
+            icon: 'question',
+            confirmButtonText: 'بله',
+            showCancelButton: true,
+            cancelButtonText: 'خیر'
+        })
+            .then(async res => {
+                if(res.isConfirmed) {
+                    const response = await supabase.from('courses').delete().eq('course_id', courseId)
+                    if(response.status === 204) {
+                        MySwal.fire({
+                            title: 'دوره با موفقیت حذف شد',
+                            icon: 'success',
+                            confirmButtonText: 'اوکی'
+                        }).then(res => {
+                            if(res.isConfirmed) {
+                                setGetData(prevState => !prevState)
+                            }
+                        })
+                    }
+                }
+            })
     }
 
     return (
@@ -56,6 +80,12 @@ export default function Courses() {
                             </th>
                             <th>
                                 فصل ها
+                            </th>
+                            <th>
+                                رایگان
+                            </th>
+                            <th>
+                                وضعیت
                             </th>
                             <th>
                                 مدرس
@@ -100,7 +130,7 @@ export default function Courses() {
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
                                             {
-                                                `${course.offer} %`
+                                                `%${course.offer}`
                                             }
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
@@ -116,6 +146,16 @@ export default function Courses() {
                                         <td className='font-YekanBakh-SemiBold'>
                                             {
                                                 course.sections
+                                            }
+                                        </td>
+                                        <td style={course.isFree ? {color: 'rgb(var(--color-success))'} : {color: 'rgb(239, 68, 68)'}} className='font-YekanBakh-SemiBold'>
+                                            {
+                                                course.isFree ? 'رایگان' : 'خیر'
+                                            }
+                                        </td>
+                                        <td style={course.isCompleted ? {color: 'rgb(var(--color-success))'} : {color: 'rgb(234, 179, 8)'}} className='font-YekanBakh-SemiBold'>
+                                            {
+                                                course.isCompleted ? 'تکمیل شده' : 'در حال برگزاری'
                                             }
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
@@ -153,6 +193,21 @@ export default function Courses() {
                                 ))
                             ) : (
                                 <tr className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
+                                    <td className='text-title font-YekanBakh-Black'>
+                                        ---
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
+                                        ---
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
+                                        ---
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
+                                        ---
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
+                                        ---
+                                    </td>
                                     <td className='text-title font-YekanBakh-Black'>
                                         ---
                                     </td>
