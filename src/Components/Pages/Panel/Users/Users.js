@@ -53,20 +53,17 @@ export default function Users() {
                 <SubTitle fontSize='24px' title='کاربران'></SubTitle>
             </div>
             <div>
-                <div className='space-y-2 pt-10'>
+                <div className='space-y-2 pt-10 overflow-auto'>
                     <table className='w-full'>
-                        <thead className='text-xs md:text-sm h-12 text-center font-YekanBakh-Black text-title'>
-                        <tr className='border-b border-border'>
-                            <th className='md:hidden'>
-                                نام کامل
-                            </th>
-                            <th className='hidden md:table-cell'>
+                        <thead className='text-sm h-12 text-center font-YekanBakh-Black text-title child:text-nowrap'>
+                        <tr className='border-b border-border child:px-2'>
+                            <th>
                                 شناسه
                             </th>
-                            <th className='hidden md:table-cell'>
+                            <th>
                                 نام
                             </th>
-                            <th className='hidden md:table-cell line-clamp-1 text-nowrap'>
+                            <th>
                                 نام خانوادگی
                             </th>
                             <th>
@@ -85,21 +82,16 @@ export default function Users() {
                             users.length ? (
                                 users.map((user, index) => (
                                     <tr key={user.user_id}
-                                        className='text-center text-xs md:text-sm h-16 md:h-20 odd:bg-background even:bg-secondary child:px-4'>
-                                        <td className='font-YekanBakh-SemiBold md:hidden'>
-                                            {
-                                                `${user.firstname} ${user.lastname}`
-                                            }
-                                        </td>
-                                        <td className='text-title font-YekanBakh-Black hidden md:table-cell'>
+                                        className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
+                                        <td className='text-title font-YekanBakh-Black'>
                                             {
                                                 index + 1
                                             }
                                         </td>
-                                        <td className='font-YekanBakh-SemiBold hidden md:table-cell'>
+                                        <td className='font-YekanBakh-SemiBold'>
                                             {user.firstname}
                                         </td>
-                                        <td className='font-YekanBakh-SemiBold hidden md:table-cell'>
+                                        <td className='font-YekanBakh-SemiBold'>
                                             {user.lastname}
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
@@ -108,7 +100,7 @@ export default function Users() {
                                         <td>
                                             <div className='flex items-center justify-center text-primary'>
                                                 <Link to={`../user-form/${user.user_id}`} className='cursor-pointer'>
-                                                    <svg className='w-4 h-4 md:w-6 md:h-6'>
+                                                    <svg className='w-6 h-6'>
                                                         <use href='#edit'></use>
                                                     </svg>
                                                 </Link>
@@ -118,7 +110,7 @@ export default function Users() {
                                             <div className='flex items-center justify-center text-red-500'>
                                             <span onClick={() => removeUserHandler(user.user_id)}
                                                   className='cursor-pointer'>
-                                                <svg className='w-4 h-4 md:w-6 md:h-6'>
+                                                <svg className='w-6 h-6'>
                                                     <use href='#x-mark'></use>
                                                 </svg>
                                             </span>

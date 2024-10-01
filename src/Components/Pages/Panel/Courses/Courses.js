@@ -172,7 +172,7 @@ export default function Courses() {
                                             <div className='flex items-center justify-center text-primary'>
                                                 <Link to={`../course-form/${course.course_id}`}
                                                       className='cursor-pointer'>
-                                                    <svg className='w-4 h-4 md:w-6 md:h-6'>
+                                                    <svg className='w-6 h-6'>
                                                         <use href='#edit'></use>
                                                     </svg>
                                                 </Link>
@@ -182,7 +182,7 @@ export default function Courses() {
                                             <div className='flex items-center justify-center text-red-500'>
                                             <span onClick={() => removeCourseHandler(course.course_id)}
                                                   className='cursor-pointer'>
-                                                <svg className='w-4 h-4 md:w-6 md:h-6'>
+                                                <svg className='w-6 h-6'>
                                                     <use href='#x-mark'></use>
                                                 </svg>
                                             </span>

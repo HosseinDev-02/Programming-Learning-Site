@@ -262,12 +262,14 @@ export default function CourseForm() {
             <div className='inline-flex items-center gap-3 mt-5'>
                 {
                     mainCourseId ? (
-                        <PrimaryButton clickEvent={() => editCourse()} icon='#check' title='بروزرسانی'></PrimaryButton>
+                       <>
+                           <PrimaryButton clickEvent={() => editCourse()} icon='#check' title='بروزرسانی'></PrimaryButton>
+                           <PrimaryButton className='bg-red-500' clickEvent={() => window.history.back()} icon='#x-mark' title='بازگشت'></PrimaryButton>
+                       </>
                     ) : (
                         <PrimaryButton clickEvent={() => addNewCourse()} icon='#check' title='ثبت دوره جدید'></PrimaryButton>
                     )
                 }
-                <PrimaryButton className='bg-red-500' href='../courses' icon='#x-mark' title='بازگشت'></PrimaryButton>
             </div>
         </div>
     )

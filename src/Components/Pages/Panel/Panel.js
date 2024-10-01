@@ -116,6 +116,8 @@ export default function Panel() {
             {/*  Admin Panel Right Side  */}
             <SideBar open={sideBarShow} setOpen={setSideBarShow}></SideBar>
 
+            <div onClick={() => setSideBarShow(prevState => !prevState)} style={sideBarShow ? {visibility: 'visible', opacity: '1'} : {}} className='fixed inset-0 bg-title/30 invisible opacity-0 transition-all'></div>
+
             {/*  Admin Panel Left Side  */}
             <div className='flex items-center justify-center w-full p-5 overflow-auto'>
                 <Outlet></Outlet>

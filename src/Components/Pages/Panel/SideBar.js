@@ -8,9 +8,9 @@ export default function SideBar(props) {
     const [coursesMenuShow, setCoursesMenuShow] = useState(false)
 
     return (
-        <div style={props.open ? {right: '0'} : {right: '-256px'}} className='bg-background transition-all fixed -right-64 top-0 bottom-0 h-screen w-64 z-10 md:static md:w-80 rounded-l-2xl divide-y divide-border p-5 shrink-0'>
+        <div style={props.open ? {right: '0'} : {right: '-256px'}} className='bg-background transition-all fixed -right-64 top-0 bottom-0 min-h-screen w-64 z-10 md:static md:w-80 rounded-l-2xl divide-y divide-border p-5 shrink-0'>
             <div className='flex items-center justify-between pb-4 md:pb-0'>
-                <div className='flex flex-col items-center md:gap-2 md:pb-4'>
+                <div className='flex flex-col items-center md:gap-2 md:pb-4 md:w-full'>
                     <h1 className='font-YekanBakh-Black text-primary text-2xl text-center'>
                         پنل کاربری
                     </h1>
@@ -27,7 +27,7 @@ export default function SideBar(props) {
                         <button
                             style={userMenuShow ? {backgroundColor: 'rgb(var(--color-primary))', color: 'white'} : {}}
                             onClick={() => setUserMenuShow(prevState => !prevState)}
-                            className='bg-secondary h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                            className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
                             <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -45,7 +45,7 @@ export default function SideBar(props) {
                         <div style={userMenuShow ? {display: 'block'} : {display: 'none'}}
                              className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
                             <Link onClick={() => {props.setOpen(false)}} to='users'
-                                  className='flex items-center justify-between gap-2 bg-secondary hover:bg-border transition-colors rounded-xl px-4 h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 bg-secondary xl:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
                                 <span>
                                     کاربران
                                 </span>
@@ -56,7 +56,7 @@ export default function SideBar(props) {
                             </span>
                             </Link>
                             <Link onClick={() => {props.setOpen(false)}} to='user-form'
-                                  className='flex items-center justify-between gap-2 bg-secondary hover:bg-border transition-colors rounded-xl px-4 h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 bg-secondary xl:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
                                 <span>
                                     افزودن کاربر
                                 </span>
@@ -70,7 +70,7 @@ export default function SideBar(props) {
                     </li>
                     <li className='relative'>
                         <button style={coursesMenuShow ? {backgroundColor: 'rgb(var(--color-primary))', color: 'white'} : {}} onClick={() => setCoursesMenuShow(prevState => !prevState)}
-                                className='bg-secondary h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                                className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
                             <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -88,7 +88,7 @@ export default function SideBar(props) {
                         <div style={coursesMenuShow ? {display: 'block'} : {display: 'none'}}
                              className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
                             <Link onClick={() => {props.setOpen(false)}} to='courses'
-                                  className='flex items-center justify-between gap-2 bg-secondary hover:bg-border transition-colors rounded-xl px-4 h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 bg-secondary xl:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
                                     <span>
                                     دوره ها
                                 </span>
@@ -99,7 +99,7 @@ export default function SideBar(props) {
                             </span>
                             </Link>
                             <Link onClick={() => {props.setOpen(false)}} to='course-form'
-                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary hover:bg-border transition-colors rounded-xl px-4 h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary xl:bg-border transition-colors rounded-xl px-4  h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
                                 <span>
                                     افزودن دوره
                                 </span>
