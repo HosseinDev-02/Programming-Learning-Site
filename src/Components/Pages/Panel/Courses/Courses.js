@@ -2,7 +2,7 @@ import SubTitle from "../../../Titles/SubTitle";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import supabase from "../../../../database";
-import {MySwal} from "../../../../utils";
+import {getCourses, MySwal} from "../../../../Utils";
 
 export default function Courses() {
 
@@ -10,11 +10,11 @@ export default function Courses() {
     const [getData, setGetData] = useState(false)
 
     useEffect(() => {
-        getCourses()
+        getAllCourses()
     }, [getData]);
 
-    async function getCourses() {
-        const {data} = await supabase.from('courses').select('*')
+    async function getAllCourses() {
+        const data = await getCourses()
         setCourses(data)
     }
 
@@ -52,21 +52,18 @@ export default function Courses() {
             <div>
                 <div className='space-y-2 pt-10'>
                     <table className='w-full'>
-                        <thead className='text-xs md:text-sm h-12 text-center font-YekanBakh-Black text-title'>
-                        <tr className='border-b border-border'>
-                            <th className='md:hidden'>
-                                نام کامل
-                            </th>
-                            <th className='hidden md:table-cell'>
+                        <thead className='text-xs md:text-sm h-12 text-center font-YekanBakh-Black text-title child:text-nowrap'>
+                        <tr className='border-b border-border child:px-4'>
+                            <th>
                                 شناسه
                             </th>
-                            <th className='hidden md:table-cell'>
+                            <th>
                                 عنوان
                             </th>
-                            <th className='hidden md:table-cell'>
+                            <th>
                                 تصویر
                             </th>
-                            <th className='hidden md:table-cell line-clamp-1 text-nowrap'>
+                            <th>
                                 قیمت
                             </th>
                             <th>
@@ -94,10 +91,10 @@ export default function Courses() {
                                 تصویر مدرس
                             </th>
                             <th>
-                                حذف
+                                ویرایش
                             </th>
                             <th>
-                                ویرایش
+                                حذف
                             </th>
                         </tr>
                         </thead>
@@ -106,24 +103,26 @@ export default function Courses() {
                             courses.length ? (
                                 courses.map((course, index) => (
                                     <tr key={course.course_id}
-                                        className='text-center text-xs md:text-sm h-16 md:h-20 odd:bg-background even:bg-secondary child:px-4'>
-                                        <td className='text-title font-YekanBakh-Black hidden md:table-cell'>
+                                        className='text-center text-xs md:text-sm h-20 odd:bg-background even:bg-secondary child:px-4 child:text-nowrap'>
+                                        <td className='text-title font-YekanBakh-Black'>
                                             {
                                                 index + 1
                                             }
                                         </td>
-                                        <td className='font-YekanBakh-SemiBold hidden md:table-cell'>
-                                            {
-                                                course.title
-                                            }
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            <div className='flex items-center justify-center line-clamp-1'>
+                                                {
+                                                    course.title
+                                                }
+                                            </div>
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
-                                            <div className='flex items-center justify-center'>
-                                                <img className='w-20 h-16 rounded-xl' src={course.courseImg}
+                                            <div className='flex items-center justify-center w-20 h-16 rounded-xl overflow-hidden'>
+                                                <img className='w-full h-full object-cover shrink-0' src={course.courseImg}
                                                      alt={course.title}/>
                                             </div>
                                         </td>
-                                        <td className='font-YekanBakh-SemiBold hidden md:table-cell'>
+                                        <td className='font-YekanBakh-SemiBold'>
                                             {
                                                 course.price.toLocaleString()
                                             }
@@ -164,8 +163,8 @@ export default function Courses() {
                                             }
                                         </td>
                                         <td>
-                                            <div className='flex items-center justify-center'>
-                                                <img className='w-20 h-16 rounded-xl' src={course.teacherImg}
+                                            <div className='flex items-center justify-center w-20 h-16 rounded-xl overflow-hidden'>
+                                                <img className='shrink-0 w-full h-full object-cover' src={course.teacherImg}
                                                      alt={course.teacherName}/>
                                             </div>
                                         </td>
@@ -209,6 +208,12 @@ export default function Courses() {
                                         ---
                                     </td>
                                     <td className='text-title font-YekanBakh-Black'>
+                                        ---
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
+                                        ---
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
                                         ---
                                     </td>
                                     <td className='font-YekanBakh-SemiBold'>

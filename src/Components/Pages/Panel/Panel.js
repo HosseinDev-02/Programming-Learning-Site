@@ -102,7 +102,7 @@ export default function Panel() {
             <SideBar></SideBar>
 
             {/*  Admin Panel Left Side  */}
-            <div className='flex items-center justify-center w-full p-5'>
+            <div className='flex items-center justify-center w-full p-5 overflow-auto'>
                 <Outlet></Outlet>
             </div>
 

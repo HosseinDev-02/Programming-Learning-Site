@@ -2,7 +2,8 @@ import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
 import {useEffect, useState} from "react";
 import supabase from "../../../../database";
-import {MySwal} from "../../../../utils";
+import {getCourses, MySwal} from "../../../../Utils";
+import {useParams} from "react-router-dom";
 
 export default function CourseForm() {
 
@@ -17,6 +18,15 @@ export default function CourseForm() {
     const [courseTotalTime, setCourseTotalTime] = useState('')
     const [courseOffer, setCourseOffer] = useState('')
 
+    const params = useParams()
+    const mainCourseId = params.id
+
+    useEffect(() => {
+        if(mainCourseId) {
+            getMainUserInfo()
+        }
+    }, []);
+
     function clearStates () {
         setCourseIsFree(false)
         setCourseIsCompleted(false)
@@ -28,6 +38,63 @@ export default function CourseForm() {
         setCourseSections('')
         setCourseTotalTime('')
         setCourseOffer('')
+    }
+
+    function editCourse() {
+        let courseNewInfo = {
+            title: courseTitle,
+            price: coursePrice,
+            courseImg: courseImg,
+            costPrice: coursePrice - (coursePrice * (courseOffer/100)),
+            offer: +courseOffer,
+            teacherName: courseTeacherName,
+            teacherImg: courseTeacherImg,
+            isFree: courseIsFree,
+            isCompleted: courseIsCompleted,
+            totalTime: courseTotalTime,
+            sections: courseSections
+        }
+        MySwal.fire({
+            title: 'آیا از انجام این کار اطمینان دارید ؟',
+            icon: 'question',
+            confirmButtonText: 'بله',
+            showCancelButton: true,
+            cancelButtonText: 'خیر'
+        })
+            .then(async res => {
+                if(res.isConfirmed) {
+                    const data = await supabase.from('courses').update(courseNewInfo).eq('course_id', mainCourseId)
+                    if(data.status === 204) {
+                        MySwal.fire({
+                            title: 'بروزرسانی انجام شد',
+                            icon: 'success',
+                            confirmButtonText: 'اوکی'
+                        })
+                            .then(res => {
+                                if(res.isConfirmed) {
+                                    window.history.back()
+                                }
+                            })
+                    }
+                }
+            })
+
+    }
+
+    async function getMainUserInfo() {
+        const response = await getCourses().then(data => {
+            let mainCourse = data.find(data => data.course_id == mainCourseId)
+            setCourseTitle(mainCourse.title)
+            setCourseOffer(mainCourse.offer)
+            setCourseIsFree(mainCourse.isFree)
+            setCoursePrice(mainCourse.price)
+            setCourseIsCompleted(mainCourse.isCompleted)
+            setCourseTotalTime(mainCourse.totalTime)
+            setCourseTeacherName(mainCourse.teacherName)
+            setCourseSections(mainCourse.sections)
+            setCourseImg(mainCourse.courseImg)
+            setCourseTeacherImg(mainCourse.teacherImg)
+        })
     }
 
     async function addNewCourse () {
@@ -193,7 +260,13 @@ export default function CourseForm() {
                 </div>
             </div>
             <div className='inline-flex items-center gap-3 mt-5'>
-                <PrimaryButton clickEvent={() => addNewCourse()} icon='#check' title='ثبت دوره جدید'></PrimaryButton>
+                {
+                    mainCourseId ? (
+                        <PrimaryButton clickEvent={() => editCourse()} icon='#check' title='بروزرسانی'></PrimaryButton>
+                    ) : (
+                        <PrimaryButton clickEvent={() => addNewCourse()} icon='#check' title='ثبت دوره جدید'></PrimaryButton>
+                    )
+                }
                 <PrimaryButton className='bg-red-500' href='../courses' icon='#x-mark' title='بازگشت'></PrimaryButton>
             </div>
         </div>

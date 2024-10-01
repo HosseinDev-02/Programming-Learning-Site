@@ -1,8 +1,8 @@
 import SubTitle from "../../../Titles/SubTitle";
 import {useEffect, useState} from "react";
-import getUsers from "../../../../utils";
+import {getUsers} from "../../../../Utils";
 import supabase from "../../../../database";
-import {MySwal} from "../../../../utils";
+import {MySwal} from "../../../../Utils";
 import {Link} from "react-router-dom";
 
 

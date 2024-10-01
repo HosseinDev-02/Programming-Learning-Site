@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
-import getUsers, {MySwal} from "../../../../utils";
+import {MySwal, getUsers} from "../../../../Utils";
 import supabase from "../../../../database";
 import SubTitle from "../../../Titles/SubTitle";
 import {useParams} from "react-router-dom";
