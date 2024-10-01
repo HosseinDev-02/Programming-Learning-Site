@@ -1,6 +1,7 @@
 {
   "name": "nabeghe-academy",
   "version": "0.1.0",
+  "homepage": "https://HosseinDev-02.github.io/Programming-Learning-Site",
   "private": true,
   "dependencies": {
     "@mui/x-data-grid": "^7.18.0",
