@@ -1,9 +1,15 @@
 import {Outlet} from "react-router-dom";
 import SideBar from "./SideBar";
+import Logo from "../../Logo/Logo";
+import {useState} from "react";
+import RoundButton from "../../Buttons/RoundButton";
 
 export default function Panel() {
+
+    const [sideBarShow, setSideBarShow] = useState(false)
+
     return (
-        <div className='flex bg-secondary min-h-screen font-YekanBakh-Regular'>
+        <div className='md:flex bg-secondary min-h-screen font-YekanBakh-Regular'>
             <svg className='hidden'>
                 <symbol id='arrow-long-left' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         strokeWidth="1.5"
@@ -91,15 +97,24 @@ export default function Panel() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
                 </symbol>
                 <symbol id='upload' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                     stroke="currentColor">
+                        stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round"
                           d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"/>
                 </symbol>
-
+                <symbol id='bars-3' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                        stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                </symbol>
             </svg>
 
+            <div className='flex md:hidden items-center justify-between p-4 bg-background'>
+                <RoundButton clickEvent={() => {setSideBarShow(true)}} icon='#bars-3'></RoundButton>
+                <Logo></Logo>
+            </div>
+
             {/*  Admin Panel Right Side  */}
-            <SideBar></SideBar>
+            <SideBar open={sideBarShow} setOpen={setSideBarShow}></SideBar>
 
             {/*  Admin Panel Left Side  */}
             <div className='flex items-center justify-center w-full p-5 overflow-auto'>

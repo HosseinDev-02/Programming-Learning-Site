@@ -50,7 +50,7 @@ export default function Courses() {
                 <SubTitle fontSize='24px' title='دوره ها'></SubTitle>
             </div>
             <div>
-                <div className='space-y-2 pt-10'>
+                <div className='space-y-2 pt-10 relative overflow-auto'>
                     <table className='w-full'>
                         <thead className='text-xs md:text-sm h-12 text-center font-YekanBakh-Black text-title child:text-nowrap'>
                         <tr className='border-b border-border child:px-4'>
