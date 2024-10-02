@@ -30,6 +30,7 @@ export default function CourseForm() {
         getAllCategories()
         if(mainCourseId) {
             getMainUserInfo()
+            console.log(categoryId)
         }
     }, []);
 
@@ -71,6 +72,7 @@ export default function CourseForm() {
             isCompleted: courseIsCompleted,
             totalTime: courseTotalTime,
             sections: courseSections,
+            category_id: categoryId
         }
         MySwal.fire({
             title: 'آیا از انجام این کار اطمینان دارید ؟',
@@ -113,6 +115,8 @@ export default function CourseForm() {
             setCourseSections(mainCourse.sections)
             setCourseImg(mainCourse.courseImg)
             setCourseTeacherImg(mainCourse.teacherImg)
+            setCategoryId(mainCourse.category_id)
+            setSelectedCategory(mainCourse.categories.title)
         })
     }
 
@@ -204,9 +208,9 @@ export default function CourseForm() {
                             type="text"/>
                     </div>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
-                        <div className='w-full bg-secondary rounded-2xl relative space-y-2'>
+                        <div className='w-full rounded-2xl relative space-y-2'>
                             <button onClick={() => setCategoryMenuShow(prevState => !prevState)}
-                                    className='flex items-center w-full justify-between px-4 outline-none h-11 text-title font-YekanBakh-SemiBold'>
+                                    className='flex items-center w-full justify-between px-4 outline-none bg-background rounded-2xl h-11 text-title font-YekanBakh-SemiBold'>
                                         <span className='text-xs'>
                                             {
                                                 selectedCategory ? selectedCategory : 'انتخاب کنید'
@@ -219,7 +223,7 @@ export default function CourseForm() {
                                         </span>
                             </button>
                             <div style={categoryMenuShow ? {display: 'block'} : {display: 'none'}}
-                                 className='bg-secondary shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
+                                 className='bg-background shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
                                 <ul onClick={(elem) => selectCategory(elem)}
                                     className='text-xs font-YekanBakh-SemiBold flex flex-col'>
                                     {

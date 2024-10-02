@@ -16,6 +16,7 @@ export default function Courses() {
     async function getAllCourses() {
         const data = await getCourses()
         setCourses(data)
+        console.log(data)
     }
 
     function removeCourseHandler(courseId) {
@@ -27,15 +28,15 @@ export default function Courses() {
             cancelButtonText: 'خیر'
         })
             .then(async res => {
-                if(res.isConfirmed) {
+                if (res.isConfirmed) {
                     const response = await supabase.from('courses').delete().eq('course_id', courseId)
-                    if(response.status === 204) {
+                    if (response.status === 204) {
                         MySwal.fire({
                             title: 'دوره با موفقیت حذف شد',
                             icon: 'success',
                             confirmButtonText: 'اوکی'
                         }).then(res => {
-                            if(res.isConfirmed) {
+                            if (res.isConfirmed) {
                                 setGetData(prevState => !prevState)
                             }
                         })
@@ -52,7 +53,8 @@ export default function Courses() {
             <div>
                 <div className='space-y-2 pt-10 relative overflow-auto'>
                     <table className='w-full'>
-                        <thead className='text-xs md:text-sm h-12 text-center font-YekanBakh-Black text-title child:text-nowrap'>
+                        <thead
+                            className='text-xs md:text-sm h-12 text-center font-YekanBakh-Black text-title child:text-nowrap'>
                         <tr className='border-b border-border child:px-4'>
                             <th>
                                 شناسه
@@ -83,6 +85,9 @@ export default function Courses() {
                             </th>
                             <th>
                                 وضعیت
+                            </th>
+                            <th>
+                                دسته بندی
                             </th>
                             <th>
                                 مدرس
@@ -117,8 +122,9 @@ export default function Courses() {
                                             </div>
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
-                                            <div className='flex items-center justify-center w-20 h-16 rounded-xl overflow-hidden'>
-                                                <img className='w-full h-full object-cover shrink-0' src={course.courseImg}
+                                            <div className='flex items-center justify-center'>
+                                                <img className='w-20 h-12 rounded-xl object-cover shrink-0'
+                                                     src={course.courseImg}
                                                      alt={course.title}/>
                                             </div>
                                         </td>
@@ -147,14 +153,21 @@ export default function Courses() {
                                                 course.sections
                                             }
                                         </td>
-                                        <td style={course.isFree ? {color: 'rgb(var(--color-success))'} : {color: 'rgb(239, 68, 68)'}} className='font-YekanBakh-SemiBold'>
+                                        <td style={course.isFree ? {color: 'rgb(var(--color-success))'} : {color: 'rgb(239, 68, 68)'}}
+                                            className='font-YekanBakh-SemiBold'>
                                             {
                                                 course.isFree ? 'رایگان' : 'خیر'
                                             }
                                         </td>
-                                        <td style={course.isCompleted ? {color: 'rgb(var(--color-success))'} : {color: 'rgb(234, 179, 8)'}} className='font-YekanBakh-SemiBold'>
+                                        <td style={course.isCompleted ? {color: 'rgb(var(--color-success))'} : {color: 'rgb(234, 179, 8)'}}
+                                            className='font-YekanBakh-SemiBold'>
                                             {
                                                 course.isCompleted ? 'تکمیل شده' : 'در حال برگزاری'
+                                            }
+                                        </td>
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            {
+                                                course.categories.title
                                             }
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
@@ -163,8 +176,9 @@ export default function Courses() {
                                             }
                                         </td>
                                         <td>
-                                            <div className='flex items-center justify-center w-20 h-16 rounded-xl overflow-hidden'>
-                                                <img className='shrink-0 w-full h-full object-cover' src={course.teacherImg}
+                                            <div className='flex items-center justify-center'>
+                                                <img className='shrink-0 w-12 h-12 rounded-full object-cover'
+                                                     src={course.teacherImg}
                                                      alt={course.teacherName}/>
                                             </div>
                                         </td>
@@ -172,7 +186,7 @@ export default function Courses() {
                                             <div className='flex items-center justify-center text-primary'>
                                                 <Link to={`../course-form/${course.course_id}`}
                                                       className='cursor-pointer'>
-                                                    <svg className='w-6 h-6'>
+                                                    <svg className='w-5 h-5'>
                                                         <use href='#edit'></use>
                                                     </svg>
                                                 </Link>
@@ -182,7 +196,7 @@ export default function Courses() {
                                             <div className='flex items-center justify-center text-red-500'>
                                             <span onClick={() => removeCourseHandler(course.course_id)}
                                                   className='cursor-pointer'>
-                                                <svg className='w-6 h-6'>
+                                                <svg className='w-5 h-5'>
                                                     <use href='#x-mark'></use>
                                                 </svg>
                                             </span>

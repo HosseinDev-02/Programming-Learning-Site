@@ -74,7 +74,7 @@ export default function Categories() {
                         <tbody>
                         {
                             categories.map((category, index) => (
-                                <tr key={category.category_id} className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
+                                <tr key={category.category_id} className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-2'>
                                     <td className='text-title font-YekanBakh-Black'>
                                         {
                                             index + 1
@@ -86,7 +86,7 @@ export default function Categories() {
                                     <td>
                                         <div className='flex items-center justify-center text-primary'>
                                             <Link to={`../category-form/${category.category_id}`} className='cursor-pointer'>
-                                                <svg className='w-6 h-6'>
+                                                <svg className='w-5 h-5'>
                                                     <use href='#edit'></use>
                                                 </svg>
                                             </Link>
@@ -95,7 +95,7 @@ export default function Categories() {
                                     <td>
                                         <div className='flex items-center justify-center text-red-500'>
                                             <span onClick={() => removeCategoryHandler(category.category_id)} className='cursor-pointer'>
-                                                <svg className='w-6 h-6'>
+                                                <svg className='w-5 h-5'>
                                                     <use href='#x-mark'></use>
                                                 </svg>
                                             </span>

@@ -8,8 +8,16 @@ export async function getUsers() {
 }
 
 export async function getCourses() {
-    const {data} = await supabase.from('courses').select('*')
-   return data
+    let {data: courses, error} = await supabase
+        .from('courses')
+        .select(`
+            *,
+    categories (
+      category_id,
+      title
+    )
+  `)
+    return courses
 }
 
 export async function getCategories() {
