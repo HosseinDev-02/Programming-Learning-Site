@@ -18,6 +18,8 @@ import Users from "./Components/Pages/Panel/Users/Users";
 import UserForm from "./Components/Pages/Panel/Users/UserForm";
 import Courses from "./Components/Pages/Panel/Courses/Courses";
 import CourseForm from "./Components/Pages/Panel/Courses/CourseForm";
+import Categories from "./Components/Pages/Panel/Categories/Categories";
+import CategoryForm from "./Components/Pages/Panel/Categories/CategoryForm";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -43,7 +45,10 @@ let routes = [
             {path: 'user-form/:id', element: <UserForm></UserForm>},
             {path: 'courses', element: <Courses></Courses>},
             {path: 'course-form', element: <CourseForm></CourseForm>},
-            {path: 'course-form/:id', element: <CourseForm></CourseForm>}
+            {path: 'course-form/:id', element: <CourseForm></CourseForm>},
+            {path: 'categories', element: <Categories></Categories>},
+            {path: 'category-form', element: <CategoryForm></CategoryForm>},
+
         ]
     }
 ]
