@@ -11,7 +11,7 @@ export default function CategoryForm() {
     const params = useParams()
     const categoryId = params.id
 
-    async function addNewUser() {
+    async function addNewCategory() {
         let newCategory = {
             title: categoryTitle.trim()
         }
@@ -68,7 +68,7 @@ export default function CategoryForm() {
                                            icon='#x-mark' title='بازگشت'></PrimaryButton>
                         </>
                     ) : (
-                        <PrimaryButton clickEvent={() => addNewUser()} icon='#check'
+                        <PrimaryButton clickEvent={() => addNewCategory()} icon='#check'
                                        title='ثبت دسته بندی جدید'></PrimaryButton>
                     )
                 }
