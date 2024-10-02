@@ -20,6 +20,11 @@ export async function getCourses() {
     return courses
 }
 
+export async function getSections() {
+    const {data} = await supabase.from('sections').select('*')
+    return data
+}
+
 export async function getCategories() {
     const {data} = await supabase.from('categories').select('*')
     return data
