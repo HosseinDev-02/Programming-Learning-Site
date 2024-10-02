@@ -18,6 +18,8 @@ export default function Categories() {
         setCategoris(data)
     }
 
+
+
     function removeCategoryHandler(categoryId) {
         MySwal.fire({
             title: 'از حذف دسته بندی اطمینان دارید ؟',
@@ -83,7 +85,7 @@ export default function Categories() {
                                     </td>
                                     <td>
                                         <div className='flex items-center justify-center text-primary'>
-                                            <Link to='#' className='cursor-pointer'>
+                                            <Link to={`../category-form/${category.category_id}`} className='cursor-pointer'>
                                                 <svg className='w-6 h-6'>
                                                     <use href='#edit'></use>
                                                 </svg>

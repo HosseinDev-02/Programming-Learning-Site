@@ -48,6 +48,7 @@ let routes = [
             {path: 'course-form/:id', element: <CourseForm></CourseForm>},
             {path: 'categories', element: <Categories></Categories>},
             {path: 'category-form', element: <CategoryForm></CategoryForm>},
+            {path: 'category-form/:id', element: <CategoryForm></CategoryForm>},
 
         ]
     }

@@ -2,8 +2,9 @@ import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
 import {useEffect, useState} from "react";
 import supabase from "../../../../database";
-import {getCourses, MySwal} from "../../../../Utils";
+import {getCategories, getCourses, MySwal} from "../../../../Utils";
 import {useParams} from "react-router-dom";
+import Accordion from "../../../Accordion/Accordion";
 
 export default function CourseForm() {
 
@@ -17,11 +18,16 @@ export default function CourseForm() {
     const [courseSections, setCourseSections] = useState('')
     const [courseTotalTime, setCourseTotalTime] = useState('')
     const [courseOffer, setCourseOffer] = useState('')
+    const [categories, setCategories] = useState([])
+    const [categoryMenuShow, setCategoryMenuShow] = useState(false)
+    const [selectedCategory, setSelectedCategory] = useState('')
+    const [categoryId, setCategoryId] = useState('')
 
     const params = useParams()
     const mainCourseId = params.id
 
     useEffect(() => {
+        getAllCategories()
         if(mainCourseId) {
             getMainUserInfo()
         }
@@ -40,6 +46,18 @@ export default function CourseForm() {
         setCourseOffer('')
     }
 
+    async function getAllCategories() {
+        const data = await getCategories()
+        setCategories(data)
+    }
+
+    function selectCategory(elem) {
+        setSelectedCategory(elem.target.innerHTML)
+        setCategoryMenuShow(prevState => !prevState)
+        setCategoryId(elem.target.dataset.id)
+        console.log(elem.target.dataset.id)
+    }
+
     function editCourse() {
         let courseNewInfo = {
             title: courseTitle,
@@ -52,7 +70,7 @@ export default function CourseForm() {
             isFree: courseIsFree,
             isCompleted: courseIsCompleted,
             totalTime: courseTotalTime,
-            sections: courseSections
+            sections: courseSections,
         }
         MySwal.fire({
             title: 'آیا از انجام این کار اطمینان دارید ؟',
@@ -64,6 +82,7 @@ export default function CourseForm() {
             .then(async res => {
                 if(res.isConfirmed) {
                     const data = await supabase.from('courses').update(courseNewInfo).eq('course_id', mainCourseId)
+                    console.log(data)
                     if(data.status === 204) {
                         MySwal.fire({
                             title: 'بروزرسانی انجام شد',
@@ -109,9 +128,11 @@ export default function CourseForm() {
             isFree: courseIsFree,
             isCompleted: courseIsCompleted,
             totalTime: courseTotalTime,
-            sections: courseSections
+            sections: courseSections,
+            category_id: categoryId
         }
         const response = await supabase.from('courses').insert(newCourse)
+        console.log(response)
         if (response.status === 201) {
             MySwal.fire({
                 title: 'دوره با موفقیت ثبت شد',
@@ -181,6 +202,38 @@ export default function CourseForm() {
                         <input value={courseTeacherName} onChange={(e) => setCourseTeacherName(e.target.value)}
                             className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                             type="text"/>
+                    </div>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                        <div className='w-full bg-secondary rounded-2xl relative space-y-2'>
+                            <button onClick={() => setCategoryMenuShow(prevState => !prevState)}
+                                    className='flex items-center w-full justify-between px-4 outline-none h-11 text-title font-YekanBakh-SemiBold'>
+                                        <span className='text-xs'>
+                                            {
+                                                selectedCategory ? selectedCategory : 'انتخاب کنید'
+                                            }
+                                        </span>
+                                <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#chevron-down'></use>
+                                            </svg>
+                                        </span>
+                            </button>
+                            <div style={categoryMenuShow ? {display: 'block'} : {display: 'none'}}
+                                 className='bg-secondary shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
+                                <ul onClick={(elem) => selectCategory(elem)}
+                                    className='text-xs font-YekanBakh-SemiBold flex flex-col'>
+                                    {
+                                        categories.map(category => (
+                                            <li data-id={category.category_id} key={category.category_id} className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
+                                                {
+                                                    category.title
+                                                }
+                                            </li>
+                                        ))
+                                    }
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div className='flex gap-5 items-center w-full sm:w-1/3 md:w-full lg:w-1/4'>
                         <div

@@ -1,15 +1,21 @@
 import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import supabase from "../../../../database";
-import {MySwal} from "../../../../Utils";
+import {getCategories, MySwal} from "../../../../Utils";
 
 export default function CategoryForm() {
 
     const [categoryTitle, setCategoryTitle] = useState('')
     const params = useParams()
     const categoryId = params.id
+
+    useEffect(() => {
+        if (categoryId) {
+            getMainCategory()
+        }
+    }, []);
 
     async function addNewCategory() {
         let newCategory = {
@@ -25,6 +31,32 @@ export default function CategoryForm() {
                 .then(res => {
                     if (res.isConfirmed) {
                         clearStates()
+                    }
+                })
+        }
+    }
+
+    async function getMainCategory() {
+        const data = await getCategories()
+        let mainCategory = data.find(category => category.category_id === categoryId)
+        setCategoryTitle(mainCategory.title)
+    }
+
+    async function editCategory() {
+        const response = await supabase.from('categories')
+            .update({
+                title: categoryTitle
+            })
+            .eq('category_id', categoryId)
+        if(response.status === 204) {
+            MySwal.fire({
+                title: 'بروزرسانی انجام شد',
+                icon: 'success',
+                confirmButtonText: 'اوکی'
+            })
+                .then(res => {
+                    if(res.isConfirmed) {
+                        window.history.back()
                     }
                 })
         }
@@ -62,7 +94,7 @@ export default function CategoryForm() {
                 {
                     categoryId ? (
                         <>
-                            <PrimaryButton icon='#check'
+                            <PrimaryButton clickEvent={() => editCategory()} icon='#check'
                                            title='بروزرسانی'></PrimaryButton>
                             <PrimaryButton className='bg-red-500' clickEvent={() => window.history.back()}
                                            icon='#x-mark' title='بازگشت'></PrimaryButton>
