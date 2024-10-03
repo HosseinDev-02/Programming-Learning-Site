@@ -4,7 +4,6 @@ import {useEffect, useState} from "react";
 import supabase from "../../../../database";
 import {getCategories, getCourses, MySwal} from "../../../../Utils";
 import {useParams} from "react-router-dom";
-import Accordion from "../../../Accordion/Accordion";
 
 export default function CourseForm() {
 
@@ -27,14 +26,15 @@ export default function CourseForm() {
     const mainCourseId = params.id
 
     useEffect(() => {
+        const data = getCourses().then(data => console.log(data))
         getAllCategories()
-        if(mainCourseId) {
+        if (mainCourseId) {
             getMainUserInfo()
             console.log(categoryId)
         }
     }, []);
 
-    function clearStates () {
+    function clearStates() {
         setCourseIsFree(false)
         setCourseIsCompleted(false)
         setCourseTitle('')
@@ -56,7 +56,6 @@ export default function CourseForm() {
         setSelectedCategory(elem.target.innerHTML)
         setCategoryMenuShow(prevState => !prevState)
         setCategoryId(elem.target.dataset.id)
-        console.log(elem.target.dataset.id)
     }
 
     function editCourse() {
@@ -64,7 +63,7 @@ export default function CourseForm() {
             title: courseTitle,
             price: coursePrice,
             courseImg: courseImg,
-            costPrice: coursePrice - (coursePrice * (courseOffer/100)),
+            costPrice: coursePrice - (coursePrice * (courseOffer / 100)),
             offer: +courseOffer,
             teacherName: courseTeacherName,
             teacherImg: courseTeacherImg,
@@ -82,17 +81,14 @@ export default function CourseForm() {
             cancelButtonText: 'خیر'
         })
             .then(async res => {
-                if(res.isConfirmed) {
+                if (res.isConfirmed) {
                     const data = await supabase.from('courses').update(courseNewInfo).eq('course_id', mainCourseId)
-                    console.log(data)
-                    if(data.status === 204) {
+                    if (data.status === 204) {
                         MySwal.fire({
-                            title: 'بروزرسانی انجام شد',
-                            icon: 'success',
-                            confirmButtonText: 'اوکی'
+                            title: 'بروزرسانی انجام شد', icon: 'success', confirmButtonText: 'اوکی'
                         })
                             .then(res => {
-                                if(res.isConfirmed) {
+                                if (res.isConfirmed) {
                                     window.history.back()
                                 }
                             })
@@ -120,12 +116,12 @@ export default function CourseForm() {
         })
     }
 
-    async function addNewCourse () {
+    async function addNewCourse() {
         let newCourse = {
             title: courseTitle,
             price: coursePrice,
             courseImg: courseImg,
-            costPrice: coursePrice - (coursePrice * (courseOffer/100)),
+            costPrice: coursePrice - (coursePrice * (courseOffer / 100)),
             offer: +courseOffer,
             teacherName: courseTeacherName,
             teacherImg: courseTeacherImg,
@@ -133,15 +129,13 @@ export default function CourseForm() {
             isCompleted: courseIsCompleted,
             totalTime: courseTotalTime,
             sections: courseSections,
-            category_id: categoryId
+            category_id: categoryId,
         }
         const response = await supabase.from('courses').insert(newCourse)
         console.log(response)
         if (response.status === 201) {
             MySwal.fire({
-                title: 'دوره با موفقیت ثبت شد',
-                icon: 'success',
-                confirmButtonText: 'اوکی'
+                title: 'دوره با موفقیت ثبت شد', icon: 'success', confirmButtonText: 'اوکی'
             })
                 .then(res => {
                     if (res.isConfirmed) {
@@ -151,8 +145,7 @@ export default function CourseForm() {
         }
     }
 
-    return (
-        <div className='w-full h-full'>
+    return (<div className='w-full h-full'>
             <div className='h-20 flex items-center'>
                 <SubTitle fontSize='24px' title='افزودن دوره'></SubTitle>
             </div>
@@ -164,57 +157,56 @@ export default function CourseForm() {
                             عنوان
                         </label>
                         <input value={courseTitle} onChange={(e) => setCourseTitle(e.target.value)}
-                            className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                            type="text"/>
+                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                               type="text"/>
                     </div>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             قیمت
                         </label>
                         <input value={coursePrice} onChange={(e) => setCoursePrice(e.target.value)}
-                            className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                            type="text"/>
+                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                               type="text"/>
                     </div>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             تخفیف
                         </label>
                         <input value={courseOffer} onChange={(e) => setCourseOffer(e.target.value)}
-                            className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                            type="text"/>
+                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                               type="text"/>
                     </div>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             مجموع آموزش
                         </label>
                         <input value={courseTotalTime} onChange={(e) => setCourseTotalTime(e.target.value)}
-                            className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                            type="text"/>
+                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                               type="text"/>
                     </div>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             تعداد فصل ها
                         </label>
                         <input value={courseSections} onChange={(e) => setCourseSections(e.target.value)}
-                            className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                            type="text"/>
+                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                               type="text"/>
                     </div>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             مدرس
                         </label>
                         <input value={courseTeacherName} onChange={(e) => setCourseTeacherName(e.target.value)}
-                            className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                            type="text"/>
+                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                               type="text"/>
                     </div>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                        <span className='text-xs font-YekanBakh-SemiBold'>انتخاب دسته بندی</span>
                         <div className='w-full rounded-2xl relative space-y-2'>
                             <button onClick={() => setCategoryMenuShow(prevState => !prevState)}
                                     className='flex items-center w-full justify-between px-4 outline-none bg-background rounded-2xl h-11 text-title font-YekanBakh-SemiBold'>
                                         <span className='text-xs'>
-                                            {
-                                                selectedCategory ? selectedCategory : 'انتخاب کنید'
-                                            }
+                                            {selectedCategory ? selectedCategory : 'انتخاب کنید'}
                                         </span>
                                 <span>
                                             <svg className='w-5 h-5'>
@@ -226,15 +218,11 @@ export default function CourseForm() {
                                  className='bg-background shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
                                 <ul onClick={(elem) => selectCategory(elem)}
                                     className='text-xs font-YekanBakh-SemiBold flex flex-col'>
-                                    {
-                                        categories.map(category => (
-                                            <li data-id={category.category_id} key={category.category_id} className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
-                                                {
-                                                    category.title
-                                                }
-                                            </li>
-                                        ))
-                                    }
+                                    {categories.map(category => (
+                                        <li data-id={category.category_id} key={category.category_id}
+                                            className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
+                                            {category.title}
+                                        </li>))}
                                 </ul>
                             </div>
                         </div>
@@ -283,7 +271,8 @@ export default function CourseForm() {
                                             <use href='#upload'></use>
                                         </svg>
                                     </span>
-                                    <div className='flex items-center justify-center bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'>
+                                    <div
+                                        className='flex items-center justify-center bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'>
                                         {courseImg}
                                     </div>
                                 </div>
@@ -316,18 +305,14 @@ export default function CourseForm() {
                     </div>
                 </div>
             </div>
-            <div className='inline-flex items-center gap-3 mt-5'>
-                {
-                    mainCourseId ? (
-                       <>
-                           <PrimaryButton clickEvent={() => editCourse()} icon='#check' title='بروزرسانی'></PrimaryButton>
-                           <PrimaryButton className='bg-red-500' clickEvent={() => window.history.back()} icon='#x-mark' title='بازگشت'></PrimaryButton>
-                       </>
-                    ) : (
-                        <PrimaryButton clickEvent={() => addNewCourse()} icon='#check' title='ثبت دوره جدید'></PrimaryButton>
-                    )
-                }
+        <div className='inline-flex items-center gap-3 mt-5'>
+                {mainCourseId ? (<>
+                        <PrimaryButton clickEvent={() => editCourse()} icon='#check'
+                                       title='بروزرسانی'></PrimaryButton>
+                        <PrimaryButton className='bg-red-500' clickEvent={() => window.history.back()}
+                                       icon='#x-mark' title='بازگشت'></PrimaryButton>
+                    </>) : (<PrimaryButton clickEvent={() => addNewCourse()} icon='#check'
+                                           title='ثبت دوره جدید'></PrimaryButton>)}
             </div>
-        </div>
-    )
+        </div>)
 }

@@ -1,53 +1,27 @@
 import SubTitle from "../../../Titles/SubTitle";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
-import supabase from "../../../../database";
-import {getSections, MySwal} from "../../../../Utils";
+import {getSessions} from "../../../../Utils";
 
-export default function Sections() {
+export default function Sessions() {
 
-    const [sections, setSections] = useState([])
+    const [sessions, setSessions] = useState([])
     const [getData, setGetData] = useState(false)
+
     useEffect(() => {
-        getAllSections()
+        getAllSessions()
     }, [getData]);
 
-    async function getAllSections() {
-        const data = await getSections()
-        setSections(data)
-    }
-
-    async function removeSectionHandler(sectionId) {
-        MySwal.fire({
-            title: 'از حذف سرفصل اطمینان دارید ؟',
-            icon: 'question',
-            confirmButtonText: 'بله',
-            showCancelButton: true,
-            cancelButtonText: 'خیر'
-        })
-            .then(async res => {
-                if(res.isConfirmed) {
-                    const response = await supabase.from('sections').delete().eq('section_id', sectionId)
-                    if(response.status === 204) {
-                        MySwal.fire({
-                            title: 'سرفصل با موفقیت حذف شد',
-                            icon: 'success',
-                            confirmButtonText: 'اوکی'
-                        })
-                            .then(res => {
-                                if(res.isConfirmed) {
-                                    setGetData(prevState => !prevState)
-                                }
-                            })
-                    }
-                }
-            })
+    async function getAllSessions() {
+        const data = await getSessions()
+        setSessions(data)
+        console.log(data)
     }
 
     return (
         <div className='w-full h-full'>
             <div className='h-20 flex items-center'>
-                <SubTitle fontSize='24px' title='دسته بندی ها'></SubTitle>
+                <SubTitle fontSize='24px' title='جلسات دوره ها'></SubTitle>
             </div>
             <div>
                 <div className='space-y-2 pt-10 overflow-auto'>
@@ -61,7 +35,7 @@ export default function Sections() {
                                 عنوان
                             </th>
                             <th>
-                                توضیحات
+                                زمان
                             </th>
                             <th>
                                 ویرایش
@@ -73,8 +47,8 @@ export default function Sections() {
                         </thead>
                         <tbody>
                         {
-                            sections.map((section, index) => (
-                                <tr key={section.section_id}
+                            sessions.map((session, index) => (
+                                <tr key={session.session_id}
                                     className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-2'>
                                     <td className='text-title font-YekanBakh-Black'>
                                         {
@@ -82,19 +56,14 @@ export default function Sections() {
                                         }
                                     </td>
                                     <td className='font-YekanBakh-SemiBold'>
-                                        {
-                                            section.title
-                                        }
+                                        {session.title}
                                     </td>
                                     <td className='font-YekanBakh-SemiBold'>
-                                        {
-                                            section.description
-                                        }
+                                        {session.time}
                                     </td>
                                     <td>
                                         <div className='flex items-center justify-center text-primary'>
-                                            <Link to={`../section-form/${section.section_id}`}
-                                                  className='cursor-pointer'>
+                                            <Link to='#' className='cursor-pointer'>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#edit'></use>
                                                 </svg>
@@ -103,7 +72,7 @@ export default function Sections() {
                                     </td>
                                     <td>
                                         <div className='flex items-center justify-center text-red-500'>
-                                            <span onClick={() => removeSectionHandler(section.section_id)} className='cursor-pointer'>
+                                            <span className='cursor-pointer'>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#x-mark'></use>
                                                 </svg>

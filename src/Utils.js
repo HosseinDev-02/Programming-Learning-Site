@@ -20,8 +20,8 @@ export async function getCourses() {
     return courses
 }
 
-export async function getSections() {
-    const {data} = await supabase.from('sections').select('*')
+export async function getSessions() {
+    const {data} = await supabase.from('sessions').select('*')
     return data
 }
 
