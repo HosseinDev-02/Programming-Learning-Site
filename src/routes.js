@@ -26,6 +26,8 @@ import Menus from "./Components/Pages/Panel/Menus/Menus";
 import MenuForm from "./Components/Pages/Panel/Menus/MenuForm";
 import SubMenus from "./Components/Pages/Panel/SubMenus/SubMenus";
 import SubMenuForm from "./Components/Pages/Panel/SubMenus/SubMenuForm";
+import MenuLinks from "./Components/Pages/Panel/MenuLinks/MenuLinks";
+import MenuLinkForm from "./Components/Pages/Panel/MenuLinks/MenuLinkForm";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -64,6 +66,9 @@ let routes = [
             {path: 'submenus', element: <SubMenus></SubMenus>},
             {path: 'submenu-form', element: <SubMenuForm></SubMenuForm>},
             {path: 'submenu-form/:id', element: <SubMenuForm></SubMenuForm>},
+            {path: 'menulinks', element: <MenuLinks></MenuLinks>},
+            {path: 'menulink-form', element: <MenuLinkForm></MenuLinkForm>},
+            {path: 'menulink-form/:id', element: <MenuLinkForm></MenuLinkForm>},
         ]
     }
 ]
