@@ -23,7 +23,7 @@ export async function getCourses() {
 }
 
 export async function getMenus() {
-    const {data} = await supabase.from('menus')
+    const {data} = await supabase.from('menus').select('*')
     return data
 }
 

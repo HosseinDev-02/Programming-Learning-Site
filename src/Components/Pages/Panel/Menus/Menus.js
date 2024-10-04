@@ -1,20 +1,48 @@
 import SubTitle from "../../../Titles/SubTitle";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {getMenus} from "../../../../Utils";
+import {getMenus, MySwal} from "../../../../Utils";
+import supabase from "../../../../database";
 
 export default function Menus() {
 
     const [menus, setMenus] = useState([])
+    const [getData, setGetData] = useState(false)
 
     useEffect(() => {
         getAllMenus()
-    }, []);
+    }, [getData]);
 
     async function getAllMenus () {
         const data = await getMenus()
         setMenus(data)
         console.log(data)
+    }
+
+    async function removeMenuHandler(menuId) {
+        MySwal.fire({
+            title: 'از حذف منو اطمینان دارید ؟',
+            icon: 'question',
+            confirmButtonText: 'بله',
+            showCancelButton: true,
+            cancelButtonText: 'خیر'
+        })
+            .then(async res => {
+                if (res.isConfirmed) {
+                    const response = await supabase.from('menus').delete().eq('menu_id', menuId)
+                    if (response.status === 204) {
+                        MySwal.fire({
+                            title: 'منو با موفقیت حذف شد',
+                            icon: 'success',
+                            confirmButtonText: 'اوکی'
+                        }).then(res => {
+                            if (res.isConfirmed) {
+                                setGetData(prevState => !prevState)
+                            }
+                        })
+                    }
+                }
+            })
     }
 
     return (
@@ -46,43 +74,60 @@ export default function Menus() {
                         </thead>
                         <tbody>
                         {
-                            sessions.map((session, index) => (
-                                <tr key={session.session_id}
-                                    className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-2'>
-                                    <td className='text-title font-YekanBakh-Black'>
-                                        {
-                                            index + 1
-                                        }
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        {session.title}
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        {session.time}
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        {session.courses.title}
-                                    </td>
-                                    <td>
-                                        <div className='flex items-center justify-center text-primary'>
-                                            <Link to='#' className='cursor-pointer'>
-                                                <svg className='w-5 h-5'>
-                                                    <use href='#edit'></use>
-                                                </svg>
-                                            </Link>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className='flex items-center justify-center text-red-500'>
-                                            <span className='cursor-pointer'>
+                            menus.length ? (
+                                menus.map((menu, index) => (
+                                    <tr key={menu.menu_id}
+                                        className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-2'>
+                                        <td className='text-title font-YekanBakh-Black'>
+                                            {
+                                                index + 1
+                                            }
+                                        </td>
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            {menu.title}
+                                        </td>
+                                        <td dir='ltr' className='font-YekanBakh-SemiBold'>
+                                            {menu.link}
+                                        </td>
+                                        <td>
+                                            <div className='flex items-center justify-center text-primary'>
+                                                <Link to={`../menu-form/${menu.menu_id}`} className='cursor-pointer'>
+                                                    <svg className='w-5 h-5'>
+                                                        <use href='#edit'></use>
+                                                    </svg>
+                                                </Link>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className='flex items-center justify-center text-red-500'>
+                                            <span onClick={() => removeMenuHandler(menu.menu_id)} className='cursor-pointer'>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#x-mark'></use>
                                                 </svg>
                                             </span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))
+                            ) : (
+                                    <tr className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-2'>
+                                        <td className='text-title font-YekanBakh-Black'>
+                                            ---
+                                        </td>
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            ---
+                                        </td>
+                                        <td className='font-YekanBakh-SemiBold'>
+                                            ---
+                                        </td>
+                                        <td>
+                                            ---
+                                        </td>
+                                        <td>
+                                            ---
+                                        </td>
+                                    </tr>
+                            )
                         }
                         </tbody>
                     </table>

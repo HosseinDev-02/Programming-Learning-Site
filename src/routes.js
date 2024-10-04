@@ -22,6 +22,8 @@ import Categories from "./Components/Pages/Panel/Categories/Categories";
 import CategoryForm from "./Components/Pages/Panel/Categories/CategoryForm";
 import Sessions from "./Components/Pages/Panel/Sessions/Sessions";
 import SessionForm from "./Components/Pages/Panel/Sessions/SessionForm";
+import Menus from "./Components/Pages/Panel/Menus/Menus";
+import MenuForm from "./Components/Pages/Panel/Menus/MenuForm";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -54,6 +56,9 @@ let routes = [
             {path: 'sessions', element: <Sessions></Sessions>},
             {path: 'session-form', element: <SessionForm></SessionForm>},
             {path: 'session-form/:id', element: <SessionForm></SessionForm>},
+            {path: 'menus', element: <Menus></Menus>},
+            {path: 'menu-form', element: <MenuForm></MenuForm>},
+            {path: 'menu-form/:id', element: <MenuForm></MenuForm>},
         ]
     }
 ]
