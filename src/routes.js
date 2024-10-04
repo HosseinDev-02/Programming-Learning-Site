@@ -24,6 +24,8 @@ import Sessions from "./Components/Pages/Panel/Sessions/Sessions";
 import SessionForm from "./Components/Pages/Panel/Sessions/SessionForm";
 import Menus from "./Components/Pages/Panel/Menus/Menus";
 import MenuForm from "./Components/Pages/Panel/Menus/MenuForm";
+import SubMenus from "./Components/Pages/Panel/SubMenus/SubMenus";
+import SubMenuForm from "./Components/Pages/Panel/SubMenus/SubMenuForm";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -59,6 +61,9 @@ let routes = [
             {path: 'menus', element: <Menus></Menus>},
             {path: 'menu-form', element: <MenuForm></MenuForm>},
             {path: 'menu-form/:id', element: <MenuForm></MenuForm>},
+            {path: 'submenus', element: <SubMenus></SubMenus>},
+            {path: 'submenu-form', element: <SubMenuForm></SubMenuForm>},
+            {path: 'submenu-form/:id', element: <SubMenuForm></SubMenuForm>},
         ]
     }
 ]

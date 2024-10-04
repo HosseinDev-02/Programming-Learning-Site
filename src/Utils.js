@@ -22,6 +22,16 @@ export async function getCourses() {
     return courses
 }
 
+export async function getSubMenus() {
+    const {data} = await supabase.from('submenus').select(`
+        *,
+        menus (
+            *
+        )
+    `)
+    return data
+}
+
 export async function getMenus() {
     const {data} = await supabase.from('menus').select('*')
     return data
