@@ -13,15 +13,23 @@ export async function getCourses() {
         .select(`
             *,
     categories (
-      category_id,
-      title
+      *
+    ),
+    sessions (
+        *
     )
   `)
     return courses
 }
 
 export async function getSessions() {
-    const {data} = await supabase.from('sessions').select('*')
+    const {data} = await supabase.from('sessions')
+        .select(`
+            *,
+            courses(
+                *
+            )
+        `)
     return data
 }
 

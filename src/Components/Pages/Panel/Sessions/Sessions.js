@@ -38,6 +38,9 @@ export default function Sessions() {
                                 زمان
                             </th>
                             <th>
+                                دوره
+                            </th>
+                            <th>
                                 ویرایش
                             </th>
                             <th>
@@ -60,6 +63,9 @@ export default function Sessions() {
                                     </td>
                                     <td className='font-YekanBakh-SemiBold'>
                                         {session.time}
+                                    </td>
+                                    <td className='font-YekanBakh-SemiBold'>
+                                        {session.courses.title}
                                     </td>
                                     <td>
                                         <div className='flex items-center justify-center text-primary'>
