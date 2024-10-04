@@ -53,6 +53,7 @@ let routes = [
             {path: 'category-form/:id', element: <CategoryForm></CategoryForm>},
             {path: 'sessions', element: <Sessions></Sessions>},
             {path: 'session-form', element: <SessionForm></SessionForm>},
+            {path: 'session-form/:id', element: <SessionForm></SessionForm>},
         ]
     }
 ]

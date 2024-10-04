@@ -1,54 +1,26 @@
 import SubTitle from "../../../Titles/SubTitle";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {getSessions, MySwal} from "../../../../Utils";
-import supabase from "../../../../database";
+import {getMenus} from "../../../../Utils";
 
-export default function Sessions() {
+export default function Menus() {
 
-    const [sessions, setSessions] = useState([])
-    const [getData, setGetData] = useState(false)
+    const [menus, setMenus] = useState([])
 
     useEffect(() => {
-        getAllSessions()
-    }, [getData]);
+        getAllMenus()
+    }, []);
 
-    async function getAllSessions() {
-        const data = await getSessions()
-        setSessions(data)
+    async function getAllMenus () {
+        const data = await getMenus()
+        setMenus(data)
         console.log(data)
-    }
-
-    async function removeSessionHandler(sessionId) {
-        MySwal.fire({
-            title: 'از حذف جلسه اطمینان دارید ؟',
-            icon: 'question',
-            confirmButtonText: 'بله',
-            showCancelButton: true,
-            cancelButtonText: 'خیر'
-        })
-            .then(async res => {
-                if (res.isConfirmed) {
-                    const response = await supabase.from('sessions').delete().eq('session_id', sessionId)
-                    if (response.status === 204) {
-                        MySwal.fire({
-                            title: 'جلسه با موفقیت حذف شد',
-                            icon: 'success',
-                            confirmButtonText: 'اوکی'
-                        }).then(res => {
-                            if (res.isConfirmed) {
-                                setGetData(prevState => !prevState)
-                            }
-                        })
-                    }
-                }
-            })
     }
 
     return (
         <div className='w-full h-full'>
             <div className='h-20 flex items-center'>
-                <SubTitle fontSize='24px' title='جلسات دوره ها'></SubTitle>
+                <SubTitle fontSize='24px' title='منو ها'></SubTitle>
             </div>
             <div>
                 <div className='space-y-2 pt-10 overflow-auto'>
@@ -62,10 +34,7 @@ export default function Sessions() {
                                 عنوان
                             </th>
                             <th>
-                                زمان
-                            </th>
-                            <th>
-                                دوره
+                                لینک
                             </th>
                             <th>
                                 ویرایش
@@ -96,7 +65,7 @@ export default function Sessions() {
                                     </td>
                                     <td>
                                         <div className='flex items-center justify-center text-primary'>
-                                            <Link to={`../session-form/${session.session_id}`} className='cursor-pointer'>
+                                            <Link to='#' className='cursor-pointer'>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#edit'></use>
                                                 </svg>
@@ -105,7 +74,7 @@ export default function Sessions() {
                                     </td>
                                     <td>
                                         <div className='flex items-center justify-center text-red-500'>
-                                            <span onClick={() => removeSessionHandler(session.session_id)} className='cursor-pointer'>
+                                            <span className='cursor-pointer'>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#x-mark'></use>
                                                 </svg>

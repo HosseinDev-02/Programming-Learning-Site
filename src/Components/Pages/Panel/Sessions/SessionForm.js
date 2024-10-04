@@ -2,7 +2,7 @@ import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {getCourses, MySwal} from "../../../../Utils";
+import {getCourses, getSessions, MySwal} from "../../../../Utils";
 import supabase from "../../../../database";
 
 export default function SessionForm() {
@@ -17,6 +17,9 @@ export default function SessionForm() {
     const [courseId, setCourseId] = useState('')
 
     useEffect(() => {
+        if(sessionId) {
+            getMainSession()
+        }
         getAllCourses()
     }, []);
 
@@ -25,9 +28,49 @@ export default function SessionForm() {
         setCourses(data)
     }
 
+    async function getMainSession() {
+        const data = await getSessions()
+        const mainSession = data.find(session => session.session_id === sessionId)
+        setSessionTime(mainSession.time)
+        setSessionTitle(mainSession.title)
+        setSelectedCourse(mainSession.courses.title)
+        setCourseId(mainSession.courses.course_id)
+    }
+
     async function selectCourse(elem) {
         setCourseId(elem.target.dataset.id)
         setSelectedCourse(elem.target.innerHTML)
+        setCoursesMenuShow(prevState => !prevState)
+    }
+
+    async function editSession() {
+
+        MySwal.fire({
+            title: 'آیا از انجام این کار اطمینان دارید ؟',
+            icon: 'question',
+            confirmButtonText: 'بله',
+            showCancelButton: true,
+            cancelButtonText: 'خیر'
+        })
+            .then(async res => {
+                if (res.isConfirmed) {
+                    const response = await supabase.from('sessions').update({
+                        title: sessionTitle,
+                        time: sessionTime,
+                        course_id: courseId
+                    }).eq('session_id', sessionId)
+                    if (response.status === 204) {
+                        MySwal.fire({
+                            title: 'بروزرسانی انجام شد', icon: 'success', confirmButtonText: 'اوکی'
+                        })
+                            .then(res => {
+                                if (res.isConfirmed) {
+                                    window.history.back()
+                                }
+                            })
+                    }
+                }
+            })
     }
 
     function clearStates() {
@@ -121,7 +164,7 @@ export default function SessionForm() {
                 {
                     sessionId ? (
                         <>
-                            <PrimaryButton icon='#check' title='بروزرسانی'></PrimaryButton>
+                            <PrimaryButton clickEvent={() => editSession()} icon='#check' title='بروزرسانی'></PrimaryButton>
                             <PrimaryButton className='bg-red-500' clickEvent={() => window.history.back()}
                                            icon='#x-mark' title='بازگشت'></PrimaryButton>
                         </>
