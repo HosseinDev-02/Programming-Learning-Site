@@ -11,6 +11,7 @@ export default function SideBar(props) {
     const [menusMenuShow, setMenusMenuShow] = useState(false)
     const [submenusMenuShow, setSubmenusMenuShow] = useState(false)
     const [menuLinksMenuShow, setMenuLinksMenuShow] = useState(false)
+    const [articlesMenuShow, setArticlesMenuShow] = useState(false)
 
     return (
         <div style={props.open ? {right: '0'} : {right: '-256px'}} className='bg-background transition-all fixed -right-64 top-0 bottom-0 min-h-screen w-64 z-10 md:static md:w-80 rounded-l-2xl divide-y divide-border p-5 shrink-0'>
@@ -368,6 +369,56 @@ export default function SideBar(props) {
                                   className='text-red-500 flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4  h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
                                 <span>
                                     افزودن لینک
+                                </span>
+                                <span>
+                                <svg className='w-5 h-5'>
+                                    <use href='#arrow-long-left'></use>
+                                </svg>
+                            </span>
+                            </Link>
+                        </div>
+                    </li>
+                    <li className='relative'>
+                        <button style={articlesMenuShow ? {
+                            backgroundColor: 'rgb(var(--color-primary))',
+                            color: 'white'
+                        } : {}} onClick={() => setArticlesMenuShow(prevState => !prevState)}
+                                className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                            <div className='flex items-center gap-2'>
+                                <span>
+                                    <svg className='w-5 h-5'>
+                                        <use href='#courses'></use>
+                                    </svg>
+                                </span>
+                                <span>مقاله ها</span>
+                            </div>
+                            <span>
+                                <svg style={articlesMenuShow ? {rotate: '180deg'} : {}} className='w-5 h-5'>
+                                    <use href='#chevron-down'></use>
+                                </svg>
+                            </span>
+                        </button>
+                        <div style={articlesMenuShow ? {display: 'block'} : {display: 'none'}}
+                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                            <Link onClick={() => {
+                                props.setOpen(false)
+                            }} to='articles'
+                                  className='flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                    <span>
+                                    تمام مقاله ها
+                                </span>
+                                <span>
+                                <svg className='w-5 h-5'>
+                                    <use href='#arrow-long-left'></use>
+                                </svg>
+                            </span>
+                            </Link>
+                            <Link onClick={() => {
+                                props.setOpen(false)
+                            }} to='article-form'
+                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4  h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                <span>
+                                    افزودن مقاله
                                 </span>
                                 <span>
                                 <svg className='w-5 h-5'>
