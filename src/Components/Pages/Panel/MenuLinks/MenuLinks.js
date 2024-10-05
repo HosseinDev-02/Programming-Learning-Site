@@ -16,6 +16,7 @@ export default function MenuLinks() {
     async function getAllMenuLinks() {
         const data = await getMenuLinks()
         setMenuLinks(data)
+        console.log(data)
     }
 
     async function removeMenuLinkHandler(menuLinkId) {

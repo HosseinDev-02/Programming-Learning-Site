@@ -17,6 +17,7 @@ export default function SubMenus() {
     async function getAllSubMenus() {
         const data = await getSubMenus()
         setSubMenus(data)
+        console.log(data)
     }
 
     async function removeSubMenuHandler(submenuId) {

@@ -37,13 +37,24 @@ export async function getSubMenus() {
         *,
         menus (
             *
+        ),
+        menulinks (
+            *
         )
     `)
     return data
 }
 
 export async function getMenus() {
-    const {data} = await supabase.from('menus').select('*')
+    const {data} = await supabase.from('menus').select(`
+        *,
+        submenus (
+            *,
+            menulinks (
+                *
+            )
+        )
+    `)
     return data
 }
 
