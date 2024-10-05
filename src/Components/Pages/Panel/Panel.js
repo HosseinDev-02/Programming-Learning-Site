@@ -129,7 +129,7 @@ export default function Panel() {
                  className='fixed inset-0 bg-title/30 invisible opacity-0 transition-all'></div>
 
             {/*  Admin Panel Left Side  */}
-            <div className='flex items-center justify-center w-full p-5 overflow-auto'>
+            <div className='flex items-center justify-center w-full p-4'>
                 <Outlet></Outlet>
             </div>
 

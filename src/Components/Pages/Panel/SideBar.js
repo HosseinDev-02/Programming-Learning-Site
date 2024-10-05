@@ -14,8 +14,8 @@ export default function SideBar(props) {
     const [articlesMenuShow, setArticlesMenuShow] = useState(false)
 
     return (
-        <div style={props.open ? {right: '0'} : {right: '-256px'}} className='bg-background transition-all fixed -right-64 top-0 bottom-0 min-h-screen w-64 z-10 md:static md:w-80 rounded-l-2xl divide-y divide-border p-5 shrink-0'>
-            <div className='flex items-center justify-between pb-4 md:pb-0'>
+        <div style={props.open ? {right: '0'} : {right: '-256px'}} className='bg-background transition-all fixed -right-64 top-0 bottom-0 min-h-screen z-10 md:static w-64 rounded-l-2xl divide-y divide-border shrink-0 px-2'>
+            <div className='flex items-center justify-between pb-4 md:pb-0 pt-4'>
                 <div className='flex flex-col items-center md:gap-2 md:pb-4 md:w-full'>
                     <h1 className='font-YekanBakh-Black text-primary text-2xl text-center'>
                         پنل کاربری
@@ -28,12 +28,12 @@ export default function SideBar(props) {
             </div>
 
             <div className='pt-8'>
-                <ul className='flex flex-col gap-3'>
+                <ul className='flex flex-col gap-1'>
                     <li className='relative'>
                         <button
                             style={userMenuShow ? {backgroundColor: 'rgb(var(--color-primary))', color: 'white'} : {}}
                             onClick={() => setUserMenuShow(prevState => !prevState)}
-                            className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                            className='bg-background h-10 md:h-12 w-full rounded font-YekanBakh-Bold text-title px-2 text-sm flex items-center justify-between'>
                             <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -48,12 +48,12 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={userMenuShow ? {display: 'block'} : {display: 'none'}}
-                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                        <div style={userMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
+                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='users'
-                                  className='flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     کاربران
                                 </span>
@@ -66,7 +66,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='user-form'
-                                  className='flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن کاربر
                                 </span>
@@ -83,7 +83,7 @@ export default function SideBar(props) {
                             backgroundColor: 'rgb(var(--color-primary))',
                             color: 'white'
                         } : {}} onClick={() => setCoursesMenuShow(prevState => !prevState)}
-                                className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                                className='bg-background h-10 md:h-12 w-full rounded font-YekanBakh-Bold text-title px-2 text-sm flex items-center justify-between'>
                             <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -98,12 +98,12 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={coursesMenuShow ? {display: 'block'} : {display: 'none'}}
-                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                        <div style={coursesMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
+                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='courses'
-                                  className='flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     دوره ها
                                 </span>
@@ -116,7 +116,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='course-form'
-                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4  h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن دوره
                                 </span>
@@ -133,7 +133,7 @@ export default function SideBar(props) {
                             backgroundColor: 'rgb(var(--color-primary))',
                             color: 'white'
                         } : {}} onClick={() => setCategoriesMenuShow(prevState => !prevState)}
-                                className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                                className='bg-background h-10 md:h-12 w-full rounded font-YekanBakh-Bold text-title px-2 text-sm flex items-center justify-between'>
                             <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -148,12 +148,12 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={categoriesMenuShow ? {display: 'block'} : {display: 'none'}}
-                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                        <div style={categoriesMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
+                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='categories'
-                                  className='flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     دسته بندی ها
                                 </span>
@@ -166,7 +166,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='category-form'
-                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4  h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن دسته بندی
                                 </span>
@@ -183,7 +183,7 @@ export default function SideBar(props) {
                             backgroundColor: 'rgb(var(--color-primary))',
                             color: 'white'
                         } : {}} onClick={() => setSessionsMenuShow(prevState => !prevState)}
-                                className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                                className='bg-background h-10 md:h-12 w-full rounded font-YekanBakh-Bold text-title px-2 text-sm flex items-center justify-between'>
                             <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -198,12 +198,12 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={sessionsMenuShow ? {display: 'block'} : {display: 'none'}}
-                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                        <div style={sessionsMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
+                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='sessions'
-                                  className='flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     تمام جلسات
                                 </span>
@@ -216,7 +216,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='session-form'
-                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4  h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن جلسه
                                 </span>
@@ -233,7 +233,7 @@ export default function SideBar(props) {
                             backgroundColor: 'rgb(var(--color-primary))',
                             color: 'white'
                         } : {}} onClick={() => setMenusMenuShow(prevState => !prevState)}
-                                className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                                className='bg-background h-10 md:h-12 w-full rounded font-YekanBakh-Bold text-title px-2 text-sm flex items-center justify-between'>
                             <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -248,12 +248,12 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={menusMenuShow ? {display: 'block'} : {display: 'none'}}
-                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                        <div style={menusMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
+                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='menus'
-                                  className='flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     تمام منو ها
                                 </span>
@@ -266,7 +266,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='menu-form'
-                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4  h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن منو
                                 </span>
@@ -283,7 +283,7 @@ export default function SideBar(props) {
                             backgroundColor: 'rgb(var(--color-primary))',
                             color: 'white'
                         } : {}} onClick={() => setSubmenusMenuShow(prevState => !prevState)}
-                                className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                                className='bg-background h-10 md:h-12 w-full rounded font-YekanBakh-Bold text-title px-2 text-sm flex items-center justify-between'>
                             <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -298,12 +298,12 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={submenusMenuShow ? {display: 'block'} : {display: 'none'}}
-                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                        <div style={submenusMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
+                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='submenus'
-                                  className='flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     تمام زیرمنو ها
                                 </span>
@@ -316,7 +316,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='submenu-form'
-                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4  h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن زیرمنو
                                 </span>
@@ -333,7 +333,7 @@ export default function SideBar(props) {
                             backgroundColor: 'rgb(var(--color-primary))',
                             color: 'white'
                         } : {}} onClick={() => setMenuLinksMenuShow(prevState => !prevState)}
-                                className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                                className='bg-background h-10 md:h-12 w-full rounded font-YekanBakh-Bold text-title px-2 text-sm flex items-center justify-between'>
                             <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -348,12 +348,12 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={menuLinksMenuShow ? {display: 'block'} : {display: 'none'}}
-                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                        <div style={menuLinksMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
+                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='menulinks'
-                                  className='flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     تمام لینک ها
                                 </span>
@@ -366,7 +366,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='menulink-form'
-                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4  h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن لینک
                                 </span>
@@ -383,7 +383,7 @@ export default function SideBar(props) {
                             backgroundColor: 'rgb(var(--color-primary))',
                             color: 'white'
                         } : {}} onClick={() => setArticlesMenuShow(prevState => !prevState)}
-                                className='bg-secondary h-10 md:h-12 w-full rounded-xl font-YekanBakh-Bold text-title px-4 text-sm flex items-center justify-between'>
+                                className='bg-background h-10 md:h-12 w-full rounded font-YekanBakh-Bold text-title px-2 text-sm flex items-center justify-between'>
                             <div className='flex items-center gap-2'>
                                 <span>
                                     <svg className='w-5 h-5'>
@@ -398,12 +398,12 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={articlesMenuShow ? {display: 'block'} : {display: 'none'}}
-                             className='mt-2 bg-background space-y-2 pl-2 rounded-xl'>
+                        <div style={articlesMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
+                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='articles'
-                                  className='flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4 h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     تمام مقاله ها
                                 </span>
@@ -416,7 +416,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='article-form'
-                                  className='text-red-500 flex items-center justify-between gap-2 bg-secondary xl:hover:bg-border transition-colors rounded-xl px-4  h-10 md:h-12 cursor-pointer font-YekanBakh-Bold text-title text-sm'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-4 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن مقاله
                                 </span>
