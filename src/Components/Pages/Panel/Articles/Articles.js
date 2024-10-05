@@ -1,10 +1,49 @@
 import SubTitle from "../../../Titles/SubTitle";
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {getArticles, MySwal} from "../../../../Utils";
+import supabase from "../../../../database";
 
 export default function Articles() {
 
     const [articles, setArticles] = useState([])
+    const [getData, setGetData] = useState(false)
+
+    useEffect(() => {
+        getAllArticles()
+    }, [getData]);
+
+    async function getAllArticles() {
+        const data = await getArticles()
+        setArticles(data)
+        console.log(data)
+    }
+
+    async function removeArticleHandler(articleId){
+        MySwal.fire({
+            title: 'از حذف مقاله اطمینان دارید ؟',
+            icon: 'question',
+            confirmButtonText: 'بله',
+            showCancelButton: true,
+            cancelButtonText: 'خیر'
+        })
+            .then(async res => {
+                if (res.isConfirmed) {
+                    const response = await supabase.from('articles').delete().eq('article_id', articleId)
+                    if (response.status === 204) {
+                        MySwal.fire({
+                            title: 'مقاله با موفقیت حذف شد',
+                            icon: 'success',
+                            confirmButtonText: 'اوکی'
+                        }).then(res => {
+                            if (res.isConfirmed) {
+                                setGetData(prevState => !prevState)
+                            }
+                        })
+                    }
+                }
+            })
+    }
 
     return (
         <div className='w-full h-full'>
@@ -27,34 +66,19 @@ export default function Articles() {
                                 تصویر
                             </th>
                             <th>
-                                قیمت
-                            </th>
-                            <th>
-                                تخفیف
-                            </th>
-                            <th>
-                                قیمت نهایی
-                            </th>
-                            <th>
-                                تایم آموزش
-                            </th>
-                            <th>
-                                فصل ها
-                            </th>
-                            <th>
-                                رایگان
-                            </th>
-                            <th>
-                                وضعیت
+                                توضیحات
                             </th>
                             <th>
                                 دسته بندی
                             </th>
                             <th>
-                                مدرس
+                                تایم مطالعه
                             </th>
                             <th>
-                                تصویر مدرس
+                                نویسنده
+                            </th>
+                            <th>
+                                تصویر نویسنده
                             </th>
                             <th>
                                 ویرایش
@@ -66,9 +90,9 @@ export default function Articles() {
                         </thead>
                         <tbody>
                         {
-                            courses.length ? (
-                                courses.map((course, index) => (
-                                    <tr key={course.course_id}
+                            articles.length ? (
+                                articles.map((article, index) => (
+                                    <tr key={article.article_id}
                                         className='text-center text-xs md:text-sm h-20 odd:bg-background even:bg-secondary child:px-4 child:text-nowrap'>
                                         <td className='text-title font-YekanBakh-Black'>
                                             {
@@ -78,74 +102,47 @@ export default function Articles() {
                                         <td className='font-YekanBakh-SemiBold'>
                                             <div className='flex items-center justify-center line-clamp-1'>
                                                 {
-                                                    course.title
+                                                    article.title
                                                 }
                                             </div>
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
                                             <div className='flex items-center justify-center'>
                                                 <img className='w-20 h-12 rounded-xl object-cover shrink-0'
-                                                     src={course.courseImg}
-                                                     alt={course.title}/>
+                                                     src={article.img}
+                                                     alt={article.title}/>
                                             </div>
                                         </td>
-                                        <td className='font-YekanBakh-SemiBold'>
+                                        <td className='font-YekanBakh-SemiBold max-w-xs text-ellipsis whitespace-nowrap overflow-hidden'>
                                             {
-                                                course.price.toLocaleString()
+                                                article.description
                                             }
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
                                             {
-                                                `%${course.offer}`
+                                                article.categories.title
                                             }
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
                                             {
-                                                course.costPrice.toLocaleString()
+                                                article.time
                                             }
                                         </td>
                                         <td className='font-YekanBakh-SemiBold'>
                                             {
-                                                course.totalTime
-                                            }
-                                        </td>
-                                        <td className='font-YekanBakh-SemiBold'>
-                                            {
-                                                course.sections
-                                            }
-                                        </td>
-                                        <td style={course.isFree ? {color: 'rgb(var(--color-success))'} : {color: 'rgb(239, 68, 68)'}}
-                                            className='font-YekanBakh-SemiBold'>
-                                            {
-                                                course.isFree ? 'رایگان' : 'خیر'
-                                            }
-                                        </td>
-                                        <td style={course.isCompleted ? {color: 'rgb(var(--color-success))'} : {color: 'rgb(234, 179, 8)'}}
-                                            className='font-YekanBakh-SemiBold'>
-                                            {
-                                                course.isCompleted ? 'تکمیل شده' : 'در حال برگزاری'
-                                            }
-                                        </td>
-                                        <td className='font-YekanBakh-SemiBold'>
-                                            {
-                                                course.categories.title
-                                            }
-                                        </td>
-                                        <td className='font-YekanBakh-SemiBold'>
-                                            {
-                                                course.teacherName
+                                                article.writer
                                             }
                                         </td>
                                         <td>
                                             <div className='flex items-center justify-center'>
                                                 <img className='shrink-0 w-12 h-12 rounded-full object-cover'
-                                                     src={course.teacherImg}
-                                                     alt={course.teacherName}/>
+                                                     src={article.writerImg}
+                                                     alt={article.writer}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className='flex items-center justify-center text-primary'>
-                                                <Link to={`../course-form/${course.course_id}`}
+                                                <Link to={`../article-form/${article.article_id}`}
                                                       className='cursor-pointer'>
                                                     <svg className='w-5 h-5'>
                                                         <use href='#edit'></use>
@@ -155,8 +152,7 @@ export default function Articles() {
                                         </td>
                                         <td>
                                             <div className='flex items-center justify-center text-red-500'>
-                                            <span onClick={() => removeCourseHandler(course.course_id)}
-                                                  className='cursor-pointer'>
+                                            <span onClick={() => removeArticleHandler(article.article_id)} className='cursor-pointer'>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#x-mark'></use>
                                                 </svg>
@@ -167,15 +163,6 @@ export default function Articles() {
                                 ))
                             ) : (
                                 <tr className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
-                                    <td className='text-title font-YekanBakh-Black'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
                                     <td className='font-YekanBakh-SemiBold'>
                                         ---
                                     </td>

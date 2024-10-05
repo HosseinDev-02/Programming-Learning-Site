@@ -28,6 +28,8 @@ import SubMenus from "./Components/Pages/Panel/SubMenus/SubMenus";
 import SubMenuForm from "./Components/Pages/Panel/SubMenus/SubMenuForm";
 import MenuLinks from "./Components/Pages/Panel/MenuLinks/MenuLinks";
 import MenuLinkForm from "./Components/Pages/Panel/MenuLinks/MenuLinkForm";
+import Articles from "./Components/Pages/Panel/Articles/Articles";
+import ArticleForm from "./Components/Pages/Panel/Articles/ArticleForm";
 
 let routes = [
     {path: '/', element: <Home />},
@@ -69,6 +71,9 @@ let routes = [
             {path: 'menulinks', element: <MenuLinks></MenuLinks>},
             {path: 'menulink-form', element: <MenuLinkForm></MenuLinkForm>},
             {path: 'menulink-form/:id', element: <MenuLinkForm></MenuLinkForm>},
+            {path: 'articles', element: <Articles></Articles>},
+            {path: 'article-form', element: <ArticleForm></ArticleForm>},
+            {path: 'article-form/:id', element: <ArticleForm></ArticleForm>},
         ]
     }
 ]

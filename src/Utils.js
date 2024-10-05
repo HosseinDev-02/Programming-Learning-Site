@@ -74,6 +74,16 @@ export async function getCategories() {
     return data
 }
 
+export async function getArticles() {
+    const {data} = await supabase.from('articles').select(`
+    *,
+    categories (
+        *
+    )
+    `)
+    return data
+}
+
 const MySwal = withReactContent(Swal)
 
 
