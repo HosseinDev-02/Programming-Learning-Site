@@ -113,8 +113,8 @@ export default function SubMenuForm() {
             </div>
             <div className='flex flex-col gap-5 pt-10'>
                 <div
-                    className='flex flex-col sm:flex-row md:flex-col lg:flex-row items-center sm:items-start md:items-center lg:items-start justify-between gap-5'>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/3'>
+                    className='flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             عنوان زیر منو
                         </label>
@@ -122,7 +122,7 @@ export default function SubMenuForm() {
                             className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                             type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/3'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             لینک زیر منو
                         </label>
@@ -130,7 +130,7 @@ export default function SubMenuForm() {
                                className='bg-back ground border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <span className='text-xs font-YekanBakh-SemiBold'>انتخاب منو</span>
                         <div className='w-full rounded-2xl relative space-y-2'>
                             <button onClick={() => setMenusMenuShow(prevState => !prevState)} className='flex items-center w-full justify-between px-4 outline-none bg-background rounded-2xl h-11 text-title font-YekanBakh-SemiBold'>

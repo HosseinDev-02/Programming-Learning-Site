@@ -115,22 +115,22 @@ export default function MenuLinkForm() {
             </div>
             <div className='flex flex-col gap-5 pt-10'>
                 <div
-                    className='flex flex-col sm:flex-row md:flex-col lg:flex-row items-center sm:items-start md:items-center lg:items-start justify-between gap-5'>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/3'>
+                    className='flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             عنوان لینک
                         </label>
                         <input value={menuLinkTitle} onChange={(event) => setMenuLinkTitle(event.target.value)} className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/3'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             لینک
                         </label>
                         <input value={menuLinkHref} onChange={(e) => setMenuLinkHref(e.target.value)} dir='ltr' className='bg-back ground border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <span className='text-xs font-YekanBakh-SemiBold'>انتخاب زیرمنو</span>
                         <div className='w-full rounded-2xl relative space-y-2'>
                             <button onClick={() => setSubmenuMenuShow(prevState => !prevState)}
