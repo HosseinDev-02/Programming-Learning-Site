@@ -57,7 +57,7 @@ export default function Courses() {
             </div>
             <div>
                 <div className='space-y-2 pt-10 relative'>
-                    <table className='w-full'>
+                    <table className='w-full z-10'>
                         <thead
                             className='text-xs h-12 font-YekanBakh-Black child:text-nowrap'>
                         <tr className='border-b border-border child:px-3'>
@@ -113,23 +113,38 @@ export default function Courses() {
                                                     </svg>
                                                 </span>
                                                 <div
-                                                    className='bg-background rounded p-2 absolute bottom-full right-full shadow hidden'>
-                                                    <ul className='flex flex-col gap-2'>
+                                                    className='bg-background rounded p-4 absolute bottom-full right-full shadow hidden'>
+                                                    <ul className='flex flex-col gap-4'>
                                                         <li>
                                                             <Link to={`../course-form/${course.course_id}`}
-                                                                  className='cursor-pointer text-primary'>
+                                                                  className='cursor-pointer text-primary flex items-center gap-1'>
                                                                 <svg className='w-4 h-4'>
-                                                                    <use href='#edit'></use>
+                                                                    <use href='#pencil-mini'></use>
                                                                 </svg>
+                                                                <span className='text-xs font-YekanBakh-SemiBold'>ویرایش</span>
                                                             </Link>
                                                         </li>
                                                         <li>
                                                             <span onClick={() => removeCourseHandler(course.course_id)}
-                                                                  className='cursor-pointer text-red-500'>
-                                                <svg className='w-4 h-4'>
-                                                    <use href='#x-mark'></use>
-                                                </svg>
-                                            </span>
+                                                                  className='cursor-pointer text-red-500 flex items-center gap-1'>
+                                                                <svg className='w-4 h-4'>
+                                                                        <use href='#x-mark-mini'></use>
+                                                                    </svg>
+                                                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                                                        حذف
+                                                                    </span>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span onClick={() => removeCourseHandler(course.course_id)}
+                                                                  className='cursor-pointer flex items-center gap-1'>
+                                                                    <svg className='w-4 h-4'>
+                                                                        <use href='#information-circle-mini'></use>
+                                                                    </svg>
+                                                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                                                        اطلاعات
+                                                                    </span>
+                                                            </span>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -206,48 +221,42 @@ export default function Courses() {
                                     </tr>
                                 ))
                             ) : (
-                                <tr className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
-                                    <td className='text-title font-YekanBakh-Black'>
+                                <tr className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4 font-YekanBakh-SemiBold'>
+                                    <td className='lg:hidden'>
                                         ---
                                     </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
-                                    <td className='text-title font-YekanBakh-Black'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
-                                        ---
-                                    </td>
-                                    <td className='font-YekanBakh-SemiBold'>
+                                    <td className='hidden lg:table-cell'>
                                         ---
                                     </td>
                                     <td>
-
+                                        ---
                                     </td>
                                     <td>
-
+                                        ---
+                                    </td>
+                                    <td className='hidden sm:table-cell'>
+                                        ---
+                                    </td>
+                                    <td className='hidden md:table-cell'>
+                                        ---
+                                    </td>
+                                    <td className='hidden md:table-cell'>
+                                        ---
+                                    </td>
+                                    <td className='hidden md:table-cell'>
+                                        ---
+                                    </td>
+                                    <td className='hidden md:table-cell'>
+                                        ---
+                                    </td>
+                                    <td className='hidden sm:table-cell'>
+                                        ---
+                                    </td>
+                                    <td className='hidden lg:table-cell'>
+                                        ---
+                                    </td>
+                                    <td className='hidden lg:table-cell'>
+                                        ---
                                     </td>
                                 </tr>
                             )

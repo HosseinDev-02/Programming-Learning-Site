@@ -119,9 +119,29 @@ export default function Panel() {
                           d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/>
                 </symbol>
                 <symbol id='links' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                     stroke="currentColor">
+                        stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round"
                           d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/>
+                </symbol>
+                <symbol id='information-circle' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                          d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/>
+                </symbol>
+                <symbol id='information-circle-mini' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd"
+                          d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z"
+                          clipRule="evenodd"/>
+                </symbol>
+
+                <symbol id='pencil-mini' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                        d="m2.695 14.762-1.262 3.155a.5.5 0 0 0 .65.65l3.155-1.262a4 4 0 0 0 1.343-.886L17.5 5.501a2.121 2.121 0 0 0-3-3L3.58 13.419a4 4 0 0 0-.885 1.343Z"/>
+                </symbol>
+                <symbol id='x-mark-mini' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                        d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"/>
                 </symbol>
 
             </svg>
@@ -138,7 +158,7 @@ export default function Panel() {
 
             <div onClick={() => setSideBarShow(prevState => !prevState)}
                  style={sideBarShow ? {visibility: 'visible', opacity: '1'} : {}}
-                 className='fixed inset-0 bg-title/30 invisible opacity-0 transition-all'></div>
+                 className='fixed inset-0 bg-title/30 invisible opacity-0 transition-all z-20'></div>
 
             {/*  Admin Panel Left Side  */}
             <div className='flex items-center justify-center w-full p-4'>

@@ -151,8 +151,8 @@ export default function CourseForm() {
             </div>
             <div className='flex flex-col gap-5 pt-10'>
                 <div
-                    className='flex flex-col sm:flex-row md:flex-col lg:flex-row items-center sm:items-start flex-wrap md:items-center lg:items-start justify-between gap-5'>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                    className='flex flex-col sm:flex-row items-center sm:items-start flex-wrap lg:items-start justify-between gap-5'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             عنوان
                         </label>
@@ -160,7 +160,7 @@ export default function CourseForm() {
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             قیمت
                         </label>
@@ -168,7 +168,7 @@ export default function CourseForm() {
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             تخفیف
                         </label>
@@ -176,7 +176,7 @@ export default function CourseForm() {
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             مجموع آموزش
                         </label>
@@ -184,7 +184,7 @@ export default function CourseForm() {
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             تعداد فصل ها
                         </label>
@@ -192,7 +192,7 @@ export default function CourseForm() {
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             مدرس
                         </label>
@@ -200,7 +200,7 @@ export default function CourseForm() {
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/4'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
                         <span className='text-xs font-YekanBakh-SemiBold'>انتخاب دسته بندی</span>
                         <div className='w-full rounded-2xl relative space-y-2'>
                             <button onClick={() => setCategoryMenuShow(prevState => !prevState)}

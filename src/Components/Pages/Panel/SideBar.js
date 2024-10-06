@@ -14,7 +14,7 @@ export default function SideBar(props) {
     const [articlesMenuShow, setArticlesMenuShow] = useState(false)
 
     return (
-        <div style={props.open ? {right: '0'} : {right: '-256px'}} className='bg-background transition-all fixed -right-64 top-0 bottom-0 min-h-screen z-10 xl:static w-64 rounded-l-2xl divide-y divide-border shrink-0 px-2'>
+        <div style={props.open ? {right: '0'} : {right: '-256px'}} className='bg-background transition-all fixed -right-64 top-0 bottom-0 min-h-screen z-30 xl:static w-64 rounded-l-2xl divide-y divide-border shrink-0 px-2'>
 
             <div className='flex items-center justify-between pb-4 md:pb-0 pt-4'>
                 <div className='flex flex-col items-center md:gap-2 md:pb-4 md:w-full'>
@@ -29,7 +29,7 @@ export default function SideBar(props) {
             </div>
 
             <div className='pt-8'>
-                <ul className='flex flex-col gap-1'>
+                <ul className='flex flex-col gap-2'>
                     <li className='relative'>
                         <button
                             style={userMenuShow ? {backgroundColor: 'rgb(var(--color-primary))', color: 'white'} : {}}
