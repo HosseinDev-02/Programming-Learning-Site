@@ -93,8 +93,8 @@ export default function UserForm() {
                 }
             </div>
             <div className='flex flex-col gap-5 pt-10'>
-                <div className='flex flex-col sm:flex-row md:flex-col lg:flex-row items-center sm:items-start md:items-center lg:items-start justify-between gap-5'>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/3'>
+                <div className='flex flex-col sm:flex-row lg:flex-row items-center sm:items-start lg:items-start justify-between gap-5'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             نام
                         </label>
@@ -102,7 +102,7 @@ export default function UserForm() {
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/3'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             نام خانوادگی
                         </label>
@@ -110,7 +110,7 @@ export default function UserForm() {
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-full lg:w-1/3'>
+                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             شماره تماس
                         </label>

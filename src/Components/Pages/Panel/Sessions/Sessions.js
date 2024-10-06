@@ -45,6 +45,10 @@ export default function Sessions() {
             })
     }
 
+    function editSessionMenuHandler(elem) {
+        elem.currentTarget.nextSibling.classList.toggle('!block')
+    }
+
     return (
         <div className='w-full h-full'>
             <div className='h-20 flex items-center'>
@@ -53,9 +57,12 @@ export default function Sessions() {
             <div>
                 <div className='space-y-2 pt-10 overflow-auto'>
                     <table className='w-full'>
-                        <thead className='text-sm h-12 text-center font-YekanBakh-Black text-title child:text-nowrap'>
+                        <thead className='text-xs h-12 font-YekanBakh-Black child:text-nowrap'>
                         <tr className='border-b border-border child:px-2'>
-                            <th>
+                            <th className='lg:hidden'>
+
+                            </th>
+                            <th className='hidden sm:table-cell'>
                                 شناسه
                             </th>
                             <th>
@@ -64,14 +71,11 @@ export default function Sessions() {
                             <th>
                                 زمان
                             </th>
-                            <th>
+                            <th className='hidden sm:table-cell'>
                                 دوره
                             </th>
-                            <th>
-                                ویرایش
-                            </th>
-                            <th>
-                                حذف
+                            <th className='hidden lg:table-cell'>
+                                عمل ها
                             </th>
                         </tr>
                         </thead>
@@ -79,33 +83,66 @@ export default function Sessions() {
                         {
                             sessions.map((session, index) => (
                                 <tr key={session.session_id}
-                                    className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-2'>
-                                    <td className='text-title font-YekanBakh-Black'>
+                                    className='text-center text-xs h-16 font-YekanBakh-Bold odd:bg-background even:bg-secondary child:px-3 child:text-nowrap'>
+                                    <td className='lg:hidden'>
+                                        <div className='flex items-center justify-center relative'>
+                                                <span onClick={(elem) => editSessionMenuHandler(elem)}>
+                                                    <svg className='w-4 h-4'>
+                                                        <use href='#submenu'></use>
+                                                    </svg>
+                                                </span>
+                                            <div
+                                                className='bg-background rounded p-4 absolute bottom-full right-full shadow hidden'>
+                                                <ul className='flex flex-col gap-4'>
+                                                    <li>
+                                                        <Link to={`../session-form/${session.session_id}`}
+                                                              className='cursor-pointer text-primary flex items-center gap-1'>
+                                                            <svg className='w-4 h-4'>
+                                                                <use href='#pencil-mini'></use>
+                                                            </svg>
+                                                            <span
+                                                                className='text-xs font-YekanBakh-SemiBold'>ویرایش</span>
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                            <span onClick={() => removeSessionHandler(session.session_id)}
+                                                                  className='cursor-pointer text-red-500 flex items-center gap-1'>
+                                                                <svg className='w-4 h-4'>
+                                                                        <use href='#x-mark-mini'></use>
+                                                                    </svg>
+                                                                <span className='text-xs font-YekanBakh-SemiBold'>
+                                                                        حذف
+                                                                    </span>
+                                                            </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className='hidden sm:table-cell'>
                                         {
                                             index + 1
                                         }
                                     </td>
-                                    <td className='font-YekanBakh-SemiBold'>
+                                    <td>
                                         {session.title}
                                     </td>
-                                    <td className='font-YekanBakh-SemiBold'>
+                                    <td>
                                         {session.time}
                                     </td>
-                                    <td className='font-YekanBakh-SemiBold'>
+                                    <td className='hidden sm:table-cell'>
                                         {session.courses.title}
                                     </td>
-                                    <td>
-                                        <div className='flex items-center justify-center text-primary'>
-                                            <Link to={`../session-form/${session.session_id}`} className='cursor-pointer'>
+                                    <td className='hidden lg:table-cell'>
+                                        <div className='flex items-center gap-2 justify-center'>
+                                            <Link to={`../session-form/${session.session_id}`}
+                                                  className='cursor-pointer text-primary'>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#edit'></use>
                                                 </svg>
                                             </Link>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className='flex items-center justify-center text-red-500'>
-                                            <span onClick={() => removeSessionHandler(session.session_id)} className='cursor-pointer'>
+                                            <span onClick={() => removeSessionHandler(session.session_id)}
+                                                  className='cursor-pointer text-red-500'>
                                                 <svg className='w-5 h-5'>
                                                     <use href='#x-mark'></use>
                                                 </svg>

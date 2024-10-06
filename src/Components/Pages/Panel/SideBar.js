@@ -54,7 +54,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='users'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     کاربران
                                 </span>
@@ -67,7 +67,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='user-form'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن کاربر
                                 </span>
@@ -104,7 +104,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='courses'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     دوره ها
                                 </span>
@@ -117,7 +117,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='course-form'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن دوره
                                 </span>
@@ -154,7 +154,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='categories'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     دسته بندی ها
                                 </span>
@@ -167,7 +167,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='category-form'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن دسته بندی
                                 </span>
@@ -204,7 +204,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='sessions'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     تمام جلسات
                                 </span>
@@ -217,7 +217,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='session-form'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن جلسه
                                 </span>
@@ -254,7 +254,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='menus'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     تمام منو ها
                                 </span>
@@ -267,7 +267,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='menu-form'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن منو
                                 </span>
@@ -304,7 +304,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='submenus'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     تمام زیرمنو ها
                                 </span>
@@ -317,7 +317,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='submenu-form'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن زیرمنو
                                 </span>
@@ -354,7 +354,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='menulinks'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     تمام لینک ها
                                 </span>
@@ -367,7 +367,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='menulink-form'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن لینک
                                 </span>
@@ -404,7 +404,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='articles'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                     <span>
                                     تمام مقاله ها
                                 </span>
@@ -417,7 +417,7 @@ export default function SideBar(props) {
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='article-form'
-                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-8 md:h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
+                                  className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     افزودن مقاله
                                 </span>

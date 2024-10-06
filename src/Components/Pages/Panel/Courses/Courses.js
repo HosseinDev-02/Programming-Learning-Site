@@ -135,17 +135,6 @@ export default function Courses() {
                                                                     </span>
                                                             </span>
                                                         </li>
-                                                        <li>
-                                                            <span onClick={() => removeCourseHandler(course.course_id)}
-                                                                  className='cursor-pointer flex items-center gap-1'>
-                                                                    <svg className='w-4 h-4'>
-                                                                        <use href='#information-circle-mini'></use>
-                                                                    </svg>
-                                                                <span className='text-xs font-YekanBakh-SemiBold'>
-                                                                        اطلاعات
-                                                                    </span>
-                                                            </span>
-                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
