@@ -9,7 +9,7 @@ export default function Panel() {
     const [sideBarShow, setSideBarShow] = useState(false)
 
     return (
-        <div className='md:flex bg-secondary min-h-screen font-YekanBakh-Regular'>
+        <div className='xl:flex bg-secondary min-h-screen font-YekanBakh-Regular'>
             <svg className='hidden'>
                 <symbol id='arrow-long-left' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         strokeWidth="1.5"
@@ -112,9 +112,21 @@ export default function Panel() {
                     <path strokeLinecap="round" strokeLinejoin="round"
                           d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
                 </symbol>
+                <symbol id='sessions' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                          d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/>
+                </symbol>
+                <symbol id='links' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                     stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                          d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"/>
+                </symbol>
+
             </svg>
 
-            <div className='flex md:hidden items-center justify-between p-4 bg-background'>
+            <div className='flex xl:hidden items-center justify-between p-4 bg-background'>
                 <RoundButton clickEvent={() => {
                     setSideBarShow(true)
                 }} icon='#bars-3'></RoundButton>
