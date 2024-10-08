@@ -82,16 +82,16 @@ export default function MenuForm() {
 
     return (
         <div className='w-full h-full'>
-            <div className='h-20 flex items-center'>
+            <div className='h-12 md:h-20 flex items-center'>
                 {
                     menuId ? (
-                        <SubTitle fontSize='24px' title='ویرایش جلسه'></SubTitle>
+                        <SubTitle className='text-lg md:text-2xl' title='ویرایش جلسه'></SubTitle>
                     ) : (
-                        <SubTitle fontSize='24px' title='افزودن جلسه'></SubTitle>
+                        <SubTitle className='text-lg md:text-2xl' title='افزودن جلسه'></SubTitle>
                     )
                 }
             </div>
-            <div className='flex flex-col gap-5 pt-10'>
+            <div className='flex flex-col gap-5 pt-8 md:pt-10'>
                 <div
                     className='flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5'>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>

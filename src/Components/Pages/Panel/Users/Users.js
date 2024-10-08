@@ -53,11 +53,11 @@ export default function Users() {
 
     return (
         <div className='w-full h-full'>
-            <div className='h-20 flex items-center'>
-                <SubTitle fontSize='24px' title='کاربران'></SubTitle>
+            <div className='h-12 md:h-20 flex items-center'>
+                <SubTitle className='text-lg md:text-2xl' title='کاربران'></SubTitle>
             </div>
             <div>
-                <div className='space-y-2 pt-10 overflow-auto'>
+                <div className='pt-8 md:pt-10'>
                     <table className='w-full'>
                         <thead className='text-sm h-12 text-center font-YekanBakh-Black text-title child:text-nowrap'>
                         <tr className='border-b border-border child:px-2'>
@@ -68,7 +68,7 @@ export default function Users() {
                                 شناسه
                             </th>
                             <th>
-                                نام و نام خانوادگی
+                                نام کامل
                             </th>
                             <th>
                                 شماره تماس
@@ -134,13 +134,13 @@ export default function Users() {
                                             <div className='flex items-center gap-2 justify-center'>
                                                 <Link to={`../user-form/${user.user_id}`}
                                                       className='cursor-pointer text-primary'>
-                                                    <svg className='w-4 h-4'>
+                                                    <svg className='w-5 h-5'>
                                                         <use href='#edit'></use>
                                                     </svg>
                                                 </Link>
                                                 <span onClick={() => removeUserHandler(user.user_id)}
                                                       className='cursor-pointer text-red-500'>
-                                                <svg className='w-4 h-4'>
+                                                <svg className='w-5 h-5'>
                                                     <use href='#x-mark'></use>
                                                 </svg>
                                             </span>

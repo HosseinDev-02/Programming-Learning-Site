@@ -102,16 +102,16 @@ export default function SubMenuForm() {
 
     return (
         <div className='w-full h-full'>
-            <div className='h-20 flex items-center'>
+            <div className='h-12 md:h-20 flex items-center'>
                 {
                     subMenuId ? (
-                        <SubTitle fontSize='24px' title='ویرایش زیرمنو'></SubTitle>
+                        <SubTitle className='text-lg md:text-2xl' title='ویرایش زیرمنو'></SubTitle>
                     ) : (
-                        <SubTitle fontSize='24px' title='افزودن زیرمنو'></SubTitle>
+                        <SubTitle className='text-lg md:text-2xl' title='افزودن زیرمنو'></SubTitle>
                     )
                 }
             </div>
-            <div className='flex flex-col gap-5 pt-10'>
+            <div className='flex flex-col gap-5 pt-8 md:pt-10'>
                 <div
                     className='flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5'>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>

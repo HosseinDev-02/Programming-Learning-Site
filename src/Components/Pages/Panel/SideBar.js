@@ -49,8 +49,7 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={userMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
-                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
+                        <div className={`bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all ${userMenuShow ? `h-[84px] mt-1` : `h-0`}`}>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='users'
@@ -99,8 +98,7 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={coursesMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
-                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
+                        <div className={`bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all ${coursesMenuShow ? `h-[84px] mt-1` : `h-0`}`}>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='courses'
@@ -149,8 +147,7 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={categoriesMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
-                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
+                        <div className={`bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all ${categoriesMenuShow ? `h-[84px] mt-1` : `h-0`}`}>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='categories'
@@ -199,8 +196,7 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={sessionsMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
-                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
+                        <div className={`bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all ${sessionsMenuShow ? `h-[84px] mt-1` : `h-0`}`}>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='sessions'
@@ -249,8 +245,7 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={menusMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
-                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
+                        <div className={`bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all ${menusMenuShow ? `h-[84px] mt-1` : `h-0`}`}>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='menus'
@@ -299,8 +294,7 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={submenusMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
-                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
+                        <div className={`bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all ${submenusMenuShow ? `h-[84px] mt-1` : `h-0`}`}>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='submenus'
@@ -349,8 +343,7 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={menuLinksMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
-                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
+                        <div className={`bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all ${menuLinksMenuShow ? `h-[84px] mt-1` : `h-0`}`}>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='menulinks'
@@ -399,8 +392,7 @@ export default function SideBar(props) {
                                 </svg>
                             </span>
                         </button>
-                        <div style={articlesMenuShow ? {height: '84px', marginTop: '4px'} : {height: '0'}}
-                             className='bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all'>
+                        <div className={`bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all ${articlesMenuShow ? `h-[84px] mt-1` : `h-0`}`}>
                             <Link onClick={() => {
                                 props.setOpen(false)
                             }} to='articles'

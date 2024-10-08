@@ -51,36 +51,36 @@ export default function Sessions() {
 
     return (
         <div className='w-full h-full'>
-            <div className='h-20 flex items-center'>
-                <SubTitle fontSize='24px' title='جلسات دوره ها'></SubTitle>
+            <div className='h-12 md:h-20 flex items-center'>
+                <SubTitle className='text-lg md:text-2xl' title='جلسات دوره ها'></SubTitle>
             </div>
-            <div>
-                <div className='space-y-2 pt-10 overflow-auto'>
-                    <table className='w-full'>
-                        <thead className='text-xs h-12 font-YekanBakh-Black child:text-nowrap'>
-                        <tr className='border-b border-border child:px-2'>
-                            <th className='lg:hidden'>
+            <div className='pt-8 md:pt-10'>
+                <table className='w-full'>
+                    <thead className='text-xs h-12 font-YekanBakh-Black child:text-nowrap'>
+                    <tr className='border-b border-border child:px-2'>
+                        <th className='lg:hidden'>
 
-                            </th>
-                            <th className='hidden sm:table-cell'>
-                                شناسه
-                            </th>
-                            <th>
-                                عنوان
-                            </th>
-                            <th>
-                                زمان
-                            </th>
-                            <th className='hidden sm:table-cell'>
-                                دوره
-                            </th>
-                            <th className='hidden lg:table-cell'>
-                                عمل ها
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {
+                        </th>
+                        <th className='hidden sm:table-cell'>
+                            شناسه
+                        </th>
+                        <th>
+                            عنوان
+                        </th>
+                        <th>
+                            زمان
+                        </th>
+                        <th className='hidden sm:table-cell'>
+                            دوره
+                        </th>
+                        <th className='hidden lg:table-cell'>
+                            عمل ها
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        sessions.length ? (
                             sessions.map((session, index) => (
                                 <tr key={session.session_id}
                                     className='text-center text-xs h-16 font-YekanBakh-Bold odd:bg-background even:bg-secondary child:px-3 child:text-nowrap'>
@@ -105,8 +105,9 @@ export default function Sessions() {
                                                         </Link>
                                                     </li>
                                                     <li>
-                                                            <span onClick={() => removeSessionHandler(session.session_id)}
-                                                                  className='cursor-pointer text-red-500 flex items-center gap-1'>
+                                                            <span
+                                                                onClick={() => removeSessionHandler(session.session_id)}
+                                                                className='cursor-pointer text-red-500 flex items-center gap-1'>
                                                                 <svg className='w-4 h-4'>
                                                                         <use href='#x-mark-mini'></use>
                                                                     </svg>
@@ -151,10 +152,31 @@ export default function Sessions() {
                                     </td>
                                 </tr>
                             ))
-                        }
-                        </tbody>
-                    </table>
-                </div>
+                        ) : (
+                            <tr className='text-center text-xs h-16 font-YekanBakh-Bold odd:bg-background even:bg-secondary child:px-3 child:text-nowrap'>
+                                <td className='lg:hidden'>
+                                    ---
+                                </td>
+                                <td className='hidden sm:table-cell'>
+                                    ---
+                                </td>
+                                <td>
+                                    ---
+                                </td>
+                                <td>
+                                    ---
+                                </td>
+                                <td className='hidden sm:table-cell'>
+                                    ---
+                                </td>
+                                <td className='hidden lg:table-cell'>
+                                    ---
+                                </td>
+                            </tr>
+                        )
+                    }
+                    </tbody>
+                </table>
             </div>
         </div>
     )

@@ -104,16 +104,16 @@ export default function MenuLinkForm() {
 
     return (
         <div className='w-full h-full'>
-            <div className='h-20 flex items-center'>
+            <div className='h-12 md:h-20 flex items-center'>
                 {
                     menuLinkId ? (
-                        <SubTitle fontSize='24px' title='ویرایش لینک'></SubTitle>
+                        <SubTitle className='text-lg md:text-2xl' title='ویرایش لینک'></SubTitle>
                     ) : (
-                        <SubTitle fontSize='24px' title='افزودن لینک'></SubTitle>
+                        <SubTitle className='text-lg md:text-2xl' title='افزودن لینک'></SubTitle>
                     )
                 }
             </div>
-            <div className='flex flex-col gap-5 pt-10'>
+            <div className='flex flex-col gap-5 pt-8 md:pt-10'>
                 <div
                     className='flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5'>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
