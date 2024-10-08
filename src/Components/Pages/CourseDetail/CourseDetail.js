@@ -469,7 +469,7 @@ export default function CourseDetail() {
                             <div id='tabThree' className='pt-8 pb-5'>
                                 <SubTitle title='دیدگاه و پرسش'></SubTitle>
                                 <div className='p-5 rounded-3xl my-5 border border-border'>
-                                    <SubTitle fontSize='12px' title='ارسال دیدگاه یا پرسش'></SubTitle>
+                                    <SubTitle className='text-xs' title='ارسال دیدگاه یا پرسش'></SubTitle>
                                     <div
                                         className='flex items-end md:items-center flex-wrap gap-y-5 justify-between my-5'>
                                         <div className='flex md:flex-row flex-col items-start md:items-center gap-3'>
@@ -596,7 +596,7 @@ export default function CourseDetail() {
                                 </div>
                             </div>
                             <div className='space-y-3'>
-                                <SubTitle fontSize='14px' title='مدرس دوره'></SubTitle>
+                                <SubTitle className='text-sm' title='مدرس دوره'></SubTitle>
                                 <div>
                                     <UserInfo text='دیدن رزومه' title='حسین رستمی'></UserInfo>
                                     <div className='p-5 bg-secondary rounded-tl-2xl rounded-bl-2xl rounded-br-2xl mt-3'>
