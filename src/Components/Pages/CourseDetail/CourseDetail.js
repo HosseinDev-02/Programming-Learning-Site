@@ -2,10 +2,13 @@ import SubTitle from "../../Titles/SubTitle";
 import LikeButton from "../../Buttons/LikeButton";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import Box from "./Box";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import SectionLinkBtn from "../../Buttons/SectionLinkBtn";
 import UserInfo from "../../UserInfo/UserInfo";
 import SiteStructure from "../../SiteStructure/SiteStructure";
+import {useParams} from "react-router-dom";
+import {getCourses} from "../../../Utils";
+import supabase from "../../../database";
 
 
 export default function CourseDetail() {
@@ -16,6 +19,22 @@ export default function CourseDetail() {
         {id: 3, icon: '#info', title: 'نوع دوره', text: 'ویژه / نقدی'},
         {id: 4, icon: '#users', title: 'شرکت کنندگان', text: '132 دانشجو'},
     ])
+
+    const [sessionsTotalTime, setSessionsTotalTime] = useState('')
+    const [course, setCourse] = useState({})
+
+    const params = useParams()
+    const courseShortName = params.shortName
+
+
+    useEffect(() => {
+        setMainCourse()
+    }, []);
+
+    async function setMainCourse() {
+        const {data} = await supabase.from('courses').select('*').eq('shortName', courseShortName)
+        setCourse(data[0])
+    }
 
     const sessionsMenuHandler = e => {
         e.currentTarget.classList.toggle('session--open')
@@ -38,21 +57,27 @@ export default function CourseDetail() {
                         <div className='md:w-8/12 pb-5'>
                             {/*  course image  */}
                             <div>
-                                <img className='w-full rounded-3xl' src="/images/Courses/01.jpg" alt=""/>
+                                <img className='w-full rounded-3xl' src={course.courseImg} alt={course.title}/>
                             </div>
                             {/*  course infos  */}
                             <div
                                 className='bg-gradient-to-b from-background to-secondary mx-5 p-5 rounded-3xl space-y-2'>
-                            <span className='text-success text-xs font-YekanBakh-Bold'>
-                                تکمیل شده
-                            </span>
+                                {
+                                    course.isCompleted ? (
+                                        <span className='text-success text-xs font-YekanBakh-Bold'>تکمیل شده</span>
+                                    ) : (
+                                        <span className='text-yellow-500 dark:text-yellow-600 text-xs font-YekanBakh-Bold'>در حال برگزاری</span>
+                                    )
+                                }
                                 <h1 className='text-title text-xl font-YekanBakh-Bold'>
-                                    دوره پروژه محور React و Next
+                                    {
+                                        course.title
+                                    }
                                 </h1>
                                 <p className='text-sm'>
-                                    ساخت وبسایت فروشگاهی با React عنوان دوره پروژه محور react در نابغه است که قصد داریم
-                                    در
-                                    قالب این دوره react را در قالب پروژه به شما آموزش دهیم.
+                                    {
+                                        course.description
+                                    }
                                 </p>
                             </div>
                             {/*  course detail boxes  */}
@@ -124,10 +149,12 @@ export default function CourseDetail() {
                                 </p>
                                 <div>
                                     <h2 className='font-YekanBakh-Black mb-3 text-xl text-title'>
-                                        دوره آموزشی پروژه محور react و next
+                                        {
+                                            course.title
+                                        }
                                     </h2>
                                     <div>
-                                        <img className='w-full rounded-3xl' src="/images/Courses/01.jpg" alt=""/>
+                                        <img className='w-full rounded-3xl' src={course.courseImg} alt={course.title}/>
                                     </div>
                                 </div>
                                 <p className='text-sm'>
@@ -581,12 +608,24 @@ export default function CourseDetail() {
                             </span>
                                     <div className='flex flex-col items-end'>
                                 <span className='line-through'>
-                                    1,990,000
+                                    {
+                                        (+course.price).toLocaleString()
+                                    }
                                 </span>
-                                        <div className='flex items-center gap-1'>
-                                            <span className='text-xl text-title font-YekanBakh-Black'>1,070,000</span>
-                                            <span className='text-xs hidden lg:inline-block'>تومان</span>
-                                        </div>
+                                        {
+                                            course.offer !== "0" ? (
+                                                <div className='flex items-center gap-1'>
+                                                    <span className='text-xl text-title font-YekanBakh-Black'>
+                                                        {
+                                                            (+course.price - (+course.price * +course.offer/100)).toLocaleString()
+                                                        }
+                                                    </span>
+                                                    <span className='text-xs hidden lg:inline-block'>تومان</span>
+                                                </div>
+                                            ) : (
+                                                ``
+                                            )
+                                        }
                                     </div>
                                 </div>
                                 <div className='flex items-center gap-3 mt-3'>
@@ -598,7 +637,7 @@ export default function CourseDetail() {
                             <div className='space-y-3'>
                                 <SubTitle className='text-sm' title='مدرس دوره'></SubTitle>
                                 <div>
-                                    <UserInfo text='دیدن رزومه' title='حسین رستمی'></UserInfo>
+                                    <UserInfo text='دیدن رزومه' img={course.teacherImg} title={course.teacherName}></UserInfo>
                                     <div className='p-5 bg-secondary rounded-tl-2xl rounded-bl-2xl rounded-br-2xl mt-3'>
                                         <p className='text-sm'>
                                             اول داستان، طراح گرافیک بودم و ۲ سالی به عنوان طراح مشغول بودم، بعد به

@@ -23,7 +23,6 @@ function Header() {
     async function getAllMenus() {
         const data = await getMenus()
         setMenus(data)
-        console.log(data)
     }
 
     const themeHandler = () => {

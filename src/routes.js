@@ -34,7 +34,7 @@ import ArticleForm from "./Components/Pages/Panel/Articles/ArticleForm";
 let routes = [
     {path: '/', element: <Home />},
     {path: '/courses', element: <CoursesPage />},
-    {path: '/course', element: <CourseDetail />},
+    {path: '/course/:shortName', element: <CourseDetail />},
     {path: '/login-register', element: <LoginRegister />},
     {path: '/basket', element: <Basket />},
     {path: '/articles', element: <ArticlesPage></ArticlesPage>},

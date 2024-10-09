@@ -1,6 +1,7 @@
 import PrimaryButton from "../../../Buttons/PrimaryButton";
 import LikeButton from "../../../Buttons/LikeButton";
 import UserInfo from "../../../UserInfo/UserInfo";
+
 export default function Course(props) {
     return (
         <div>
@@ -23,14 +24,27 @@ export default function Course(props) {
             <div
                 className='bg-gradient-to-b from-background to-secondary mx-5 p-5 rounded-3xl'>
                 <div className='flex items-center gap-2'>
-                    <span className='block bg-success w-1 h-1 rounded-full'></span>
-                    <span className='text-xs font-YekanBakh-Black text-success'>
+                    {
+                        props.isCompleted ? (
+                            <>
+                                <span className='block bg-success w-1 h-1 rounded-full'></span>
+                                <span className='text-xs font-YekanBakh-Black text-success'>
                           تکمیل شده
                     </span>
+                            </>
+                        ) : (
+                            <>
+                                <span className='block bg-yellow-500 dark:bg-yellow-600 w-1 h-1 rounded-full'></span>
+                                <span className='text-xs font-YekanBakh-Black text-yellow-500 dark:text-yellow-600'>
+                                    در حال برگزاری
+                    </span>
+                            </>
+                        )
+                    }
                 </div>
                 <h6 className='mt-2 text-title text-sm font-YekanBakh-Bold'>
-                    <a className='hover:text-primary transition-colors line-clamp-1' href="#">
-                        {props.title}
+                    <a className='hover:text-primary transition-colors line-clamp-1' href={`course/${props.shortName}`}>
+                    {props.title}
                     </a>
                 </h6>
             </div>
