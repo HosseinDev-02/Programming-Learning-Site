@@ -1,18 +1,30 @@
 import SectionTitle from "../../Titles/SectionTitle";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Course from "../Home/Latest-Courses/Course";
 import data from "../../../data";
 import SectionHeader from "../../SectionHeader/SectionHeader";
 import SiteStructure from "../../SiteStructure/SiteStructure";
+import {getCourses} from "../../../Utils";
 
 export default function CoursesPage() {
 
+    const [courses, setCourses] = useState([])
     const [showCategories, setShowCategories] = useState(false)
     const [showTypes, setShowTypes] = useState(false)
     const [started, setStarted] = useState(false)
     const [showFilteringModal, setShowFilteringModal] = useState(false)
     const [filtering, setFiltering] = useState('')
     const [filteringMenu, setFilteringMenu] = useState(false)
+
+    useEffect(() => {
+        setCoursesState()
+    }, []);
+
+    async function setCoursesState() {
+        const data = await getCourses()
+        setCourses(data)
+        console.log(data)
+    }
 
     const typesMenuHandler = (e) => {
         e.currentTarget.classList.toggle('text-primary')
