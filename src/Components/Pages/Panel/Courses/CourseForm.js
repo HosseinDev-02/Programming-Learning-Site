@@ -21,6 +21,7 @@ export default function CourseForm() {
     const [categoryMenuShow, setCategoryMenuShow] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState('')
     const [categoryId, setCategoryId] = useState('')
+    const [shortName, setShortName] = useState('')
 
     const params = useParams()
     const mainCourseId = params.id
@@ -113,6 +114,7 @@ export default function CourseForm() {
             setCourseTeacherImg(mainCourse.teacherImg)
             setCategoryId(mainCourse.category_id)
             setSelectedCategory(mainCourse.categories.title)
+            setShortName(mainCourse.shortName)
         })
     }
 
@@ -130,6 +132,7 @@ export default function CourseForm() {
             totalTime: courseTotalTime,
             sections: courseSections,
             category_id: categoryId,
+            shortName: shortName
         }
         const response = await supabase.from('courses').insert(newCourse)
         console.log(response)
@@ -202,6 +205,14 @@ export default function CourseForm() {
                     مدرس
                 </label>
                 <input value={courseTeacherName} onChange={(e) => setCourseTeacherName(e.target.value)}
+                       className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                       type="text"/>
+            </div>
+            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
+                <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                    نام کوتاه
+                </label>
+                <input value={shortName} onChange={(e) => setShortName(e.target.value)}
                        className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                        type="text"/>
             </div>

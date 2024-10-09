@@ -91,7 +91,7 @@ export default function Courses() {
                             دسته بندی
                         </th>
                         <th className='hidden lg:table-cell'>
-                            مدرس
+                            نام کوتاه
                         </th>
                         <th className='hidden lg:table-cell'>
                             عمل ها
@@ -188,7 +188,7 @@ export default function Courses() {
                                     </td>
                                     <td className='hidden lg:table-cell'>
                                         {
-                                            course.teacherName
+                                            course.shortName
                                         }
                                     </td>
                                     <td className='hidden lg:table-cell'>
