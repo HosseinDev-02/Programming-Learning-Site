@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 export default function PrimaryButton(props) {
     return (
-        <Link onClick={props.clickEvent} to={props.href ? props.href : '#'} className={`flex sm:inline-flex items-center justify-center gap-2 bg-primary rounded-full text-white h-11 transition-opacity hover:opacity-80 font-YekanBakh-SemiBold text-sm px-4 flex-grow ${props.className}`}>
+        <a href={props.href ? props.href : '#'} onClick={props.clickEvent} className={`flex sm:inline-flex items-center justify-center gap-2 bg-primary rounded-full text-white h-11 transition-opacity hover:opacity-80 font-YekanBakh-SemiBold text-sm px-4 flex-grow ${props.className}`}>
             <span>
                 {
                     props.title
@@ -17,6 +17,6 @@ export default function PrimaryButton(props) {
             </span>
                 )
             }
-        </Link>
+        </a>
     )
 }

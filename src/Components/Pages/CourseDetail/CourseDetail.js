@@ -13,16 +13,9 @@ import supabase from "../../../database";
 
 export default function CourseDetail() {
 
-    const [boxes] = useState([
-        {id: 1, icon: '#clock', title: 'مدت دوره', text: '14:53:42'},
-        {id: 2, icon: '#grid-boxes', title: 'تعداد جلسات', text: '99'},
-        {id: 3, icon: '#info', title: 'نوع دوره', text: 'ویژه / نقدی'},
-        {id: 4, icon: '#users', title: 'شرکت کنندگان', text: '132 دانشجو'},
-    ])
-
     const [sessionsTotalTime, setSessionsTotalTime] = useState('')
     const [course, setCourse] = useState({})
-
+    const [boxes, setBoxes] = useState([])
     const params = useParams()
     const courseShortName = params.shortName
 
@@ -32,8 +25,24 @@ export default function CourseDetail() {
     }, []);
 
     async function setMainCourse() {
-        const {data} = await supabase.from('courses').select('*').eq('shortName', courseShortName)
+        const {data} = await supabase.from('courses')
+            .select(`
+                *,
+                sessions (
+                    *
+                ),
+                categories (
+                    *
+                )
+            `)
+            .eq('shortName', courseShortName)
         setCourse(data[0])
+        setBoxes([
+            {id: 1, icon: '#clock', title: 'مدت دوره', text: data[0].totalTime},
+            {id: 2, icon: '#grid-boxes', title: 'تعداد جلسات', text: data[0].sessions.length},
+            {id: 3, icon: '#info', title: 'نوع دوره', text: 'ویژه / نقدی'},
+            {id: 4, icon: '#users', title: 'شرکت کنندگان', text: '132 دانشجو'},
+        ])
     }
 
     const sessionsMenuHandler = e => {

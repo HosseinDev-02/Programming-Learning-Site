@@ -107,7 +107,7 @@ export default function Course(props) {
                     }
                 </div>
                 <div className='flex items-center gap-3 mt-3'>
-                    <PrimaryButton href='/course' icon='#arrow-up-left' title='مشاهده دوره'></PrimaryButton>
+                    <PrimaryButton href={`course/${props.shortName}`} icon='#arrow-up-left' title='مشاهده دوره'></PrimaryButton>
                     <LikeButton></LikeButton>
                 </div>
             </div>
