@@ -6,7 +6,7 @@ export default function Course(props) {
         <div>
             <div className='inline-block rounded-3xl overflow-hidden relative'>
                 <a href="#">
-                    <img className='w-full h-full object-cover' src={props.img} alt=""/>
+                    <img className='w-full h-full object-cover' src={props.courseImg} alt=""/>
                 </a>
                 <a href='#'
                    className='absolute left-3 top-3 flex items-center gap-1 bg-black/20 rounded-full h-11 px-4 text-white hover:opacity-80 transition-all'>
@@ -53,12 +53,12 @@ export default function Course(props) {
                                         </svg>
                                     </span>
                         <span className='text-xs font-YekanBakh-SemiBold'>
-                                        {props.time} ساعت
+                                        {props.totalTime} ساعت
                                     </span>
                     </div>
                 </div>
                 <div className='flex items-center justify-between gap-5 mt-3'>
-                    <UserInfo title='مدرس دوره :' text={props.teacher} img={props.img}></UserInfo>
+                    <UserInfo title='مدرس دوره :' text={props.teacherName} img={props.teacherImg}></UserInfo>
                     {
                         props.isFree ?
                             <div className='flex items-center justify-center h-14'>

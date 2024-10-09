@@ -475,7 +475,7 @@ export default function CoursesPage() {
                                 {/*  Courses wrapper Content  */}
                                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'>
                                     {
-                                        data.map(course => (<Course key={course.id} {...course}></Course>))
+                                        courses.map(course => (<Course key={course.course_id} {...course}></Course>))
                                     }
                                 </div>
                             </div>
