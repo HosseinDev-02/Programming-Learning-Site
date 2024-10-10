@@ -2,7 +2,7 @@ import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
 import {useEffect, useState} from "react";
 import supabase from "../../../../database";
-import {getCategories, getCourses, MySwal} from "../../../../Utils";
+import {getCategories, getCourses, getUsers, MySwal} from "../../../../Utils";
 import {useParams} from "react-router-dom";
 
 export default function CourseForm() {
@@ -12,16 +12,19 @@ export default function CourseForm() {
     const [courseTitle, setCourseTitle] = useState('')
     const [coursePrice, setCoursePrice] = useState('')
     const [courseImg, setCourseImg] = useState('')
-    const [courseTeacherName, setCourseTeacherName] = useState('')
-    const [courseTeacherImg, setCourseTeacherImg] = useState('')
     const [courseSections, setCourseSections] = useState('')
     const [courseTotalTime, setCourseTotalTime] = useState('')
     const [courseOffer, setCourseOffer] = useState('')
     const [categories, setCategories] = useState([])
     const [categoryMenuShow, setCategoryMenuShow] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState('')
+    const [selectedTeacher, setSelectedTeacher] = useState('')
+    const [courseTeacherMenuShow, setCourseTeacherMenuShow] = useState(false)
     const [categoryId, setCategoryId] = useState('')
     const [shortName, setShortName] = useState('')
+    const [teachers, setTeachers] = useState([])
+    const [teacherId, setTeacherId] = useState('')
+    const [courseDescription, setCourseDescription] = useState('')
 
     const params = useParams()
     const mainCourseId = params.id
@@ -29,6 +32,7 @@ export default function CourseForm() {
     useEffect(() => {
         const data = getCourses().then(data => console.log(data))
         getAllCategories()
+        getAllTeachers()
         if (mainCourseId) {
             getMainUserInfo()
             console.log(categoryId)
@@ -41,16 +45,22 @@ export default function CourseForm() {
         setCourseTitle('')
         setCoursePrice('')
         setCourseImg('')
-        setCourseTeacherName('')
-        setCourseTeacherImg('')
         setCourseSections('')
         setCourseTotalTime('')
         setCourseOffer('')
+        setSelectedTeacher('')
+        setTeacherId('')
+        setCourseDescription('')
     }
 
     async function getAllCategories() {
         const data = await getCategories()
         setCategories(data)
+    }
+
+    async function getAllTeachers() {
+        const data = await getUsers()
+        setTeachers(data)
     }
 
     function selectCategory(elem) {
@@ -59,20 +69,27 @@ export default function CourseForm() {
         setCategoryId(elem.target.dataset.id)
     }
 
+    function selectCourseTeacher(elem) {
+        setSelectedTeacher(elem.target.innerHTML)
+        setCourseTeacherMenuShow(prevState => !prevState)
+        setTeacherId(elem.target.dataset.id)
+        console.log(teacherId)
+    }
+
     function editCourse() {
         let courseNewInfo = {
             title: courseTitle,
             price: coursePrice,
             courseImg: courseImg,
-            costPrice: coursePrice - (coursePrice * (courseOffer / 100)),
+            costPrice: Number(coursePrice - (coursePrice * (courseOffer / 100))),
             offer: +courseOffer,
-            teacherName: courseTeacherName,
-            teacherImg: courseTeacherImg,
             isFree: courseIsFree,
             isCompleted: courseIsCompleted,
             totalTime: courseTotalTime,
             sections: courseSections,
-            category_id: categoryId
+            category_id: categoryId,
+            user_id: teacherId,
+            description: courseDescription
         }
         MySwal.fire({
             title: 'آیا از انجام این کار اطمینان دارید ؟',
@@ -108,31 +125,31 @@ export default function CourseForm() {
             setCoursePrice(mainCourse.price)
             setCourseIsCompleted(mainCourse.isCompleted)
             setCourseTotalTime(mainCourse.totalTime)
-            setCourseTeacherName(mainCourse.teacherName)
             setCourseSections(mainCourse.sections)
             setCourseImg(mainCourse.courseImg)
-            setCourseTeacherImg(mainCourse.teacherImg)
             setCategoryId(mainCourse.category_id)
             setSelectedCategory(mainCourse.categories.title)
             setShortName(mainCourse.shortName)
+            setSelectedTeacher(`${mainCourse.users.firstname} ${mainCourse.users.lastname}`)
+            setCourseDescription(mainCourse.description)
         })
     }
 
     async function addNewCourse() {
         let newCourse = {
             title: courseTitle,
-            price: coursePrice,
+            price: +coursePrice,
             courseImg: courseImg,
-            costPrice: coursePrice - (coursePrice * (courseOffer / 100)),
+            costPrice: Number(coursePrice - (coursePrice * (courseOffer / 100))),
             offer: +courseOffer,
-            teacherName: courseTeacherName,
-            teacherImg: courseTeacherImg,
             isFree: courseIsFree,
             isCompleted: courseIsCompleted,
             totalTime: courseTotalTime,
             sections: courseSections,
             category_id: categoryId,
-            shortName: shortName
+            shortName: shortName,
+            user_id: teacherId,
+            description: courseDescription
         }
         const response = await supabase.from('courses').insert(newCourse)
         console.log(response)
@@ -202,14 +219,6 @@ export default function CourseForm() {
             </div>
             <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
                 <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                    مدرس
-                </label>
-                <input value={courseTeacherName} onChange={(e) => setCourseTeacherName(e.target.value)}
-                       className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                       type="text"/>
-            </div>
-            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                     نام کوتاه
                 </label>
                 <input value={shortName} onChange={(e) => setShortName(e.target.value)}
@@ -238,6 +247,35 @@ export default function CourseForm() {
                                 <li data-id={category.category_id} key={category.category_id}
                                     className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
                                     {category.title}
+                                </li>))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
+                <span className='text-xs font-YekanBakh-SemiBold'>انتخاب مدرس</span>
+                <div className='w-full rounded-2xl relative space-y-2'>
+                    <button onClick={() => setCourseTeacherMenuShow(prevState => !prevState)}
+                            className='flex items-center w-full justify-between px-4 outline-none bg-background rounded-2xl h-11 text-title font-YekanBakh-SemiBold'>
+                                        <span className='text-xs'>
+                                            {selectedTeacher ? selectedTeacher : 'انتخاب کنید'}
+                                        </span>
+                        <span>
+                                            <svg className='w-5 h-5'>
+                                                <use href='#chevron-down'></use>
+                                            </svg>
+                                        </span>
+                    </button>
+                    <div style={courseTeacherMenuShow ? {display: 'block'} : {display: 'none'}}
+                         className='bg-background shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
+                        <ul onClick={(elem) => selectCourseTeacher(elem)}
+                            className='text-xs font-YekanBakh-SemiBold flex flex-col'>
+                            {teachers.map(teacher => (
+                                <li data-id={teacher.user_id} key={teacher.user_id}
+                                    className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
+                                    {
+                                        `${teacher.firstname} ${teacher.lastname}`
+                                    }
                                 </li>))}
                         </ul>
                     </div>
@@ -298,26 +336,13 @@ export default function CourseForm() {
                     </label>
                 </div>
             </div>
-            <div className='flex gap-5 items-center w-full sm:w-1/3 md:w-full lg:w-1/4'>
-                <div className='flex flex-col gap-2 items-start w-full'>
-                    <span className='text-xs font-YekanBakh-SemiBold'>تصویر مدرس</span>
-                    <label className='relative w-full'>
-                        <div className='flex items-center gap-5'>
-                                    <span>
-                                        <svg className='w-8 h-8'>
-                                            <use href='#upload'></use>
-                                        </svg>
-                                    </span>
-                            <div
-                                className='flex items-center justify-center bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'>
-                                {courseTeacherImg}
-                            </div>
-                        </div>
-                        <input onChange={(e) => {
-                            setCourseTeacherImg(`/images/${e.target.files[0].name}`)
-                        }} className='sr-only' type="file"/>
-                    </label>
-                </div>
+            <div className='flex flex-col gap-2 items-start w-full'>
+                <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                    توضیحات
+                </label>
+                <textarea value={courseDescription} onChange={(event) => setCourseDescription(event.target.value)}
+                          className='bg-background rounded-xl border border-border text-title outline-none overflow-hidden p-3 w-full'
+                          rows="5"></textarea>
             </div>
         </div>
         <div className='inline-flex items-center gap-3 mt-5'>

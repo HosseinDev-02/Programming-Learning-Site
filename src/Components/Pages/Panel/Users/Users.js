@@ -18,6 +18,7 @@ export default function Users() {
     async function getAllUsers() {
         const data = await getUsers()
         setUsers(data)
+        console.log(data)
     }
 
     function editUsersMenuHandler(elem) {
@@ -71,7 +72,16 @@ export default function Users() {
                                 نام کامل
                             </th>
                             <th>
+                                تصویر
+                            </th>
+                            <th className='hidden md:table-cell'>
                                 شماره تماس
+                            </th>
+                            <th className='hidden md:table-cell'>
+                                ایمیل
+                            </th>
+                            <th>
+                                دسترسی
                             </th>
                             <th className='hidden lg:table-cell'>
                                 عمل ها
@@ -128,7 +138,25 @@ export default function Users() {
                                             {`${user.firstname} ${user.lastname}`}
                                         </td>
                                         <td>
+                                            <div className='w-12 h-12 flex items-center justify-center mx-auto'>
+                                                <img className='rounded-full object-cover' src={user.img}
+                                                     alt={user.firstname}/>
+                                            </div>
+                                        </td>
+                                        <td className='hidden md:table-cell'>
                                             {user.phonenumber}
+                                        </td>
+                                        <td className='hidden md:table-cell'>
+                                            {user.email}
+                                        </td>
+                                        <td>
+                                            {
+                                                user.role ? (
+                                                    <span className='bg-green-500 rounded p-0.5'>ادمین/مدرس</span>
+                                                ) : (
+                                                    <span className='bg-yellow-500 rounded p-0.5'>کاربر/دانشجو</span>
+                                                )
+                                            }
                                         </td>
                                         <td className='hidden lg:table-cell'>
                                             <div className='flex items-center gap-2 justify-center'>
@@ -159,7 +187,16 @@ export default function Users() {
                                     <td>
                                         ---
                                     </td>
+                                    <td className='hidden md:table-cell'>
+                                        ---
+                                    </td>
+                                    <td className='hidden md:table-cell'>
+                                        ---
+                                    </td>
                                     <td>
+                                        ---
+                                    </td>
+                                    <td className='hidden lg:table-cell'>
                                         ---
                                     </td>
                                 </tr>

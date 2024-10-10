@@ -3,7 +3,8 @@ import supabase from "./database";
 import Swal from "sweetalert2";
 
 export async function getUsers() {
-    const { data } = await supabase.from("users").select('*')
+    const { data } = await supabase.from("users")
+        .select('*')
     return data
 }
 
@@ -16,6 +17,9 @@ export async function getCourses() {
       *
     ),
     sessions (
+        *
+    ),
+    users (
         *
     )
   `)
