@@ -52,6 +52,8 @@ export default function CourseForm() {
         setTeacherId('')
         setCourseDescription('')
         setShortName('')
+        setSelectedCategory('')
+        setCategoryId('')
     }
 
     async function getAllCategories() {
@@ -60,7 +62,10 @@ export default function CourseForm() {
     }
 
     async function getAllTeachers() {
-        const data = await getUsers()
+        const {data} = await supabase
+            .from('users')
+            .select('*')
+            .eq('role', true)
         setTeachers(data)
     }
 
@@ -140,7 +145,7 @@ export default function CourseForm() {
             title: courseTitle,
             price: +coursePrice,
             courseImg: courseImg,
-            costPrice: Number(coursePrice - (coursePrice * (courseOffer / 100))),
+            costPrice: courseOffer ? (Number(coursePrice - (coursePrice * (courseOffer / 100)))) : null,
             offer: +courseOffer,
             isFree: courseIsFree,
             isCompleted: courseIsCompleted,

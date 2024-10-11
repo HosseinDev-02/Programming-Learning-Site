@@ -157,12 +157,12 @@ export default function Courses() {
                                     </td>
                                     <td className='hidden sm:table-cell'>
                                         {
-                                            course.price.toLocaleString()
+                                            course.price ? (course.price.toLocaleString()) : '---'
                                         }
                                     </td>
                                     <td className='hidden md:table-cell'>
                                         {
-                                            `%${course.offer}`
+                                            course.offer ? `%${course.offer}` : `---`
                                         }
                                     </td>
                                     <td className='hidden md:table-cell'>

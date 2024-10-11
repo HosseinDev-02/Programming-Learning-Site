@@ -81,14 +81,14 @@ export default function Course(props) {
                                 </span>
                             </div>
                             :
-                            props.costPrice !== 0 ?
+                            props.offer ?
                                 <div className='flex items-end h-14 flex-col justify-center'>
                                 <span
                                     className='relative block before:bg-caption before:absolute before:-top-1 before:bottom-0 before:w-full before:my-auto before:h-px before:content[" "] font-YekanBakh-SemiBold'>
                                             {props.price.toLocaleString()}
                                     </span>
                                     {
-                                        props.costPrice !== 0 &&
+                                        props.offer &&
                                         <div className='flex items-center gap-1'>
                                         <span className='text-title font-YekanBakh-Black text-xl'>
                                             {props.costPrice.toLocaleString()}
