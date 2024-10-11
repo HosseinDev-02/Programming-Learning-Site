@@ -51,6 +51,7 @@ export default function CourseForm() {
         setSelectedTeacher('')
         setTeacherId('')
         setCourseDescription('')
+        setShortName('')
     }
 
     async function getAllCategories() {
@@ -73,7 +74,6 @@ export default function CourseForm() {
         setSelectedTeacher(elem.target.innerHTML)
         setCourseTeacherMenuShow(prevState => !prevState)
         setTeacherId(elem.target.dataset.id)
-        console.log(teacherId)
     }
 
     function editCourse() {
@@ -152,7 +152,6 @@ export default function CourseForm() {
             description: courseDescription
         }
         const response = await supabase.from('courses').insert(newCourse)
-        console.log(response)
         if (response.status === 201) {
             MySwal.fire({
                 title: 'دوره با موفقیت ثبت شد', icon: 'success', confirmButtonText: 'اوکی'
