@@ -73,6 +73,8 @@ export default function ArticleForm() {
         setArticleDescription(mainArticle.description)
         setSelectedCategory(mainArticle.categories.title)
         setCategoryId(mainArticle.categories.category_id)
+        setSelectedWriter(`${mainArticle.users.firstname} ${mainArticle.users.lastname}`)
+        setWriterId(mainArticle.users.user_id)
     }
 
     function clearStates() {
@@ -90,6 +92,7 @@ export default function ArticleForm() {
         setSelectedWriter(elem.target.innerHTML)
         setArticleTeachersMenuShow(prevState => !prevState)
         setWriterId(elem.target.dataset.id)
+        console.log(writerId)
     }
 
     async function addNewArticle() {

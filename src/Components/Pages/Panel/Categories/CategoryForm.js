@@ -74,7 +74,7 @@ export default function CategoryForm() {
                     )
                 }
             </div>
-            <div className='flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5 pt-8 md:pt-10'>
+            <div className='flex gap-5 pt-8 md:pt-10'>
                 <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/3'>
                     <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                         عنوان دسته بندی

@@ -208,142 +208,148 @@ export default function CourseForm() {
         </div>
         <div
             className='flex flex-col sm:flex-row items-center sm:items-start flex-wrap lg:items-start justify-between gap-5 pt-8 md:pt-10'>
-            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                    عنوان
-                </label>
-                <input {...bindingCourseTitle}
-                       className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                       type="text"/>
+            <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                        عنوان
+                    </label>
+                    <input {...bindingCourseTitle}
+                           className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                           type="text"/>
+                </div>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                        قیمت
+                    </label>
+                    <input {...bindingCoursePrice}
+                           className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                           type="text"/>
+                </div>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                        تخفیف
+                    </label>
+                    <input {...bindingCourseOffer}
+                           className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                           type="text"/>
+                </div>
             </div>
-            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                    قیمت
-                </label>
-                <input {...bindingCoursePrice}
-                       className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                       type="text"/>
+            <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                        مجموع آموزش
+                    </label>
+                    <input {...bindingCourseTotalTime}
+                           className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                           type="text"/>
+                </div>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                        تعداد فصل ها
+                    </label>
+                    <input {...bindingCourseSections}
+                           className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                           type="text"/>
+                </div>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                        نام کوتاه
+                    </label>
+                    <input {...bindingShortName}
+                           className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                           type="text"/>
+                </div>
             </div>
-            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                    تخفیف
-                </label>
-                <input {...bindingCourseOffer}
-                       className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                       type="text"/>
-            </div>
-            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                    مجموع آموزش
-                </label>
-                <input {...bindingCourseTotalTime}
-                       className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                       type="text"/>
-            </div>
-            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                    تعداد فصل ها
-                </label>
-                <input {...bindingCourseSections}
-                       className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                       type="text"/>
-            </div>
-            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                    نام کوتاه
-                </label>
-                <input {...bindingShortName}
-                       className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                       type="text"/>
-            </div>
-            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                <span className='text-xs font-YekanBakh-SemiBold'>انتخاب دسته بندی</span>
-                <div className='w-full rounded-2xl relative space-y-2'>
-                    <button onClick={() => setCategoryMenuShow(prevState => !prevState)}
-                            className='flex items-center w-full justify-between px-4 outline-none bg-background rounded-2xl h-11 text-title font-YekanBakh-SemiBold'>
+            <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <span className='text-xs font-YekanBakh-SemiBold'>انتخاب دسته بندی</span>
+                    <div className='w-full rounded-2xl relative space-y-2'>
+                        <button onClick={() => setCategoryMenuShow(prevState => !prevState)}
+                                className='flex items-center w-full justify-between px-4 outline-none bg-background rounded-2xl h-11 text-title font-YekanBakh-SemiBold'>
                                         <span className='text-xs'>
                                             {selectedCategory ? selectedCategory : 'انتخاب کنید'}
                                         </span>
-                        <span>
+                            <span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#chevron-down'></use>
                                             </svg>
                                         </span>
-                    </button>
-                    <div style={categoryMenuShow ? {display: 'block'} : {display: 'none'}}
-                         className='bg-background shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
-                        <ul onClick={(elem) => selectCategory(elem)}
-                            className='text-xs font-YekanBakh-SemiBold flex flex-col'>
-                            {categories.map(category => (
-                                <li data-id={category.category_id} key={category.category_id}
-                                    className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
-                                    {category.title}
-                                </li>))}
-                        </ul>
+                        </button>
+                        <div style={categoryMenuShow ? {display: 'block'} : {display: 'none'}}
+                             className='bg-background shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
+                            <ul onClick={(elem) => selectCategory(elem)}
+                                className='text-xs font-YekanBakh-SemiBold flex flex-col'>
+                                {categories.map(category => (
+                                    <li data-id={category.category_id} key={category.category_id}
+                                        className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
+                                        {category.title}
+                                    </li>))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                <span className='text-xs font-YekanBakh-SemiBold'>انتخاب مدرس</span>
-                <div className='w-full rounded-2xl relative space-y-2'>
-                    <button onClick={() => setCourseTeacherMenuShow(prevState => !prevState)}
-                            className='flex items-center w-full justify-between px-4 outline-none bg-background rounded-2xl h-11 text-title font-YekanBakh-SemiBold'>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <span className='text-xs font-YekanBakh-SemiBold'>انتخاب مدرس</span>
+                    <div className='w-full rounded-2xl relative space-y-2'>
+                        <button onClick={() => setCourseTeacherMenuShow(prevState => !prevState)}
+                                className='flex items-center w-full justify-between px-4 outline-none bg-background rounded-2xl h-11 text-title font-YekanBakh-SemiBold'>
                                         <span className='text-xs'>
                                             {selectedTeacher ? selectedTeacher : 'انتخاب کنید'}
                                         </span>
-                        <span>
+                            <span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#chevron-down'></use>
                                             </svg>
                                         </span>
-                    </button>
-                    <div style={courseTeacherMenuShow ? {display: 'block'} : {display: 'none'}}
-                         className='bg-background shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
-                        <ul onClick={(elem) => selectCourseTeacher(elem)}
-                            className='text-xs font-YekanBakh-SemiBold flex flex-col'>
-                            {teachers.map(teacher => (
-                                <li data-id={teacher.user_id} key={teacher.user_id}
-                                    className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
-                                    {
-                                        `${teacher.firstname} ${teacher.lastname}`
-                                    }
-                                </li>))}
-                        </ul>
+                        </button>
+                        <div style={courseTeacherMenuShow ? {display: 'block'} : {display: 'none'}}
+                             className='bg-background shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
+                            <ul onClick={(elem) => selectCourseTeacher(elem)}
+                                className='text-xs font-YekanBakh-SemiBold flex flex-col'>
+                                {teachers.map(teacher => (
+                                    <li data-id={teacher.user_id} key={teacher.user_id}
+                                        className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
+                                        {
+                                            `${teacher.firstname} ${teacher.lastname}`
+                                        }
+                                    </li>))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className='flex gap-5 items-center justify-between w-full sm:w-1/3 md:w-full lg:w-1/4'>
-                <div
-                    className="flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-1/3 lg:w-1/4 bg-secondary rounded-xl overflow-hidden">
+                <div className='flex gap-5 items-center justify-between w-full sm:w-1/3'>
+                    <div
+                        className="flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-1/3 lg:w-1/4 bg-secondary rounded-xl overflow-hidden">
                                 <span className="text-xs font-YekanBakh-SemiBold">
                                     رایگان
                                 </span>
-                    <label className='flex items-center justify-center'>
-                        <input checked={courseIsFree} onChange={(e) => {
-                            setCourseIsFree(e.target.checked)
-                        }} className='peer sr-only'
-                               type="checkbox"/>
-                        <div
-                            className='inline-block shrink-0 cursor-pointer border-2 border-zinc-200 dark:border-[#1d4ed8] h-6 w-14 bg-white dark:bg-[#1d4ed8] relative rounded-xl before:w-[18px] before:h-[18px] before:bg-zinc-200 before:absolute before:left-0 before:transition-all peer-checked:border-primary before:translate-x-[2px] before:rounded-full before:top-0 before:bottom-0 before:my-auto peer-checked:bg-primary peer-checked:before:bg-background peer-checked:before:translate-x-[34px] transition-all'>
+                        <label className='flex items-center justify-center'>
+                            <input checked={courseIsFree} onChange={(e) => {
+                                setCourseIsFree(e.target.checked)
+                            }} className='peer sr-only'
+                                   type="checkbox"/>
+                            <div
+                                className='inline-block shrink-0 cursor-pointer border-2 border-zinc-200 dark:border-[#1d4ed8] h-6 w-14 bg-white dark:bg-[#1d4ed8] relative rounded-xl before:w-[18px] before:h-[18px] before:bg-zinc-200 before:absolute before:left-0 before:transition-all peer-checked:border-primary before:translate-x-[2px] before:rounded-full before:top-0 before:bottom-0 before:my-auto peer-checked:bg-primary peer-checked:before:bg-background peer-checked:before:translate-x-[34px] transition-all'>
 
-                        </div>
-                    </label>
-                </div>
-                <div
-                    className="flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-1/3 lg:w-1/4 bg-secondary rounded-xl overflow-hidden">
+                            </div>
+                        </label>
+                    </div>
+                    <div
+                        className="flex flex-col gap-2 items-start w-full sm:w-1/3 md:w-1/3 lg:w-1/4 bg-secondary rounded-xl overflow-hidden">
                                 <span className="text-xs font-YekanBakh-SemiBold">
                                     تکمیل شده
                                 </span>
-                    <label className='flex items-center justify-center relative'>
-                        <input checked={courseIsCompleted} onChange={(e) => {
-                            setCourseIsCompleted(e.target.checked)
-                        }} className='peer sr-only'
-                               type="checkbox"/>
-                        <div
-                            className='inline-block shrink-0 cursor-pointer border-2 border-zinc-200 dark:border-[#1d4ed8] h-6 w-14 bg-white dark:bg-[#1d4ed8] relative rounded-xl before:w-[18px] before:h-[18px] before:bg-zinc-200 before:absolute before:left-0 before:transition-all peer-checked:border-primary before:translate-x-[2px] before:rounded-full before:top-0 before:bottom-0 before:my-auto peer-checked:bg-primary peer-checked:before:bg-background peer-checked:before:translate-x-[34px] transition-all'>
+                        <label className='flex items-center justify-center relative'>
+                            <input checked={courseIsCompleted} onChange={(e) => {
+                                setCourseIsCompleted(e.target.checked)
+                            }} className='peer sr-only'
+                                   type="checkbox"/>
+                            <div
+                                className='inline-block shrink-0 cursor-pointer border-2 border-zinc-200 dark:border-[#1d4ed8] h-6 w-14 bg-white dark:bg-[#1d4ed8] relative rounded-xl before:w-[18px] before:h-[18px] before:bg-zinc-200 before:absolute before:left-0 before:transition-all peer-checked:border-primary before:translate-x-[2px] before:rounded-full before:top-0 before:bottom-0 before:my-auto peer-checked:bg-primary peer-checked:before:bg-background peer-checked:before:translate-x-[34px] transition-all'>
 
-                        </div>
-                    </label>
+                            </div>
+                        </label>
+                    </div>
                 </div>
             </div>
             <div className='flex gap-5 items-center w-full sm:w-1/3 md:w-full lg:w-1/4'>

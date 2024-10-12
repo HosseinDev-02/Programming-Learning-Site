@@ -7,6 +7,10 @@
     font-size: 24px;
 }
 
+.swal2-html-container {
+    color: rgb(var(--color-caption));
+}
+
 .swal2-icon {
     color: rgb(var(--color-primary)) !important;
     border-color: rgb(var(--color-primary)) !important;

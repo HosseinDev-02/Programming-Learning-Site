@@ -115,50 +115,47 @@ export default function SessionForm() {
                     )
                 }
             </div>
-            <div className='flex flex-col gap-5 pt-8 md:pt-10'>
-                <div
-                    className='flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5'>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
-                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                            عنوان جلسه
-                        </label>
-                        <input {...bindingSessionTitle}
-                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                               type="text"/>
-                    </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
-                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                            تایم جلسه
-                        </label>
-                        <input {...bindingSessionTime}
-                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                               type="text"/>
-                    </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
-                        <span className='text-xs font-YekanBakh-SemiBold'>انتخاب دوره</span>
-                        <div className='w-full rounded-2xl relative space-y-2'>
-                            <button onClick={() => setCoursesMenuShow(prevState => !prevState)}
-                                    className='flex items-center w-full justify-between px-4 outline-none bg-background rounded-2xl h-11 text-title font-YekanBakh-SemiBold'>
+            <div className='flex flex-col sm:flex-row gap-5 pt-8 md:pt-10'>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                        عنوان جلسه
+                    </label>
+                    <input {...bindingSessionTitle}
+                           className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                           type="text"/>
+                </div>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                        تایم جلسه
+                    </label>
+                    <input {...bindingSessionTime}
+                           className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                           type="text"/>
+                </div>
+                <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                    <span className='text-xs font-YekanBakh-SemiBold'>انتخاب دوره</span>
+                    <div className='w-full rounded-2xl relative space-y-2'>
+                        <button onClick={() => setCoursesMenuShow(prevState => !prevState)}
+                                className='flex items-center w-full justify-between px-4 outline-none bg-background rounded-2xl h-11 text-title font-YekanBakh-SemiBold'>
                                         <span className='text-xs'>
                                             {selectedCourse ? selectedCourse : 'انتخاب کنید'}
                                         </span>
-                                <span>
+                            <span>
                                             <svg className='w-5 h-5'>
                                                 <use href='#chevron-down'></use>
                                             </svg>
                                         </span>
-                            </button>
-                            <div style={coursesMenuShow ? {display: 'block'} : {display: 'none'}}
-                                 className='bg-background shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
-                                <ul onClick={(elem) => selectCourse(elem)}
-                                    className='text-xs font-YekanBakh-SemiBold flex flex-col'>
-                                    {courses.map(course => (
-                                        <li data-id={course.course_id} key={course.course_id}
-                                            className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
-                                            {course.title}
-                                        </li>))}
-                                </ul>
-                            </div>
+                        </button>
+                        <div style={coursesMenuShow ? {display: 'block'} : {display: 'none'}}
+                             className='bg-background shadow rounded-2xl overflow-hidden transition-all absolute right-0 left-0 top-11 z-10'>
+                            <ul onClick={(elem) => selectCourse(elem)}
+                                className='text-xs font-YekanBakh-SemiBold flex flex-col'>
+                                {courses.map(course => (
+                                    <li data-id={course.course_id} key={course.course_id}
+                                        className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
+                                        {course.title}
+                                    </li>))}
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -167,7 +164,8 @@ export default function SessionForm() {
                 {
                     sessionId ? (
                         <>
-                            <PrimaryButton clickEvent={() => editSession()} icon='#check' title='بروزرسانی'></PrimaryButton>
+                            <PrimaryButton clickEvent={() => editSession()} icon='#check'
+                                           title='بروزرسانی'></PrimaryButton>
                             <PrimaryButton className='bg-red-500' clickEvent={() => window.history.back()}
                                            icon='#x-mark' title='بازگشت'></PrimaryButton>
                         </>

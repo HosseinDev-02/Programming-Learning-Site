@@ -17,6 +17,7 @@ export default function Courses() {
     async function getAllCourses() {
         const data = await getCourses()
         setCourses(data)
+        console.log(data)
     }
 
     function removeCourseHandler(courseId) {
@@ -44,6 +45,14 @@ export default function Courses() {
 
     function editCourseMenuHandler(elem) {
         elem.currentTarget.nextSibling.classList.toggle('!block')
+    }
+
+    function showCourseText(text) {
+        MySwal.fire({
+            text: text,
+            icon: 'info',
+            confirmButtonText: 'مطالعه شد'
+        })
     }
 
     return (
@@ -84,7 +93,7 @@ export default function Courses() {
                             وضعیت
                         </th>
                         <th className='hidden sm:table-cell'>
-                            دسته بندی
+                            توضیحات
                         </th>
                         <th className='hidden lg:table-cell'>
                             نام کوتاه
@@ -108,7 +117,7 @@ export default function Courses() {
                                                     </svg>
                                                 </span>
                                             <div
-                                                className='bg-background rounded p-4 absolute bottom-full right-full shadow hidden'>
+                                                className='bg-background rounded p-4 absolute bottom-full right-full shadow hidden z-10'>
                                                 <ul className='flex flex-col gap-4'>
                                                     <li>
                                                         <Link to={`../course-form/${course.course_id}`}
@@ -182,7 +191,7 @@ export default function Courses() {
                                     </td>
                                     <td className='hidden sm:table-cell'>
                                         {
-                                            course.categories.title
+                                            <span onClick={() => showCourseText(course.description)} className='flex items-center justify-center py-1 rounded bg-primary text-white cursor-pointer'>نمایش</span>
                                         }
                                     </td>
                                     <td className='hidden lg:table-cell'>

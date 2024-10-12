@@ -102,62 +102,63 @@ export default function UserForm() {
             <div className='flex flex-col gap-5 pt-8 md:pt-10'>
                 <div
                     className='flex flex-col sm:flex-row lg:flex-row flex-wrap items-center sm:items-start lg:items-start justify-between gap-5'>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                            نام
-                        </label>
-                        <input {...bindingFirstname}
-                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                               type="text"/>
+                    <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
+                        <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                            <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                                نام
+                            </label>
+                            <input {...bindingFirstname}
+                                   className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                                   type="text"/>
+                        </div>
+                        <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                            <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                                نام خانوادگی
+                            </label>
+                            <input {...bindingLastname}
+                                   className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                                   type="text"/>
+                        </div>
+                        <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                            <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                                شماره تماس
+                            </label>
+                            <input {...bindingPhonenumber}
+                                   className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                                   type="text"/>
+                        </div>
                     </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                            نام خانوادگی
-                        </label>
-                        <input {...bindingLastname}
-                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                               type="text"/>
-                    </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                            شماره تماس
-                        </label>
-                        <input {...bindingPhonenumber}
-                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                               type="text"/>
-                    </div>
-                    <div className='flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/4'>
-                        <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                            ایمیل
-                        </label>
-                        <input {...bindingEmail}
-                               className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                               type="text"/>
-                    </div>
-                    <div className='flex gap-5 items-center w-full sm:w-1/3 lg:w-1/4'>
-                        <div className='flex flex-col gap-2 items-start w-full'>
-                            <span className='text-xs font-YekanBakh-SemiBold'>تصویر کاربر</span>
-                            <label className='relative w-full'>
-                                <div className='flex items-center gap-5'>
+                    <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
+                        <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                            <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                                ایمیل
+                            </label>
+                            <input {...bindingEmail}
+                                   className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                                   type="text"/>
+                        </div>
+                        <div className='flex gap-5 items-center w-full sm:w-1/3'>
+                            <div className='flex flex-col gap-2 items-start w-full'>
+                                <span className='text-xs font-YekanBakh-SemiBold'>تصویر کاربر</span>
+                                <label className='relative w-full'>
+                                    <div className='flex items-center gap-5'>
                                     <span>
                                         <svg className='w-8 h-8'>
                                             <use href='#upload'></use>
                                         </svg>
                                     </span>
-                                    <div
-                                        className='flex items-center justify-center bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'>
-                                        {userImg}
+                                        <div
+                                            className='flex items-center justify-center bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'>
+                                            {userImg}
+                                        </div>
                                     </div>
-                                </div>
-                                <input onChange={(e) => {
-                                    setUserImg(`/images/${e.target.files[0].name}`)
-                                }} className='sr-only' type="file"/>
-                            </label>
+                                    <input onChange={(e) => {
+                                        setUserImg(`/images/${e.target.files[0].name}`)
+                                    }} className='sr-only' type="file"/>
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <div className='flex gap-5 items-center justify-between w-full sm:w-1/3 lg:w-1/4'>
-                        <div
-                            className="flex flex-col gap-2 items-start bg-secondary rounded-xl overflow-hidden">
+                        <div className="flex flex-col gap-2 items-start bg-secondary rounded-xl overflow-hidden w-full sm:w-1/3">
                                 <span className="text-xs font-YekanBakh-SemiBold">
                                     دسترسی ادمین
                                 </span>
