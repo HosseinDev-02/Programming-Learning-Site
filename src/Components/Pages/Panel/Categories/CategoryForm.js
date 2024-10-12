@@ -1,15 +1,20 @@
 import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
-import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useEffect} from "react";
 import supabase from "../../../../database";
 import {getCategories, MySwal} from "../../../../Utils";
+import useInput from "../../../../hooks/useInput";
+import useMainParam from "../../../../hooks/useMainParam";
 
 export default function CategoryForm() {
 
-    const [categoryTitle, setCategoryTitle] = useState('')
-    const params = useParams()
-    const categoryId = params.id
+    const [
+        categoryTitle,
+        setCategoryTitle,
+        resetCategoryTitle,
+        bindingCategoryTitle
+    ] = useInput('')
+    const categoryId = useMainParam()
 
     useEffect(() => {
         if (categoryId) {
@@ -28,11 +33,7 @@ export default function CategoryForm() {
                 icon: 'success',
                 confirmButtonText: 'اوکی'
             })
-                .then(res => {
-                    if (res.isConfirmed) {
-                        clearStates()
-                    }
-                })
+            clearStates()
         }
     }
 
@@ -54,16 +55,12 @@ export default function CategoryForm() {
                 icon: 'success',
                 confirmButtonText: 'اوکی'
             })
-                .then(res => {
-                    if(res.isConfirmed) {
-                        window.history.back()
-                    }
-                })
+            window.history.back()
         }
     }
 
     function clearStates() {
-        setCategoryTitle('')
+        resetCategoryTitle()
     }
 
     return (
@@ -82,7 +79,7 @@ export default function CategoryForm() {
                     <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                         عنوان دسته بندی
                     </label>
-                    <input value={categoryTitle} onChange={(e) => setCategoryTitle(e.target.value)}
+                    <input {...bindingCategoryTitle}
                            className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                            type="text"/>
                 </div>

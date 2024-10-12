@@ -39,11 +39,7 @@ export default function Categories() {
                             icon: 'success',
                             confirmButtonText: 'اوکی'
                         })
-                            .then(res => {
-                                if(res.isConfirmed) {
-                                    setGetData(prevState => !prevState)
-                                }
-                            })
+                        setGetData(prevState => !prevState)
                     }
                 }
             })

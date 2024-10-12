@@ -17,7 +17,6 @@ export default function SubMenus() {
     async function getAllSubMenus() {
         const data = await getSubMenus()
         setSubMenus(data)
-        console.log(data)
     }
 
     async function removeSubMenuHandler(submenuId) {
@@ -36,11 +35,8 @@ export default function SubMenus() {
                             title: 'زیرمنو با موفقیت حذف شد',
                             icon: 'success',
                             confirmButtonText: 'اوکی'
-                        }).then(res => {
-                            if (res.isConfirmed) {
-                                setGetData(prevState => !prevState)
-                            }
                         })
+                        setGetData(prevState => !prevState)
                     }
                 }
             })

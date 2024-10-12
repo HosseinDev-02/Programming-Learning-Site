@@ -35,11 +35,8 @@ export default function Menus() {
                             title: 'منو با موفقیت حذف شد',
                             icon: 'success',
                             confirmButtonText: 'اوکی'
-                        }).then(res => {
-                            if (res.isConfirmed) {
-                                setGetData(prevState => !prevState)
-                            }
                         })
+                        setGetData(prevState => !prevState)
                     }
                 }
             })

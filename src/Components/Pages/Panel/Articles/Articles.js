@@ -163,7 +163,7 @@ export default function Articles() {
                                     </td>
                                     <td className='hidden lg:table-cell'>
                                         {
-                                            article.writer
+                                            `${article.users.firstname} ${article.users.lastname}`
                                         }
                                     </td>
                                     <td className='hidden lg:table-cell'>
@@ -186,38 +186,32 @@ export default function Articles() {
                             ))
                         ) : (
                             <tr className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
-                                <td className='font-YekanBakh-SemiBold'>
+                                <td className='lg:hidden'>
                                     ---
                                 </td>
-                                <td className='font-YekanBakh-SemiBold'>
-                                    ---
-                                </td>
-                                <td className='text-title font-YekanBakh-Black'>
-                                    ---
-                                </td>
-                                <td className='font-YekanBakh-SemiBold'>
-                                    ---
-                                </td>
-                                <td className='font-YekanBakh-SemiBold'>
-                                    ---
-                                </td>
-                                <td className='font-YekanBakh-SemiBold'>
-                                    ---
-                                </td>
-                                <td className='font-YekanBakh-SemiBold'>
-                                    ---
-                                </td>
-                                <td className='font-YekanBakh-SemiBold'>
-                                    ---
-                                </td>
-                                <td className='font-YekanBakh-SemiBold'>
+                                <td className='hidden lg:table-cell'>
                                     ---
                                 </td>
                                 <td>
-
+                                    ---
                                 </td>
                                 <td>
-
+                                    ---
+                                </td>
+                                <td className='hidden sm:table-cell'>
+                                    ---
+                                </td>
+                                <td className='hidden sm:table-cell'>
+                                    ---
+                                </td>
+                                <td className='hidden lg:table-cell'>
+                                    ---
+                                </td>
+                                <td className='hidden lg:table-cell'>
+                                    ---
+                                </td>
+                                <td className='hidden lg:table-cell'>
+                                    ---
                                 </td>
                             </tr>
                         )

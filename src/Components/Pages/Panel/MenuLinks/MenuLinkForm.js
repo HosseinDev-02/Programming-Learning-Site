@@ -1,19 +1,29 @@
 import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
-import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getMenuLinks, getSubMenus, MySwal} from "../../../../Utils";
 import supabase from "../../../../database";
+import useMainParam from "../../../../hooks/useMainParam";
+import useInput from "../../../../hooks/useInput";
 
 export default function MenuLinkForm() {
 
-    const params = useParams()
-    const menuLinkId = params.id
+    const menuLinkId = useMainParam()
     const [submenuMenuShow, setSubmenuMenuShow] = useState(false)
     const [selectedSubmenu, setSelectedSubmenu] = useState('')
     const [submenus, setSubmenus] = useState([])
-    const [menuLinkTitle, setMenuLinkTitle] = useState('')
-    const [menuLinkHref, setMenuLinkHref] = useState('')
+    const [
+        menuLinkTitle,
+        setMenuLinkTitle,
+        resetMenuLinkTitle,
+        bindingMenuLinkTitle
+    ] = useInput('')
+    const [
+        menuLinkHref,
+        setMenuLinkHref,
+        resetMenuLinkHref,
+        bindingMenuLinkHref
+    ] = useInput('')
     const [submenuId, setSubmenuId] = useState('')
 
     useEffect(() => {
@@ -57,19 +67,15 @@ export default function MenuLinkForm() {
                         MySwal.fire({
                             title: 'بروزرسانی انجام شد', icon: 'success', confirmButtonText: 'اوکی'
                         })
-                            .then(res => {
-                                if (res.isConfirmed) {
-                                    window.history.back()
-                                }
-                            })
+                        window.history.back()
                     }
                 }
             })
     }
 
     function clearStates() {
-        setMenuLinkTitle('')
-        setMenuLinkHref('')
+        resetMenuLinkTitle()
+        resetMenuLinkHref()
         setSelectedSubmenu('')
         setSubmenuId('')
     }
@@ -87,13 +93,8 @@ export default function MenuLinkForm() {
                 icon: 'success',
                 confirmButtonText: 'اوکی'
             })
-                .then(res => {
-                    if(res.isConfirmed) {
-                        clearStates()
-                    }
-                })
+            clearStates()
         }
-        console.log(newMenuLink)
     }
 
     function selectSubmenu(event) {
@@ -120,14 +121,14 @@ export default function MenuLinkForm() {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             عنوان لینک
                         </label>
-                        <input value={menuLinkTitle} onChange={(event) => setMenuLinkTitle(event.target.value)} className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                        <input {...bindingMenuLinkTitle} className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             لینک
                         </label>
-                        <input value={menuLinkHref} onChange={(e) => setMenuLinkHref(e.target.value)} dir='ltr' className='bg-back ground border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                        <input {...bindingMenuLinkHref} dir='ltr' className='bg-back ground border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>

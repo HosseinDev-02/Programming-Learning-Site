@@ -18,7 +18,6 @@ export default function Users() {
     async function getAllUsers() {
         const data = await getUsers()
         setUsers(data)
-        console.log(data)
     }
 
     function editUsersMenuHandler(elem) {
@@ -41,11 +40,8 @@ export default function Users() {
                             title: 'کاربر با موفقیت حذف شد',
                             icon: 'success',
                             confirmButtonText: 'اوکی'
-                        }).then(res => {
-                            if(res.isConfirmed) {
-                                setGetData(prevState => !prevState)
-                            }
                         })
+                        setGetData(prevState => !prevState)
                     }
                 }
             })

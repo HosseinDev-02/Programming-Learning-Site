@@ -1,16 +1,26 @@
 import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
-import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import supabase from "../../../../database";
 import {getMenus, MySwal} from "../../../../Utils";
+import useMainParam from "../../../../hooks/useMainParam";
+import useInput from "../../../../hooks/useInput";
 
 export default function MenuForm() {
 
-    const params = useParams()
-    const menuId = params.id
-    const [menuTitle, setMenuTitle] = useState('')
-    const [menuLink, setMenuLink] = useState('')
+    const menuId = useMainParam()
+    const [
+        menuTitle,
+        setMenuTitle,
+        resetMenuTitle,
+        bindingMenuTitle
+    ] = useInput('')
+    const [
+        menuLink,
+        setMenuLink,
+        resetMenuLink,
+        bindingMenuLink
+    ] = useInput('')
 
     useEffect(() => {
         if(menuId){
@@ -19,8 +29,8 @@ export default function MenuForm() {
     }, []);
 
     function clearStates() {
-        setMenuLink('')
-        setMenuTitle('')
+        resetMenuLink()
+        resetMenuTitle()
     }
 
     async function getMainMenu() {
@@ -48,11 +58,7 @@ export default function MenuForm() {
                         MySwal.fire({
                             title: 'بروزرسانی انجام شد', icon: 'success', confirmButtonText: 'اوکی'
                         })
-                            .then(res => {
-                                if (res.isConfirmed) {
-                                    window.history.back()
-                                }
-                            })
+                        window.history.back()
                     }
                 }
             })
@@ -72,11 +78,7 @@ export default function MenuForm() {
                 icon: 'success',
                 confirmButtonText: 'اوکی'
             })
-                .then(res => {
-                    if(res.isConfirmed) {
-                        clearStates()
-                    }
-                })
+            clearStates()
         }
     }
 
@@ -98,14 +100,14 @@ export default function MenuForm() {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             عنوان منو
                         </label>
-                        <input value={menuTitle} onChange={(e) => setMenuTitle(e.target.value)} className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                        <input {...bindingMenuTitle} className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
                     <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             لینک منو
                         </label>
-                        <input dir='ltr' value={menuLink} onChange={(e) => setMenuLink(e.target.value)} className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                        <input dir='ltr' {...bindingMenuLink} className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
                 </div>

@@ -4,30 +4,66 @@ import {useEffect, useState} from "react";
 import supabase from "../../../../database";
 import {getCategories, getCourses, getUsers, MySwal} from "../../../../Utils";
 import {useParams} from "react-router-dom";
+import useInput from "../../../../hooks/useInput";
+import useMainParam from "../../../../hooks/useMainParam";
 
 export default function CourseForm() {
 
     const [courseIsFree, setCourseIsFree] = useState(false)
     const [courseIsCompleted, setCourseIsCompleted] = useState(false)
-    const [courseTitle, setCourseTitle] = useState('')
-    const [coursePrice, setCoursePrice] = useState('')
+    const [
+        courseTitle,
+        setCourseTitle,
+        resetCourseTitle,
+        bindingCourseTitle
+    ] = useInput('')
+    const [
+        coursePrice,
+        setCoursePrice,
+        resetCoursePrice,
+        bindingCoursePrice
+    ] = useInput('')
+    const [
+        courseSections,
+        setCourseSections,
+        resetCourseSections,
+        bindingCourseSections
+    ] = useInput('')
+    const [
+        courseTotalTime,
+        setCourseTotalTime,
+        resetCourseTotalTime,
+        bindingCourseTotalTime
+    ] = useInput('')
+    const [
+        courseOffer,
+        setCourseOffer,
+        resetCourseOffer,
+        bindingCourseOffer
+    ] = useInput('')
+    const [
+        shortName,
+        setShortName,
+        resetShortName,
+        bindingShortName
+    ] = useInput('')
+    const [
+        courseDescription,
+        setCourseDescription,
+        resetCourseDescription,
+        bindingCourseDescription
+    ] = useInput('')
+
     const [courseImg, setCourseImg] = useState('')
-    const [courseSections, setCourseSections] = useState('')
-    const [courseTotalTime, setCourseTotalTime] = useState('')
-    const [courseOffer, setCourseOffer] = useState('')
     const [categories, setCategories] = useState([])
     const [categoryMenuShow, setCategoryMenuShow] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState('')
     const [selectedTeacher, setSelectedTeacher] = useState('')
     const [courseTeacherMenuShow, setCourseTeacherMenuShow] = useState(false)
     const [categoryId, setCategoryId] = useState('')
-    const [shortName, setShortName] = useState('')
     const [teachers, setTeachers] = useState([])
     const [teacherId, setTeacherId] = useState('')
-    const [courseDescription, setCourseDescription] = useState('')
-
-    const params = useParams()
-    const mainCourseId = params.id
+    const mainCourseId = useMainParam()
 
     useEffect(() => {
         const data = getCourses().then(data => console.log(data))
@@ -35,25 +71,24 @@ export default function CourseForm() {
         getAllTeachers()
         if (mainCourseId) {
             getMainUserInfo()
-            console.log(categoryId)
         }
     }, []);
 
     function clearStates() {
         setCourseIsFree(false)
         setCourseIsCompleted(false)
-        setCourseTitle('')
-        setCoursePrice('')
         setCourseImg('')
-        setCourseSections('')
-        setCourseTotalTime('')
-        setCourseOffer('')
         setSelectedTeacher('')
         setTeacherId('')
-        setCourseDescription('')
-        setShortName('')
         setSelectedCategory('')
         setCategoryId('')
+        resetCourseTitle()
+        resetCoursePrice()
+        resetCourseSections()
+        resetCourseTotalTime()
+        resetCourseOffer()
+        resetShortName()
+        resetCourseDescription()
     }
 
     async function getAllCategories() {
@@ -110,11 +145,7 @@ export default function CourseForm() {
                         MySwal.fire({
                             title: 'بروزرسانی انجام شد', icon: 'success', confirmButtonText: 'اوکی'
                         })
-                            .then(res => {
-                                if (res.isConfirmed) {
-                                    window.history.back()
-                                }
-                            })
+                        window.history.back()
                     }
                 }
             })
@@ -161,11 +192,7 @@ export default function CourseForm() {
             MySwal.fire({
                 title: 'دوره با موفقیت ثبت شد', icon: 'success', confirmButtonText: 'اوکی'
             })
-                .then(res => {
-                    if (res.isConfirmed) {
-                        clearStates()
-                    }
-                })
+            clearStates()
         }
     }
 
@@ -185,7 +212,7 @@ export default function CourseForm() {
                 <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                     عنوان
                 </label>
-                <input value={courseTitle} onChange={(e) => setCourseTitle(e.target.value)}
+                <input {...bindingCourseTitle}
                        className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                        type="text"/>
             </div>
@@ -193,7 +220,7 @@ export default function CourseForm() {
                 <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                     قیمت
                 </label>
-                <input value={coursePrice} onChange={(e) => setCoursePrice(e.target.value)}
+                <input {...bindingCoursePrice}
                        className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                        type="text"/>
             </div>
@@ -201,7 +228,7 @@ export default function CourseForm() {
                 <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                     تخفیف
                 </label>
-                <input value={courseOffer} onChange={(e) => setCourseOffer(e.target.value)}
+                <input {...bindingCourseOffer}
                        className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                        type="text"/>
             </div>
@@ -209,7 +236,7 @@ export default function CourseForm() {
                 <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                     مجموع آموزش
                 </label>
-                <input value={courseTotalTime} onChange={(e) => setCourseTotalTime(e.target.value)}
+                <input {...bindingCourseTotalTime}
                        className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                        type="text"/>
             </div>
@@ -217,7 +244,7 @@ export default function CourseForm() {
                 <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                     تعداد فصل ها
                 </label>
-                <input value={courseSections} onChange={(e) => setCourseSections(e.target.value)}
+                <input {...bindingCourseSections}
                        className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                        type="text"/>
             </div>
@@ -225,7 +252,7 @@ export default function CourseForm() {
                 <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                     نام کوتاه
                 </label>
-                <input value={shortName} onChange={(e) => setShortName(e.target.value)}
+                <input {...bindingShortName}
                        className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                        type="text"/>
             </div>
@@ -344,7 +371,7 @@ export default function CourseForm() {
                 <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                     توضیحات
                 </label>
-                <textarea value={courseDescription} onChange={(event) => setCourseDescription(event.target.value)}
+                <textarea {...bindingCourseDescription}
                           className='bg-background rounded-xl border border-border text-title outline-none overflow-hidden p-3 w-full'
                           rows="5"></textarea>
             </div>

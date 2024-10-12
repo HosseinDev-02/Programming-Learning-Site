@@ -16,7 +16,6 @@ export default function Sessions() {
     async function getAllSessions() {
         const data = await getSessions()
         setSessions(data)
-        console.log(data)
     }
 
     async function removeSessionHandler(sessionId) {
@@ -35,11 +34,8 @@ export default function Sessions() {
                             title: 'جلسه با موفقیت حذف شد',
                             icon: 'success',
                             confirmButtonText: 'اوکی'
-                        }).then(res => {
-                            if (res.isConfirmed) {
-                                setGetData(prevState => !prevState)
-                            }
                         })
+                        setGetData(prevState => !prevState)
                     }
                 }
             })

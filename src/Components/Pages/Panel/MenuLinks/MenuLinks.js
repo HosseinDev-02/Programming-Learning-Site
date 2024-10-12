@@ -16,7 +16,6 @@ export default function MenuLinks() {
     async function getAllMenuLinks() {
         const data = await getMenuLinks()
         setMenuLinks(data)
-        console.log(data)
     }
 
     async function removeMenuLinkHandler(menuLinkId) {
@@ -35,11 +34,8 @@ export default function MenuLinks() {
                             title: 'لینک با موفقیت حذف شد',
                             icon: 'success',
                             confirmButtonText: 'اوکی'
-                        }).then(res => {
-                            if (res.isConfirmed) {
-                                setGetData(prevState => !prevState)
-                            }
                         })
+                        setGetData(prevState => !prevState)
                     }
                 }
             })

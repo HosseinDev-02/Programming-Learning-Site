@@ -3,8 +3,8 @@ import PrimaryButton from "../../../Buttons/PrimaryButton";
 import {MySwal, getUsers} from "../../../../Utils";
 import supabase from "../../../../database";
 import SubTitle from "../../../Titles/SubTitle";
-import {useParams} from "react-router-dom";
 import useInput from "../../../../hooks/useInput";
+import useMainParam from "../../../../hooks/useMainParam";
 
 
 export default function UserForm() {
@@ -15,8 +15,7 @@ export default function UserForm() {
     const [userEmail, setUserEmail, resetEmail, bindingEmail] = useInput('')
     const [userImg, setUserImg] = useState('')
     const [userRole, setUserRole] = useState(false)
-    const params = useParams()
-    const userId = params.id
+    const userId = useMainParam()
 
 
     useEffect(() => {
@@ -55,11 +54,7 @@ export default function UserForm() {
                 icon: 'success',
                 confirmButtonText: 'اوکی'
             })
-                .then(res => {
-                    if (res.isConfirmed) {
-                        window.history.back()
-                    }
-                })
+            window.history.back()
         }
     }
 
@@ -89,11 +84,7 @@ export default function UserForm() {
                 icon: 'success',
                 confirmButtonText: 'اوکی'
             })
-                .then(res => {
-                    if (res.isConfirmed) {
-                        clearStates()
-                    }
-                })
+            clearStates()
         }
     }
 

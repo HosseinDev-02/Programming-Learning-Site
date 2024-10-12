@@ -1,16 +1,27 @@
 import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
-import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getCourses, getSessions, MySwal} from "../../../../Utils";
 import supabase from "../../../../database";
+import useMainParam from "../../../../hooks/useMainParam";
+import useInput from "../../../../hooks/useInput";
 
 export default function SessionForm() {
 
-    const params = useParams()
-    const sessionId = params.id
-    const [sessionTitle, setSessionTitle] = useState('')
-    const [sessionTime, setSessionTime] = useState('')
+    const [
+        sessionTitle,
+        setSessionTitle,
+        resetSessionTitle,
+        bindingSessionTitle
+    ] = useInput('')
+    const [
+        sessionTime,
+        setSessionTime,
+        resetSessionTime,
+        bindingSessionTime
+    ] = useInput('')
+
+    const sessionId = useMainParam()
     const [coursesMenuShow, setCoursesMenuShow] = useState(false)
     const [selectedCourse, setSelectedCourse] = useState('')
     const [courses, setCourses] = useState([])
@@ -63,19 +74,15 @@ export default function SessionForm() {
                         MySwal.fire({
                             title: 'بروزرسانی انجام شد', icon: 'success', confirmButtonText: 'اوکی'
                         })
-                            .then(res => {
-                                if (res.isConfirmed) {
-                                    window.history.back()
-                                }
-                            })
+                        window.history.back()
                     }
                 }
             })
     }
 
     function clearStates() {
-        setSessionTime('')
-        setSessionTitle('')
+        resetSessionTime()
+        resetSessionTitle()
         setSelectedCourse('')
         setCourseId('')
     }
@@ -93,11 +100,7 @@ export default function SessionForm() {
                 icon: 'success',
                 confirmButtonText: 'اوکی'
             })
-                .then(res => {
-                    if(res.isConfirmed) {
-                        clearStates()
-                    }
-                })
+            clearStates()
         }
     }
 
@@ -119,7 +122,7 @@ export default function SessionForm() {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             عنوان جلسه
                         </label>
-                        <input value={sessionTitle} onChange={(e) => setSessionTitle(e.target.value)}
+                        <input {...bindingSessionTitle}
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
@@ -127,7 +130,7 @@ export default function SessionForm() {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             تایم جلسه
                         </label>
-                        <input value={sessionTime} onChange={(e) => setSessionTime(e.target.value)}
+                        <input {...bindingSessionTime}
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>

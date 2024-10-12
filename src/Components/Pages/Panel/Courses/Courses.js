@@ -17,7 +17,6 @@ export default function Courses() {
     async function getAllCourses() {
         const data = await getCourses()
         setCourses(data)
-        console.log(data)
     }
 
     function removeCourseHandler(courseId) {
@@ -36,11 +35,8 @@ export default function Courses() {
                             title: 'دوره با موفقیت حذف شد',
                             icon: 'success',
                             confirmButtonText: 'اوکی'
-                        }).then(res => {
-                            if (res.isConfirmed) {
-                                setGetData(prevState => !prevState)
-                            }
                         })
+                        setGetData(prevState => !prevState)
                     }
                 }
             })
@@ -175,10 +171,13 @@ export default function Courses() {
                                             course.sections
                                         }
                                     </td>
-                                    <td className='text-xs hidden md:table-cell'
-                                        style={course.isCompleted ? {color: 'rgb(var(--color-success))'} : {color: 'rgb(234, 179, 8)'}}>
+                                    <td className='text-xs hidden md:table-cell'>
                                         {
-                                            course.isCompleted ? 'تکمیل شده' : 'در حال برگزاری'
+                                            course.isCompleted ? (
+                                                <span className='bg-green-500 rounded p-0.5'>تکمیل شده</span>
+                                            ) : (
+                                                <span className='bg-yellow-500 rounded p-0.5'>درحال برگزاری</span>
+                                            )
                                         }
                                     </td>
                                     <td className='hidden sm:table-cell'>

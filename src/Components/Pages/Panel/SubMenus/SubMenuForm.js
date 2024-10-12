@@ -1,19 +1,19 @@
 import SubTitle from "../../../Titles/SubTitle";
 import PrimaryButton from "../../../Buttons/PrimaryButton";
-import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getMenus, getSubMenus, MySwal} from "../../../../Utils";
 import supabase from "../../../../database";
+import useMainParam from "../../../../hooks/useMainParam";
+import useInput from "../../../../hooks/useInput";
 
 export default function SubMenuForm() {
 
-    const params = useParams()
-    const subMenuId = params.id
+    const subMenuId = useMainParam()
     const [selectedMenu, setSelectedMenu] = useState('')
     const [menusMenuShow, setMenusMenuShow] = useState('')
     const [menus, setMenus] = useState([])
-    const [subMenuTitle, setSubMenuTitle] = useState('')
-    const [subMenuLink, setSubMenuLink] = useState('')
+    const [subMenuTitle, setSubMenuTitle, resetSubMenuTitle, bindingSubMenuTitle] = useInput('')
+    const [subMenuLink, setSubMenuLink, resetSubMenuLink, bindingSubMenuLink] = useInput('')
     const [menuId, setMenuId] = useState('')
 
     useEffect(() => {
@@ -35,8 +35,8 @@ export default function SubMenuForm() {
     }
 
     function clearStates() {
-        setSubMenuLink('')
-        setSubMenuTitle('')
+        resetSubMenuLink()
+        resetSubMenuTitle()
         setMenuId('')
         setSelectedMenu('')
     }
@@ -54,11 +54,7 @@ export default function SubMenuForm() {
                 icon: 'success',
                 confirmButtonText: 'اوکی'
             })
-                .then(res => {
-                    if(res.isConfirmed) {
-                        clearStates()
-                    }
-                })
+            clearStates()
         }
     }
 
@@ -90,11 +86,7 @@ export default function SubMenuForm() {
                         MySwal.fire({
                             title: 'بروزرسانی انجام شد', icon: 'success', confirmButtonText: 'اوکی'
                         })
-                            .then(res => {
-                                if (res.isConfirmed) {
-                                    window.history.back()
-                                }
-                            })
+                        window.history.back()
                     }
                 }
             })
@@ -118,7 +110,7 @@ export default function SubMenuForm() {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             عنوان زیر منو
                         </label>
-                        <input value={subMenuTitle} onChange={(e) => setSubMenuTitle(e.target.value)}
+                        <input {...bindingSubMenuTitle}
                             className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                             type="text"/>
                     </div>
@@ -126,7 +118,7 @@ export default function SubMenuForm() {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             لینک زیر منو
                         </label>
-                        <input value={subMenuLink} onChange={(e) => setSubMenuLink(e.target.value)} dir='ltr'
+                        <input {...bindingSubMenuLink} dir='ltr'
                                className='bg-back ground border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
