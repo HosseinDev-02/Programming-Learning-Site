@@ -4,14 +4,15 @@ import {MySwal, getUsers} from "../../../../Utils";
 import supabase from "../../../../database";
 import SubTitle from "../../../Titles/SubTitle";
 import {useParams} from "react-router-dom";
+import useInput from "../../../../hooks/useInput";
 
 
 export default function UserForm() {
 
-    const [userFirstName, setUserFirstName] = useState('')
-    const [userLastName, setUserLastName] = useState('')
-    const [userPhoneNumber, setUserPhoneNumber] = useState('')
-    const [userEmail, setUserEmail] = useState('')
+    const [userFirstName, setUserFirstName, resetFirstname, bindingFirstname] = useInput('')
+    const [userLastName, setUserLastName, resetLastname, bindingLastname] = useInput('')
+    const [userPhoneNumber, setUserPhoneNumber, resetPhonenumber, bindingPhonenumber] = useInput('')
+    const [userEmail, setUserEmail, resetEmail, bindingEmail] = useInput('')
     const [userImg, setUserImg] = useState('')
     const [userRole, setUserRole] = useState(false)
     const params = useParams()
@@ -63,12 +64,12 @@ export default function UserForm() {
     }
 
     function clearStates() {
-        setUserFirstName('')
-        setUserLastName('')
-        setUserPhoneNumber('')
+        resetFirstname()
+        resetLastname()
+        resetPhonenumber()
+        resetEmail()
         setUserRole(false)
         setUserImg('')
-        setUserEmail('')
     }
 
     async function addNewUser() {
@@ -114,7 +115,7 @@ export default function UserForm() {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             نام
                         </label>
-                        <input value={userFirstName} onChange={(e) => setUserFirstName(e.target.value)}
+                        <input {...bindingFirstname}
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
@@ -122,7 +123,7 @@ export default function UserForm() {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             نام خانوادگی
                         </label>
-                        <input value={userLastName} onChange={(e) => setUserLastName(e.target.value)}
+                        <input {...bindingLastname}
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
@@ -130,7 +131,7 @@ export default function UserForm() {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             شماره تماس
                         </label>
-                        <input value={userPhoneNumber} onChange={(e) => setUserPhoneNumber(e.target.value)}
+                        <input {...bindingPhonenumber}
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
@@ -138,7 +139,7 @@ export default function UserForm() {
                         <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                             ایمیل
                         </label>
-                        <input value={userEmail} onChange={(e) => setUserEmail(e.target.value)}
+                        <input {...bindingEmail}
                                className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                type="text"/>
                     </div>
