@@ -154,7 +154,7 @@ export default function Panel() {
             </div>
 
             {/*  Admin Panel Right Side  */}
-            <SideBar open={sideBarShow} setOpen={setSideBarShow}></SideBar>
+            <SideBar></SideBar>
 
             <div onClick={() => setSideBarShow(prevState => !prevState)}
                  style={sideBarShow ? {visibility: 'visible', opacity: '1'} : {}}

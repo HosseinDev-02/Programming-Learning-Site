@@ -229,6 +229,73 @@ let months = [
     {id: 12, title: 'اسفند'},
 ]
 
+let sidebarItems = [
+    {
+        id: 1,
+        title: 'کاربران',
+        links: [
+            {title: 'کاربران', href: 'users'},
+            {title: 'افزودن کاربر', href: 'user-form'}
+        ]
+    },
+    {
+        id: 2,
+        title: 'دوره ها',
+        links: [
+            {title: 'دوره ها', href: 'courses'},
+            {title: 'افزودن دوره', href: 'course-form'}
+        ]
+    },
+    {
+        id: 3,
+        title: 'دسته بندی ها',
+        links: [
+            {title: 'دسته بندی ها', href: 'categories'},
+            {title: 'افزودن دسته بندی', href: 'category-form'}
+        ]
+    },
+    {
+        id: 4,
+        title: 'جلسات دوره ها',
+        links: [
+            {title: 'جلسات دوره ها', href: 'sessions'},
+            {title: 'افزودن جلسه', href: 'session-form'}
+        ]
+    },
+    {
+        id: 5,
+        title: 'منو ها',
+        links: [
+            {title: 'منو ها', href: 'menus'},
+            {title: 'افزودن منو', href: 'menu-form'}
+        ]
+    },
+    {
+        id: 6,
+        title: 'زیرمنو ها',
+        links: [
+            {title: 'زیرمنو ها', href: 'submenus'},
+            {title: 'افزودن زیرمنو', href: 'submenu-form'}
+        ]
+    },
+    {
+        id: 7,
+        title: 'لینک ها',
+        links: [
+            {title: 'لینک ها', href: 'menulinks'},
+            {title: 'افزودن لینک', href: 'menulink-form'}
+        ]
+    },
+    {
+        id: 8,
+        title: 'مقاله ها',
+        links: [
+            {title: 'مقاله ها', href: 'articles'},
+            {title: 'افزودن مقاله', href: 'article-form'}
+        ]
+    },
+]
+
 
 export default data
-export {userCourses, userFavoritesCourses, articles, articleCategories, years, months, days}
+export {userCourses, userFavoritesCourses, articles, articleCategories, years, months, days, sidebarItems}
