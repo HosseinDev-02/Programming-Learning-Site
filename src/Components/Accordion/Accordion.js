@@ -32,8 +32,8 @@ export default function Accordion(props) {
                     props.items.map(item => (
                         <label key={item.title} className='flex items-center gap-3 text-sm cursor-pointer'>
                             <input value={item.title} onChange={props.itemSelectionHandler(this)}
-                                className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
-                                type="radio" name='category'/>
+                                   className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
+                                   type="radio" name='category'/>
                             <span>
                                                 {
                                                     item.title
