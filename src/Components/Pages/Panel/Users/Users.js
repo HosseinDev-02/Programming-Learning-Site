@@ -65,10 +65,10 @@ export default function Users() {
                                 شناسه
                             </th>
                             <th>
-                                نام کامل
+                                تصویر
                             </th>
                             <th>
-                                تصویر
+                                نام کامل
                             </th>
                             <th className='hidden md:table-cell'>
                                 شماره تماس
@@ -76,7 +76,7 @@ export default function Users() {
                             <th className='hidden md:table-cell'>
                                 ایمیل
                             </th>
-                            <th>
+                            <th className='hidden sm:table-cell'>
                                 دسترسی
                             </th>
                             <th className='hidden lg:table-cell'>
@@ -131,13 +131,13 @@ export default function Users() {
                                             }
                                         </td>
                                         <td>
-                                            {`${user.firstname} ${user.lastname}`}
-                                        </td>
-                                        <td>
                                             <div className='w-12 h-12 flex items-center justify-center mx-auto'>
                                                 <img className='rounded-full object-cover' src={user.img}
-                                                     alt={user.firstname}/>
+                                                     alt={`${user.firstname} ${user.lastname}`}/>
                                             </div>
+                                        </td>
+                                        <td>
+                                            {`${user.firstname} ${user.lastname}`}
                                         </td>
                                         <td className='hidden md:table-cell'>
                                             {user.phonenumber}
@@ -145,7 +145,7 @@ export default function Users() {
                                         <td className='hidden md:table-cell'>
                                             {user.email}
                                         </td>
-                                        <td>
+                                        <td className='hidden sm:table-cell'>
                                             {
                                                 user.role ? (
                                                     <span className='bg-green-500 rounded p-0.5'>ادمین/مدرس</span>
@@ -174,6 +174,9 @@ export default function Users() {
                                 ))
                             ) : (
                                 <tr className='text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4'>
+                                    <td className='lg:hidden'>
+
+                                    </td>
                                     <td className='hidden lg:table-cell'>
                                         ---
                                     </td>
@@ -189,7 +192,7 @@ export default function Users() {
                                     <td className='hidden md:table-cell'>
                                         ---
                                     </td>
-                                    <td>
+                                    <td className='hidden sm:table-cell'>
                                         ---
                                     </td>
                                     <td className='hidden lg:table-cell'>

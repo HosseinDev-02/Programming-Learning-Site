@@ -6,8 +6,6 @@ import RoundButton from "../../Buttons/RoundButton";
 
 export default function Panel() {
 
-    const [sideBarShow, setSideBarShow] = useState(false)
-
     return (
         <div className='xl:flex bg-secondary min-h-screen font-YekanBakh-Regular'>
             <svg className='hidden'>

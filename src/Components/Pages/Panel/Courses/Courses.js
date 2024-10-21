@@ -149,10 +149,8 @@ export default function Courses() {
                                             index + 1
                                         }
                                     </td>
-                                    <td>
-                                        {
-                                            course.title
-                                        }
+                                    <td className=''>
+                                        <p className='whitespace-nowrap text-ellipsis overflow-hidden max-w-36 mx-auto'>{course.title}</p>
                                     </td>
                                     <td>
                                         <div className='w-16 h-12 flex items-center justify-center mx-auto'>

@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
 import RoundButton from "../../Buttons/RoundButton";
 import {sidebarItems as items} from "../../../data";
 import Logo from "../../Logo/Logo";
@@ -16,8 +16,14 @@ export default function SideBar() {
         }
     }
 
+    const sidebarSubMenuHandler = () => {
+        setMobileSidebarShow(false)
+        setSelectedItem('')
+    }
+
     return (
         <>
+            {/*Mobile sidebar Header*/}
             <div className='flex xl:hidden items-center justify-between p-4 bg-background'>
                 <RoundButton clickEvent={() => {
                     setMobileSidebarShow(true)
@@ -74,7 +80,7 @@ export default function SideBar() {
                                         className={`bg-secondary space-y-1 rounded overflow-hidden h-0 transition-all ${item.title === selectedItem ? `h-[84px] mt-1` : `h-0`}`}>
                                         {
                                             item.links.map((link, index) => (
-                                                <Link key={index} to={link.href}
+                                                <Link onClick={sidebarSubMenuHandler} key={index} to={link.href}
                                                       className='flex items-center justify-between gap-2 xl:hover:bg-border transition-colors rounded px-2 h-10 cursor-pointer font-YekanBakh-Bold text-title text-xs'>
                                 <span>
                                     {link.title}

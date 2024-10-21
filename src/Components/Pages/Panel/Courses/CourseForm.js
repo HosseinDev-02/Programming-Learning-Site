@@ -131,6 +131,7 @@ export default function CourseForm() {
             user_id: teacherId,
             description: courseDescription
         }
+        console.log(courseNewInfo)
         MySwal.fire({
             title: 'آیا از انجام این کار اطمینان دارید ؟',
             icon: 'question',
@@ -168,6 +169,7 @@ export default function CourseForm() {
             setShortName(mainCourse.shortName)
             setSelectedTeacher(`${mainCourse.users.firstname} ${mainCourse.users.lastname}`)
             setCourseDescription(mainCourse.description)
+            setTeacherId(mainCourse.users.user_id)
         })
     }
 
