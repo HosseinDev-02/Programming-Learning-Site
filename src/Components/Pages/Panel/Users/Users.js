@@ -4,6 +4,7 @@ import {getUsers} from "../../../../Utils";
 import supabase from "../../../../database";
 import {MySwal} from "../../../../Utils";
 import {Link} from "react-router-dom";
+import TableModalActions from "../../../Modals/TableModalAction";
 
 
 export default function Users() {
@@ -91,39 +92,7 @@ export default function Users() {
                                     <tr key={user.user_id}
                                         className='text-center text-xs h-16 font-YekanBakh-Bold odd:bg-background even:bg-secondary child:px-3 child:text-nowrap'>
                                         <td className='lg:hidden'>
-                                            <div className='flex items-center justify-center relative'>
-                                                <span onClick={(elem) => editUsersMenuHandler(elem)}>
-                                                    <svg className='w-4 h-4'>
-                                                        <use href='#submenu'></use>
-                                                    </svg>
-                                                </span>
-                                                <div
-                                                    className='bg-background rounded p-4 absolute bottom-full right-full shadow hidden'>
-                                                    <ul className='flex flex-col gap-4'>
-                                                        <li>
-                                                            <Link to={`../user-form/${user.user_id}`}
-                                                                  className='cursor-pointer text-primary flex items-center gap-1'>
-                                                                <svg className='w-4 h-4'>
-                                                                    <use href='#pencil-mini'></use>
-                                                                </svg>
-                                                                <span
-                                                                    className='text-xs font-YekanBakh-SemiBold'>ویرایش</span>
-                                                            </Link>
-                                                        </li>
-                                                        <li>
-                                                            <span onClick={() => removeUserHandler(user.user_id)}
-                                                                  className='cursor-pointer text-red-500 flex items-center gap-1'>
-                                                                <svg className='w-4 h-4'>
-                                                                        <use href='#x-mark-mini'></use>
-                                                                    </svg>
-                                                                <span className='text-xs font-YekanBakh-SemiBold'>
-                                                                        حذف
-                                                                    </span>
-                                                            </span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                            <TableModalActions removeUserHandler={removeUserHandler} editUserLink={`../user-form/${user.user_id}`}></TableModalActions>
                                         </td>
                                         <td className='hidden lg:table-cell'>
                                             {
