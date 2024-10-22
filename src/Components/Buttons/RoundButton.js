@@ -1,25 +1,25 @@
-export default function RoundButton(props) {
+export default function RoundButton({link, className, href, icon, count, clickEvent}) {
     return (
-        props.link ? (
-            <a className={`flex items-center justify-center rounded-full bg-secondary text-title w-10 h-10 relative ${props.className}`}
-               href={props.href}>
+        link ? (
+            <a className={`flex items-center justify-center rounded-full bg-secondary text-title w-10 h-10 relative ${className}`}
+               href={href}>
                 <svg className='w-5 h-5'>
-                    <use href={props.icon}></use>
+                    <use href={icon}></use>
                 </svg>
                 {
-                    props.count && (
+                    count && (
                         <>
                         <span
-                            className='absolute -left-1 -top-1 bg-primary flex items-center justify-center rounded-full w-5 h-5 font-YekanBakh-SemiBold text-white text-xs'>{props.count}</span>
+                            className='absolute -left-1 -top-1 bg-primary flex items-center justify-center rounded-full w-5 h-5 font-YekanBakh-SemiBold text-white text-xs'>{count}</span>
                             <span className='animate-ping absolute -left-1 -top-1 bg-primary w-5 h-5 rounded-full'></span>
                         </>
                     )
                 }
             </a>
         ) : (
-            <span onClick={props.clickEvent} className={`flex items-center justify-center rounded-full bg-secondary text-title w-10 h-10 ${props.className}`}>
+            <span onClick={clickEvent} className={`flex items-center justify-center rounded-full bg-secondary text-title w-10 h-10 ${className}`}>
                 <svg className='w-5 h-5'>
-                    <use href={props.icon}></use>
+                    <use href={icon}></use>
                 </svg>
             </span>
         )

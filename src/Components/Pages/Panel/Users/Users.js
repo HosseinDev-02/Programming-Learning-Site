@@ -1,10 +1,11 @@
 import SubTitle from "../../../Titles/SubTitle";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {getUsers} from "../../../../Utils";
 import supabase from "../../../../database";
 import {MySwal} from "../../../../Utils";
 import {Link} from "react-router-dom";
 import TableModalActions from "../../../Modals/TableModalAction";
+import RoundButton from "../../../Buttons/RoundButton";
 
 
 export default function Users() {
@@ -19,10 +20,6 @@ export default function Users() {
     async function getAllUsers() {
         const data = await getUsers()
         setUsers(data)
-    }
-
-    function editUsersMenuHandler(elem) {
-        elem.currentTarget.nextSibling.classList.toggle('!block')
     }
 
     async function removeUserHandler(userId) {
@@ -46,6 +43,13 @@ export default function Users() {
                     }
                 }
             })
+    }
+
+    const editUserMenuShow = elem => {
+        elem.currentTarget.nextSibling.classList.add('!flex')
+    }
+    const editUserMenuHide = elem => {
+        elem.currentTarget.parentElement.parentElement.classList.remove('!flex')
     }
 
 
@@ -92,7 +96,58 @@ export default function Users() {
                                     <tr key={user.user_id}
                                         className='text-center text-xs h-16 font-YekanBakh-Bold odd:bg-background even:bg-secondary child:px-3 child:text-nowrap'>
                                         <td className='lg:hidden'>
-                                            <TableModalActions removeUserHandler={removeUserHandler} editUserLink={`../user-form/${user.user_id}`}></TableModalActions>
+                                            <div className='flex items-center justify-center relative'>
+                                                <span onClick={(elem) => editUserMenuShow(elem)}>
+                                                    <svg className='w-4 h-4'>
+                                                        <use href='#submenu'></use>
+                                                    </svg>
+                                                </span>
+                                                <div
+                                                    className='fixed items-center justify-center inset-0 bg-black/30 transition-all hidden'>
+                                                    <div className='max-w-64 w-full flex gap-2 flex-col items-center'>
+                                                        <span onClick={(elem) => editUserMenuHide(elem)}
+                                                              className={`flex items-center justify-center rounded-full bg-secondary text-title w-10 h-10`}>
+                                                            <svg className='w-5 h-5'>
+                                                                <use href='#x-mark-mini'></use>
+                                                            </svg>
+                                                        </span>
+                                                        <ul className='flex flex-col divide-y divide-white/20 gap-1 w-full rounded-xl overflow-hidden bg-secondary p-2'>
+                                                            <li className='py-2 px-2 text-primary'>
+                                                                <Link className='flex items-center gap-1'
+                                                                      to={`../user-form/${user.user_id}`}>
+                        <span>
+                            <svg className='w-4 h-4'>
+                                <use href='#pencil-mini'></use>
+                            </svg>
+                        </span>
+                                                                    <span
+                                                                        className='text-sm font-YekanBakh-SemiBold'>ویرایش</span>
+                                                                </Link>
+                                                            </li>
+                                                            <li className='py-2 px-2 text-red-500'>
+                        <span onClick={() => removeUserHandler(user.user_id)} className='flex items-center gap-1'>
+                        <span>
+                            <svg className='w-4 h-4'>
+                                <use href='#trash-mini'></use>
+                            </svg>
+                        </span>
+                            <span className='text-sm font-YekanBakh-SemiBold'>حذف</span>
+                        </span>
+                                                            </li>
+                                                            <li className='py-2 px-2 text-black'>
+                        <span className='flex items-center gap-1'>
+                        <span>
+                            <svg className='w-4 h-4'>
+                                <use href='#clipboard-mini'></use>
+                            </svg>
+                        </span>
+                            <span className='text-sm font-YekanBakh-SemiBold'>جزئیات</span>
+                        </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                         <td className='hidden lg:table-cell'>
                                             {
