@@ -3,8 +3,9 @@
 }
 
 .swal2-title {
-    color: rgb(var(--color-caption)) !important;
-    font-size: 24px;
+    color: rgb(var(--color-title)) !important;
+    font-size: 18px;
+    font-family: YekanBakh SemiBold;
 }
 
 .swal2-html-container {
@@ -14,8 +15,17 @@
 .swal2-icon {
     color: rgb(var(--color-primary)) !important;
     border-color: rgb(var(--color-primary)) !important;
+    margin: 1.5em auto .6em;
 }
 
+div:where(.swal2-icon) {
+    width: 4em;
+    height: 4em;
+    border: 0.2em solid rgba(0,0,0,0);
+}
+div:where(.swal2-icon).swal2-question.swal2-icon-show .swal2-icon-content {
+    font-size: 2.75em !important;
+}
 div:where(.swal2-icon).swal2-success {
     color: rgb(var(--color-success)) !important;
     border-color: rgb(var(--color-success)) !important;
@@ -56,6 +66,17 @@ div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel) {
 @media (min-width: 768px) {
     .swal2-title {
         font-size: 30px;
+    }
+    .swal2-icon {
+        margin: 2.5em auto .6em;
+    }
+    div:where(.swal2-icon) {
+        width: 5em;
+        height: 5em;
+        border: 0.25em solid rgba(0,0,0,0);
+    }
+    div:where(.swal2-icon).swal2-question.swal2-icon-show .swal2-icon-content {
+        font-size: 3.75em !important;
     }
 }
 
