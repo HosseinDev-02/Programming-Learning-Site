@@ -1,26 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function TableModalAction({userId, setSelectedUserAction, selectedUserAction, removeUserHandler, setShowDetailModal}) {
+import RoundButton from "../Buttons/RoundButton";
+function TableModalAction({id, setSelectedItemAction, selectedItemAction, removeHandler, setShowDetailModal, editHandler}) {
     return (
         <div
             className={`fixed items-center justify-center inset-0 bg-black/30 transition-all ${
-                selectedUserAction === userId ? "flex" : "hidden"
+                selectedItemAction === id ? "flex" : "hidden"
             }`}
         >
             <div className="max-w-64 w-full flex gap-2 flex-col items-center">
-                <span
-                    onClick={() => setSelectedUserAction("")}
-                    className={`flex items-center justify-center rounded-full bg-secondary text-title w-10 h-10`}
-                >
-                    <svg className="w-5 h-5">
-                        <use href="#x-mark-mini"></use>
-                    </svg>
-                </span>
+                <RoundButton icon='#x-mark-mini' clickEvent={() => setSelectedItemAction('')}></RoundButton>
                 <ul className="flex flex-col divide-y divide-white/20 gap-1 w-full rounded-xl overflow-hidden bg-secondary p-2">
                     <li className="py-2 px-2 text-primary">
                         <Link
                             className="flex items-center gap-1"
-                            to={`../user-form/${userId}`}
+                            to={editHandler}
                         >
                             <span>
                                 <svg className="w-4 h-4">
@@ -34,7 +28,7 @@ function TableModalAction({userId, setSelectedUserAction, selectedUserAction, re
                     </li>
                     <li className="py-2 px-2 text-red-500">
                         <span
-                            onClick={() => removeUserHandler(userId)}
+                            onClick={() => removeHandler(id)}
                             className="flex items-center gap-1"
                         >
                             <span>

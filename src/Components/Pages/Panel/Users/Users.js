@@ -91,7 +91,22 @@ export default function Users() {
                                                     </svg>
                                                 </span>
                                                 {/* User Actions Modal */}
-                                                <TableModalAction selectedUserAction={selectedUserAction} userId={user.user_id} setSelectedUserAction={setSelectedUserAction} removeUserHandler={removeUserHandler} setShowDetailModal={setShowDetailModal}></TableModalAction>
+                                                <TableModalAction
+                                                    editHandler={`../user-form/${user.user_id}`}
+                                                    selectedItemAction={
+                                                        selectedUserAction
+                                                    }
+                                                    id={user.user_id}
+                                                    setSelectedItemAction={
+                                                        setSelectedUserAction
+                                                    }
+                                                    removeHandler={
+                                                        removeUserHandler
+                                                    }
+                                                    setShowDetailModal={
+                                                        setShowDetailModal
+                                                    }
+                                                ></TableModalAction>
                                                 {/* User Detail Modal */}
                                                 <div
                                                     className={`fixed inset-0 items-center justify-center gap-2 flex-col bg-black/30 ${
@@ -128,9 +143,9 @@ export default function Users() {
                                                             <span className="text-primary font-YekanBakh-Black">
                                                                 تصویر
                                                             </span>
-                                                            <span>
+                                                            <span className="w-24 h-12 mx-auto rounded-md overflow-hidden">
                                                                 <img
-                                                                    className="w-12 h-12 mx-auto rounded-full object-cover"
+                                                                    className="w-full h-full object-cover"
                                                                     src={
                                                                         user.img
                                                                     }
@@ -163,9 +178,15 @@ export default function Users() {
                                                                 سطح دسترسی
                                                             </span>
                                                             <span className="text-caption">
-                                                                {user.role
-                                                                    ? "ادمین/مدرس"
-                                                                    : "دانشجو/کاربر"}
+                                                                {user.role ? (
+                                                                    <span className="bg-green-500 rounded p-0.5">
+                                                                        ادمین/مدرس
+                                                                    </span>
+                                                                ) : (
+                                                                    <span className="bg-yellow-500 rounded p-0.5">
+                                                                        کاربر/دانشجو
+                                                                    </span>
+                                                                )}
                                                             </span>
                                                         </div>
                                                     </div>
