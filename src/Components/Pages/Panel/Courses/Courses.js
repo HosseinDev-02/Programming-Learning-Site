@@ -4,21 +4,23 @@ import { useEffect, useState } from "react";
 import supabase from "../../../../database";
 import { getCourses, MySwal } from "../../../../Utils";
 import TableModalAction from "../../../Modals/TableModalAction";
+import TableModalDetail from "../../../Modals/TableModalDetail";
+import EmptyTableMsg from "../../../Modals/EmptyTableMsg";
 
 export default function Courses() {
     const [courses, setCourses] = useState([]);
-    const [getData, setGetData] = useState(false);
-    const [selectedCourse, setSelectedCourse] = useState("");
     const [showDetailModal, setShowDetailModal] = useState(false);
+    const [showActionModal, setShowActionModal] = useState(false);
+    const [mainCourse, setMainCourse] = useState({});
+    const [courseId, setCourseId] = useState(null);
 
     useEffect(() => {
         getAllCourses();
-    }, [getData]);
+    }, []);
 
     async function getAllCourses() {
         const data = await getCourses();
         setCourses(data);
-        console.log(data);
     }
 
     function removeCourseHandler(courseId) {
@@ -40,15 +42,27 @@ export default function Courses() {
                         icon: "success",
                         confirmButtonText: "اوکی",
                     });
-                    setGetData((prevState) => !prevState);
+                    getAllCourses();
                 }
             }
         });
     }
 
-    function editCourseMenuHandler(elem) {
-        elem.currentTarget.nextSibling.classList.toggle("!block");
-    }
+    const showActionModalHandler = () => {
+        setShowActionModal(true);
+    };
+
+    const closeActionModalHandler = () => {
+        setShowActionModal(false);
+    };
+
+    const showDetailModalHandler = () => {
+        setShowDetailModal(true);
+    };
+
+    const closeDetailModalHandler = () => {
+        setShowDetailModal(false);
+    };
 
     function showCourseText(text) {
         MySwal.fire({
@@ -67,26 +81,32 @@ export default function Courses() {
                 ></SubTitle>
             </div>
             <div className="pt-8 md:pt-10 relative">
-                <table className="w-full z-10">
-                    <thead className="text-xs h-12 font-YekanBakh-Black child:text-nowrap">
-                        <tr className="border-b border-border child:px-3">
-                            <th className="lg:hidden"></th>
-                            <th className="hidden lg:table-cell">شناسه</th>
-                            <th>عنوان</th>
-                            <th>تصویر</th>
-                            <th className="hidden sm:table-cell">قیمت</th>
-                            <th className="hidden md:table-cell">تخفیف</th>
-                            <th className="hidden md:table-cell">تایم آموزش</th>
-                            <th className="hidden md:table-cell">فصل ها</th>
-                            <th className="hidden md:table-cell">وضعیت</th>
-                            <th className="hidden sm:table-cell">توضیحات</th>
-                            <th className="hidden lg:table-cell">نام کوتاه</th>
-                            <th className="hidden lg:table-cell">عمل ها</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {courses.length ? (
-                            courses.map((course, index) => (
+                {courses.length ? (
+                    <table className="w-full z-10">
+                        <thead className="text-xs h-12 font-YekanBakh-Black child:text-nowrap">
+                            <tr className="border-b border-border child:px-3">
+                                <th className="lg:hidden"></th>
+                                <th className="hidden lg:table-cell">شناسه</th>
+                                <th>عنوان</th>
+                                <th>تصویر</th>
+                                <th className="hidden sm:table-cell">قیمت</th>
+                                <th className="hidden md:table-cell">تخفیف</th>
+                                <th className="hidden md:table-cell">
+                                    تایم آموزش
+                                </th>
+                                <th className="hidden md:table-cell">فصل ها</th>
+                                <th className="hidden md:table-cell">وضعیت</th>
+                                <th className="hidden sm:table-cell">
+                                    توضیحات
+                                </th>
+                                <th className="hidden lg:table-cell">
+                                    نام کوتاه
+                                </th>
+                                <th className="hidden lg:table-cell">عمل ها</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {courses.map((course, index) => (
                                 <tr
                                     key={course.course_id}
                                     className="text-center text-xs h-16 font-YekanBakh-Bold odd:bg-background even:bg-secondary child:px-3 child:text-nowrap"
@@ -94,149 +114,18 @@ export default function Courses() {
                                     <td className="lg:hidden">
                                         <div className="flex items-center justify-center relative">
                                             <span
-                                                onClick={() =>
-                                                    setSelectedCourse(
+                                                onClick={() => {
+                                                    showActionModalHandler();
+                                                    setCourseId(
                                                         course.course_id
-                                                    )
-                                                }
+                                                    );
+                                                    setMainCourse(course);
+                                                }}
                                             >
                                                 <svg className="w-4 h-4">
                                                     <use href="#submenu"></use>
                                                 </svg>
                                             </span>
-                                            <TableModalAction
-                                                id={course.course_id}
-                                                removeHandler={
-                                                    removeCourseHandler
-                                                }
-                                                selectedItemAction={
-                                                    selectedCourse
-                                                }
-                                                setSelectedItemAction={
-                                                    setSelectedCourse
-                                                }
-                                                setShowDetailModal={
-                                                    setShowDetailModal
-                                                }
-                                                editHandler={`../course-form/${course.course_id}`}
-                                            ></TableModalAction>
-                                            {/* User Detail Modal */}
-                                            <div
-                                                className={`fixed inset-0 items-center justify-center gap-2 flex-col bg-black/30 ${
-                                                    selectedCourse ===
-                                                        course.course_id &&
-                                                    showDetailModal
-                                                        ? "flex"
-                                                        : "hidden"
-                                                }`}
-                                            >
-                                                <span
-                                                    className="flex items-center justify-center bg-secondary w-10 h-10 rounded-full"
-                                                    onClick={() =>
-                                                        setShowDetailModal(
-                                                            false
-                                                        )
-                                                    }
-                                                >
-                                                    <svg className="w-5 h-5">
-                                                        <use href="#x-mark-mini"></use>
-                                                    </svg>
-                                                </span>
-                                                <div className="flex flex-col p-2 rounded-md bg-secondary divide-y divide-border relative max-w-64 w-full overflow-y-auto overflow-x-hidden text-wrap">
-                                                    <h3 className="font-YekanBakh-Black text-title text-lg pb-2">
-                                                        مشخصات دوره
-                                                    </h3>
-                                                    <div className="flex flex-col gap-1 py-2">
-                                                        <span className="text-primary font-YekanBakh-Black">
-                                                            عنوان دوره
-                                                        </span>
-                                                        <span className="text-caption">
-                                                            {course.title}
-                                                        </span>
-                                                    </div>
-                                                    <div className="flex flex-col gap-1 py-2">
-                                                        <span className="text-primary font-YekanBakh-Black">
-                                                            تصویر
-                                                        </span>
-                                                        <span className="w-24 h-12 mx-auto rounded-md overflow-hidden">
-                                                            <img
-                                                                className="w-full h-full object-cover"
-                                                                src={
-                                                                    course.courseImg
-                                                                }
-                                                                alt={
-                                                                    course.title
-                                                                }
-                                                            />
-                                                        </span>
-                                                    </div>
-                                                    <div className="flex flex-col gap-1 py-2">
-                                                        <span className="text-primary font-YekanBakh-Black">
-                                                            قیمت
-                                                        </span>
-                                                        <span className="text-caption">
-                                                            {course.price}
-                                                        </span>
-                                                    </div>
-                                                    <div className="flex flex-col gap-1 py-2">
-                                                        <span className="text-primary font-YekanBakh-Black">
-                                                            تخفیف
-                                                        </span>
-                                                        <span className="text-caption">
-                                                            {course.offer}
-                                                        </span>
-                                                    </div>
-                                                    <div className="flex flex-col gap-1 py-2">
-                                                        <span className="text-primary font-YekanBakh-Black">
-                                                            تایم آموزش
-                                                        </span>
-                                                        <span className="text-caption">
-                                                            {course.totalTime}
-                                                        </span>
-                                                    </div>
-                                                    <div className="flex flex-col gap-1 py-2">
-                                                        <span className="text-primary font-YekanBakh-Black">
-                                                            فصل ها
-                                                        </span>
-                                                        <span className="text-caption">
-                                                            {course.sections}
-                                                        </span>
-                                                    </div>
-                                                    <div className="flex flex-col gap-1 py-2">
-                                                        <span className="text-primary font-YekanBakh-Black">
-                                                            وضعیت
-                                                        </span>
-                                                        <span className="text-caption">
-                                                            {course.isCompleted ? (
-                                                                <span className="bg-green-500 rounded p-0.5">
-                                                                    تکمیل شده
-                                                                </span>
-                                                            ) : (
-                                                                <span className="bg-yellow-500 rounded p-0.5">
-                                                                    درحال
-                                                                    برگزاری
-                                                                </span>
-                                                            )}
-                                                        </span>
-                                                    </div>
-                                                    <div className="flex flex-col gap-1 py-2">
-                                                        <span className="text-primary font-YekanBakh-Black">
-                                                            توضیحات
-                                                        </span>
-                                                        <span className="text-caption">
-                                                            {course.description}
-                                                        </span>
-                                                    </div>
-                                                    <div className="flex flex-col gap-1 py-2">
-                                                        <span className="text-primary font-YekanBakh-Black">
-                                                            نام کوتاه
-                                                        </span>
-                                                        <span className="text-caption">
-                                                            {course.shortName}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </td>
                                     <td className="hidden lg:table-cell">
@@ -325,25 +214,109 @@ export default function Courses() {
                                         </div>
                                     </td>
                                 </tr>
-                            ))
-                        ) : (
-                            <tr className="text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4 font-YekanBakh-SemiBold">
-                                <td className="lg:hidden">---</td>
-                                <td className="hidden lg:table-cell">---</td>
-                                <td>---</td>
-                                <td>---</td>
-                                <td className="hidden sm:table-cell">---</td>
-                                <td className="hidden md:table-cell">---</td>
-                                <td className="hidden md:table-cell">---</td>
-                                <td className="hidden md:table-cell">---</td>
-                                <td className="hidden md:table-cell">---</td>
-                                <td className="hidden sm:table-cell">---</td>
-                                <td className="hidden lg:table-cell">---</td>
-                                <td className="hidden lg:table-cell">---</td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
+                            ))}
+                        </tbody>
+                    </table>
+                ) : (
+                    <EmptyTableMsg title="دوره ای یافت نشد !"></EmptyTableMsg>
+                )}
+
+                {/* Course Action Modal */}
+
+                {showActionModal && (
+                    <TableModalAction
+                        id={courseId}
+                        closeActionModalHandler={closeActionModalHandler}
+                        removeHandler={removeCourseHandler}
+                        showDetailModalHandler={showDetailModalHandler}
+                        editHandler={`../course-form/${courseId}`}
+                    ></TableModalAction>
+                )}
+
+                {/* User Detail Modal */}
+                {showDetailModal && (
+                    <TableModalDetail
+                        closeDetailModalHandler={closeDetailModalHandler}
+                        title="مشخصات دوره"
+                    >
+                        <div className="flex flex-col items-center gap-2 py-2">
+                            <span className="text-primary font-YekanBakh-Black">
+                                نام دوره
+                            </span>
+                            <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                {mainCourse.title}
+                            </span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2 py-2">
+                            <span className="text-primary font-YekanBakh-Black">
+                                تصویر
+                            </span>
+                            <span className="w-16 h-16 mx-auto rounded-md overflow-hidden">
+                                <img
+                                    className="w-full h-full object-cover"
+                                    src={mainCourse.courseImg}
+                                    alt={mainCourse.title}
+                                />
+                            </span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2 py-2">
+                            <span className="text-primary font-YekanBakh-Black">
+                                قیمت
+                            </span>
+                            <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                {mainCourse.price.toLocaleString()}
+                            </span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2 py-2">
+                            <span className="text-primary font-YekanBakh-Black">
+                                تخفیف
+                            </span>
+                            <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                {mainCourse.offer}
+                            </span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2 py-2">
+                            <span className="text-primary font-YekanBakh-Black">
+                                وضعیت
+                            </span>
+                            <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                {mainCourse.isCompleted ? (
+                                    <span className="bg-green-500 rounded p-0.5">
+                                        تکمیل شده
+                                    </span>
+                                ) : (
+                                    <span className="bg-yellow-500 rounded p-0.5">
+                                        درحال برگزاری
+                                    </span>
+                                )}
+                            </span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2 py-2">
+                            <span className="text-primary font-YekanBakh-Black">
+                                تایم دوره
+                            </span>
+                            <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                {mainCourse.totalTime}
+                            </span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2 py-2">
+                            <span className="text-primary font-YekanBakh-Black">
+                                فصل ها
+                            </span>
+                            <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                {mainCourse.sections}
+                            </span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2 py-2">
+                            <span className="text-primary font-YekanBakh-Black">
+                                مدرس دوره
+                            </span>
+                            <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                {`${mainCourse.users.firstname} ${mainCourse.users.lastname}`}
+                            </span>
+                        </div>
+                    </TableModalDetail>
+                )}
             </div>
         </div>
     );

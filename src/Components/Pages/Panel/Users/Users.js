@@ -50,20 +50,20 @@ export default function Users() {
     }
 
     const showActionModalHandler = () => {
-        setShowActionModal(true)
-    }
+        setShowActionModal(true);
+    };
 
     const closeActionModalHandler = () => {
-        setShowActionModal(false)
-    }
+        setShowActionModal(false);
+    };
 
     const showDetailModalHandler = () => {
-        setShowDetailModal(true)
-    }
+        setShowDetailModal(true);
+    };
 
     const closeDetailModalHandler = () => {
-        setShowDetailModal(false)
-    }
+        setShowDetailModal(false);
+    };
 
     return (
         <div className="w-full h-full">
@@ -109,7 +109,7 @@ export default function Users() {
                                             <div className="flex items-center justify-center relative">
                                                 <span
                                                     onClick={() => {
-                                                        showActionModalHandler()
+                                                        showActionModalHandler();
                                                         setMainUser(user);
                                                         setUserId(user.user_id);
                                                     }}
@@ -179,7 +179,7 @@ export default function Users() {
                             </tbody>
                         </table>
                     ) : (
-                        <EmptyTableMsg title='کاربری وجود ندارد !'></EmptyTableMsg>
+                        <EmptyTableMsg title="کاربری وجود ندارد !"></EmptyTableMsg>
                     )}
                     {/* User Actions Modal */}
                     {showActionModal && (
