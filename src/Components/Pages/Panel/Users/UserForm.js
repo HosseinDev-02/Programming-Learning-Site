@@ -5,6 +5,7 @@ import supabase from "../../../../database";
 import SubTitle from "../../../Titles/SubTitle";
 import useInput from "../../../../hooks/useInput";
 import useMainParam from "../../../../hooks/useMainParam";
+import { useNavigate } from "react-router-dom";
 
 
 export default function UserForm() {
@@ -16,6 +17,7 @@ export default function UserForm() {
     const [userImg, setUserImg] = useState('')
     const [userRole, setUserRole] = useState(false)
     const userId = useMainParam()
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -53,8 +55,11 @@ export default function UserForm() {
                 title: 'بروزرسانی انجام شد',
                 icon: 'success',
                 confirmButtonText: 'اوکی'
+            }).then(res => {
+                if(res.isConfirmed || res.isDismissed) {
+                    navigate(-2)
+                }
             })
-            window.history.back()
         }
     }
 
@@ -182,7 +187,7 @@ export default function UserForm() {
                         <>
                             <PrimaryButton clickEvent={() => editUser()} icon='#check'
                                            title='بروزرسانی'></PrimaryButton>
-                            <PrimaryButton className='bg-red-500' clickEvent={() => window.history.back()}
+                            <PrimaryButton className='bg-red-500' clickEvent={() => navigate(-1)}
                                            icon='#x-mark' title='بازگشت'></PrimaryButton>
                         </>
                     ) : (

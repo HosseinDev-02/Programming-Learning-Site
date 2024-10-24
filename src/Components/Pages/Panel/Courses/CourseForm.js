@@ -3,7 +3,7 @@ import PrimaryButton from "../../../Buttons/PrimaryButton";
 import {useEffect, useState} from "react";
 import supabase from "../../../../database";
 import {getCategories, getCourses, getUsers, MySwal} from "../../../../Utils";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import useInput from "../../../../hooks/useInput";
 import useMainParam from "../../../../hooks/useMainParam";
 
@@ -11,6 +11,7 @@ export default function CourseForm() {
 
     const [courseIsFree, setCourseIsFree] = useState(false)
     const [courseIsCompleted, setCourseIsCompleted] = useState(false)
+    const navigate = useNavigate()
     const [
         courseTitle,
         setCourseTitle,
@@ -145,8 +146,11 @@ export default function CourseForm() {
                     if (data.status === 204) {
                         MySwal.fire({
                             title: 'بروزرسانی انجام شد', icon: 'success', confirmButtonText: 'اوکی'
+                        }).then(res => {
+                            if(res.isConfirmed || res.isDismissed) {
+                                navigate(-2)
+                            }
                         })
-                        window.history.back()
                     }
                 }
             })
@@ -388,7 +392,7 @@ export default function CourseForm() {
             {mainCourseId ? (<>
                 <PrimaryButton clickEvent={() => editCourse()} icon='#check'
                                title='بروزرسانی'></PrimaryButton>
-                <PrimaryButton className='bg-red-500' clickEvent={() => window.history.back()}
+                <PrimaryButton className='bg-red-500' clickEvent={() => navigate(-1)}
                                icon='#x-mark' title='بازگشت'></PrimaryButton>
             </>) : (<PrimaryButton clickEvent={() => addNewCourse()} icon='#check'
                                    title='ثبت دوره جدید'></PrimaryButton>)}

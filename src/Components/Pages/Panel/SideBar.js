@@ -32,11 +32,9 @@ export default function SideBar() {
             </div>
             {/*Mobile sidebar cover menu*/}
             <div onClick={() => setMobileSidebarShow(prevState => !prevState)}
-                 style={mobileSidebarShow ? {visibility: 'visible', opacity: '1'} : {}}
-                 className='fixed inset-0 bg-title/30 invisible opacity-0 transition-all z-20'></div>
+                 className={`xl:hidden fixed inset-0 bg-title/30 transition-all z-20 ${mobileSidebarShow ? 'visible opacity-100' : 'invisible opacity-0'}`}></div>
             {/*Desktop sidebar menu*/}
-            <div style={mobileSidebarShow ? {right: '0'} : {right: '-256px'}}
-                 className='bg-background transition-all fixed -right-64 top-0 bottom-0 min-h-screen z-30 xl:static w-64 rounded-l-2xl divide-y divide-border shrink-0 px-2'>
+            <div className={`bg-background transition-all fixed top-0 bottom-0 min-h-screen z-30 xl:static w-64 rounded-l-2xl divide-y divide-border shrink-0 px-2 ${mobileSidebarShow ? 'right-0' : '-right-64'}`}>
 
                 <div className='flex items-center justify-between pb-4 md:pb-0 pt-4'>
                     <div className='flex flex-col items-center md:gap-2 md:pb-4 md:w-full'>
@@ -47,7 +45,11 @@ export default function SideBar() {
                         محتوای خود را مدیریت کنید
                     </span>
                     </div>
-                    <RoundButton className='md:hidden' icon='#x-mark'></RoundButton>
+                    {
+                        mobileSidebarShow && (
+                            <RoundButton clickEvent={() => setMobileSidebarShow(false)} className='xl:hidden absolute top-1 -left-1 -translate-x-full' icon='#x-mark'></RoundButton>
+                        )
+                    }
                 </div>
 
                 <div className='pt-8'>

@@ -42,6 +42,7 @@ export default function Courses() {
                         icon: "success",
                         confirmButtonText: "اوکی",
                     });
+                    setShowActionModal(false)
                     getAllCourses();
                 }
             }
