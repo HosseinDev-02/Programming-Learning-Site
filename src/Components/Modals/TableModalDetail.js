@@ -1,12 +1,12 @@
 import React from "react";
 
-function TableModalDetail({ children, title, setShowDetailModal }) {
+function TableModalDetail({ children, title, closeDetailModalHandler }) {
     return (
         <div>
             <div className="fixed flex inset-0 items-center justify-center gap-2 flex-col bg-black/30">
                 <span
                     className="flex items-center justify-center bg-secondary w-10 h-10 rounded-full"
-                    onClick={() => setShowDetailModal(false)}
+                    onClick={closeDetailModalHandler}
                 >
                     <svg className="w-5 h-5">
                         <use href="#x-mark-mini"></use>

@@ -10,8 +10,6 @@ import EmptyTableMsg from "../../../Modals/EmptyTableMsg";
 
 export default function Users() {
     const [users, setUsers] = useState([]);
-    const [getData, setGetData] = useState(false);
-    const [selectedUserAction, setSelectedUserAction] = useState("");
     const [showDetailModal, setShowDetailModal] = useState(false);
     const [showActionModal, setShowActionModal] = useState(false);
     const [mainUser, setMainUser] = useState({});
@@ -49,6 +47,22 @@ export default function Users() {
                 }
             }
         });
+    }
+
+    const showActionModalHandler = () => {
+        setShowActionModal(true)
+    }
+
+    const closeActionModalHandler = () => {
+        setShowActionModal(false)
+    }
+
+    const showDetailModalHandler = () => {
+        setShowDetailModal(true)
+    }
+
+    const closeDetailModalHandler = () => {
+        setShowDetailModal(false)
     }
 
     return (
@@ -95,9 +109,7 @@ export default function Users() {
                                             <div className="flex items-center justify-center relative">
                                                 <span
                                                     onClick={() => {
-                                                        setShowActionModal(
-                                                            true
-                                                        );
+                                                        showActionModalHandler()
                                                         setMainUser(user);
                                                         setUserId(user.user_id);
                                                     }}
@@ -173,17 +185,16 @@ export default function Users() {
                     {showActionModal && (
                         <TableModalAction
                             editHandler={`../user-form/${userId}`}
-                            selectedItemAction={selectedUserAction}
                             id={userId}
-                            setShowActionModal={setShowActionModal}
+                            closeActionModalHandler={closeActionModalHandler}
                             removeHandler={removeUserHandler}
-                            setShowDetailModal={setShowDetailModal}
+                            showDetailModalHandler={showDetailModalHandler}
                         ></TableModalAction>
                     )}
                     {/* User Detail Modal */}
                     {showDetailModal && (
                         <TableModalDetail
-                            setShowDetailModal={setShowDetailModal}
+                            closeDetailModalHandler={closeDetailModalHandler}
                             title="مشخصات کاربر"
                         >
                             <div className="flex flex-col items-center gap-2 py-2">
