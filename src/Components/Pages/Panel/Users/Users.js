@@ -5,16 +5,21 @@ import supabase from "../../../../database";
 import { MySwal } from "../../../../Utils";
 import { Link } from "react-router-dom";
 import TableModalAction from "../../../Modals/TableModalAction";
+import TableModalDetail from "../../../Modals/TableModalDetail";
+import EmptyTableMsg from "../../../Modals/EmptyTableMsg";
 
 export default function Users() {
     const [users, setUsers] = useState([]);
     const [getData, setGetData] = useState(false);
     const [selectedUserAction, setSelectedUserAction] = useState("");
     const [showDetailModal, setShowDetailModal] = useState(false);
+    const [showActionModal, setShowActionModal] = useState(false);
+    const [mainUser, setMainUser] = useState({});
+    const [userId, setUserId] = useState(null);
 
     useEffect(() => {
         getAllUsers();
-    }, [getData]);
+    }, []);
 
     async function getAllUsers() {
         const data = await getUsers();
@@ -39,7 +44,8 @@ export default function Users() {
                         icon: "success",
                         confirmButtonText: "اوکی",
                     });
-                    setGetData((prevState) => !prevState);
+                    setShowActionModal(false);
+                    getAllUsers();
                 }
             }
         });
@@ -55,24 +61,32 @@ export default function Users() {
             </div>
             <div>
                 <div className="pt-8 md:pt-10">
-                    <table className="w-full">
-                        <thead className="text-sm h-12 text-center font-YekanBakh-Black text-title child:text-nowrap">
-                            <tr className="border-b border-border child:px-2">
-                                <th className="lg:hidden"></th>
-                                <th className="hidden lg:table-cell">شناسه</th>
-                                <th>تصویر</th>
-                                <th>نام کامل</th>
-                                <th className="hidden md:table-cell">
-                                    شماره تماس
-                                </th>
-                                <th className="hidden md:table-cell">ایمیل</th>
-                                <th className="hidden sm:table-cell">دسترسی</th>
-                                <th className="hidden lg:table-cell">عمل ها</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {users.length ? (
-                                users.map((user, index) => (
+                    {users.length ? (
+                        <table className="w-full">
+                            <thead className="text-sm h-12 text-center font-YekanBakh-Black text-title child:text-nowrap">
+                                <tr className="border-b border-border child:px-2">
+                                    <th className="lg:hidden"></th>
+                                    <th className="hidden lg:table-cell">
+                                        شناسه
+                                    </th>
+                                    <th>تصویر</th>
+                                    <th>نام کامل</th>
+                                    <th className="hidden md:table-cell">
+                                        شماره تماس
+                                    </th>
+                                    <th className="hidden md:table-cell">
+                                        ایمیل
+                                    </th>
+                                    <th className="hidden sm:table-cell">
+                                        دسترسی
+                                    </th>
+                                    <th className="hidden lg:table-cell">
+                                        عمل ها
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {users.map((user, index) => (
                                     <tr
                                         key={user.user_id}
                                         className="text-center text-xs h-16 font-YekanBakh-Bold odd:bg-background even:bg-secondary child:px-3 child:text-nowrap"
@@ -80,117 +94,18 @@ export default function Users() {
                                         <td className="lg:hidden">
                                             <div className="flex items-center justify-center relative">
                                                 <span
-                                                    onClick={() =>
-                                                        setSelectedUserAction(
-                                                            user.user_id
-                                                        )
-                                                    }
+                                                    onClick={() => {
+                                                        setShowActionModal(
+                                                            true
+                                                        );
+                                                        setMainUser(user);
+                                                        setUserId(user.user_id);
+                                                    }}
                                                 >
                                                     <svg className="w-4 h-4">
                                                         <use href="#submenu"></use>
                                                     </svg>
                                                 </span>
-                                                {/* User Actions Modal */}
-                                                <TableModalAction
-                                                    editHandler={`../user-form/${user.user_id}`}
-                                                    selectedItemAction={
-                                                        selectedUserAction
-                                                    }
-                                                    id={user.user_id}
-                                                    setSelectedItemAction={
-                                                        setSelectedUserAction
-                                                    }
-                                                    removeHandler={
-                                                        removeUserHandler
-                                                    }
-                                                    setShowDetailModal={
-                                                        setShowDetailModal
-                                                    }
-                                                ></TableModalAction>
-                                                {/* User Detail Modal */}
-                                                <div
-                                                    className={`fixed inset-0 items-center justify-center gap-2 flex-col bg-black/30 ${
-                                                        selectedUserAction ===
-                                                            user.user_id &&
-                                                        showDetailModal
-                                                            ? "flex"
-                                                            : "hidden"
-                                                    }`}
-                                                >
-                                                    <span
-                                                        className="flex items-center justify-center bg-secondary w-10 h-10 rounded-full"
-                                                        onClick={() =>
-                                                            setShowDetailModal(
-                                                                false
-                                                            )
-                                                        }
-                                                    >
-                                                        <svg className="w-5 h-5">
-                                                            <use href="#x-mark-mini"></use>
-                                                        </svg>
-                                                    </span>
-                                                    <div className="flex flex-col p-2 rounded-md bg-secondary divide-y divide-border relative max-w-64 w-full">
-                                                        <h3 className="font-YekanBakh-Black text-title text-lg pb-2">
-                                                            مشخصات کاربر
-                                                        </h3>
-                                                        <div className="flex flex-col gap-1 py-2">
-                                                            <span className="text-primary font-YekanBakh-Black">
-                                                                نام کامل
-                                                            </span>
-                                                            <span className="text-caption">{`${user.firstname} ${user.lastname}`}</span>
-                                                        </div>
-                                                        <div className="flex flex-col gap-1 py-2">
-                                                            <span className="text-primary font-YekanBakh-Black">
-                                                                تصویر
-                                                            </span>
-                                                            <span className="w-24 h-12 mx-auto rounded-md overflow-hidden">
-                                                                <img
-                                                                    className="w-full h-full object-cover"
-                                                                    src={
-                                                                        user.img
-                                                                    }
-                                                                    alt={
-                                                                        user.firstname
-                                                                    }
-                                                                />
-                                                            </span>
-                                                        </div>
-                                                        <div className="flex flex-col gap-1 py-2">
-                                                            <span className="text-primary font-YekanBakh-Black">
-                                                                شماره تماس
-                                                            </span>
-                                                            <span className="text-caption">
-                                                                {
-                                                                    user.phonenumber
-                                                                }
-                                                            </span>
-                                                        </div>
-                                                        <div className="flex flex-col gap-1 py-2">
-                                                            <span className="text-primary font-YekanBakh-Black">
-                                                                ایمیل
-                                                            </span>
-                                                            <span className="text-caption">
-                                                                {user.email}
-                                                            </span>
-                                                        </div>
-                                                        <div className="flex flex-col gap-1 py-2">
-                                                            <span className="text-primary font-YekanBakh-Black">
-                                                                سطح دسترسی
-                                                            </span>
-                                                            <span className="text-caption">
-                                                                {user.role ? (
-                                                                    <span className="bg-green-500 rounded p-0.5">
-                                                                        ادمین/مدرس
-                                                                    </span>
-                                                                ) : (
-                                                                    <span className="bg-yellow-500 rounded p-0.5">
-                                                                        کاربر/دانشجو
-                                                                    </span>
-                                                                )}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </td>
                                         <td className="hidden lg:table-cell">
@@ -248,31 +163,81 @@ export default function Users() {
                                             </div>
                                         </td>
                                     </tr>
-                                ))
-                            ) : (
-                                <tr className="text-center text-sm h-20 odd:bg-background even:bg-secondary child:px-4">
-                                    <td className="lg:hidden"></td>
-                                    <td className="hidden lg:table-cell">
-                                        ---
-                                    </td>
-                                    <td>---</td>
-                                    <td>---</td>
-                                    <td className="hidden md:table-cell">
-                                        ---
-                                    </td>
-                                    <td className="hidden md:table-cell">
-                                        ---
-                                    </td>
-                                    <td className="hidden sm:table-cell">
-                                        ---
-                                    </td>
-                                    <td className="hidden lg:table-cell">
-                                        ---
-                                    </td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
+                                ))}
+                            </tbody>
+                        </table>
+                    ) : (
+                        <EmptyTableMsg title='کاربری وجود ندارد !'></EmptyTableMsg>
+                    )}
+                    {/* User Actions Modal */}
+                    {showActionModal && (
+                        <TableModalAction
+                            editHandler={`../user-form/${userId}`}
+                            selectedItemAction={selectedUserAction}
+                            id={userId}
+                            setShowActionModal={setShowActionModal}
+                            removeHandler={removeUserHandler}
+                            setShowDetailModal={setShowDetailModal}
+                        ></TableModalAction>
+                    )}
+                    {/* User Detail Modal */}
+                    {showDetailModal && (
+                        <TableModalDetail
+                            setShowDetailModal={setShowDetailModal}
+                            title="مشخصات کاربر"
+                        >
+                            <div className="flex flex-col items-center gap-2 py-2">
+                                <span className="text-primary font-YekanBakh-Black">
+                                    نام کامل
+                                </span>
+                                <span className="text-caption text-xs font-YekanBakh-SemiBold">{`${mainUser.firstname} ${mainUser.lastname}`}</span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2 py-2">
+                                <span className="text-primary font-YekanBakh-Black">
+                                    تصویر
+                                </span>
+                                <span className="w-16 h-16 mx-auto rounded-md overflow-hidden">
+                                    <img
+                                        className="w-full h-full object-cover"
+                                        src={mainUser.img}
+                                        alt={mainUser.firstname}
+                                    />
+                                </span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2 py-2">
+                                <span className="text-primary font-YekanBakh-Black">
+                                    شماره تماس
+                                </span>
+                                <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                    {mainUser.phonenumber}
+                                </span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2 py-2">
+                                <span className="text-primary font-YekanBakh-Black">
+                                    ایمیل
+                                </span>
+                                <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                    {mainUser.email}
+                                </span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2 py-2">
+                                <span className="text-primary font-YekanBakh-Black">
+                                    سطح دسترسی
+                                </span>
+                                <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                    {mainUser.role ? (
+                                        <span className="bg-green-500 rounded p-0.5">
+                                            ادمین/مدرس
+                                        </span>
+                                    ) : (
+                                        <span className="bg-yellow-500 rounded p-0.5">
+                                            کاربر/دانشجو
+                                        </span>
+                                    )}
+                                </span>
+                            </div>
+                        </TableModalDetail>
+                    )}
                 </div>
             </div>
         </div>

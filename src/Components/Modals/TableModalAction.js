@@ -1,15 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import RoundButton from "../Buttons/RoundButton";
-function TableModalAction({id, setSelectedItemAction, selectedItemAction, removeHandler, setShowDetailModal, editHandler}) {
+function TableModalAction({id, setShowActionModal, removeHandler, setShowDetailModal, editHandler}) {
     return (
         <div
-            className={`fixed items-center justify-center inset-0 bg-black/30 transition-all ${
-                selectedItemAction === id ? "flex" : "hidden"
-            }`}
-        >
+            className="fixed items-center justify-center inset-0 bg-black/30 transition-all flex">
             <div className="max-w-64 w-full flex gap-2 flex-col items-center">
-                <RoundButton icon='#x-mark-mini' clickEvent={() => setSelectedItemAction('')}></RoundButton>
+                <RoundButton icon='#x-mark-mini' clickEvent={() => setShowActionModal(false)}></RoundButton>
                 <ul className="flex flex-col divide-y divide-white/20 gap-1 w-full rounded-xl overflow-hidden bg-secondary p-2">
                     <li className="py-2 px-2 text-primary">
                         <Link
