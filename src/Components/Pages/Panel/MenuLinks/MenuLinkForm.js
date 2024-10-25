@@ -5,6 +5,7 @@ import {getMenuLinks, getSubMenus, MySwal} from "../../../../Utils";
 import supabase from "../../../../database";
 import useMainParam from "../../../../hooks/useMainParam";
 import useInput from "../../../../hooks/useInput";
+import { useNavigate } from "react-router-dom";
 
 export default function MenuLinkForm() {
 
@@ -12,6 +13,7 @@ export default function MenuLinkForm() {
     const [submenuMenuShow, setSubmenuMenuShow] = useState(false)
     const [selectedSubmenu, setSelectedSubmenu] = useState('')
     const [submenus, setSubmenus] = useState([])
+    const navigate = useNavigate()
     const [
         menuLinkTitle,
         setMenuLinkTitle,
@@ -66,8 +68,11 @@ export default function MenuLinkForm() {
                     if (response.status === 204) {
                         MySwal.fire({
                             title: 'بروزرسانی انجام شد', icon: 'success', confirmButtonText: 'اوکی'
+                        }).then(res => {
+                            if(res.isConfirmed || res.isDismissed) {
+                                navigate(-2)
+                            }
                         })
-                        window.history.back()
                     }
                 }
             })
@@ -165,7 +170,7 @@ export default function MenuLinkForm() {
                         <>
                             <PrimaryButton clickEvent={() => editMenuLink()} icon='#check'
                                            title='بروزرسانی'></PrimaryButton>
-                            <PrimaryButton className='bg-red-500' clickEvent={() => window.history.back()}
+                            <PrimaryButton className='bg-red-500' clickEvent={() => navigate(-1)}
                                            icon='#x-mark' title='بازگشت'></PrimaryButton>
                         </>
                     ) : (

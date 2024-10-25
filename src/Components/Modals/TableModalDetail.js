@@ -5,7 +5,7 @@ function TableModalDetail({ children, title, closeDetailModalHandler }) {
     return (
         <div>
             <div className="fixed flex inset-0 items-center justify-center gap-2 flex-col bg-black/30">
-            <RoundButton icon='#x-mark-mini' clickEvent={closeDetailModalHandler}></RoundButton>
+            <RoundButton className='shrink-0' icon='#x-mark-mini' clickEvent={closeDetailModalHandler}></RoundButton>
                 <div className="flex flex-col p-4 rounded-md bg-secondary relative max-w-64 w-full text-wrap max-h-screen overflow-y-auto">
                     <h3 className="font-YekanBakh-Black text-title text-lg pb-2 text-center">
                         {title}

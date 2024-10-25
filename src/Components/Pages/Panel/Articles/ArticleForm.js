@@ -5,6 +5,7 @@ import {getArticles, getCategories, MySwal} from "../../../../Utils";
 import supabase from "../../../../database";
 import useMainParam from "../../../../hooks/useMainParam";
 import useInput from "../../../../hooks/useInput";
+import { useNavigate } from "react-router-dom";
 
 export default function ArticleForm() {
 
@@ -36,6 +37,7 @@ export default function ArticleForm() {
     const [selectedWriter, setSelectedWriter] = useState('')
     const [writerId, setWriterId] = useState('')
     const articleId = useMainParam()
+    const navigate = useNavigate()
 
     useEffect(() => {
         if(articleId) {
@@ -139,8 +141,11 @@ export default function ArticleForm() {
                     if (data.status === 204) {
                         MySwal.fire({
                             title: 'بروزرسانی انجام شد', icon: 'success', confirmButtonText: 'اوکی'
+                        }).then(res => {
+                            if(res.isConfirmed || res.isDismissed) {
+                                navigate(-2)
+                            }
                         })
-                        window.history.back()
                     }
                 }
             })
@@ -272,7 +277,7 @@ export default function ArticleForm() {
                     <>
                         <PrimaryButton clickEvent={() => editArticleHandler()} icon='#check'
                                        title='بروزرسانی'></PrimaryButton>
-                        <PrimaryButton className='bg-red-500' clickEvent={() => window.history.back()}
+                        <PrimaryButton className='bg-red-500' clickEvent={() => navigate(-1)}
                                        icon='#x-mark' title='بازگشت'></PrimaryButton>
                     </>
                 ) : (
