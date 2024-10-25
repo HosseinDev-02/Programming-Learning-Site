@@ -88,7 +88,7 @@ export default function Register() {
                                 <input
                                     className="outline-none h-11 rounded-2xl bg-secondary border border-border px-2 w-full text-title placeholder:text-sm"
                                     type="text"
-                                    placeholder="ایمل"
+                                    placeholder="ایمیل"
                                     {...bindingUserEmail}
                                 />
                                 <input

@@ -207,12 +207,7 @@ function Header() {
                                             />
                                         </form>
                                         <RoundButton
-                                            style={{
-                                                width: "36px",
-                                                height: "36px",
-                                                flexShrink: "0",
-                                                cursor: "pointer",
-                                            }}
+                                            className="w-9 h-9 shrink-0 cursor-pointer"
                                             icon="#x-mark"
                                             clickEvent={() =>
                                                 setSearchModalShow(false)
@@ -349,11 +344,11 @@ function Header() {
                                     </div>
                                 </div>
                             ) : (
-                                <PrimaryButton
-                                    icon="#arrow-up-left"
+                                <RoundButton
+                                    link={true}
                                     href="/register"
-                                    title="ورود / ثبت نام"
-                                ></PrimaryButton>
+                                    icon="#login"
+                                ></RoundButton>
                             )}
                         </div>
                     </nav>
@@ -361,9 +356,10 @@ function Header() {
             </header>
             {/* Mobile Menu */}
             <div
-                style={mobileMenuShow ? { right: "0" } : {}}
                 id="mobile-menu"
-                className="lg:hidden transition-all h-screen fixed -right-72 xs:-right-80 top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 xs:w-80 p-4 space-y-5 z-50"
+                className={`lg:hidden transition-all h-screen fixed top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 xs:w-80 p-4 space-y-5 z-50 ${
+                    mobileMenuShow ? "right-0" : "-right-72 xs:-right-80"
+                }`}
             >
                 {/*  mobile menu header  */}
                 <div className="flex items-center justify-between mb-8">
@@ -420,15 +416,10 @@ function Header() {
                 {/*  Mobile Menu Categories  */}
                 <div>
                     <div
-                        style={
-                            showMobileCategoryMenu
-                                ? { color: "rgb(var(--color-title))" }
-                                : {}
-                        }
                         onClick={() =>
                             setShowMobileCategoryMenu((prevState) => !prevState)
                         }
-                        className="flex items-center justify-between"
+                        className={`flex items-center justify-between ${showMobileCategoryMenu ? 'text-title' : ''}`}
                     >
                         <div className="flex items-center gap-2">
                             <span>
@@ -442,12 +433,7 @@ function Header() {
                         </div>
                         <span>
                             <svg
-                                style={
-                                    showMobileCategoryMenu
-                                        ? { transform: "rotate(180deg)" }
-                                        : {}
-                                }
-                                className="w-5 h-5"
+                                className={`w-5 h-5 ${showMobileCategoryMenu ? 'rotate-180' : ''}`}
                             >
                                 <use href="#chevron-down"></use>
                             </svg>
