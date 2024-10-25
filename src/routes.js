@@ -30,12 +30,14 @@ import MenuLinks from "./Components/Pages/Panel/MenuLinks/MenuLinks";
 import MenuLinkForm from "./Components/Pages/Panel/MenuLinks/MenuLinkForm";
 import Articles from "./Components/Pages/Panel/Articles/Articles";
 import ArticleForm from "./Components/Pages/Panel/Articles/ArticleForm";
+import Login from "./Components/Pages/Login/Login";
 
 let routes = [
     { path: "/", element: <Home /> },
     { path: "/courses", element: <CoursesPage /> },
     { path: "/course/:shortName", element: <CourseDetail /> },
     { path: "/register", element: <Register /> },
+    { path: "/login", element: <Login /> },
     { path: "/basket", element: <Basket /> },
     { path: "/articles", element: <ArticlesPage></ArticlesPage> },
     { path: "/article-detail", element: <ArticleDetail></ArticleDetail> },
