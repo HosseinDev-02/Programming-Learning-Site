@@ -147,7 +147,7 @@ export default function Articles() {
                                         {article.time}
                                     </td>
                                     <td className="hidden lg:table-cell">
-                                        {`${article.users.firstname} ${article.users.lastname}`}
+                                        {article.users.name}
                                     </td>
                                     <td className="hidden lg:table-cell">
                                         <div className="flex items-center gap-2 justify-center">
@@ -248,7 +248,7 @@ export default function Articles() {
                                 نویسنده مقاله
                             </span>
                             <span className="text-caption text-xs font-YekanBakh-SemiBold">
-                                {`${mainArticle.users.firstname} ${mainArticle.users.lastname}`}
+                                {mainArticle.users.name}
                             </span>
                         </div>
                     </TableModalDetail>

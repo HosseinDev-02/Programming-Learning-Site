@@ -91,6 +91,9 @@ export default function Users() {
                                     <th className="hidden md:table-cell">
                                         ایمیل
                                     </th>
+                                    <th className="hidden md:table-cell">
+                                        رمز
+                                    </th>
                                     <th className="hidden sm:table-cell">
                                         دسترسی
                                     </th>
@@ -128,16 +131,19 @@ export default function Users() {
                                                 <img
                                                     className="rounded-full object-cover"
                                                     src={user.img}
-                                                    alt={`${user.firstname} ${user.lastname}`}
+                                                    alt={user.name}
                                                 />
                                             </div>
                                         </td>
-                                        <td>{`${user.firstname} ${user.lastname}`}</td>
+                                        <td>{user.name}</td>
                                         <td className="hidden md:table-cell">
                                             {user.phonenumber}
                                         </td>
                                         <td className="hidden md:table-cell">
                                             {user.email}
+                                        </td>
+                                        <td className="hidden md:table-cell">
+                                            {user.password}
                                         </td>
                                         <td className="hidden sm:table-cell">
                                             {user.role ? (
@@ -201,7 +207,7 @@ export default function Users() {
                                 <span className="text-primary font-YekanBakh-Black">
                                     نام کامل
                                 </span>
-                                <span className="text-caption text-xs font-YekanBakh-SemiBold">{`${mainUser.firstname} ${mainUser.lastname}`}</span>
+                                <span className="text-caption text-xs font-YekanBakh-SemiBold">{mainUser.name}</span>
                             </div>
                             <div className="flex flex-col items-center gap-2 py-2">
                                 <span className="text-primary font-YekanBakh-Black">
@@ -229,6 +235,14 @@ export default function Users() {
                                 </span>
                                 <span className="text-caption text-xs font-YekanBakh-SemiBold">
                                     {mainUser.email}
+                                </span>
+                            </div>
+                            <div className="flex flex-col items-center gap-2 py-2">
+                                <span className="text-primary font-YekanBakh-Black">
+                                    رمز
+                                </span>
+                                <span className="text-caption text-xs font-YekanBakh-SemiBold">
+                                    {mainUser.password}
                                 </span>
                             </div>
                             <div className="flex flex-col items-center gap-2 py-2">

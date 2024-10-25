@@ -10,9 +10,9 @@ import { useNavigate } from "react-router-dom";
 
 export default function UserForm() {
 
-    const [userFirstName, setUserFirstName, resetFirstname, bindingFirstname] = useInput('')
-    const [userLastName, setUserLastName, resetLastname, bindingLastname] = useInput('')
-    const [userPhoneNumber, setUserPhoneNumber, resetPhonenumber, bindingPhonenumber] = useInput('')
+    const [username, setUsername, resetUsername, bindingUsername] = useInput('')
+    const [userPhonenumber, setUserPhonenumber, resetPhonenumber, bindingPhonenumber] = useInput('')
+    const [userPassword, setUserPassword, resetPassword, bindingPassword] = useInput('')
     const [userEmail, setUserEmail, resetEmail, bindingEmail] = useInput('')
     const [userImg, setUserImg] = useState('')
     const [userRole, setUserRole] = useState(false)
@@ -29,9 +29,9 @@ export default function UserForm() {
     const getMainUser = async () => {
         const data = await getUsers().then(data => {
             let mainUser = data.find(user => user.user_id === userId)
-            setUserFirstName(mainUser.firstname)
-            setUserLastName(mainUser.lastname)
-            setUserPhoneNumber(mainUser.phonenumber)
+            setUsername(mainUser.name)
+            setUserPassword(mainUser.password)
+            setUserPhonenumber(mainUser.phonenumber)
             setUserEmail(mainUser.email)
             setUserImg(mainUser.img)
             setUserRole(mainUser.role)
@@ -41,9 +41,9 @@ export default function UserForm() {
     async function editUser() {
         const data = await supabase.from('users')
             .update({
-                    firstname: userFirstName,
-                    lastname: userLastName,
-                    phonenumber: userPhoneNumber,
+                    name: username,
+                    phonenumber: userPhonenumber,
+                    password: userPassword,
                     img: userImg,
                     role: userRole,
                     email: userEmail
@@ -64,9 +64,9 @@ export default function UserForm() {
     }
 
     function clearStates() {
-        resetFirstname()
-        resetLastname()
+        resetUsername()
         resetPhonenumber()
+        resetPassword()
         resetEmail()
         setUserRole(false)
         setUserImg('')
@@ -75,9 +75,9 @@ export default function UserForm() {
     async function addNewUser() {
 
         let newUser = {
-            firstname: userFirstName,
-            lastname: userLastName,
-            phonenumber: userPhoneNumber,
+            name: username,
+            phonenumber: userPhonenumber,
+            password: userPassword,
             role: userRole,
             img: userImg,
             email: userEmail
@@ -110,17 +110,9 @@ export default function UserForm() {
                     <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
                         <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                             <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                                نام
+                                نام کامل
                             </label>
-                            <input {...bindingFirstname}
-                                   className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
-                                   type="text"/>
-                        </div>
-                        <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
-                            <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
-                                نام خانوادگی
-                            </label>
-                            <input {...bindingLastname}
+                            <input {...bindingUsername}
                                    className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                    type="text"/>
                         </div>
@@ -132,13 +124,21 @@ export default function UserForm() {
                                    className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                    type="text"/>
                         </div>
-                    </div>
-                    <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
                         <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
                             <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
                                 ایمیل
                             </label>
                             <input {...bindingEmail}
+                                   className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
+                                   type="text"/>
+                        </div>
+                    </div>
+                    <div className='flex sm:flex-row flex-col items-center gap-5 w-full'>
+                        <div className='flex flex-col gap-2 items-start w-full sm:w-1/3'>
+                            <label className='text-xs font-YekanBakh-SemiBold' htmlFor="#">
+                                رمز
+                            </label>
+                            <input {...bindingPassword}
                                    className='bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title'
                                    type="text"/>
                         </div>

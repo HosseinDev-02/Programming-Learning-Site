@@ -75,7 +75,7 @@ export default function ArticleForm() {
         setArticleDescription(mainArticle.description)
         setSelectedCategory(mainArticle.categories.title)
         setCategoryId(mainArticle.categories.category_id)
-        setSelectedWriter(`${mainArticle.users.firstname} ${mainArticle.users.lastname}`)
+        setSelectedWriter(mainArticle.users.name)
         setWriterId(mainArticle.users.user_id)
     }
 
@@ -253,7 +253,7 @@ export default function ArticleForm() {
                                         <li data-id={writer.user_id} key={writer.user_id}
                                             className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
                                             {
-                                                `${writer.firstname} ${writer.lastname}`
+                                                writer.name
                                             }
                                         </li>))}
                                 </ul>
