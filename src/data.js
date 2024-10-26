@@ -296,6 +296,51 @@ let sidebarItems = [
     },
 ]
 
+let dashboardLinks = [
+    {
+        id: 1,
+        title: 'پیشخوان',
+        icon: '#counter',
+        href: 'counter'
+    },
+    {
+        id: 2,
+        title: 'دوره ها',
+        icon: '#education',
+        href: 'courses'
+    },
+    {
+        id: 3,
+        title: 'علاقه مندی ها',
+        icon: '#heart-outline',
+        href: 'favorites'
+    },
+    {
+        id: 4,
+        title: 'مالی و اشتراک',
+        icon: '#wallet',
+        href: 'wallet'
+    },
+    {
+        id: 5,
+        title: 'دیدگاه و پرسش های شما',
+        icon: '#comments-outline',
+        href: 'questions'
+    },
+    {
+        id: 6,
+        title: 'اعلانات',
+        icon: '#notification',
+        href: 'notifications'
+    },
+    {
+        id: 7,
+        title: 'ویرایش پروفایل',
+        icon: '#edit-profile',
+        href: 'edit'
+    },
+]
+
 
 export default data
-export {userCourses, userFavoritesCourses, articles, articleCategories, years, months, days, sidebarItems}
+export {userCourses, userFavoritesCourses, articles, articleCategories, years, months, days, sidebarItems, dashboardLinks}
