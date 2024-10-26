@@ -92,6 +92,10 @@ export async function getArticles() {
     return data
 }
 
+export default function userLogOutHandler() {
+    localStorage.removeItem('token')
+}
+
 const MySwal = withReactContent(Swal)
 
 

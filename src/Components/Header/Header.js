@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 function Header() {
     let localStorageValue = localStorage.getItem("theme");
-
     const [mobileMenuShow, setMobileMenuShow] = useState(false);
     const [searchModalShow, setSearchModalShow] = useState(false);
     const [darkMode, setDarkMode] = useState(localStorageValue);
@@ -289,7 +288,7 @@ function Header() {
                                     >
                                         <a
                                             className="hover:text-primary flex items-center gap-2 py-2 px-3"
-                                            href="#"
+                                            href="/dashboard/counter"
                                         >
                                             <span>
                                                 <svg className="w-5 h-5">

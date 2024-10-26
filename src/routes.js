@@ -43,7 +43,7 @@ let routes = [
     { path: "/article-detail", element: <ArticleDetail></ArticleDetail> },
     {
         path: "/dashboard",
-        element: <DashBoard />,
+        element: <DashBoard></DashBoard>,
         children: [
             { path: "counter", element: <Counter></Counter> },
             { path: "courses", element: <UserCourses></UserCourses> },
