@@ -1,18 +1,15 @@
-import withReactContent from 'sweetalert2-react-content'
+import withReactContent from "sweetalert2-react-content";
 import supabase from "./database";
 import Swal from "sweetalert2";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export async function getUsers() {
-    const { data } = await supabase.from("users")
-        .select('*')
-    return data
+    const { data } = await supabase.from("users").select("*");
+    return data;
 }
 
 export async function getCourses() {
-    let {data: courses, error} = await supabase
-        .from('courses')
-        .select(`
+    let { data: courses, error } = await supabase.from("courses").select(`
             *,
     categories (
       *
@@ -23,22 +20,22 @@ export async function getCourses() {
     users (
         *
     )
-  `)
-    return courses
+  `);
+    return courses;
 }
 
 export async function getMenuLinks() {
-    const {data} = await supabase.from('menulinks').select(`
+    const { data } = await supabase.from("menulinks").select(`
         *, 
         submenus (
             *
         )
-    `)
-    return data
+    `);
+    return data;
 }
 
 export async function getSubMenus() {
-    const {data} = await supabase.from('submenus').select(`
+    const { data } = await supabase.from("submenus").select(`
         *,
         menus (
             *
@@ -46,12 +43,12 @@ export async function getSubMenus() {
         menulinks (
             *
         )
-    `)
-    return data
+    `);
+    return data;
 }
 
 export async function getMenus() {
-    const {data} = await supabase.from('menus').select(`
+    const { data } = await supabase.from("menus").select(`
         *,
         submenus (
             *,
@@ -59,28 +56,27 @@ export async function getMenus() {
                 *
             )
         )
-    `)
-    return data
+    `);
+    return data;
 }
 
 export async function getSessions() {
-    const {data} = await supabase.from('sessions')
-        .select(`
+    const { data } = await supabase.from("sessions").select(`
             *,
             courses(
                 *
             )
-        `)
-    return data
+        `);
+    return data;
 }
 
 export async function getCategories() {
-    const {data} = await supabase.from('categories').select('*')
-    return data
+    const { data } = await supabase.from("categories").select("*");
+    return data;
 }
 
 export async function getArticles() {
-    const {data} = await supabase.from('articles').select(`
+    const { data } = await supabase.from("articles").select(`
     *,
     categories (
         *
@@ -88,17 +84,31 @@ export async function getArticles() {
     users (
         *
     )
-    `)
-    return data
+    `);
+    return data;
+}
+
+export async function getMainCourse(value) {
+    const { data } = await supabase.from("courses").select(`
+                *,
+                sessions (
+                    *
+                ),
+                categories (
+                    *
+                ),
+                users (
+                    *
+                )
+            `).eq('shortName', value)
+            console.log(data)
+            return data[0]
 }
 
 export default function userLogOutHandler() {
-    localStorage.removeItem('token')
+    localStorage.removeItem("token");
 }
 
-const MySwal = withReactContent(Swal)
+const MySwal = withReactContent(Swal);
 
-
-
-export { MySwal }
-
+export { MySwal };

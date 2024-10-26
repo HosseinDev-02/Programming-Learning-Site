@@ -2,13 +2,13 @@ import SubTitle from "../../Titles/SubTitle";
 import LikeButton from "../../Buttons/LikeButton";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import Box from "./Box";
-import {useEffect, useState} from "react";
+import {useEffect, useLayoutEffect, useState} from "react";
 import SectionLinkBtn from "../../Buttons/SectionLinkBtn";
 import UserInfo from "../../UserInfo/UserInfo";
 import SiteStructure from "../../SiteStructure/SiteStructure";
 import {useParams} from "react-router-dom";
-import {getCourses} from "../../../Utils";
 import supabase from "../../../database";
+import { getMainCourse } from "../../../Utils";
 
 
 export default function CourseDetail() {
@@ -25,21 +25,11 @@ export default function CourseDetail() {
     }, []);
 
     async function setMainCourse() {
-        const {data} = await supabase.from('courses')
-            .select(`
-                *,
-                sessions (
-                    *
-                ),
-                categories (
-                    *
-                )
-            `)
-            .eq('shortName', courseShortName)
-        setCourse(data[0])
+        const mainCourse = await getMainCourse(courseShortName)
+        setCourse(mainCourse)
         setBoxes([
-            {id: 1, icon: '#clock', title: 'مدت دوره', text: data[0].totalTime},
-            {id: 2, icon: '#grid-boxes', title: 'تعداد جلسات', text: data[0].sessions.length},
+            {id: 1, icon: '#clock', title: 'مدت دوره', text: mainCourse.totalTime},
+            {id: 2, icon: '#grid-boxes', title: 'تعداد جلسات', text: mainCourse.sections},
             {id: 3, icon: '#info', title: 'نوع دوره', text: 'ویژه / نقدی'},
             {id: 4, icon: '#users', title: 'شرکت کنندگان', text: '132 دانشجو'},
         ])
@@ -646,7 +636,7 @@ export default function CourseDetail() {
                             <div className='space-y-3'>
                                 <SubTitle className='text-sm' title='مدرس دوره'></SubTitle>
                                 <div>
-                                    <UserInfo text='دیدن رزومه' img={course.teacherImg} title={course.teacherName}></UserInfo>
+                                    <UserInfo text='دیدن رزومه' img={course.users.img} title={course.users.name}></UserInfo>
                                     <div className='p-5 bg-secondary rounded-tl-2xl rounded-bl-2xl rounded-br-2xl mt-3'>
                                         <p className='text-sm'>
                                             اول داستان، طراح گرافیک بودم و ۲ سالی به عنوان طراح مشغول بودم، بعد به
