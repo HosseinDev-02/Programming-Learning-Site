@@ -30,17 +30,17 @@ export default function Article(props) {
                                         <span
                                             className='flex items-center justify-center rounded-full w-[30px] h-[30px] overflow-hidden border border-white'>
                                             <img className='w-full h-full object-cover'
-                                                 src={props.writerImg}
-                                                 alt=""/>
+                                                 src={props.users.img}
+                                                 alt={props.users.name}/>
                                         </span>
                         <a className='hover:text-primary transition-colors text-xs font-YekanBakh-Bold text-title'
                            href="#">
-                            {props.writer}
+                            {props.users.name}
                         </a>
                     </div>
                     <a href='#'
                        className='flex items-center justify-center px-4 h-8 rounded-full bg-primary/10 hover:opacity-80 transition-opacity'>
-                        <span className='text-xxs text-primary font-YekanBakh-Bold'>{props.category}</span>
+                        <span className='text-xxs text-primary font-YekanBakh-Bold'>{props.categories.title}</span>
                     </a>
                 </div>
                 <div

@@ -31,7 +31,6 @@ function Header() {
     async function getAllMenus() {
         const data = await getMenus();
         setMenus(data);
-        console.log(data);
     }
 
     const checkUserLogin = async () => {
@@ -444,7 +443,15 @@ function Header() {
                                     </span>
                                     {menu.submenus.length ? (
                                         <span>
-                                            <svg className={`w-5 h-5 ${showMobileCategoryMenu  && mobileMenuSelected === menu.title ? 'rotate-180' : ''}`}>
+                                            <svg
+                                                className={`w-5 h-5 ${
+                                                    showMobileCategoryMenu &&
+                                                    mobileMenuSelected ===
+                                                        menu.title
+                                                        ? "rotate-180"
+                                                        : ""
+                                                }`}
+                                            >
                                                 <use href="#chevron-down"></use>
                                             </svg>
                                         </span>
@@ -481,7 +488,9 @@ function Header() {
                                                         .length ? (
                                                         <svg
                                                             className={`w-4 h-4 ${
-                                                                showMobileCategorySubMenu && mobileSubmenuSelected === submenu.title
+                                                                showMobileCategorySubMenu &&
+                                                                mobileSubmenuSelected ===
+                                                                    submenu.title
                                                                     ? "-rotate-45"
                                                                     : ""
                                                             }`}
@@ -493,7 +502,9 @@ function Header() {
                                                     )}
                                                     {submenu.title}
                                                 </a>
-                                                {submenu.menulinks.length && mobileSubmenuSelected === submenu.title ? (
+                                                {submenu.menulinks.length &&
+                                                mobileSubmenuSelected ===
+                                                    submenu.title ? (
                                                     <ul
                                                         style={
                                                             showMobileCategorySubMenu
@@ -539,165 +550,7 @@ function Header() {
                             </li>
                         ))}
                     </ul>
-
-                    {/* 
-                    
-<li>
-                            <a
-                                className="flex items-center gap-2 text-xs font-YekanBakh-SemiBold"
-                                href="#"
-                            >
-                                <span>
-                                    <svg className="w-5 h-5">
-                                        <use href="#document-text"></use>
-                                    </svg>
-                                </span>
-                                مقالات آموزشی
-                            </a>
-                        </li>
-                        
-                     */}
-
-                    {/* 
-                                            <li>
-                            <a
-                                onClick={(event) => {
-                                    event.preventDefault();
-                                    setShowMobileCategoryMenu(true);
-                                }}
-                                className="flex items-center justify-between"
-                                href="#"
-                            >
-                                <span className="flex items-center gap-2">
-                                    <span>
-                                        <svg className="w-5 h-5">
-                                            <use href="#bars-2"></use>
-                                        </svg>
-                                    </span>
-                                    <span className="text-xs font-YekanBakh-SemiBold">
-                                        دسته بندی ها
-                                    </span>
-                                </span>
-                                <span>
-                                    <svg className="w-5 h-5">
-                                        <use href="#chevron-down"></use>
-                                    </svg>
-                                </span>
-                            </a>
-                            <ul
-                                className={`child:py-2 inline-block relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 child:text-xs text-zinc-400`}
-                            >
-                                <li>
-                                    <a
-                                        style={
-                                            showMobileCategorySubMenu
-                                                ? {
-                                                      color: "rgb(var(--color-title))",
-                                                  }
-                                                : {}
-                                        }
-                                        onClick={() =>
-                                            setShowMobileCategorySubMenu(
-                                                (prevState) => !prevState
-                                            )
-                                        }
-                                        className="flex items-center gap-1"
-                                        href="#"
-                                    >
-                                        <svg
-                                            style={
-                                                showMobileCategorySubMenu
-                                                    ? {
-                                                          transform:
-                                                              "rotate(-45deg)",
-                                                      }
-                                                    : {}
-                                            }
-                                            className="w-4 h-4"
-                                        >
-                                            <use href="#chevron-left"></use>
-                                        </svg>
-                                        برنامه نویسی وب
-                                    </a>
-                                    <ul
-                                        style={
-                                            showMobileCategorySubMenu
-                                                ? { display: "inline-block" }
-                                                : {}
-                                        }
-                                        className='child:py-2 relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 text-xs text-zinc-400 hidden'
-                                    >
-                                        <li>
-                                            <a
-                                                className="flex items-center gap-2"
-                                                href="#"
-                                            >
-                                                <span className="w-2 h-px bg-border"></span>
-                                                جاوااسکریپت
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                className="flex items-center gap-2"
-                                                href="#"
-                                            >
-                                                <span className="w-2 h-px bg-border"></span>
-                                                ری اکت
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                className="flex items-center gap-2"
-                                                href="#"
-                                            >
-                                                <span className="w-2 h-px bg-border"></span>
-                                                نود جی اس
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                className="flex items-center gap-2"
-                                                href="#"
-                                            >
-                                                <span className="w-2 h-px bg-border"></span>
-                                                ....
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a
-                                        className="flex items-center gap-3"
-                                        href="#"
-                                    >
-                                        <span className="w-2 h-px bg-border"></span>
-                                        دیتاساینس
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        className="flex items-center gap-3"
-                                        href="#"
-                                    >
-                                        <span className="w-2 h-px bg-border"></span>
-                                        زبانهای برنامه نویسی
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        className="flex items-center gap-3"
-                                        href="#"
-                                    >
-                                        <span className="w-2 h-px bg-border"></span>
-                                        ....
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    
-                     */}
                 </div>
-                {/*  mobile menu links  */}
             </div>
             {/*  mobile menu cover elem  */}
             <div

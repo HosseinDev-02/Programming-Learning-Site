@@ -316,7 +316,7 @@ export default function CourseForm() {
                                     <li data-id={teacher.user_id} key={teacher.user_id}
                                         className='py-3 px-4 hover:bg-background transition-colors hover:text-title cursor-pointer'>
                                         {
-                                            `${teacher.firstname} ${teacher.lastname}`
+                                            teacher.name
                                         }
                                     </li>))}
                             </ul>

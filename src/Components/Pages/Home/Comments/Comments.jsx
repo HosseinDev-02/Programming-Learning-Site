@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import SectionTitle from "../../../Titles/SectionTitle";
 
 export default function Comments () {
