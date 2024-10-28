@@ -1,8 +1,23 @@
 import PrimaryButton from "../../../Buttons/PrimaryButton";
 import LikeButton from "../../../Buttons/LikeButton";
 import UserInfo from "../../../UserInfo/UserInfo";
+import { useEffect, useState } from "react";
+import { isUserLogin } from "../../../../Utils";
 
 export default function Course(props) {
+
+    const [isLogin, setIsLogin] = useState(false)
+
+    useEffect(() => {
+        checkUserLogin()
+    }, [])
+
+
+    const checkUserLogin = () => {
+        const status = isUserLogin()
+        setIsLogin(status)
+    }
+
     return (
         <div>
             <div className="inline-block rounded-3xl overflow-hidden relative">
@@ -116,7 +131,11 @@ export default function Course(props) {
                         icon="#arrow-up-left"
                         title="مشاهده دوره"
                     ></PrimaryButton>
-                    <LikeButton></LikeButton>
+                    {
+                        isLogin && (
+                            <LikeButton></LikeButton>
+                        )
+                    }
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ export async function getUsers() {
 }
 
 export async function getCourses() {
-    let { data: courses, error } = await supabase.from("courses").select(`
+    let { data: courses } = await supabase.from("courses").select(`
             *,
     categories (
       *
@@ -101,12 +101,20 @@ export async function getMainCourse(value) {
                     *
                 )
             `).eq('shortName', value)
-            console.log(data)
             return data[0]
 }
 
 export default function userLogOutHandler() {
     localStorage.removeItem("token");
+}
+
+export const isUserLogin = () => {
+    const hasToken = localStorage.getItem('token')
+    if(hasToken) {
+        return true
+    }else {
+        return false
+    }
 }
 
 const MySwal = withReactContent(Swal);
