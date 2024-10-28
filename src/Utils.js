@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 
 export async function getUsers() {
-    const { data } = await supabase.from("users").select("*");
+    const { data } = await supabase.from("users").select('*');
     return data;
 }
 
@@ -86,6 +86,24 @@ export async function getArticles() {
     )
     `);
     return data;
+}
+
+export async function getOrders () {
+    const { data } = await supabase.from('orders').select(`
+        *,
+        courses(
+            *
+        ),
+        users(
+            *
+        )
+    `)
+    return data
+}
+
+export async function getUserOrders() {
+    const { data } = await supabase.from('orders').select('*').eq('user_id', localStorage.getItem('token'))
+    return data
 }
 
 export async function getMainCourse(value) {
