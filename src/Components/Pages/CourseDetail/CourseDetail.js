@@ -7,23 +7,29 @@ import SectionLinkBtn from "../../Buttons/SectionLinkBtn";
 import UserInfo from "../../UserInfo/UserInfo";
 import SiteStructure from "../../SiteStructure/SiteStructure";
 import { useParams } from "react-router-dom";
-import { getOrders, getMainCourse, getUsers, isUserLogin, getUserOrders } from "../../../Utils";
+import {
+    getOrders,
+    getMainCourse,
+    getUsers,
+    isUserLogin,
+    getUserOrders,
+} from "../../../Utils";
 import supabase from "../../../database";
 
 export default function CourseDetail() {
     const [sessionsTotalTime, setSessionsTotalTime] = useState("");
-    const [userId, setUserId] = useState(null)
+    const [userId, setUserId] = useState(null);
     const [course, setCourse] = useState({});
     const [boxes, setBoxes] = useState([]);
-    const [isLogin, setIsLogin] = useState(false)
+    const [isLogin, setIsLogin] = useState(false);
     const params = useParams();
     const courseShortName = params.shortName;
 
     useEffect(() => {
         setMainCourse();
-        checkUserLogin()
-        getUserId()
-        getUserOrders().then(res => console.log(res))
+        checkUserLogin();
+        getUserId();
+        getUserOrders().then((res) => console.log(res));
     }, []);
 
     async function setMainCourse() {
@@ -53,14 +59,14 @@ export default function CourseDetail() {
     }
 
     const getUserId = () => {
-        const mainId = localStorage.getItem('token')
-        setUserId(mainId)
-    }
+        const mainId = localStorage.getItem("token");
+        setUserId(mainId);
+    };
 
     const checkUserLogin = () => {
-        const status = isUserLogin()
-        setIsLogin(status)
-    }
+        const status = isUserLogin();
+        setIsLogin(status);
+    };
 
     const sessionsMenuHandler = (e) => {
         e.currentTarget.classList.toggle("session--open");
@@ -70,11 +76,14 @@ export default function CourseDetail() {
     const addUserOrder = async () => {
         const newUserOrder = {
             user_id: userId,
-            course_id: course.course_id
-        }
-        const {data} = await supabase.from('orders').insert(newUserOrder).select('*')
-        console.log(data)
-    }
+            course_id: course.course_id,
+        };
+        const { data } = await supabase
+            .from("orders")
+            .insert(newUserOrder)
+            .select("*");
+        console.log(data);
+    };
 
     const tabViewHandler = (e) => {
         console.log(e.currentTarget.dataset.type);
@@ -773,11 +782,7 @@ export default function CourseDetail() {
                                         icon="#arrow-up-left"
                                         title="اضافه به سبد"
                                     ></PrimaryButton>
-                                    {
-                                        isLogin && (
-                                            <LikeButton></LikeButton>
-                                        )
-                                    }
+                                    {isLogin && <LikeButton></LikeButton>}
                                 </div>
                             </div>
                             {course.users && (

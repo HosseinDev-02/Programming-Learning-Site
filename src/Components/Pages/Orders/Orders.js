@@ -18,8 +18,7 @@ export default function Orders() {
     useEffect(() => {
         getAllUserOrders();
 
-        getUserCourses().then(res => console.log(res))
-
+        getUserCourses().then((res) => console.log(res));
     }, []);
 
     const getAllUserOrders = async () => {
@@ -55,25 +54,19 @@ export default function Orders() {
                                         text={`${userOrders.length} دوره به سبد خرید اضافه کرده اید`}
                                     ></SectionTitle>
                                 ) : (
-                                    <SectionTitle
-                                        title="سبد خرید شما خالی است !"
-                                    ></SectionTitle>
+                                    <SectionTitle title="سبد خرید شما خالی است !"></SectionTitle>
                                 )}
                             </SectionHeader>
                             {/*  basket content  */}
                             <div className="divide-y divide-border divide-dashed">
-                                {userOrders.length ? (
-                                    userOrders.map((order) => (
-                                        <Order
-                                            key={order.order_id}
-                                            {...order.courses}
-                                        ></Order>
-                                    ))
-                                ) : (
-                                    <h3 className="text-center text-red-500 font-YekanBakh-Bold text-xl">
-                                        سبد خرید شما خالی است
-                                    </h3>
-                                )}
+                                {userOrders.length
+                                    ? userOrders.map((order) => (
+                                          <Order
+                                              key={order.order_id}
+                                              {...order.courses}
+                                          ></Order>
+                                      ))
+                                    : ""}
                             </div>
                         </div>
                         {/*  user basket left side  */}
@@ -124,11 +117,15 @@ export default function Orders() {
                                     </div>
                                 </div>
                             </div>
-                            <PrimaryButton
-                                icon="#arrow-up-left"
-                                href="#"
-                                title="تکمیل فرایند خرید"
-                            ></PrimaryButton>
+                            {userOrders.length ? (
+                                <PrimaryButton
+                                    icon="#arrow-up-left"
+                                    href="#"
+                                    title="تکمیل فرایند خرید"
+                                ></PrimaryButton>
+                            ) : (
+                                ""
+                            )}
                         </div>
                     </div>
                     <LatestCourses></LatestCourses>

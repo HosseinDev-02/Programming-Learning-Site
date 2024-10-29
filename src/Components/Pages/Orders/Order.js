@@ -11,7 +11,6 @@ function Order({
     isCompleted,
     sections,
     totalTime,
-    users,
 }) {
     return (
         <div className="flex sm:flex-row lg:flex-row flex-col md:flex-col items-center sm:items-start md:items-center lg:items-start gap-5 lg:gap-8 py-6">
@@ -98,7 +97,7 @@ function Order({
                                     مدرس دوره :
                                 </span>
                                 <span className="text-title font-YekanBakh-Bold line-clamp-1">
-                                    {users.name}
+                                    من
                                 </span>
                             </div>
                         </div>

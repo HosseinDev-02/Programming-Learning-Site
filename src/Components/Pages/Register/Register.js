@@ -36,12 +36,13 @@ export default function Register() {
             role: false,
         };
 
-        const { data, status } = await supabase
+        const { data, status, error } = await supabase
             .from("users")
             .insert(newUser)
             .select("*");
         console.log("data :", data);
         console.log("status :", status);
+        console.log("error :", error);
         if (status === 201) {
             MySwal.fire({
                 title: "خوش آمدید",
