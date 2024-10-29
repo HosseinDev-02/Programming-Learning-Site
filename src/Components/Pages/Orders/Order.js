@@ -11,6 +11,7 @@ function Order({
     isCompleted,
     sections,
     totalTime,
+    users
 }) {
     return (
         <div className="flex sm:flex-row lg:flex-row flex-col md:flex-col items-center sm:items-start md:items-center lg:items-start gap-5 lg:gap-8 py-6">
@@ -88,8 +89,8 @@ function Order({
                             <span className="block overflow-hidden w-10 h-10 rounded-full shrink-0">
                                 <img
                                     className="w-full h-full object-cover"
-                                    src="images/profile.jpeg"
-                                    alt=""
+                                    src={users.img}
+                                    alt={users.name}
                                 />
                             </span>
                             <div className="flex flex-col gap-1 text-xs font-YekanBakh-SemiBold">
@@ -97,7 +98,7 @@ function Order({
                                     مدرس دوره :
                                 </span>
                                 <span className="text-title font-YekanBakh-Bold line-clamp-1">
-                                    من
+                                    {users.name}
                                 </span>
                             </div>
                         </div>

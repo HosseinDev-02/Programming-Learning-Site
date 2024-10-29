@@ -1,7 +1,7 @@
 import Logo from "../Logo/Logo";
 import { useEffect, useLayoutEffect, useState } from "react";
 import RoundButton from "../Buttons/RoundButton";
-import { getMenus, getUsers } from "../../Utils";
+import { getMenus, getUserOrders, getUsers } from "../../Utils";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { useNavigate } from "react-router-dom";
 
@@ -20,17 +20,25 @@ function Header() {
     const [isLogin, setIsLogin] = useState(false);
     const [mainUser, setMainUser] = useState({});
     const [menus, setMenus] = useState([]);
+    const [ordersCount, setOrdersCount] = useState(null);
     const navigate = useNavigate();
 
     useLayoutEffect(() => {
         getAllMenus();
         checkUserLogin();
+        getOrdersCount();
     }, []);
 
     async function getAllMenus() {
         const data = await getMenus();
         setMenus(data);
     }
+
+    const getOrdersCount = async () => {
+        const data = await getUserOrders();
+        setOrdersCount(data.length);
+        console.log(data.length);
+    };
 
     const checkUserLogin = async () => {
         let allUsers = await getUsers();
@@ -232,12 +240,20 @@ function Header() {
                                 ></RoundButton>
                             )}
                             {/* header basket btn */}
-                            <RoundButton
-                                link={true}
-                                href="/orders"
-                                count={2}
-                                icon="#bag"
-                            ></RoundButton>
+                            {ordersCount ? (
+                                <RoundButton
+                                    link={true}
+                                    href="/orders"
+                                    count={ordersCount}
+                                    icon="#bag"
+                                ></RoundButton>
+                            ) : (
+                                <RoundButton
+                                    link={true}
+                                    href="/orders"
+                                    icon="#bag"
+                                ></RoundButton>
+                            )}
                             {/* header user profile btn */}
                             {isLogin ? (
                                 <div className="group/profile">

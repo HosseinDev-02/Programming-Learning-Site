@@ -95,8 +95,8 @@ export default function Course(props) {
                 <div className="flex items-center justify-between gap-5 mt-3">
                     <UserInfo
                         title="مدرس دوره :"
-                        text={props.title}
-                        img={props.courseImg}
+                        text={props.users.img}
+                        img={props.users.name}
                     ></UserInfo>
                     {props.isFree ? (
                         <div className="flex items-center justify-center h-14">

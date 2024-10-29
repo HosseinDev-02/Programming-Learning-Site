@@ -16,6 +16,9 @@ export async function getCourses() {
     ),
     sessions (
         *
+    ),
+    users(
+        *
     )
   `);
     return courses;
@@ -98,23 +101,20 @@ export async function getOrders () {
     return data
 }
 
-export async function getUserCourses() {
-    const { data } = await supabase.from('users').select(`
-        *
-    `).eq('user_id', localStorage.getItem('token'))
-    return data
-}
-
 export async function getUserOrders() {
     const { data } = await supabase.from('orders').select(`
         *,
         courses(
-            *
+            *,
+            users(
+                *
+            )
         ),
         users(
             *
         )
     `).eq('user_id', localStorage.getItem('token'))
+    .eq('isPayed', false)
     return data
 }
 
@@ -127,7 +127,7 @@ export async function getMainCourse(value) {
                 categories (
                     *
                 ),
-                users (
+                users(
                     *
                 )
             `).eq('shortName', value)

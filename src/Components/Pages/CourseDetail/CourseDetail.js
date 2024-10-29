@@ -29,7 +29,6 @@ export default function CourseDetail() {
         setMainCourse();
         checkUserLogin();
         getUserId();
-        getUserOrders().then((res) => console.log(res));
     }, []);
 
     async function setMainCourse() {

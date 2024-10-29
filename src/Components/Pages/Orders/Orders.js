@@ -7,8 +7,9 @@ import SectionHeader from "../../SectionHeader/SectionHeader";
 import RoundButton from "../../Buttons/RoundButton";
 import SiteStructure from "../../SiteStructure/SiteStructure";
 import { useEffect, useState } from "react";
-import { getUserCourses, getUserOrders } from "../../../Utils";
+import { getUserOrders } from "../../../Utils";
 import Order from "./Order";
+import supabase from "../../../database";
 
 export default function Orders() {
     const [userOrders, setUserOrders] = useState([]);
@@ -17,8 +18,6 @@ export default function Orders() {
 
     useEffect(() => {
         getAllUserOrders();
-
-        getUserCourses().then((res) => console.log(res));
     }, []);
 
     const getAllUserOrders = async () => {
@@ -36,6 +35,20 @@ export default function Orders() {
         });
         setTotalPrice(sum);
         setOffer(off);
+    };
+
+    const registerUserCoursesHandler = async () => {
+        let res;
+        userOrders.forEach(async (order) => {
+            console.log(order);
+            res = await supabase
+                .from("orders")
+                .update({ isPayed: true })
+                .eq("user_id", localStorage.getItem("token"))
+                .eq("course_id", order.course_id)
+                .eq("isPayed", false);
+        });
+        getAllUserOrders()
     };
 
     return (
@@ -119,9 +132,12 @@ export default function Orders() {
                             </div>
                             {userOrders.length ? (
                                 <PrimaryButton
+                                    clickEvent={() =>
+                                        registerUserCoursesHandler()
+                                    }
                                     icon="#arrow-up-left"
-                                    href="#"
                                     title="تکمیل فرایند خرید"
+                                    href='/orders'
                                 ></PrimaryButton>
                             ) : (
                                 ""
