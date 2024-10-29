@@ -101,8 +101,26 @@ export async function getOrders () {
     return data
 }
 
+export async function getUserCourses() {
+    const { data } = await supabase.from('courses').select(`
+        *,
+        users(
+            *
+        )
+    `)
+    return data
+}
+
 export async function getUserOrders() {
-    const { data } = await supabase.from('orders').select('*').eq('user_id', localStorage.getItem('token'))
+    const { data } = await supabase.from('orders').select(`
+        *,
+        courses(
+            *,
+            users (
+                *
+            )
+        )
+    `).eq('user_id', localStorage.getItem('token'))
     return data
 }
 

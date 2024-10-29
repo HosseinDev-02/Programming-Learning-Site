@@ -2,7 +2,7 @@ import Home from "./Components/Pages/Home/Home";
 import CoursesPage from "./Components/Pages/CoursesPage/CoursesPage";
 import CourseDetail from "./Components/Pages/CourseDetail/CourseDetail";
 import Register from "./Components/Pages/Register/Register";
-import Basket from "./Components/Pages/Basket/Basket";
+import Orders from "./Components/Pages/Orders/Orders";
 import DashBoard from "./Components/Pages/DashBoard/DashBoard";
 import Counter from "./Components/Pages/DashBoard/Counter/Counter";
 import UserCourses from "./Components/Pages/DashBoard/UserCourses/UserCourses";
@@ -38,7 +38,7 @@ let routes = [
     { path: "/course/:shortName", element: <CourseDetail /> },
     { path: "/register", element: <Register /> },
     { path: "/login", element: <Login /> },
-    { path: "/basket", element: <Basket /> },
+    { path: "/orders", element: <Orders /> },
     { path: "/articles", element: <ArticlesPage></ArticlesPage> },
     { path: "/article-detail", element: <ArticleDetail></ArticleDetail> },
     {
