@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 
 export async function getUsers() {
-    const { data } = await supabase.from("users").select('*');
+    const { data } = await supabase.from("users").select("*");
     return data;
 }
 
@@ -88,8 +88,8 @@ export async function getArticles() {
     return data;
 }
 
-export async function getOrders () {
-    const { data } = await supabase.from('orders').select(`
+export async function getOrders() {
+    const { data } = await supabase.from("orders").select(`
         *,
         courses(
             *
@@ -97,12 +97,15 @@ export async function getOrders () {
         users(
             *
         )
-    `)
-    return data
+    `);
+    return data;
 }
 
 export async function getUserOrders() {
-    const { data } = await supabase.from('orders').select(`
+    const { data } = await supabase
+        .from("orders")
+        .select(
+            `
         *,
         courses(
             *,
@@ -113,13 +116,38 @@ export async function getUserOrders() {
         users(
             *
         )
-    `).eq('user_id', localStorage.getItem('token'))
-    .eq('isPayed', false)
-    return data
+    `
+        )
+        .eq("user_id", localStorage.getItem("token"))
+        .eq("isPayed", false);
+    return data;
+}
+
+export async function getUserCourses() {
+    const { data } = await supabase
+        .from("orders")
+        .select(`
+            *,
+            courses(
+                *,
+                users(
+                    *
+                ),
+                categories(
+                    title
+                )
+            )
+        `)
+        .eq("user_id", localStorage.getItem("token"))
+        .eq("isPayed", true);
+    return data;
 }
 
 export async function getMainCourse(value) {
-    const { data } = await supabase.from("courses").select(`
+    const { data } = await supabase
+        .from("courses")
+        .select(
+            `
                 *,
                 sessions (
                     *
@@ -130,8 +158,10 @@ export async function getMainCourse(value) {
                 users(
                     *
                 )
-            `).eq('shortName', value)
-            return data[0]
+            `
+        )
+        .eq("shortName", value);
+    return data[0];
 }
 
 export default function userLogOutHandler() {
@@ -139,13 +169,13 @@ export default function userLogOutHandler() {
 }
 
 export const isUserLogin = () => {
-    const hasToken = localStorage.getItem('token')
-    if(hasToken) {
-        return true
-    }else {
-        return false
+    const hasToken = localStorage.getItem("token");
+    if (hasToken) {
+        return true;
+    } else {
+        return false;
     }
-}
+};
 
 const MySwal = withReactContent(Swal);
 

@@ -36,8 +36,10 @@ function Header() {
 
     const getOrdersCount = async () => {
         const data = await getUserOrders();
-        setOrdersCount(data.length);
-        console.log(data.length);
+        if(data) {
+            setOrdersCount(data.length);
+            console.log(data.length);
+        }
     };
 
     const checkUserLogin = async () => {

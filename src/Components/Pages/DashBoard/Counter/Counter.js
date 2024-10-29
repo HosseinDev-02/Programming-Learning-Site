@@ -1,8 +1,9 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import SubTitle from "../../../Titles/SubTitle";
 import Box from "./box";
 import UserCourse from "./UserCourse";
 import {userCourses as courses} from "../../../../data";
+import { getUserCourses } from "../../../../Utils";
 
 export default function Counter() {
 
@@ -13,7 +14,17 @@ export default function Counter() {
         {id: 4, title: 'موجودی کیف پول', text: '1,079,000 تومان', icon: '#wallet-fill', color: 'rgb(139, 92, 246)'}
     ])
 
-    const [userCourses, setUserCourses] = useState(courses)
+    const [courses, setCourses] = useState([])
+
+    useEffect(() => {
+        getCourses()
+    }, [])
+
+    const getCourses = async () => {
+        const data = await getUserCourses()
+        console.log(data)
+        setCourses(data)
+    }
 
     return (
         <div>
@@ -28,9 +39,13 @@ export default function Counter() {
                 <SubTitle title='دوره های در حال یادگیری'></SubTitle>
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5'>
                     {
-                        userCourses.map(course => (
-                            <UserCourse key={course.id} {...course}></UserCourse>
-                        ))
+                        courses.length ? (
+                            courses.map(order => (
+                                <UserCourse key={order.course_id} {...order.courses}></UserCourse>
+                            ))
+                        ) : (
+                            ''
+                        )
                     }
                 </div>
             </div>
