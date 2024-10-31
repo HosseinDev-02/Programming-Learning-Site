@@ -1,19 +1,19 @@
 import LikeButton from "../../../Buttons/LikeButton";
 
-export default function Article(props) {
+export default function Article({title, className, img, users, categories, time, roundedImg}) {
     return (
-        <div className={`bg-background rounded-xl p-4 ${props.className}`}>
+        <div className={`bg-background rounded-xl p-4 ${className}`}>
             <div className='relative'>
                 <a href="/article-detail">
                     {
-                        props.roundedImg ? (
+                        roundedImg ? (
                             <img className='w-full h-full object-cover rounded-xl'
-                                 src={props.img}
-                                 alt=""/>
+                                 src={img}
+                                 alt={title}/>
                         ) : (
                             <img className='w-full h-full object-cover'
-                                 src={props.img}
-                                 alt=""/>
+                                 src={img}
+                                 alt={title}/>
                         )
                     }
                 </a>
@@ -22,7 +22,7 @@ export default function Article(props) {
             <div className='space-y-3 mt-3'>
                 <h6 className='mt-2 text-title text-sm font-YekanBakh-Bold'>
                     <a className='hover:text-primary transition-colors' href="/article-detail">
-                        {props.title}
+                        {title}
                     </a>
                 </h6>
                 <div className='flex items-center justify-between'>
@@ -30,17 +30,17 @@ export default function Article(props) {
                                         <span
                                             className='flex items-center justify-center rounded-full w-[30px] h-[30px] overflow-hidden border border-white'>
                                             <img className='w-full h-full object-cover'
-                                                 src={props.users.img}
-                                                 alt={props.users.name}/>
+                                                 src={users.img}
+                                                 alt={users.name}/>
                                         </span>
                         <a className='hover:text-primary transition-colors text-xs font-YekanBakh-Bold text-title'
                            href="#">
-                            {props.users.name}
+                            {users.name}
                         </a>
                     </div>
                     <a href='#'
                        className='flex items-center justify-center px-4 h-8 rounded-full bg-primary/10 hover:opacity-80 transition-opacity'>
-                        <span className='text-xxs text-primary font-YekanBakh-Bold'>{props.categories.title}</span>
+                        <span className='text-xxs text-primary font-YekanBakh-Bold'>{categories.title}</span>
                     </a>
                 </div>
                 <div
@@ -52,7 +52,7 @@ export default function Article(props) {
                                     </span>
                     <span>زمان مطالعه :</span>
                     <span className='dark:text-white'>
-                                        {props.time}
+                                        {time}
                                     </span>
                 </div>
             </div>

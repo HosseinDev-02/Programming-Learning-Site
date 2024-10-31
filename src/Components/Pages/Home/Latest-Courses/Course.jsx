@@ -111,7 +111,7 @@ export default function Course(props) {
                             </span>
                             {props.offer && (
                                 <div className="flex items-center gap-1">
-                                    <span className="text-title font-YekanBakh-Black text-xl">
+                                    <span className="text-title font-YekanBakh-Black text-lg xl:text-xl">
                                         {props.costPrice.toLocaleString()}
                                     </span>
                                 </div>
@@ -119,7 +119,7 @@ export default function Course(props) {
                         </div>
                     ) : (
                         <div className="flex items-center gap-1 h-14">
-                            <span className="text-title font-YekanBakh-Black text-xl">
+                            <span className="text-title font-YekanBakh-Black text-lg xl:text-xl">
                                 {props.price.toLocaleString()}
                             </span>
                         </div>

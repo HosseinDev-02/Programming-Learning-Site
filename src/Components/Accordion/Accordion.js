@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Accordion({title, className, classNameWrapper, items, itemSelectionHandler, modalBg, value, position}) {
 
@@ -13,7 +13,7 @@ export default function Accordion({title, className, classNameWrapper, items, it
             <button
                 onClick={() => modalShowHandler()}
                 type="button"
-                className={`text-sm font-YekanBakh-SemiBold text-title flex items-center justify-between bg-secondary rounded-xl overflow-hidden h-11 w-full px-3 ${modalShow ? '!text-primary' : ''} ${className}`}
+                className={`text-sm font-YekanBakh-SemiBold text-title xl:hover:text-primary transition-colors flex items-center justify-between bg-secondary rounded-xl overflow-hidden h-11 w-full px-3 ${modalShow ? '!text-primary' : ''} ${className}`}
             >
                 <div className="flex items-center gap-2">
                     <span>
@@ -37,7 +37,7 @@ export default function Accordion({title, className, classNameWrapper, items, it
                 {items.map((item) => (
                     <label
                         key={item.id}
-                        className={`flex items-center gap-3 text-sm cursor-pointer ${item.title === value ? 'text-primary' : ''}`}
+                        className={`flex items-center gap-3 text-sm cursor-pointer xl:hover:text-primary transition-colors ${item.title === value ? 'text-primary' : ''}`}
                     >
                         <input
                             value={item.title}

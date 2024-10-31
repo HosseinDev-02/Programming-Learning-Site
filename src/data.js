@@ -342,7 +342,7 @@ let dashboardLinks = [
 ]
 
 const courseCategoriesFilter = [
-    {id: 1, title: 'قرانت اند'},
+    {id: 1, title: 'فرانت اند'},
     {id: 2, title: 'بک اند'},
     {id: 3, title: 'اندروید'}
 ]
@@ -359,6 +359,7 @@ const coursesSortFilter = [
     {id: 3, title: 'گران ترین'},
     {id: 4, title: 'ارزان ترین'}
 ]
+
 
 
 export default data
