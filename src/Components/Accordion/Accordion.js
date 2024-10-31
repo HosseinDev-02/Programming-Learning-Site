@@ -1,48 +1,56 @@
-import {useState} from "react";
+import { useState } from "react";
 
-export default function Accordion(props) {
+export default function Accordion({title, className, classNameWrapper, items, itemSelectionHandler, modalBg, value, position}) {
+
+    const [modalShow, setModalShow] = useState(false)
+
+    const modalShowHandler = () => {
+        setModalShow(prevState => !prevState)
+    }
 
     return (
-        <div className={`pt-3 space-y-2 ${props.classNameWrapper}`}>
-            <button onClick={props.clickEvent} type='button'
-                    className={`text-sm font-YekanBakh-SemiBold text-title flex items-center justify-between bg-secondary rounded-xl overflow-hidden h-11 w-full px-3 ${props.className}`}>
-                <div className='flex items-center gap-2'>
-                                        <span>
-                                            <svg className='w-5 h-5'>
-                                                <use href='#grid-boxes-outline'></use>
-                                            </svg>
-                                        </span>
+        <div className={`py-3 space-y-2 ${classNameWrapper} relative max-w-[295px] w-full`}>
+            <button
+                onClick={() => modalShowHandler()}
+                type="button"
+                className={`text-sm font-YekanBakh-SemiBold text-title flex items-center justify-between bg-secondary rounded-xl overflow-hidden h-11 w-full px-3 ${modalShow ? '!text-primary' : ''} ${className}`}
+            >
+                <div className="flex items-center gap-2">
                     <span>
-                                            {
-                                                props.title
-                                            }
-                                        </span>
+                        <svg className="w-5 h-5">
+                            <use href="#grid-boxes-outline"></use>
+                        </svg>
+                    </span>
+                    <span>{title}</span>
                 </div>
                 <span>
-                                        <svg
-                                            style={props.state ? {transform: 'rotate(180deg)'} : {transform: 'rotate(0deg)'}}
-                                            className='w-5 h-5 transition-all'>
-                                            <use href='#chevron-down'></use>
-                                        </svg>
-                                    </span>
+                    <svg
+                        className={`w-5 h-5 transition-all ${modalShow ? 'rotate-180' : ''}`}
+                    >
+                        <use href="#chevron-down"></use>
+                    </svg>
+                </span>
             </button>
-            <div style={props.state ? {display: 'block', backgroundColor: props.modalBg} : {display: 'none'}}
-                 className='p-3 rounded-xl overflow-hidden bg-secondary space-y-2'>
-                {
-                    props.items.map(item => (
-                        <label key={item.title} className='flex items-center gap-3 text-sm cursor-pointer'>
-                            <input value={item.title} onChange={props.itemSelectionHandler(this)}
-                                   className='bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]'
-                                   type="radio" name='category'/>
-                            <span>
-                                                {
-                                                    item.title
-                                                }
-                                            </span>
-                        </label>
-                    ))
-                }
+            <div
+                className={`p-3 rounded-xl overflow-hidden bg-secondary space-y-2 ${modalShow ? 'block' : 'hidden'} left-0 right-0 top-full z-50 ${position ? position : ''}`}
+            >
+                {items.map((item) => (
+                    <label
+                        key={item.id}
+                        className={`flex items-center gap-3 text-sm cursor-pointer ${item.title === value ? 'text-primary' : ''}`}
+                    >
+                        <input
+                            value={item.title}
+                            onChange={(event) => itemSelectionHandler(event)}
+                            className="bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]"
+                            type="radio"
+                            name="category"
+                            checked={item.title === value}
+                        />
+                        <span>{item.title}</span>
+                    </label>
+                ))}
             </div>
         </div>
-    )
+    );
 }

@@ -341,6 +341,25 @@ let dashboardLinks = [
     },
 ]
 
+const courseCategoriesFilter = [
+    {id: 1, title: 'قرانت اند'},
+    {id: 2, title: 'بک اند'},
+    {id: 3, title: 'اندروید'}
+]
+
+const courseTypesFilter = [
+    {id: 1, title: 'پولی'},
+    {id: 2, title: 'رایگان'},
+    {id: 3, title: 'همه'}
+]
+
+const coursesSortFilter = [
+    {id: 1, title: 'جدیدترین'},
+    {id: 2, title: 'پرفروش ترین'},
+    {id: 3, title: 'گران ترین'},
+    {id: 4, title: 'ارزان ترین'}
+]
+
 
 export default data
-export {userCourses, userFavoritesCourses, articles, articleCategories, years, months, days, sidebarItems, dashboardLinks}
+export {userCourses, userFavoritesCourses, articles, articleCategories, years, months, days, sidebarItems, dashboardLinks, courseCategoriesFilter, courseTypesFilter, coursesSortFilter}

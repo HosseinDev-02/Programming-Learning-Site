@@ -36,9 +36,8 @@ function Header() {
 
     const getOrdersCount = async () => {
         const data = await getUserOrders();
-        if(data) {
+        if (data) {
             setOrdersCount(data.length);
-            console.log(data.length);
         }
     };
 
@@ -315,6 +314,19 @@ function Header() {
                                             </span>
                                             <span>مشاهده پروفایل</span>
                                         </a>
+                                        {mainUser.role && (
+                                            <a
+                                                className="hover:text-primary flex items-center gap-2 py-2 px-3"
+                                                href="/admin-panel"
+                                            >
+                                                <span>
+                                                    <svg className="w-5 h-5">
+                                                        <use href="#setting"></use>
+                                                    </svg>
+                                                </span>
+                                                <span>پنل کاربری</span>
+                                            </a>
+                                        )}
                                         <a
                                             className="hover:text-primary flex items-center gap-2 py-2 px-3"
                                             href="#"
