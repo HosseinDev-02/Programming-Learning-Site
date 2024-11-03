@@ -1,0 +1,46 @@
+import SectionTitle from "../../../Components/Titles/SectionTitle";
+import Article from "./Article";
+import { useEffect, useState } from "react";
+import { articles as data } from "../../../data";
+import { getArticles } from "../../../Utils";
+
+export default function Articles() {
+    const [articles, setArticles] = useState([]);
+
+    useEffect(() => {
+        getAllArticles();
+    }, []);
+
+    const getAllArticles = async () => {
+        let articlesArray = await getArticles();
+        let selectedArticles = [...articlesArray].splice(0, 4)
+        setArticles(selectedArticles);
+    };
+
+    return (
+        <section>
+            <div className="container">
+                <div className="bg-gradient-to-l from-secondary to-background rounded-2xl flex flex-col lg:flex-row items-center justify-between p-5 lg:p-3 xl:p-10 gap-10">
+                    <SectionTitle
+                        text="نوشتن کار جالبیه که از هزاران سال همراه ما بوده و کمک کرده تا همیشه به روز باشیم، ما در نابغه فضای رو به شکلی آماده کردیم تا شما  بتونید ایده‌ها و مطالب جالب حوزه برنامه‌نویسی رو در اختیار هزاران برنامه‌نویس عضو نابغه قرار بدید."
+                        title="از گوشه و اطراف دنیای برنامه نویسی"
+                        className={"!items-start"}
+                        textColor="#6b7280"
+                    ></SectionTitle>
+                    <div className="grid grid-cols-1 grid-rows-2 sm:grid-cols-2 gap-5 sm:pb-8">
+                        {articles.length &&
+                            articles.map((article) => {
+                                return (
+                                    <Article
+                                        roundedImg={true}
+                                        key={article.article_id}
+                                        {...article}
+                                    ></Article>
+                                );
+                            })}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
