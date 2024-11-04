@@ -1,5 +1,6 @@
 import SubTitle from "../../../Components/Titles/SubTitle";
 import PrimaryButton from "../../../Components/Buttons/PrimaryButton";
+import Input from "../../../Components/Input/Input";
 
 export default function EditProfile() {
     return (
@@ -64,49 +65,32 @@ export default function EditProfile() {
                 <div className="flex flex-col space-y-5">
                     <div className="flex flex-col sm:flex-row items-start justify-between gap-5">
                         <div className="w-full sm:w-1/2 flex flex-col gap-2 items-start">
-                            <label
-                                className="text-xs font-YekanBakh-SemiBold"
-                                htmlFor="#"
-                            >
-                                نام و نام خانوادگی (فارسی)
-                            </label>
-                            <input
+                            <Input
+                                label={true}
+                                labelTitle="نام و نام خانوادگی (فارسی)"
                                 className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
                                 type="text"
+                                element="input"
                             />
                         </div>
                         <div className="w-full sm:w-1/2 flex flex-col gap-2 items-start">
-                            <label
-                                className="text-xs font-YekanBakh-SemiBold"
-                                htmlFor="#"
-                            >
-                                ایمیل
-                            </label>
-                            <input
+                            <Input
+                                label={true}
+                                labelTitle="ایمیل"
                                 className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
                                 type="text"
+                                element="input"
                             />
-                            <span className="text-xs font-YekanBakh-SemiBold">
-                                در حال حاضر ایمیل قلبل تغییر نمی باشد
-                            </span>
                         </div>
                     </div>
                     <div className="lg:w-1/2 flex flex-col gap-2 items-start">
-                        <label
-                            className="text-xs font-YekanBakh-SemiBold"
-                            htmlFor="#"
-                        >
-                            آدرس پروفایل
-                        </label>
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full">
-                            <input
-                                className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
-                                type="text"
-                            />
-                            <span className="text-xs font-YekanBakh-SemiBold">
-                                https://demo.spacedev.ir
-                            </span>
-                        </div>
+                        <Input
+                            label={true}
+                            labelTitle="آدرس پروفایل"
+                            className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
+                            type="text"
+                            element="input"
+                        />
                     </div>
                 </div>
             </div>
@@ -114,74 +98,50 @@ export default function EditProfile() {
                 <SubTitle title="اطلاعات فردی"></SubTitle>
                 <div className="flex flex-col items-start gap-2">
                     <div className="flex flex-col gap-2 w-full mt-5">
-                        <label
-                            className="text-xs font-YekanBakh-SemiBold"
-                            htmlFor="#"
-                        >
-                            درباره من
-                        </label>
-                        <textarea
-                            className="bg-secondary rounded-xl border border-border text-title outline-none overflow-hidden p-3 w-full"
-                            rows="5"
-                        ></textarea>
+                        <Input
+                            label={true}
+                            labelTitle="درباره من"
+                            element="textarea"
+                            className="bg-secondary rounded-xl border border-border text-title outline-none overflow-hidden p-3 w-full h-36"
+                        />
                     </div>
                 </div>
             </div>
             <div className="mt-8 mb-5">
                 <SubTitle title="راه های ارتباطی"></SubTitle>
                 <div className="sm:grid sm:grid-cols-2 sm:gap-5 space-y-5 sm:space-y-0 mt-5">
-                    <div className="flex flex-col gap-2 items-start">
-                        <label
-                            className="text-xs font-YekanBakh-SemiBold"
-                            htmlFor="#"
-                        >
-                            وب سایت
-                        </label>
-                        <input
-                            dir="ltr"
-                            className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
-                            type="text"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2 items-start">
-                        <label
-                            className="text-xs font-YekanBakh-SemiBold"
-                            htmlFor="#"
-                        >
-                            گیت هاب
-                        </label>
-                        <input
-                            dir="ltr"
-                            className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
-                            type="text"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2 items-start">
-                        <label
-                            className="text-xs font-YekanBakh-SemiBold"
-                            htmlFor="#"
-                        >
-                            لینکدین
-                        </label>
-                        <input
-                            dir="ltr"
-                            className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
-                            type="text"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2 items-start">
-                        <label
-                            className="text-xs font-YekanBakh-SemiBold"
-                            htmlFor="#"
-                        >
-                            تلگرام
-                        </label>
-                        <input
-                            dir="ltr"
-                            className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
-                            type="text"
-                        />
-                    </div>
+                    <Input
+                        label={true}
+                        labelTitle="وب سایت"
+                        className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
+                        type="text"
+                        element="input"
+                        dir="ltr"
+                    />
+                    <Input
+                        label={true}
+                        labelTitle="گیت هاب"
+                        className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
+                        type="text"
+                        element="input"
+                        dir="ltr"
+                    />
+                    <Input
+                        label={true}
+                        labelTitle="لینکدین"
+                        className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
+                        type="text"
+                        element="input"
+                        dir="ltr"
+                    />
+                    <Input
+                        label={true}
+                        labelTitle="تلگرام"
+                        className="bg-secondary border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
+                        type="text"
+                        element="input"
+                        dir="ltr"
+                    />
                 </div>
             </div>
             <div className="flex sm:block">

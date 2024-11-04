@@ -6,6 +6,7 @@ import SubTitle from "../../Components/Titles/SubTitle";
 import PrimaryButton from "../../Components/Buttons/PrimaryButton";
 import { MySwal, getUsers } from "../../Utils";
 import { useNavigate, Link } from "react-router-dom";
+import Input from "../../Components/Input/Input";
 
 function Login() {
     const [
@@ -72,17 +73,17 @@ function Login() {
                                 لطفا اطلاعات زیر را وارد کنید
                             </p>
                             <form action="#" className="space-y-3 mt-3">
-                                <input
+                                <Input
+                                    element="input"
                                     className="outline-none h-11 rounded-2xl bg-secondary border border-border px-2 w-full text-title placeholder:text-sm"
                                     type="text"
                                     placeholder="شماره تلفن"
-                                    {...bindingUserPhonenumber}
                                 />
-                                <input
+                                <Input
+                                    element='input'
                                     className="outline-none h-11 rounded-2xl bg-secondary border border-border px-2 w-full text-title placeholder:text-sm"
-                                    type="text"
+                                    type="password"
                                     placeholder="رمز عبور"
-                                    {...bindingUserPassword}
                                 />
                                 <div className="flex items-center justify-between">
                                     <PrimaryButton
