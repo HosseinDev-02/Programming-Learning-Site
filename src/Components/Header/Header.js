@@ -4,6 +4,7 @@ import RoundButton from "../Buttons/RoundButton";
 import { getMenus, getUserOrders, getUsers } from "../../Utils";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { useNavigate } from "react-router-dom";
+import Input from "../Input/Input";
 
 function Header() {
     let localStorageValue = localStorage.getItem("theme");
@@ -210,7 +211,8 @@ function Header() {
                                             className="block w-full h-10"
                                             action="#"
                                         >
-                                            <input
+                                            <Input
+                                                element="input"
                                                 className="placeholder:text-caption w-full h-full outline-none text-title bg-transparent"
                                                 placeholder="نام دوره،مقاله و یا دسته بندی را وارد نمایید.."
                                                 type="text"

@@ -6,6 +6,7 @@ import supabase from "../../../database";
 import useMainParam from "../../../hooks/useMainParam";
 import useInput from "../../../hooks/useInput";
 import { useNavigate } from "react-router-dom";
+import Input from "../../../Components/Input/Input";
 
 export default function SessionForm() {
     const [
@@ -125,33 +126,21 @@ export default function SessionForm() {
                 )}
             </div>
             <div className="flex flex-col sm:flex-row gap-5 pt-8 md:pt-10">
-                <div className="flex flex-col gap-2 items-start w-full sm:w-1/3">
-                    <label
-                        className="text-xs font-YekanBakh-SemiBold"
-                        htmlFor="#"
-                    >
-                        عنوان جلسه
-                    </label>
-                    <input
-                        {...bindingSessionTitle}
-                        className="bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
-                        type="text"
-                    />
-                </div>
-                <div className="flex flex-col gap-2 items-start w-full sm:w-1/3">
-                    <label
-                        className="text-xs font-YekanBakh-SemiBold"
-                        htmlFor="#"
-                    >
-                        تایم جلسه
-                    </label>
-                    <input
-                        {...bindingSessionTime}
-                        className="bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
-                        type="text"
-                    />
-                </div>
-                <div className="flex flex-col gap-2 items-start w-full sm:w-1/3">
+                <Input
+                    label={true}
+                    labelTitle="عنوان"
+                    element="input"
+                    className="bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
+                    type="text"
+                />
+                <Input
+                    label={true}
+                    labelTitle="تایم"
+                    element="input"
+                    className="bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
+                    type="text"
+                />
+                <div className="flex flex-col gap-2 items-start w-full">
                     <span className="text-xs font-YekanBakh-SemiBold">
                         انتخاب دوره
                     </span>

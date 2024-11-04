@@ -6,6 +6,7 @@ import { getCategories, MySwal } from "../../../Utils";
 import useInput from "../../../hooks/useInput";
 import useMainParam from "../../../hooks/useMainParam";
 import { useNavigate } from "react-router-dom";
+import Input from "../../../Components/Input/Input";
 
 export default function CategoryForm() {
     const [
@@ -15,7 +16,7 @@ export default function CategoryForm() {
         bindingCategoryTitle,
     ] = useInput("");
     const categoryId = useMainParam();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (categoryId) {
@@ -60,7 +61,7 @@ export default function CategoryForm() {
                 confirmButtonText: "اوکی",
             }).then((res) => {
                 if (res.isDismissed || res.isConfirmed) {
-                    navigate(-2)
+                    navigate(-2);
                 }
             });
         }
@@ -85,20 +86,14 @@ export default function CategoryForm() {
                     ></SubTitle>
                 )}
             </div>
-            <div className="flex gap-5 pt-8 md:pt-10">
-                <div className="flex flex-col gap-2 items-start w-full sm:w-1/3 lg:w-1/3">
-                    <label
-                        className="text-xs font-YekanBakh-SemiBold"
-                        htmlFor="#"
-                    >
-                        عنوان دسته بندی
-                    </label>
-                    <input
-                        {...bindingCategoryTitle}
-                        className="bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
-                        type="text"
-                    />
-                </div>
+            <div className="w-full sm:w-1/3 pt-8 md:pt-10">
+                <Input
+                    label={true}
+                    labelTitle="عنوان دسته بندی"
+                    element="input"
+                    type="text"
+                    className="bg-background border border-border h-11 rounded-xl w-full outline-none px-2 text-title"
+                />
             </div>
             <div className="inline-flex items-center gap-3 mt-5">
                 {categoryId ? (
