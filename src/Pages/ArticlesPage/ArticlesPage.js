@@ -1,6 +1,6 @@
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
 import SectionTitle from "../../Components/Titles/SectionTitle";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import {
     articles as data,
     articleCategories,
@@ -9,7 +9,7 @@ import {
 } from "../../data";
 import Article from "../Home/Articles/Article";
 import Accordion from "../../Components/Accordion/Accordion";
-import {getArticles} from "../../Utils";
+import { getArticles } from "../../Utils";
 
 export default function ArticlesPage() {
     const [articles, setArticles] = useState([]);
@@ -64,7 +64,27 @@ export default function ArticlesPage() {
                         ></SectionTitle>
                         <div className="md:grid grid-cols-12 gap-5 items-start">
                             {/*  Courses Side Bar  */}
-                            <div className="col-span-4 lg:col-span-3 hidden md:block md:sticky md:top-24">
+                            <div
+                                className={`fixed h-screen top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 z-50 p-4 md:rounded-none md:w-auto md:h-auto md:p-0 md:block col-span-4 lg:col-span-3 md:sticky md:top-24 transition-all ${
+                                    filteringMenu ? "right-0" : "-right-72"
+                                }`}
+                            >
+                                <div className="flex md:hidden items-center justify-between mb-8 text-title">
+                                    <span className="font-YekanBakh-Bold text-sm">
+                                        فیلتر دوره ها
+                                    </span>
+                                    <span
+                                        onClick={() =>
+                                            setFilteringMenu(
+                                                (prevState) => !prevState
+                                            )
+                                        }
+                                    >
+                                        <svg className="w-6 h-6">
+                                            <use href="#x-mark"></use>
+                                        </svg>
+                                    </span>
+                                </div>
                                 <div>
                                     <span className="font-YekanBakh-Black text-title inline-block">
                                         تگ های محبوب
@@ -133,32 +153,29 @@ export default function ArticlesPage() {
                                     </div>
                                 </div>
                                 {/*  Courses Accordion boxes  */}
-                                <div className="divide-y divide-border">
-                                    {/*  Courses Accordion Categories Filtering  */}
-                                    <Accordion
-                                        icon="#grid-boxes-outline"
-                                        title="دسته بندی مقاله ها"
+                                <Accordion
+                                    icon="#grid-boxes-outline"
+                                    title="دسته بندی مقاله ها"
+                                >
+                                    <div
+                                        className={`p-3 rounded-xl overflow-hidden bg-secondary space-y-2 left-0 right-0 top-full mt-2`}
                                     >
-                                        <div
-                                            className={`p-3 rounded-xl overflow-hidden bg-secondary space-y-2 left-0 right-0 top-full z-50 mt-2`}
-                                        >
-                                            {categories.map((item) => (
-                                                <label
-                                                    key={item.id}
-                                                    className={`flex items-center gap-3 text-sm cursor-pointer xl:hover:text-primary transition-colors has-[:checked]:text-primary`}
-                                                >
-                                                    <input
-                                                        value={item.title}
-                                                        className="bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]"
-                                                        type="radio"
-                                                        name="category"
-                                                    />
-                                                    <span>{item.title}</span>
-                                                </label>
-                                            ))}
-                                        </div>
-                                    </Accordion>
-                                </div>
+                                        {categories.map((item) => (
+                                            <label
+                                                key={item.id}
+                                                className={`flex items-center gap-3 text-sm cursor-pointer xl:hover:text-primary transition-colors has-[:checked]:text-primary`}
+                                            >
+                                                <input
+                                                    value={item.title}
+                                                    className="bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]"
+                                                    type="radio"
+                                                    name="category"
+                                                />
+                                                <span>{item.title}</span>
+                                            </label>
+                                        ))}
+                                    </div>
+                                </Accordion>
                             </div>
                             {/*  Courses Wrapper  */}
                             <div className="col-span-8 lg:col-span-9">
@@ -174,10 +191,7 @@ export default function ArticlesPage() {
                                             مرتب سازی :
                                         </span>
                                     </div>
-                                    <Accordion
-                                        icon="#grid-boxes-outline"
-                                        title="مرتب سازی بر اساس"
-                                    >
+                                    <Accordion title="مرتب سازی بر اساس">
                                         <div
                                             className={`p-3 rounded-xl overflow-hidden bg-secondary space-y-2 left-0 right-0 top-full z-50 absolute`}
                                         >
@@ -212,154 +226,13 @@ export default function ArticlesPage() {
                                                 <use href="#funnel"></use>
                                             </svg>
                                         </span>
-                                        <span className="font-YekanBakh-SemiBold text-xs flex items-center gap-1">
+                                        <span className="hidden font-YekanBakh-SemiBold text-xs xs:flex items-center gap-1">
                                             فیلتر
                                             <span className="hidden sm:inline">
                                                 دوره ها
                                             </span>
                                         </span>
                                     </button>
-                                    {/*  Courses Filtering Menu  */}
-                                    <div
-                                        style={
-                                            filteringMenu
-                                                ? {right: "0"}
-                                                : {right: "-18rem"}
-                                        }
-                                        className="transition-all h-screen fixed top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 z-50 p-4 md:hidden"
-                                    >
-                                        <div className="flex items-center justify-between mb-8 text-title">
-                                            <span className="font-YekanBakh-Bold text-sm">
-                                                فیلتر دوره ها
-                                            </span>
-                                            <span
-                                                onClick={() =>
-                                                    setFilteringMenu(
-                                                        (prevState) =>
-                                                            !prevState
-                                                    )
-                                                }
-                                            >
-                                                <svg className="w-6 h-6">
-                                                    <use href="#x-mark"></use>
-                                                </svg>
-                                            </span>
-                                        </div>
-
-                                        {/*  Courses Accordion boxes  */}
-                                        <div className="space-y-5">
-                                            <div>
-                                                <span className="font-YekanBakh-Black text-title">
-                                                    تگ های محبوب
-                                                </span>
-                                                <div className="flex items-center gap-3 flex-wrap mt-5">
-                                                    <a
-                                                        className="flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold"
-                                                        href="#"
-                                                    >
-                                                        <span># لاراول</span>
-                                                    </a>
-                                                    <a
-                                                        className="flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold"
-                                                        href="#"
-                                                    >
-                                                        <span># پی_اچ_پی</span>
-                                                    </a>
-                                                    <a
-                                                        className="flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold"
-                                                        href="#"
-                                                    >
-                                                        <span># تلویند</span>
-                                                    </a>
-                                                    <a
-                                                        className="flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold"
-                                                        href="#"
-                                                    >
-                                                        <span>
-                                                            # جاوااسکریپت
-                                                        </span>
-                                                    </a>
-                                                    <a
-                                                        className="flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold"
-                                                        href="#"
-                                                    >
-                                                        <span># فلاتر</span>
-                                                    </a>
-                                                    <a
-                                                        className="flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold"
-                                                        href="#"
-                                                    >
-                                                        <span># وردپرس</span>
-                                                    </a>
-                                                    <a
-                                                        className="flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold"
-                                                        href="#"
-                                                    >
-                                                        <span># متفرقه</span>
-                                                    </a>
-                                                    <a
-                                                        className="flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold"
-                                                        href="#"
-                                                    >
-                                                        <span># لاراول</span>
-                                                    </a>
-                                                    <a
-                                                        className="flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold"
-                                                        href="#"
-                                                    >
-                                                        <span># پی_اچ_پی</span>
-                                                    </a>
-                                                    <a
-                                                        className="flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold"
-                                                        href="#"
-                                                    >
-                                                        <span># تلویند</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            {/*  Courses Accordion Categories Filtering  */}
-                                            <Accordion
-                                                icon="#grid-boxes-outline"
-                                                title="دسته بندی مقاله ها"
-                                            >
-                                                <div
-                                                    className={`p-3 rounded-xl overflow-hidden bg-secondary space-y-2 left-0 right-0 top-full z-50 mt-2`}
-                                                >
-                                                    {categories.map((item) => (
-                                                        <label
-                                                            key={item.id}
-                                                            className={`flex items-center gap-3 text-sm cursor-pointer xl:hover:text-primary transition-colors has-[:checked]:text-primary`}
-                                                        >
-                                                            <input
-                                                                value={item.title}
-                                                                className="bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]"
-                                                                type="radio"
-                                                                name="category"
-                                                            />
-                                                            <span>{item.title}</span>
-                                                        </label>
-                                                    ))}
-                                                </div>
-                                            </Accordion>
-                                        </div>
-                                    </div>
-                                    {/*  Courses Filtering Menu Cover  */}
-                                    <div
-                                        style={
-                                            filteringMenu
-                                                ? {
-                                                    visibility: "visible",
-                                                    opacity: "1",
-                                                }
-                                                : {}
-                                        }
-                                        onClick={() =>
-                                            setFilteringMenu(
-                                                (prevState) => !prevState
-                                            )
-                                        }
-                                        className="fixed inset-0 bg-secondary/80 z-40 invisible opacity-0 transition-all"
-                                    ></div>
                                 </div>
                                 {/*  Courses wrapper Content  */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -375,7 +248,17 @@ export default function ArticlesPage() {
                                     ))}
                                 </div>
                             </div>
-                            {/*  Courses Wrapper  */}
+                            {/*  Courses Filtering Menu Cover  */}
+                            <div
+                                onClick={() =>
+                                    setFilteringMenu((prevState) => !prevState)
+                                }
+                                className={`fixed inset-0 bg-secondary/80 z-40 transition-all ${
+                                    filteringMenu
+                                        ? "visible opacity-100"
+                                        : "invisible opacity-0"
+                                }`}
+                            ></div>
                         </div>
                     </div>
                 </div>
