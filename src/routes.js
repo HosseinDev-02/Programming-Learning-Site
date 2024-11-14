@@ -11,25 +11,8 @@ import Transactions from "./Pages/DashBoard/Transactions/Transactions";
 import Questions from "./Pages/DashBoard/Questions/Questions";
 import Notifications from "./Pages/DashBoard/Notifications/Notifications";
 import EditProfile from "./Pages/DashBoard/EditProfile/EditProfile";
-import Panel from "./Pages/Panel/Panel";
 import ArticlesPage from "./Pages/ArticlesPage/ArticlesPage";
 import ArticleDetail from "./Pages/ArticleDetail/ArticleDetail";
-import Users from "./Pages/Panel/Users/Users";
-import UserForm from "./Pages/Panel/Users/UserForm";
-import Courses from "./Pages/Panel/Courses/Courses";
-import CourseForm from "./Pages/Panel/Courses/CourseForm";
-import Categories from "./Pages/Panel/Categories/Categories";
-import CategoryForm from "./Pages/Panel/Categories/CategoryForm";
-import Sessions from "./Pages/Panel/Sessions/Sessions";
-import SessionForm from "./Pages/Panel/Sessions/SessionForm";
-import Menus from "./Pages/Panel/Menus/Menus";
-import MenuForm from "./Pages/Panel/Menus/MenuForm";
-import SubMenus from "./Pages/Panel/SubMenus/SubMenus";
-import SubMenuForm from "./Pages/Panel/SubMenus/SubMenuForm";
-import MenuLinks from "./Pages/Panel/MenuLinks/MenuLinks";
-import MenuLinkForm from "./Pages/Panel/MenuLinks/MenuLinkForm";
-import Articles from "./Pages/Panel/Articles/Articles";
-import ArticleForm from "./Pages/Panel/Articles/ArticleForm";
 import Login from "./Pages/Login/Login";
 
 let routes = [
@@ -53,43 +36,7 @@ let routes = [
             { path: "notifications", element: <Notifications></Notifications> },
             { path: "edit", element: <EditProfile></EditProfile> },
         ],
-    },
-    {
-        path: "/admin-panel",
-        element: <Panel />,
-        children: [
-            { path: "users", element: <Users></Users> },
-            { path: "user-form", element: <UserForm></UserForm> },
-            { path: "user-form/:id", element: <UserForm></UserForm> },
-            { path: "courses", element: <Courses></Courses> },
-            { path: "course-form", element: <CourseForm></CourseForm> },
-            { path: "course-form/:id", element: <CourseForm></CourseForm> },
-            { path: "categories", element: <Categories></Categories> },
-            { path: "category-form", element: <CategoryForm></CategoryForm> },
-            {
-                path: "category-form/:id",
-                element: <CategoryForm></CategoryForm>,
-            },
-            { path: "sessions", element: <Sessions></Sessions> },
-            { path: "session-form", element: <SessionForm></SessionForm> },
-            { path: "session-form/:id", element: <SessionForm></SessionForm> },
-            { path: "menus", element: <Menus></Menus> },
-            { path: "menu-form", element: <MenuForm></MenuForm> },
-            { path: "menu-form/:id", element: <MenuForm></MenuForm> },
-            { path: "submenus", element: <SubMenus></SubMenus> },
-            { path: "submenu-form", element: <SubMenuForm></SubMenuForm> },
-            { path: "submenu-form/:id", element: <SubMenuForm></SubMenuForm> },
-            { path: "menulinks", element: <MenuLinks></MenuLinks> },
-            { path: "menulink-form", element: <MenuLinkForm></MenuLinkForm> },
-            {
-                path: "menulink-form/:id",
-                element: <MenuLinkForm></MenuLinkForm>,
-            },
-            { path: "articles", element: <Articles></Articles> },
-            { path: "article-form", element: <ArticleForm></ArticleForm> },
-            { path: "article-form/:id", element: <ArticleForm></ArticleForm> },
-        ],
-    },
+    }
 ];
 
 export default routes;

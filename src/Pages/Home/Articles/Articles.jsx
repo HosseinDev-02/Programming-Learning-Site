@@ -2,20 +2,13 @@ import SectionTitle from "../../../Components/Titles/SectionTitle";
 import Article from "./Article";
 import { useEffect, useState } from "react";
 import { articles as data } from "../../../data";
-import { getArticles } from "../../../Utils";
 
 export default function Articles() {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        getAllArticles();
+        setArticles(data)
     }, []);
-
-    const getAllArticles = async () => {
-        let articlesArray = await getArticles();
-        let selectedArticles = [...articlesArray].splice(0, 4)
-        setArticles(selectedArticles);
-    };
 
     return (
         <section>
@@ -33,7 +26,7 @@ export default function Articles() {
                                 return (
                                     <Article
                                         roundedImg={true}
-                                        key={article.article_id}
+                                        key={article.id}
                                         {...article}
                                     ></Article>
                                 );

@@ -2,87 +2,13 @@ import SubTitle from "../../Components/Titles/SubTitle";
 import LikeButton from "../../Components/Buttons/LikeButton";
 import PrimaryButton from "../../Components/Buttons/PrimaryButton";
 import Box from "./Box";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SectionLinkBtn from "../../Components/Buttons/SectionLinkBtn";
 import UserInfo from "../../Components/UserInfo/UserInfo";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
-import { useParams } from "react-router-dom";
-import {
-    getOrders,
-    getMainCourse,
-    getUsers,
-    isUserLogin,
-    getUserOrders,
-} from "../../Utils";
-import supabase from "../../database";
 
 export default function CourseDetail() {
-    const [sessionsTotalTime, setSessionsTotalTime] = useState("");
-    const [userId, setUserId] = useState(null);
-    const [course, setCourse] = useState({});
     const [boxes, setBoxes] = useState([]);
-    const [isLogin, setIsLogin] = useState(false);
-    const params = useParams();
-    const courseShortName = params.shortName;
-
-    useEffect(() => {
-        setMainCourse();
-        checkUserLogin();
-        getUserId();
-    }, []);
-
-    async function setMainCourse() {
-        const mainCourse = await getMainCourse(courseShortName);
-        setCourse(mainCourse);
-        setBoxes([
-            {
-                id: 1,
-                icon: "#clock",
-                title: "مدت دوره",
-                text: mainCourse.totalTime,
-            },
-            {
-                id: 2,
-                icon: "#grid-boxes",
-                title: "تعداد جلسات",
-                text: mainCourse.sections,
-            },
-            { id: 3, icon: "#info", title: "نوع دوره", text: "ویژه / نقدی" },
-            {
-                id: 4,
-                icon: "#users",
-                title: "شرکت کنندگان",
-                text: "132 دانشجو",
-            },
-        ]);
-    }
-
-    const getUserId = () => {
-        const mainId = localStorage.getItem("token");
-        setUserId(mainId);
-    };
-
-    const checkUserLogin = () => {
-        const status = isUserLogin();
-        setIsLogin(status);
-    };
-
-    const sessionsMenuHandler = (e) => {
-        e.currentTarget.classList.toggle("session--open");
-        e.currentTarget.nextElementSibling.classList.toggle("hidden");
-    };
-
-    const addUserOrder = async () => {
-        const newUserOrder = {
-            user_id: userId,
-            course_id: course.course_id,
-        };
-        const { data } = await supabase
-            .from("orders")
-            .insert(newUserOrder)
-            .select("*");
-        console.log(data);
-    };
 
     const tabViewHandler = (e) => {
         console.log(e.currentTarget.dataset.type);
@@ -104,25 +30,24 @@ export default function CourseDetail() {
                             <div>
                                 <img
                                     className="w-full rounded-3xl"
-                                    src={course.courseImg}
-                                    alt={course.title}
+                                    src="/images/Courses/01.jpg"
+                                    alt="دوره پروژه محور ری اکت و نکست"
                                 />
                             </div>
                             {/*  course infos  */}
                             <div className="bg-gradient-to-b from-background to-secondary mx-5 p-5 rounded-3xl space-y-2">
-                                {course.isCompleted ? (
-                                    <span className="text-success text-xs font-YekanBakh-Bold">
-                                        تکمیل شده
-                                    </span>
-                                ) : (
-                                    <span className="text-yellow-500 dark:text-yellow-600 text-xs font-YekanBakh-Bold">
-                                        در حال برگزاری
-                                    </span>
-                                )}
+                                <span className="text-success text-xs font-YekanBakh-Bold">
+                                    تکمیل شده
+                                </span>
                                 <h1 className="text-title text-xl font-YekanBakh-Bold">
-                                    {course.title}
+                                    دوره پروژه محور ری اکت و نکست
                                 </h1>
-                                <p className="text-sm">{course.description}</p>
+                                <p className="text-sm">
+                                    ساخت وبسایت فروشگاهی با React عنوان دوره
+                                    پروژه محور react در نابغه است که قصد داریم
+                                    در قالب این دوره react را در قالب پروژه به
+                                    شما آموزش دهیم.
+                                </p>
                             </div>
                             {/*  course detail boxes  */}
                             <div className="grid grid-cols-2 lg:grid-cols-4 mt-5 gap-5">
@@ -201,13 +126,13 @@ export default function CourseDetail() {
                                 </p>
                                 <div>
                                     <h2 className="font-YekanBakh-Black mb-3 text-xl text-title">
-                                        {course.title}
+                                        دوره پروژه محور ری اکت و نکست
                                     </h2>
                                     <div>
                                         <img
                                             className="w-full rounded-3xl"
-                                            src={course.courseImg}
-                                            alt={course.title}
+                                            src="/images/Courses/01.jpg"
+                                            alt="دوره پروژه محور ری اکت و نکست"
                                         />
                                     </div>
                                 </div>
@@ -259,10 +184,7 @@ export default function CourseDetail() {
                                 <SubTitle title="سرفصل ها"></SubTitle>
                                 <div className="mt-5 space-y-3">
                                     <div>
-                                        <button
-                                            onClick={sessionsMenuHandler}
-                                            className="flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors"
-                                        >
+                                        <button className="flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors">
                                             <div className="flex items-center gap-6">
                                                 <span className="text-title">
                                                     فصل اول
@@ -421,10 +343,7 @@ export default function CourseDetail() {
                                         </div>
                                     </div>
                                     <div>
-                                        <button
-                                            onClick={sessionsMenuHandler}
-                                            className="flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors"
-                                        >
+                                        <button className="flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors">
                                             <div className="flex items-center gap-6">
                                                 <span className="text-title">
                                                     فصل دوم
@@ -749,69 +668,52 @@ export default function CourseDetail() {
                                         هزینه ثبت نام :
                                     </span>
                                     <div className="flex flex-col items-end">
-                                        {course.costPrice ? (
-                                            <>
-                                                <span className="line-through">
-                                                    {(+course.price).toLocaleString()}
-                                                </span>
-                                                <div className="flex items-center gap-1">
-                                                    <span className="text-xl text-title font-YekanBakh-Black">
-                                                        {(+course.costPrice).toLocaleString()}
-                                                    </span>
-                                                    <span className="text-xs hidden lg:inline-block">
-                                                        تومان
-                                                    </span>
-                                                </div>
-                                            </>
-                                        ) : (
-                                            <div className="flex items-center gap-1">
-                                                <span className="text-xl text-title font-YekanBakh-Black">
-                                                    {(+course.price).toLocaleString()}
-                                                </span>
-                                                <span className="text-xs hidden lg:inline-block">
-                                                    تومان
-                                                </span>
-                                            </div>
-                                        )}
+                                        <span className="line-through">
+                                            1,900,000
+                                        </span>
+                                        <div className="flex items-center gap-1">
+                                            <span className="text-xl text-title font-YekanBakh-Black">
+                                                1,450,000
+                                            </span>
+                                            <span className="text-xs hidden lg:inline-block">
+                                                تومان
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 mt-3">
                                     <PrimaryButton
-                                        clickEvent={() => addUserOrder()}
                                         icon="#arrow-up-left"
                                         title="اضافه به سبد"
                                     ></PrimaryButton>
-                                    {isLogin && <LikeButton></LikeButton>}
+                                    <LikeButton></LikeButton>
                                 </div>
                             </div>
-                            {course.users && (
-                                <div className="space-y-3">
-                                    <SubTitle
-                                        className="text-sm"
-                                        title="مدرس دوره"
-                                    ></SubTitle>
-                                    <div>
-                                        <UserInfo
-                                            text="دیدن رزومه"
-                                            img={course.users.img}
-                                            title={course.users.name}
-                                        ></UserInfo>
-                                        <div className="p-5 bg-secondary rounded-tl-2xl rounded-bl-2xl rounded-br-2xl mt-3">
-                                            <p className="text-sm">
-                                                اول داستان، طراح گرافیک بودم و ۲
-                                                سالی به عنوان طراح مشغول بودم،
-                                                بعد به برنامه‌نویسی علاقمند شدم
-                                                و الان بیشتر از ۱۰ ساله که عاشق
-                                                کدزنی و چالش‌های پروژه‌های
-                                                مختلفم. به تدریس علاقه خاصی دارم
-                                                و دوست دارم دانشی که در این راه
-                                                بدست آوردم را در اختیار دیگران
-                                                قرار بدم :)
-                                            </p>
-                                        </div>
+                            <div className="space-y-3">
+                                <SubTitle
+                                    className="text-sm"
+                                    title="مدرس دوره"
+                                ></SubTitle>
+                                <div>
+                                    <UserInfo
+                                        text="دیدن رزومه"
+                                        img='/images/profile.jpeg'
+                                        title='حسین رستمی'
+                                    ></UserInfo>
+                                    <div className="p-5 bg-secondary rounded-tl-2xl rounded-bl-2xl rounded-br-2xl mt-3">
+                                        <p className="text-sm">
+                                            اول داستان، طراح گرافیک بودم و ۲
+                                            سالی به عنوان طراح مشغول بودم، بعد
+                                            به برنامه‌نویسی علاقمند شدم و الان
+                                            بیشتر از ۱۰ ساله که عاشق کدزنی و
+                                            چالش‌های پروژه‌های مختلفم. به تدریس
+                                            علاقه خاصی دارم و دوست دارم دانشی که
+                                            در این راه بدست آوردم را در اختیار
+                                            دیگران قرار بدم :)
+                                        </p>
                                     </div>
                                 </div>
-                            )}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,60 +1,11 @@
-import React, { useState } from "react";
-import useInput from "../../hooks/useInput";
 import Logo from "../../Components/Logo/Logo";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
 import SubTitle from "../../Components/Titles/SubTitle";
 import PrimaryButton from "../../Components/Buttons/PrimaryButton";
-import { MySwal, getUsers } from "../../Utils";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Input from "../../Components/Input/Input";
 
 function Login() {
-    const [
-        userPhonenumber,
-        setUserPhonenumber,
-        resetUserPhonenumber,
-        bindingUserPhonenumber,
-    ] = useInput("");
-
-    const [
-        userPassword,
-        setUserPassword,
-        resetUserPassword,
-        bindingUserPassword,
-    ] = useInput("");
-
-    const navigate = useNavigate();
-
-    const userLoginHandler = async () => {
-        let allUsers = await getUsers();
-        let mainUserId = null;
-
-        let isRegistered = allUsers.some((user) => {
-            if (
-                user.phonenumber === userPhonenumber &&
-                user.password === userPassword
-            ) {
-                mainUserId = user.user_id;
-                return true;
-            }
-        });
-        isRegistered
-            ? MySwal.fire({
-                  title: "خوش آمدید",
-                  icon: "success",
-                  confirmButtonText: "ورود",
-              }).then((res) => {
-                  if (res.isConfirmed || res.isDismissed) {
-                      localStorage.setItem("token", mainUserId);
-                      navigate("/");
-                  }
-              })
-            : MySwal.fire({
-                  title: "کاربری با این مشخصات وجود ندارد !",
-                  icon: "warning",
-                  confirmButtonText: "بستن",
-              });
-    };
 
     return (
         <SiteStructure>
@@ -90,7 +41,6 @@ function Login() {
                                         className={"!grow-0"}
                                         icon="#arrow-up-left"
                                         title="برو بریم"
-                                        clickEvent={userLoginHandler}
                                     ></PrimaryButton>
                                     <p className="text-xs font-YekanBakh-SemiBold">
                                         حساب کاربری ندارید ؟

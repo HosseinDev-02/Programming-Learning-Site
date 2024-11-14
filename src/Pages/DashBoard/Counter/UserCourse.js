@@ -1,30 +1,30 @@
 import PrimaryButton from "../../../Components/Buttons/PrimaryButton";
 
 export default function UserCourse({
-    courseImg,
+    img,
     title,
     price,
-    totalTime,
+    time,
     costPrice,
     sections,
     isCompleted,
     isFree,
-    users,
-    categories,
-    shortName
+    teacher,
+    category,
+    teacherImg
 }) {
     return (
         <div>
             <div className="inline-block rounded-3xl overflow-hidden relative">
-                <a href="#">
+                <a href="/course/react-js">
                     <img
                         className="w-full h-full object-cover"
-                        src={courseImg}
+                        src={img}
                         alt={title}
                     />
                 </a>
                 <a
-                    href="#"
+                    href='/course/react-js'
                     className="absolute left-3 top-3 flex items-center gap-1 bg-black/20 rounded-full h-11 px-4 text-white hover:opacity-80 transition-all"
                 >
                     <span>
@@ -33,7 +33,7 @@ export default function UserCourse({
                         </svg>
                     </span>
                     <span className="font-YekanBakh-SemiBold text-sm tracking-wider">
-                        {categories.title}
+                        {category}
                     </span>
                 </a>
             </div>
@@ -58,7 +58,7 @@ export default function UserCourse({
                 <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
                     <a
                         className="hover:text-primary transition-colors line-clamp-1"
-                        href="#"
+                        href="/course/react-js"
                     >
                         {title}
                     </a>
@@ -83,7 +83,7 @@ export default function UserCourse({
                             </svg>
                         </span>
                         <span className="text-xs font-YekanBakh-SemiBold">
-                            {totalTime} ساعت
+                            {time} ساعت
                         </span>
                     </div>
                 </div>
@@ -92,15 +92,15 @@ export default function UserCourse({
                         <span className="block overflow-hidden w-10 h-10 rounded-full shrink-0">
                             <img
                                 className="w-full h-full object-cover"
-                                src={users.img}
-                                alt={users.name}
+                                src={teacherImg}
+                                alt={teacher}
                             />
                         </span>
                         <div className="flex flex-col gap-1 text-xs font-YekanBakh-SemiBold">
                             <span className="line-clamp-1">مدرس دوره :</span>
                             <span className="text-title font-YekanBakh-Bold line-clamp-1">
                                 {
-                                    users.name
+                                    teacher
                                 }
                             </span>
                         </div>
@@ -135,7 +135,6 @@ export default function UserCourse({
                 <PrimaryButton
                     className={`w-full mt-5`}
                     icon="#arrow-up-left"
-                    href={`/course/${shortName}`}
                     title="ادامه یادگیری"
                 ></PrimaryButton>
             </div>

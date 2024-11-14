@@ -4,32 +4,33 @@ import LikeButton from "../../Components/Buttons/LikeButton";
 import PrimaryButton from "../../Components/Buttons/PrimaryButton";
 
 function Order({
-    courseImg,
+    img,
     title,
     price,
     costPrice,
     isCompleted,
+    time,
     sections,
-    totalTime,
-    users
+    teacher,
+    teacherImg
 }) {
     return (
         <div className="flex sm:flex-row lg:flex-row flex-col md:flex-col items-center sm:items-start md:items-center lg:items-start gap-5 lg:gap-8 py-6">
             <div className="w-full sm:w-4/12 lg:w-4/12 md:w-full">
                 <a
                     className="flex items-center justify-center rounded-3xl overflow-hidden"
-                    href="#"
+                    href="/course/react-js"
                 >
                     <img
                         className="w-full h-full object-cover"
-                        src={courseImg}
+                        src={img}
                         alt={title}
                     />
                 </a>
                 <RoundButton
                     icon="#x-mark"
                     className={
-                        "-translate-y-1/2 mx-auto w-11 h-11 !bg-red-500 text-white"
+                        "-translate-y-1/2 mx-auto w-11 h-11 !bg-red-500 text-white cursor-pointer"
                     }
                 ></RoundButton>
             </div>
@@ -55,7 +56,7 @@ function Order({
                     <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
                         <a
                             className="hover:text-primary transition-colors line-clamp-1"
-                            href="#"
+                            href="/course/react-js"
                         >
                             {title}
                         </a>
@@ -80,7 +81,7 @@ function Order({
                                 </svg>
                             </span>
                             <span className="text-xs font-YekanBakh-SemiBold">
-                                {totalTime} ساعت
+                                {time} ساعت
                             </span>
                         </div>
                     </div>
@@ -89,8 +90,8 @@ function Order({
                             <span className="block overflow-hidden w-10 h-10 rounded-full shrink-0">
                                 <img
                                     className="w-full h-full object-cover"
-                                    src={users.img}
-                                    alt={users.name}
+                                    src={teacherImg}
+                                    alt={teacher}
                                 />
                             </span>
                             <div className="flex flex-col gap-1 text-xs font-YekanBakh-SemiBold">
@@ -98,7 +99,7 @@ function Order({
                                     مدرس دوره :
                                 </span>
                                 <span className="text-title font-YekanBakh-Bold line-clamp-1">
-                                    {users.name}
+                                    {teacher}
                                 </span>
                             </div>
                         </div>
@@ -139,7 +140,7 @@ function Order({
                     <div className="flex items-center gap-3 mt-3">
                         <PrimaryButton
                             icon="#arrow-up-left"
-                            href="/course"
+                            href="/course/react-js"
                             title="مشاهده دوره"
                         ></PrimaryButton>
                         <LikeButton></LikeButton>

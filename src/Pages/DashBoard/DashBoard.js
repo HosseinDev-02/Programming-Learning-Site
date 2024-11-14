@@ -1,9 +1,6 @@
-import Counter from "./Counter/Counter";
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLocation, useMatch } from "react-router-dom";
+import { Link, Outlet, useMatch } from "react-router-dom";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
-import userLogOutHandler from "../../Utils";
-import routes from "../../routes";
 import { dashboardLinks } from "../../data";
 
 export default function DashBoard() {
@@ -61,9 +58,6 @@ export default function DashBoard() {
                                     </Link>
                                 ))}
                                 <a
-                                    onClick={() => {
-                                        userLogOutHandler();
-                                    }}
                                     href="/login"
                                     className="flex items-center gap-3 rounded-full px-5 bg-background hover:bg-red-500 text-red-500 hover:text-white transition-colors w-full h-11 cursor-pointer"
                                 >

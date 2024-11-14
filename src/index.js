@@ -6,7 +6,7 @@ import './Custom.css'
 import {BrowserRouter} from "react-router-dom";
 // import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.querySelector('body'));
 root.render(
     <BrowserRouter>
         <App />

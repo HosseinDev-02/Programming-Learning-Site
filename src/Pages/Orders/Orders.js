@@ -1,55 +1,19 @@
 import SubTitle from "../../Components/Titles/SubTitle";
 import PrimaryButton from "../../Components/Buttons/PrimaryButton";
 import SectionTitle from "../../Components/Titles/SectionTitle";
-import LikeButton from "../../Components/Buttons/LikeButton";
 import LatestCourses from "../Home/Latest-Courses/LatestCourses";
 import SectionHeader from "../../Components/SectionHeader/SectionHeader";
-import RoundButton from "../../Components/Buttons/RoundButton";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
+import { userBasket } from "../../data";
 import { useEffect, useState } from "react";
-import { getUserOrders } from "../../Utils";
 import Order from "./Order";
-import supabase from "../../database";
 
 export default function Orders() {
     const [userOrders, setUserOrders] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [offer, setOffer] = useState(0);
 
     useEffect(() => {
-        getAllUserOrders();
+        setUserOrders(userBasket)
     }, []);
-
-    const getAllUserOrders = async () => {
-        const ordersData = await getUserOrders();
-        setUserOrders(ordersData);
-
-        let sum = 0;
-        let off = 0;
-
-        ordersData.forEach((order) => {
-            off += (order.courses.price * order.courses.offer) / 100;
-            sum +=
-                order.courses.price -
-                (order.courses.price * order.courses.offer) / 100;
-        });
-        setTotalPrice(sum);
-        setOffer(off);
-    };
-
-    const registerUserCoursesHandler = async () => {
-        let res;
-        userOrders.forEach(async (order) => {
-            console.log(order);
-            res = await supabase
-                .from("orders")
-                .update({ isPayed: true })
-                .eq("user_id", localStorage.getItem("token"))
-                .eq("course_id", order.course_id)
-                .eq("isPayed", false);
-        });
-        getAllUserOrders()
-    };
 
     return (
         <SiteStructure>
@@ -75,8 +39,8 @@ export default function Orders() {
                                 {userOrders.length
                                     ? userOrders.map((order) => (
                                           <Order
-                                              key={order.order_id}
-                                              {...order.courses}
+                                              key={order.id}
+                                              {...order}
                                           ></Order>
                                       ))
                                     : ""}
@@ -95,7 +59,7 @@ export default function Orders() {
                                         </span>
                                         <div className="flex items-center gap-1">
                                             <span className="font-YekanBakh-Black text-title">
-                                                {totalPrice.toLocaleString()}
+                                                2,280,000
                                             </span>
                                             <span className="text-xs">
                                                 تومان
@@ -108,7 +72,7 @@ export default function Orders() {
                                         </span>
                                         <div className="flex items-center gap-1">
                                             <span className="font-YekanBakh-Black text-title">
-                                                {offer.toLocaleString()}
+                                                780,000
                                             </span>
                                             <span className="text-xs">
                                                 تومان
@@ -122,9 +86,7 @@ export default function Orders() {
                                     </span>
                                     <div className="flex items-center gap-1">
                                         <span className="text-title font-YekanBakh-Black text-xl">
-                                            {(
-                                                totalPrice - offer
-                                            ).toLocaleString()}
+                                            1,500,000
                                         </span>
                                         <span className="text-xs">تومان</span>
                                     </div>
@@ -132,12 +94,8 @@ export default function Orders() {
                             </div>
                             {userOrders.length ? (
                                 <PrimaryButton
-                                    clickEvent={() =>
-                                        registerUserCoursesHandler()
-                                    }
                                     icon="#arrow-up-left"
                                     title="تکمیل فرایند خرید"
-                                    href='/orders'
                                 ></PrimaryButton>
                             ) : (
                                 ""

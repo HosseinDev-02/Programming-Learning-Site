@@ -1,4 +1,4 @@
-const data = [
+export const courses = [
     {
         id: 1,
         title: 'آموزش فلاتر از صفر',
@@ -7,10 +7,12 @@ const data = [
         isFree: false,
         time: 25,
         sections: 12,
-        isCompleted: true,
+        isCompleted: false,
         teacher: 'حسین رستمی',
         img: 'images/Courses/03.jpg',
-        teacherImg: 'images/profile.jpeg'
+        teacherImg: 'images/profile.jpeg',
+        category: 'اندروید',
+        offer: 12
     },
     {
         id: 2,
@@ -23,7 +25,9 @@ const data = [
         isCompleted: true,
         teacher: 'حسین رستمی',
         img: 'images/Courses/01.jpg',
-        teacherImg: 'images/profile.jpeg'
+        teacherImg: 'images/profile.jpeg',
+        category: 'فرانت اند',
+        offer: 0
     },
     {
         id: 3,
@@ -36,8 +40,41 @@ const data = [
         isCompleted: true,
         teacher: 'حسین رستمی',
         img: 'images/Courses/02.jpg',
-        teacherImg: 'images/profile.jpeg'
+        teacherImg: 'images/profile.jpeg',
+        category: 'فرانت اند',
+        offer: 0
     }
+]
+
+const userBasket = [
+    {
+        id: 1,
+        title: 'آموزش فلاتر از صفر',
+        price: 1_990_000,
+        costPrice: 1_250_000,
+        isFree: false,
+        time: 25,
+        sections: 12,
+        isCompleted: true,
+        teacher: 'حسین رستمی',
+        img: '/images/Courses/03.jpg',
+        teacherImg: '/images/profile.jpeg',
+        offer: 12
+    },
+    {
+        id: 2,
+        title: 'آموزش پروژه محور ری اکت و نکست',
+        price: 1_560_000,
+        costPrice: 0,
+        isFree: false,
+        time: 32,
+        sections: 24,
+        isCompleted: true,
+        teacher: 'حسین رستمی',
+        img: '/images/Courses/01.jpg',
+        teacherImg: '/images/profile.jpeg',
+        offer: 12
+    }, 
 ]
 
 const userCourses = [
@@ -118,37 +155,37 @@ const articles = [
     {
         id: 1,
         title: 'دوره پروژه محور React و Next Js',
-        img: 'images/Courses/01.jpg',
+        img: '/images/Courses/01.jpg',
         time: 20,
         writer: 'حسین رستمی',
-        writerImg: 'images/profile.jpeg',
+        writerImg: '/images/profile.jpeg',
         category: 'فرانت اند'
     },
     {
         id: 2,
         title: 'دوره پروژه محور React و Next Js',
-        img: 'images/Courses/02.jpg',
+        img: '/images/Courses/02.jpg',
         time: 15,
         writer: 'حسین رستمی',
-        writerImg: 'images/profile.jpeg',
+        writerImg: '/images/profile.jpeg',
         category: 'امنیت'
     },
     {
         id: 3,
         title: 'دوره پروژه محور React و Next Js',
-        img: 'images/Courses/03.jpg',
+        img: '/images/Courses/03.jpg',
         time: 32,
         writer: 'حسین رستمی',
-        writerImg: 'images/profile.jpeg',
+        writerImg: '/images/profile.jpeg',
         category: 'بک اند'
     },
     {
         id: 4,
         title: 'دوره پروژه محور React و Next Js',
-        img: 'images/Courses/04.jpg',
+        img: '/images/Courses/04.jpg',
         time: 10,
         writer: 'حسین رستمی',
-        writerImg: 'images/profile.jpeg',
+        writerImg: '/images/profile.jpeg',
         category: 'اندروید'
     },
 ]
@@ -362,5 +399,4 @@ const coursesSortFilter = [
 
 
 
-export default data
-export {userCourses, userFavoritesCourses, articles, articleCategories, years, months, days, sidebarItems, dashboardLinks, courseCategoriesFilter, courseTypesFilter, coursesSortFilter}
+export {userCourses, userFavoritesCourses, articles, articleCategories, years, months, days, sidebarItems, dashboardLinks, courseCategoriesFilter, courseTypesFilter, coursesSortFilter, userBasket}

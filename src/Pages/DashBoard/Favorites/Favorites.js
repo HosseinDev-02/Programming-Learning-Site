@@ -1,11 +1,15 @@
 import SubTitle from "../../../Components/Titles/SubTitle";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {userFavoritesCourses} from "../../../data";
 import FavoriteCourse from "./FavoriteCourse";
 
 export default function Favorites() {
 
-    const [favoritesCourses, setFavoritesCourses] = useState(userFavoritesCourses)
+    const [favoritesCourses, setFavoritesCourses] = useState([])
+
+    useEffect(() => {
+        setFavoritesCourses(userFavoritesCourses)
+    }, [])
 
     return (
         <div>

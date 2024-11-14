@@ -2,8 +2,7 @@ import {useEffect, useState} from "react";
 import SubTitle from "../../../Components/Titles/SubTitle";
 import Box from "./box";
 import UserCourse from "./UserCourse";
-import {userCourses as courses} from "../../../data";
-import { getUserCourses } from "../../../Utils";
+import {userBasket as data} from "../../../data";
 
 export default function Counter() {
 
@@ -17,14 +16,8 @@ export default function Counter() {
     const [courses, setCourses] = useState([])
 
     useEffect(() => {
-        getCourses()
-    }, [])
-
-    const getCourses = async () => {
-        const data = await getUserCourses()
-        console.log(data)
         setCourses(data)
-    }
+    }, [])
 
     return (
         <div>
@@ -41,7 +34,7 @@ export default function Counter() {
                     {
                         courses.length ? (
                             courses.map(order => (
-                                <UserCourse key={order.course_id} {...order.courses}></UserCourse>
+                                <UserCourse key={order.id} {...order}></UserCourse>
                             ))
                         ) : (
                             ''

@@ -2,61 +2,10 @@ import Logo from "../../Components/Logo/Logo";
 import SubTitle from "../../Components/Titles/SubTitle";
 import PrimaryButton from "../../Components/Buttons/PrimaryButton";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
-import useInput from "../../hooks/useInput";
-import supabase from "../../database";
-import { MySwal } from "../../Utils";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Input from "../../Components/Input/Input";
 
 export default function Register() {
-    const [username, setUsername, resetUsername, bindingUsername] =
-        useInput("");
-    const [
-        userPhonenumber,
-        setUserPhonenumber,
-        resetUserPhonenumber,
-        bindingUserPhonenumber,
-    ] = useInput("");
-    const [userEmail, setUserEmail, resetUserEmail, bindingUserEmail] =
-        useInput("");
-    const [
-        userPassword,
-        setUserPassword,
-        resetUserPassword,
-        bindingUserPassword,
-    ] = useInput("");
-
-    const navigate = useNavigate();
-
-    const addNewUser = async () => {
-        const newUser = {
-            name: username,
-            phonenumber: userPhonenumber,
-            email: userEmail,
-            password: userPassword,
-            role: false,
-        };
-
-        const { data, status, error } = await supabase
-            .from("users")
-            .insert(newUser)
-            .select("*");
-        console.log("data :", data);
-        console.log("status :", status);
-        console.log("error :", error);
-        if (status === 201) {
-            MySwal.fire({
-                title: "خوش آمدید",
-                icon: "success",
-                confirmButtonText: "ممنون",
-            }).then((res) => {
-                if (res.isConfirmed || res.isDismissed) {
-                    navigate("/");
-                    localStorage.setItem("token", data[0].user_id);
-                }
-            });
-        }
-    };
 
     return (
         <SiteStructure>
@@ -104,7 +53,6 @@ export default function Register() {
                                         className={`!grow-0`}
                                         icon="#arrow-up-left"
                                         title="برو بریم"
-                                        clickEvent={addNewUser}
                                     ></PrimaryButton>
                                     <p className="text-xs font-YekanBakh-SemiBold">
                                         حساب کاربری دارید ؟{" "}

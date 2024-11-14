@@ -9,7 +9,6 @@ import {
 } from "../../data";
 import Article from "../Home/Articles/Article";
 import Accordion from "../../Components/Accordion/Accordion";
-import { getArticles } from "../../Utils";
 
 export default function ArticlesPage() {
     const [articles, setArticles] = useState([]);
@@ -25,31 +24,9 @@ export default function ArticlesPage() {
     const [selectedSorting, setSelectedSorting] = useState("جدیدترین");
 
     useEffect(() => {
-        getAllArticles();
+        // getAllArticles();
     }, []);
 
-    const getAllArticles = async () => {
-        const data = await getArticles();
-        setArticles(data);
-    };
-
-    // const filteringModalHandler = () => {
-    //     setShowFilteringModal((prevState) => !prevState);
-    // };
-
-    // const sortingMenuHandler = (e) => {
-    //     setSelectedSorting(e.currentTarget.value);
-    // };
-
-    // const categorySelection = (event) => {
-    //     setSelectedCategory(event.currentTarget.value);
-    //     // event.currentTarget.setAttribute("checked", true);
-    //     console.log((selectedCategory))
-    // };
-
-    // const filteringCoursesHandler = (e) => {
-    //     setFiltering(e.target.innerHTML);
-    // };
 
     return (
         <SiteStructure>

@@ -1,6 +1,6 @@
 import LikeButton from "../../../Components/Buttons/LikeButton";
 
-export default function Article({title, className, img, users, categories, time, roundedImg}) {
+export default function Article({title, className, img, writer, writerImg, category, time, roundedImg}) {
     return (
         <div className={`bg-background rounded-xl p-4 ${className}`}>
             <div className='relative'>
@@ -30,17 +30,17 @@ export default function Article({title, className, img, users, categories, time,
                                         <span
                                             className='flex items-center justify-center rounded-full w-[30px] h-[30px] overflow-hidden border border-white'>
                                             <img className='w-full h-full object-cover'
-                                                 src={users.img}
-                                                 alt={users.name}/>
+                                                 src={writerImg}
+                                                 alt={writer}/>
                                         </span>
                         <a className='hover:text-primary transition-colors text-xs font-YekanBakh-Bold text-title'
                            href="#">
-                            {users.name}
+                            {writer}
                         </a>
                     </div>
                     <a href='#'
                        className='flex items-center justify-center px-4 h-8 rounded-full bg-primary/10 hover:opacity-80 transition-opacity'>
-                        <span className='text-xxs text-primary font-YekanBakh-Bold'>{categories.title}</span>
+                        <span className='text-xxs text-primary font-YekanBakh-Bold'>{category}</span>
                     </a>
                 </div>
                 <div

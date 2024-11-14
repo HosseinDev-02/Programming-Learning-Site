@@ -1,35 +1,20 @@
 import PrimaryButton from "../Buttons/PrimaryButton";
 import LikeButton from "../Buttons/LikeButton";
 import UserInfo from "../UserInfo/UserInfo";
-import { useEffect, useState } from "react";
-import { isUserLogin } from "../../Utils";
 
 export default function Course(props) {
-
-    const [isLogin, setIsLogin] = useState(false)
-
-    useEffect(() => {
-        checkUserLogin()
-    }, [])
-
-
-    const checkUserLogin = () => {
-        const status = isUserLogin()
-        setIsLogin(status)
-    }
-
     return (
         <div>
             <div className="inline-block rounded-3xl overflow-hidden relative">
-                <a href="#">
+                <a href="/course/react-js">
                     <img
                         className="w-full h-full object-cover"
-                        src={props.courseImg}
+                        src={props.img}
                         alt={props.title}
                     />
                 </a>
                 <a
-                    href="#"
+                    href="/course/react-js"
                     className="absolute left-3 top-3 flex items-center gap-1 bg-black/20 rounded-full h-11 px-4 text-white hover:opacity-80 transition-all"
                 >
                     <span>
@@ -38,7 +23,7 @@ export default function Course(props) {
                         </svg>
                     </span>
                     <span className="font-YekanBakh-SemiBold text-sm tracking-wider">
-                        {props.categories.title}
+                        {props.category}
                     </span>
                 </a>
             </div>
@@ -63,7 +48,7 @@ export default function Course(props) {
                 <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
                     <a
                         className="hover:text-primary transition-colors line-clamp-1"
-                        href={`course/${props.shortName}`}
+                        href="/course/react-js"
                     >
                         {props.title}
                     </a>
@@ -88,15 +73,15 @@ export default function Course(props) {
                             </svg>
                         </span>
                         <span className="text-xs font-YekanBakh-SemiBold">
-                            {props.totalTime} ساعت
+                            {props.time} ساعت
                         </span>
                     </div>
                 </div>
                 <div className="flex items-center justify-between gap-5 mt-3">
                     <UserInfo
                         title="مدرس دوره :"
-                        text={props.users.name}
-                        img={props.users.img}
+                        text={props.teacher}
+                        img={props.teacherImg}
                     ></UserInfo>
                     {props.isFree ? (
                         <div className="flex items-center justify-center h-14">
@@ -127,15 +112,11 @@ export default function Course(props) {
                 </div>
                 <div className="flex items-center gap-3 mt-3">
                     <PrimaryButton
-                        href={`course/${props.shortName}`}
+                        href="/course/react-js"
                         icon="#arrow-up-left"
                         title="مشاهده دوره"
                     ></PrimaryButton>
-                    {
-                        isLogin && (
-                            <LikeButton></LikeButton>
-                        )
-                    }
+                    <LikeButton></LikeButton>
                 </div>
             </div>
         </div>

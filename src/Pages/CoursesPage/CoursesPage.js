@@ -1,58 +1,27 @@
 import SectionTitle from "../../Components/Titles/SectionTitle";
 import { useEffect, useState } from "react";
 import Course from "../../Components/Course/Course";
-import data, {
+import {
+    courses as data,
     courseCategoriesFilter,
     courseTypesFilter,
     coursesSortFilter,
 } from "../../data";
 import SectionHeader from "../../Components/SectionHeader/SectionHeader";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
-import { getCourses } from "../../Utils";
 import Accordion from "../../Components/Accordion/Accordion";
 
 export default function CoursesPage() {
     const [courses, setCourses] = useState([]);
-    const [started, setStarted] = useState(false);
-    const [showFilteringModal, setShowFilteringModal] = useState(false);
-    const [filtering, setFiltering] = useState("");
     const [filteringMenu, setFilteringMenu] = useState(false);
     const [categories, setCategories] = useState(courseCategoriesFilter);
     const [typeItems, setTypeItems] = useState(courseTypesFilter);
     const [sortingItems, setSortingItems] = useState(coursesSortFilter);
-    const [selectedSorting, setSelectedSorting] = useState("جدیدترین");
-    const [selectedCategory, setSelectedCategory] = useState("");
-    const [selectedType, setSelectedType] = useState("");
+    const [started, setStarted] = useState(false)
 
     useEffect(() => {
-        setCoursesState();
+        setCourses(data)
     }, []);
-
-    async function setCoursesState() {
-        const data = await getCourses();
-        setCourses(data);
-        console.log(data);
-    }
-
-    const typesMenuHandler = (e) => {
-        setSelectedType(e.currentTarget.value);
-    };
-
-    const categoriesMenuHandler = (e) => {
-        setSelectedCategory(e.currentTarget.value);
-    };
-
-    const sortingMenuHandler = (e) => {
-        setSelectedSorting(e.currentTarget.value);
-    };
-
-    const filteringModalHandler = () => {
-        setShowFilteringModal((prevState) => !prevState);
-    };
-
-    const filteringCoursesHandler = (e) => {
-        setFiltering(e.target.innerHTML);
-    };
 
     return (
         <SiteStructure>
@@ -237,7 +206,7 @@ export default function CoursesPage() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                                     {courses.map((course) => (
                                         <Course
-                                            key={course.course_id}
+                                            key={course.id}
                                             {...course}
                                         ></Course>
                                     ))}
