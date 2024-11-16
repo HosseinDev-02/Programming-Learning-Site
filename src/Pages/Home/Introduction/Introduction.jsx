@@ -5,7 +5,7 @@ export default function Introduction() {
         <section>
             <div className='container'>
                 <div
-                    className='bg-gradient-to-l from-secondary to-background rounded-2xl flex flex-col-reverse xl:flex-row items-center justify-center py-16 gap-10'>
+                    className='bg-gradient-to-l from-secondary to-background rounded-2xl flex flex-col-reverse xl:flex-row items-center justify-center py-16 gap-10 px-5 lg:px-3 xl:px-10'>
                     {/*  introduction right side  */}
                     <div className='max-w-[645px] space-y-5'>
                         {/*  Introduction right side offer  */}
@@ -32,7 +32,7 @@ export default function Introduction() {
                             یادگیری برنامه‌نویسی آرزو نیست، فقط نیاز هست که تلاش و تمرین داشته
                             باشید، بقیه‌اش با نابغه
                         </p>
-                        <PrimaryButton href='/courses' icon='#arrow-up-left' title='شروع یادگیری برنامه نویسی'></PrimaryButton>
+                        <PrimaryButton className={`!inline-flex`} href='/courses' icon='#arrow-up-left' title='شروع یادگیری برنامه نویسی'></PrimaryButton>
                     </div>
                     <div className='max-w-72'>
                         <img className='w-full h-full object-cover' src="images/Introduction/main.png" alt=""/>
