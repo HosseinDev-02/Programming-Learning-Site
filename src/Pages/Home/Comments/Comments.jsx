@@ -47,7 +47,7 @@ export default function Comments() {
                                         <span className="block overflow-hidden w-10 h-10 rounded-full">
                                             <img
                                                 className="w-full h-full object-cover"
-                                                src="/images/profile.jpeg"
+                                                src="images/profile.jpeg"
                                                 alt=""
                                             />
                                         </span>
@@ -80,7 +80,7 @@ export default function Comments() {
                                         <span className="block overflow-hidden w-10 h-10 rounded-full">
                                             <img
                                                 className="w-full h-full object-cover"
-                                                src="/images/profile.jpeg"
+                                                src="images/profile.jpeg"
                                                 alt=""
                                             />
                                         </span>

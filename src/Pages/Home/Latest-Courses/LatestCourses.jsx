@@ -7,18 +7,10 @@ import SectionHeader from "../../../Components/SectionHeader/SectionHeader";
 
 export default function LatestCourses() {
     const [courses, setCourses] = useState([]);
-    // const [latestCourses, setLatestCourses] = useState([]);
 
     useEffect(() => {
         setCourses(data)
-        // getLatestCourses();
     });
-
-    // const getLatestCourses = async () => {
-    //     let mainCourses = await getCourses();
-    //     let selectedCourses = [...mainCourses].reverse().splice(0, 3);
-    //     setLatestCourses(selectedCourses);
-    // }
 
     return (
         <section>
@@ -30,7 +22,7 @@ export default function LatestCourses() {
                         text="منتشر شده"
                     ></SectionTitle>
                     <SectionLinkBtn
-                        href="/courses"
+                        href="/Programming-Learning-Site/courses"
                         icon="#arrow-up-left"
                         text="مشاهده همه"
                     ></SectionLinkBtn>

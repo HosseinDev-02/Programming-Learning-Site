@@ -1,5 +1,6 @@
+import Home from "./Pages/Home/Home";
 import routes from "./routes";
-import {useRoutes} from "react-router-dom";
+import {Route, Routes, useRoutes} from "react-router-dom";
 
 
 export default function App() {
@@ -14,7 +15,9 @@ export default function App() {
 
     return (
         <>
-            {router}
+            <Routes>
+                <Route path="/Programming-Learning-Site" element={<Home/>} />
+            </Routes>
         </>
     )
 }

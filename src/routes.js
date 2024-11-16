@@ -17,15 +17,15 @@ import Login from "./Pages/Login/Login";
 
 let routes = [
     { path: "/Programming-Learning-Site", element: <Home /> },
-    { path: "/courses", element: <CoursesPage /> },
-    { path: "/course/:shortName", element: <CourseDetail /> },
-    { path: "/register", element: <Register /> },
-    { path: "/login", element: <Login /> },
-    { path: "/orders", element: <Orders /> },
-    { path: "/articles", element: <ArticlesPage></ArticlesPage> },
-    { path: "/article-detail/:shortName", element: <ArticleDetail></ArticleDetail> },
+    { path: "/Programming-Learning-Site/courses", element: <CoursesPage /> },
+    { path: "/Programming-Learning-Site/course/:shortName", element: <CourseDetail /> },
+    { path: "/Programming-Learning-Site/register", element: <Register /> },
+    { path: "/Programming-Learning-Site/login", element: <Login /> },
+    { path: "/Programming-Learning-Site/orders", element: <Orders /> },
+    { path: "/Programming-Learning-Site/articles", element: <ArticlesPage></ArticlesPage> },
+    { path: "/Programming-Learning-Site/article-detail/:shortName", element: <ArticleDetail></ArticleDetail> },
     {
-        path: "/dashboard",
+        path: "/Programming-Learning-Site/dashboard",
         element: <DashBoard></DashBoard>,
         children: [
             { path: "counter", element: <Counter></Counter> },
