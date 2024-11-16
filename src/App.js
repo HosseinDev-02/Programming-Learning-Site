@@ -10,6 +10,7 @@ import {
     createBrowserRouter,
     createHashRouter,
     useRoutes,
+    Switch
 } from "react-router-dom";
 import CoursesPage from "./Pages/CoursesPage/CoursesPage";
 import CourseDetail from "./Pages/CourseDetail/CourseDetail";
@@ -32,11 +33,28 @@ export default function App() {
     return (
         <HashRouter>
             <Routes>
-                <Route path="/Programming-Learning-Site" element={<Home />} />
-                <Route path="/Programming-Learning-Site/courses" element={<CoursesPage />} />
-                <Route path="/Programming-Learning-Site/course/:shortName" element={<CourseDetail />} />
-                <Route path="/Programming-Learning-Site/register" element={<Register />} />
-                <Route path="/Programming-Learning-Site/login" element={<Login />} />
+                <Switch>
+                    <Route
+                        path="/Programming-Learning-Site"
+                        element={<Home />}
+                    />
+                    <Route
+                        path="/Programming-Learning-Site/courses"
+                        element={<CoursesPage />}
+                    />
+                    <Route
+                        path="/Programming-Learning-Site/course/:shortName"
+                        element={<CourseDetail />}
+                    />
+                    <Route
+                        path="/Programming-Learning-Site/register"
+                        element={<Register />}
+                    />
+                    <Route
+                        path="/Programming-Learning-Site/login"
+                        element={<Login />}
+                    />
+                </Switch>
             </Routes>
         </HashRouter>
     );
