@@ -16,7 +16,7 @@ import ArticleDetail from "./Pages/ArticleDetail/ArticleDetail";
 import Login from "./Pages/Login/Login";
 
 let routes = [
-    { path: "/", element: <Home /> },
+    { path: "/Programming-Learning-Site", element: <Home /> },
     { path: "/courses", element: <CoursesPage /> },
     { path: "/course/:shortName", element: <CourseDetail /> },
     { path: "/register", element: <Register /> },
