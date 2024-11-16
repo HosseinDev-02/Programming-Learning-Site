@@ -33,11 +33,11 @@ export default function App() {
     return (
         <>
             <Routes>
-                <Route path="/" Component={<Home />}></Route>
-                <Route path="/courses" Component={<CoursesPage />}></Route>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/courses" element={<CoursesPage />}></Route>
                 <Route
                     path="/course/:shortName"
-                    Component={<CourseDetail />}
+                    element={<CourseDetail />}
                 ></Route>
             </Routes>
         </>
