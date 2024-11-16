@@ -155,7 +155,7 @@ const articles = [
     {
         id: 1,
         title: 'تفاوت بک اند و فرانت اند',
-        img: '/images/Courses/01.jpg',
+        img: 'images/Courses/01.jpg',
         time: '20:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
@@ -164,7 +164,7 @@ const articles = [
     {
         id: 2,
         title: 'چگونه به یک هکر تبدیل بشیم ؟',
-        img: '/images/Courses/02.jpg',
+        img: 'images/Courses/02.jpg',
         time: '15:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
@@ -173,7 +173,7 @@ const articles = [
     {
         id: 3,
         title: 'بازار کار برنامه نویسی وب چگونه است ؟',
-        img: '/images/Courses/03.jpg',
+        img: 'images/Courses/03.jpg',
         time: '32:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
@@ -182,7 +182,7 @@ const articles = [
     {
         id: 4,
         title: 'دیتابیس چیست ؟',
-        img: '/images/Courses/04.jpg',
+        img: 'images/Courses/04.jpg',
         time: '10:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
