@@ -7,12 +7,17 @@ import {
     Route,
     RouterProvider,
     Routes,
+    createBrowserRouter,
     createHashRouter,
     useRoutes,
 } from "react-router-dom";
+import CoursesPage from "./Pages/CoursesPage/CoursesPage";
+import CourseDetail from "./Pages/CourseDetail/CourseDetail";
+import Register from "./Pages/Register/Register";
+import Login from "./Pages/Login/Login";
 
 export default function App() {
-    let router = useRoutes(routes);
+    let router = createHashRouter(routes);
 
     if (
         localStorage.theme === "dark" ||
@@ -25,10 +30,14 @@ export default function App() {
     }
 
     return (
-        <>
+        <HashRouter>
             <Routes>
-                <Route path="/Programming-Learning-Site" element={ <Home/> }/>
-            </Routes> 
-        </>
+                <Route path="/" element={<Home />} />
+                <Route path="/courses" element={<CoursesPage />} />
+                <Route path="/course/:shortName" element={<CourseDetail />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+            </Routes>
+        </HashRouter>
     );
 }
