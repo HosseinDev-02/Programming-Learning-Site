@@ -18,7 +18,7 @@ import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 
 export default function App() {
-    let routerData = createHashRouter(routes);
+    let routerData = useRoutes(routes);
 
     if (
         localStorage.theme === "dark" ||
@@ -32,14 +32,9 @@ export default function App() {
 
     return (
         <>
-            <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/courses" element={<CoursesPage />}></Route>
-                <Route
-                    path="/course/:shortName"
-                    element={<CourseDetail />}
-                ></Route>
-            </Routes>
+            {
+                routerData
+            }
         </>
     );
 }
