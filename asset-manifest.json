@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Programming-Learning-Site/static/css/main.6304bc19.css",
-    "main.js": "/Programming-Learning-Site/static/js/main.883c5ea9.js",
+    "main.js": "/Programming-Learning-Site/static/js/main.96160b30.js",
     "static/media/YekanBakhFaNum-Black.woff": "/Programming-Learning-Site/static/media/YekanBakhFaNum-Black.ad10f8e315ccea3676d8.woff",
     "static/media/YekanBakhFaNum-Bold.woff": "/Programming-Learning-Site/static/media/YekanBakhFaNum-Bold.c971f5e4ec7656d1e40e.woff",
     "static/media/YekanBakhFaNum-SemiBold.woff": "/Programming-Learning-Site/static/media/YekanBakhFaNum-SemiBold.9b730c51cd567db38191.woff",
     "static/media/YekanBakhFaNum-Regular.woff": "/Programming-Learning-Site/static/media/YekanBakhFaNum-Regular.c3171d28afa355907149.woff",
     "index.html": "/Programming-Learning-Site/index.html",
     "main.6304bc19.css.map": "/Programming-Learning-Site/static/css/main.6304bc19.css.map",
-    "main.883c5ea9.js.map": "/Programming-Learning-Site/static/js/main.883c5ea9.js.map"
+    "main.96160b30.js.map": "/Programming-Learning-Site/static/js/main.96160b30.js.map"
   },
   "entrypoints": [
     "static/css/main.6304bc19.css",
-    "static/js/main.883c5ea9.js"
+    "static/js/main.96160b30.js"
   ]
 }
