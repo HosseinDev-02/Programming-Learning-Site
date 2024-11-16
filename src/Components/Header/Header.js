@@ -617,7 +617,7 @@ function Header() {
                                     </span>
                                 </span>
                                 <span>
-                                    <svg className={`w-5 h-5`}>
+                                    <svg className={`w-5 h-5 ${showMobileCategoryMenu && 'rotate-180'}`}>
                                         <use href="#chevron-down-mini"></use>
                                     </svg>
                                 </span>
@@ -643,7 +643,7 @@ function Header() {
                                         }`}
                                         href="#"
                                     >
-                                        <svg className={`w-4 h-4`}>
+                                        <svg className={`w-4 h-4 ${showMobileCategorySubMenu && '-rotate-45'}`}>
                                             <use href="#chevron-left-mini"></use>
                                         </svg>
                                         فرانت اند

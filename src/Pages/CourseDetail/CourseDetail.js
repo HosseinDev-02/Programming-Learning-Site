@@ -2,10 +2,11 @@ import SubTitle from "../../Components/Titles/SubTitle";
 import LikeButton from "../../Components/Buttons/LikeButton";
 import PrimaryButton from "../../Components/Buttons/PrimaryButton";
 import Box from "./Box";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SectionLinkBtn from "../../Components/Buttons/SectionLinkBtn";
 import UserInfo from "../../Components/UserInfo/UserInfo";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
+import Session from "../../Components/Accordion/Session";
 
 export default function CourseDetail() {
     const [boxes, setBoxes] = useState([]);
@@ -183,326 +184,292 @@ export default function CourseDetail() {
                             <div id="tabTwo">
                                 <SubTitle title="سرفصل ها"></SubTitle>
                                 <div className="mt-5 space-y-3">
-                                    <div>
-                                        <button className="flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors">
-                                            <div className="flex items-center gap-6">
-                                                <span className="text-title">
-                                                    فصل اول
-                                                </span>
-                                                <span>معرفی</span>
+                                    <Session
+                                        sessionTitle="معرفی دوره"
+                                        sessionIndex="فصل اول"
+                                    >
+                                        <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                            <div className="flex items-center gap-2 md:gap-5">
+                                                <span>1</span>
+                                                <a
+                                                    href="#"
+                                                    className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
+                                                >
+                                                    معرفی دوره
+                                                </a>
                                             </div>
-                                            <span>
-                                                <svg className="w-5 h-5">
-                                                    <use href="#chevron-down"></use>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                        <div className="py-3 mx-8 hidden">
-                                            <ul className="flex flex-col gap-1">
-                                                <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
-                                                    <div className="flex items-center gap-2 md:gap-5">
-                                                        <span>1</span>
-                                                        <a
-                                                            href="#"
-                                                            className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
-                                                        >
-                                                            معرفی دوره
-                                                        </a>
-                                                    </div>
-                                                    <div className="flex justify-end md:justify-start items-center gap-5">
-                                                        <div className="flex items-center gap-1">
-                                                            <span>03:54</span>
-                                                            <span>
-                                                                <svg className="w-4 h-4">
-                                                                    <use href="#clock-outline"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <a
-                                                            className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                            href="#"
-                                                        >
-                                                            <span className="font-YekanBakh-SemiBold">
-                                                                مشاهده
-                                                            </span>
-                                                            <span>
-                                                                <svg className="w-5 h-5">
-                                                                    <use href="#arrow-up-left"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
-                                                    <div className="flex items-center gap-2 md:gap-5">
-                                                        <span>1</span>
-                                                        <a
-                                                            href="#"
-                                                            className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
-                                                        >
-                                                            پیش نیاز مشاهده این
-                                                            دوره
-                                                        </a>
-                                                    </div>
-                                                    <div className="flex justify-end md:justify-start items-center gap-5">
-                                                        <div className="flex items-center gap-1">
-                                                            <span>03:54</span>
-                                                            <span>
-                                                                <svg className="w-4 h-4">
-                                                                    <use href="#clock-outline"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <a
-                                                            className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                            href="#"
-                                                        >
-                                                            <span className="font-YekanBakh-SemiBold">
-                                                                مشاهده
-                                                            </span>
-                                                            <span>
-                                                                <svg className="w-5 h-5">
-                                                                    <use href="#arrow-up-left"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
-                                                    <div className="flex items-center gap-2 md:gap-5">
-                                                        <span>1</span>
-                                                        <a
-                                                            href="#"
-                                                            className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
-                                                        >
-                                                            چرا باید این دوره را
-                                                            مشاهده کنیم؟
-                                                        </a>
-                                                    </div>
-                                                    <div className="flex justify-end md:justify-start items-center gap-5">
-                                                        <div className="flex items-center gap-1">
-                                                            <span>03:54</span>
-                                                            <span>
-                                                                <svg className="w-4 h-4">
-                                                                    <use href="#clock-outline"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <a
-                                                            className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                            href="#"
-                                                        >
-                                                            <span className="font-YekanBakh-SemiBold">
-                                                                مشاهده
-                                                            </span>
-                                                            <span>
-                                                                <svg className="w-5 h-5">
-                                                                    <use href="#arrow-up-left"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
-                                                    <div className="flex items-center gap-2 md:gap-5">
-                                                        <span>1</span>
-                                                        <a
-                                                            href="#"
-                                                            className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
-                                                        >
-                                                            در این پروژه از
-                                                            typescript هم
-                                                            استفاده می‌شود
-                                                        </a>
-                                                    </div>
-                                                    <div className="flex justify-end md:justify-start items-center gap-5">
-                                                        <div className="flex items-center gap-1">
-                                                            <span>03:54</span>
-                                                            <span>
-                                                                <svg className="w-4 h-4">
-                                                                    <use href="#clock-outline"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <a
-                                                            className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                            href="#"
-                                                        >
-                                                            <span className="font-YekanBakh-SemiBold">
-                                                                مشاهده
-                                                            </span>
-                                                            <span>
-                                                                <svg className="w-5 h-5">
-                                                                    <use href="#arrow-up-left"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <button className="flex items-center justify-between w-full px-5 h-14 rounded-3xl bg-secondary text-xs font-YekanBakh-SemiBold hover:text-title transition-colors">
-                                            <div className="flex items-center gap-6">
-                                                <span className="text-title">
-                                                    فصل دوم
-                                                </span>
-                                                <span>
-                                                    پیاده سازی ساختار پروژه
-                                                </span>
+                                            <div className="flex justify-end md:justify-start items-center gap-5">
+                                                <div className="flex items-center gap-1">
+                                                    <span>03:54</span>
+                                                    <span>
+                                                        <svg className="w-4 h-4">
+                                                            <use href="#clock-outline"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <a
+                                                    className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
+                                                    href="#"
+                                                >
+                                                    <span className="font-YekanBakh-SemiBold">
+                                                        مشاهده
+                                                    </span>
+                                                    <span>
+                                                        <svg className="w-5 h-5">
+                                                            <use href="#arrow-up-left"></use>
+                                                        </svg>
+                                                    </span>
+                                                </a>
                                             </div>
-                                            <span>
-                                                <svg className="w-5 h-5">
-                                                    <use href="#chevron-down"></use>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                        <div className="py-3 mx-8 hidden">
-                                            <ul className="flex flex-col gap-1">
-                                                <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
-                                                    <div className="flex items-center gap-2 md:gap-5">
-                                                        <span>1</span>
-                                                        <a
-                                                            href="#"
-                                                            className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
-                                                        >
-                                                            معرفی دوره
-                                                        </a>
-                                                    </div>
-                                                    <div className="flex justify-end md:justify-start items-center gap-5">
-                                                        <div className="flex items-center gap-1">
-                                                            <span>03:54</span>
-                                                            <span>
-                                                                <svg className="w-4 h-4">
-                                                                    <use href="#clock-outline"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <a
-                                                            className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                            href="#"
-                                                        >
-                                                            <span className="font-YekanBakh-SemiBold">
-                                                                مشاهده
-                                                            </span>
-                                                            <span>
-                                                                <svg className="w-5 h-5">
-                                                                    <use href="#arrow-up-left"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
-                                                    <div className="flex items-center gap-2 md:gap-5">
-                                                        <span>1</span>
-                                                        <a
-                                                            href="#"
-                                                            className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
-                                                        >
-                                                            پیش نیاز مشاهده این
-                                                            دوره
-                                                        </a>
-                                                    </div>
-                                                    <div className="flex justify-end md:justify-start items-center gap-5">
-                                                        <div className="flex items-center gap-1">
-                                                            <span>03:54</span>
-                                                            <span>
-                                                                <svg className="w-4 h-4">
-                                                                    <use href="#clock-outline"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <a
-                                                            className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                            href="#"
-                                                        >
-                                                            <span className="font-YekanBakh-SemiBold">
-                                                                مشاهده
-                                                            </span>
-                                                            <span>
-                                                                <svg className="w-5 h-5">
-                                                                    <use href="#arrow-up-left"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
-                                                    <div className="flex items-center gap-2 md:gap-5">
-                                                        <span>1</span>
-                                                        <a
-                                                            href="#"
-                                                            className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
-                                                        >
-                                                            چرا باید این دوره را
-                                                            مشاهده کنیم؟
-                                                        </a>
-                                                    </div>
-                                                    <div className="flex justify-end md:justify-start items-center gap-5">
-                                                        <div className="flex items-center gap-1">
-                                                            <span>03:54</span>
-                                                            <span>
-                                                                <svg className="w-4 h-4">
-                                                                    <use href="#clock-outline"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <a
-                                                            className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                            href="#"
-                                                        >
-                                                            <span className="font-YekanBakh-SemiBold">
-                                                                مشاهده
-                                                            </span>
-                                                            <span>
-                                                                <svg className="w-5 h-5">
-                                                                    <use href="#arrow-up-left"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
-                                                    <div className="flex items-center gap-2 md:gap-5">
-                                                        <span>1</span>
-                                                        <a
-                                                            href="#"
-                                                            className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
-                                                        >
-                                                            در این پروژه از
-                                                            typescript هم
-                                                            استفاده می‌شود
-                                                        </a>
-                                                    </div>
-                                                    <div className="flex justify-end md:justify-start items-center gap-5">
-                                                        <div className="flex items-center gap-1">
-                                                            <span>03:54</span>
-                                                            <span>
-                                                                <svg className="w-4 h-4">
-                                                                    <use href="#clock-outline"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                        <a
-                                                            className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                            href="#"
-                                                        >
-                                                            <span className="font-YekanBakh-SemiBold">
-                                                                مشاهده
-                                                            </span>
-                                                            <span>
-                                                                <svg className="w-5 h-5">
-                                                                    <use href="#arrow-up-left"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                        </li>
+                                        <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                            <div className="flex items-center gap-2 md:gap-5">
+                                                <span>1</span>
+                                                <a
+                                                    href="#"
+                                                    className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
+                                                >
+                                                    پیش نیاز مشاهده این دوره
+                                                </a>
+                                            </div>
+                                            <div className="flex justify-end md:justify-start items-center gap-5">
+                                                <div className="flex items-center gap-1">
+                                                    <span>03:54</span>
+                                                    <span>
+                                                        <svg className="w-4 h-4">
+                                                            <use href="#clock-outline"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <a
+                                                    className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
+                                                    href="#"
+                                                >
+                                                    <span className="font-YekanBakh-SemiBold">
+                                                        مشاهده
+                                                    </span>
+                                                    <span>
+                                                        <svg className="w-5 h-5">
+                                                            <use href="#arrow-up-left"></use>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                            <div className="flex items-center gap-2 md:gap-5">
+                                                <span>1</span>
+                                                <a
+                                                    href="#"
+                                                    className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
+                                                >
+                                                    چرا باید این دوره را مشاهده
+                                                    کنیم؟
+                                                </a>
+                                            </div>
+                                            <div className="flex justify-end md:justify-start items-center gap-5">
+                                                <div className="flex items-center gap-1">
+                                                    <span>03:54</span>
+                                                    <span>
+                                                        <svg className="w-4 h-4">
+                                                            <use href="#clock-outline"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <a
+                                                    className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
+                                                    href="#"
+                                                >
+                                                    <span className="font-YekanBakh-SemiBold">
+                                                        مشاهده
+                                                    </span>
+                                                    <span>
+                                                        <svg className="w-5 h-5">
+                                                            <use href="#arrow-up-left"></use>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                            <div className="flex items-center gap-2 md:gap-5">
+                                                <span>1</span>
+                                                <a
+                                                    href="#"
+                                                    className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
+                                                >
+                                                    در این پروژه از typescript
+                                                    هم استفاده می‌شود
+                                                </a>
+                                            </div>
+                                            <div className="flex justify-end md:justify-start items-center gap-5">
+                                                <div className="flex items-center gap-1">
+                                                    <span>03:54</span>
+                                                    <span>
+                                                        <svg className="w-4 h-4">
+                                                            <use href="#clock-outline"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <a
+                                                    className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
+                                                    href="#"
+                                                >
+                                                    <span className="font-YekanBakh-SemiBold">
+                                                        مشاهده
+                                                    </span>
+                                                    <span>
+                                                        <svg className="w-5 h-5">
+                                                            <use href="#arrow-up-left"></use>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </Session>
+                                    <Session
+                                        sessionTitle="پیاده سازی ساختار پروژه"
+                                        sessionIndex="فصل دوم"
+                                    >
+                                        <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                            <div className="flex items-center gap-2 md:gap-5">
+                                                <span>1</span>
+                                                <a
+                                                    href="#"
+                                                    className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
+                                                >
+                                                    معرفی دوره
+                                                </a>
+                                            </div>
+                                            <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
+                                                <div className="flex items-center gap-1">
+                                                    <span>03:54</span>
+                                                    <span>
+                                                        <svg className="w-4 h-4">
+                                                            <use href="#clock-outline"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <a
+                                                    className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
+                                                    href="#"
+                                                >
+                                                    <span className="font-YekanBakh-SemiBold">
+                                                        مشاهده
+                                                    </span>
+                                                    <span>
+                                                        <svg className="w-5 h-5">
+                                                            <use href="#arrow-up-left"></use>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                            <div className="flex items-center gap-2 md:gap-5">
+                                                <span>1</span>
+                                                <a
+                                                    href="#"
+                                                    className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
+                                                >
+                                                    پیش نیاز مشاهده این دوره
+                                                </a>
+                                            </div>
+                                            <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
+                                                <div className="flex items-center gap-1">
+                                                    <span>03:54</span>
+                                                    <span>
+                                                        <svg className="w-4 h-4">
+                                                            <use href="#clock-outline"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <a
+                                                    className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
+                                                    href="#"
+                                                >
+                                                    <span className="font-YekanBakh-SemiBold">
+                                                        مشاهده
+                                                    </span>
+                                                    <span>
+                                                        <svg className="w-5 h-5">
+                                                            <use href="#arrow-up-left"></use>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                            <div className="flex items-center gap-2 md:gap-5">
+                                                <span>1</span>
+                                                <a
+                                                    href="#"
+                                                    className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
+                                                >
+                                                    چرا باید این دوره را مشاهده
+                                                    کنیم؟
+                                                </a>
+                                            </div>
+                                            <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
+                                                <div className="flex items-center gap-1">
+                                                    <span>03:54</span>
+                                                    <span>
+                                                        <svg className="w-4 h-4">
+                                                            <use href="#clock-outline"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <a
+                                                    className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
+                                                    href="#"
+                                                >
+                                                    <span className="font-YekanBakh-SemiBold">
+                                                        مشاهده
+                                                    </span>
+                                                    <span>
+                                                        <svg className="w-5 h-5">
+                                                            <use href="#arrow-up-left"></use>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                            <div className="flex items-center gap-2 md:gap-5">
+                                                <span>1</span>
+                                                <a
+                                                    href="#"
+                                                    className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
+                                                >
+                                                    در این پروژه از typescript
+                                                    هم استفاده می‌شود
+                                                </a>
+                                            </div>
+                                            <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
+                                                <div className="flex items-center gap-1">
+                                                    <span>03:54</span>
+                                                    <span>
+                                                        <svg className="w-4 h-4">
+                                                            <use href="#clock-outline"></use>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <a
+                                                    className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
+                                                    href="#"
+                                                >
+                                                    <span className="font-YekanBakh-SemiBold">
+                                                        مشاهده
+                                                    </span>
+                                                    <span>
+                                                        <svg className="w-5 h-5">
+                                                            <use href="#arrow-up-left"></use>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </Session>
                                 </div>
                             </div>
                             {/*  course detail comments  */}
@@ -697,10 +664,10 @@ export default function CourseDetail() {
                                 <div>
                                     <UserInfo
                                         text="دیدن رزومه"
-                                        img='/images/profile.jpeg'
-                                        title='حسین رستمی'
+                                        img="/images/profile.jpeg"
+                                        title="حسین رستمی"
                                     ></UserInfo>
-                                    <div className="p-5 bg-secondary rounded-tl-2xl rounded-bl-2xl rounded-br-2xl mt-3">
+                                    <div className="p-5 bg-secondary rounded-tl-2xl rounded-tr-2xl md:rounded-tr-none rounded-b-2xl mt-3">
                                         <p className="text-sm">
                                             اول داستان، طراح گرافیک بودم و ۲
                                             سالی به عنوان طراح مشغول بودم، بعد

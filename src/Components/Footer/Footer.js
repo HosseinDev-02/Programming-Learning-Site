@@ -30,7 +30,7 @@ export default function Footer() {
                         {/*  footer content top  */}
                         <div className="flex items-center justify-between lg:justify-start gap-10 py-10 flex-wrap">
                             <div className="lg:w-5/12">
-                                <Logo></Logo>
+                                <Logo className='inline-flex'></Logo>
                             </div>
                             <div className="flex items-center gap-10">
                                 <div className="flex items-center gap-5">
