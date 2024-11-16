@@ -1,14 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 import App from "./App";
-import './Custom.css'
-import {BrowserRouter, HashRouter} from "react-router-dom";
+import "./Custom.css";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 // import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.querySelector('body'));
+const root = ReactDOM.createRoot(document.querySelector("#root"));
 root.render(
-        <App />
+    <>
+        <HashRouter>
+            <App />
+        </HashRouter>
+    </>
 );
 
 // If you want to start measuring performance in your app, pass a function

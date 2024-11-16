@@ -18,7 +18,7 @@ import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 
 export default function App() {
-    let router = createHashRouter(routes);
+    let routerData = createHashRouter(routes);
 
     if (
         localStorage.theme === "dark" ||
@@ -30,9 +30,16 @@ export default function App() {
         document.documentElement.classList.remove("dark");
     }
 
-    ReactDOM.createRoot(document.getElementById("root")).render(
-        <React.StrictMode>
-            <RouterProvider router={router} />
-        </React.StrictMode>
+    return (
+        <>
+            <Routes>
+                <Route path="/" Component={<Home />}></Route>
+                <Route path="/courses" Component={<CoursesPage />}></Route>
+                <Route
+                    path="/course/:shortName"
+                    Component={<CourseDetail />}
+                ></Route>
+            </Routes>
+        </>
     );
 }
