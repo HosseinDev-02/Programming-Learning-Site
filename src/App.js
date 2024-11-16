@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./Pages/Home/Home";
 import routes from "./routes";
 import ReactDOM from "react-dom/client";
+import { Switch } from "react-router";
 import {
     HashRouter,
     Route,
@@ -10,7 +11,6 @@ import {
     createBrowserRouter,
     createHashRouter,
     useRoutes,
-    Switch
 } from "react-router-dom";
 import CoursesPage from "./Pages/CoursesPage/CoursesPage";
 import CourseDetail from "./Pages/CourseDetail/CourseDetail";
@@ -30,32 +30,9 @@ export default function App() {
         document.documentElement.classList.remove("dark");
     }
 
-    return (
-        <HashRouter>
-            <Routes>
-                <Switch>
-                    <Route
-                        path="/Programming-Learning-Site"
-                        element={<Home />}
-                    />
-                    <Route
-                        path="/Programming-Learning-Site/courses"
-                        element={<CoursesPage />}
-                    />
-                    <Route
-                        path="/Programming-Learning-Site/course/:shortName"
-                        element={<CourseDetail />}
-                    />
-                    <Route
-                        path="/Programming-Learning-Site/register"
-                        element={<Register />}
-                    />
-                    <Route
-                        path="/Programming-Learning-Site/login"
-                        element={<Login />}
-                    />
-                </Switch>
-            </Routes>
-        </HashRouter>
+    ReactDOM.createRoot(document.getElementById("root")).render(
+        <React.StrictMode>
+            <RouterProvider router={router} />
+        </React.StrictMode>
     );
 }
