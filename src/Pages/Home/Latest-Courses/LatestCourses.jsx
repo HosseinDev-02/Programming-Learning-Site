@@ -22,7 +22,7 @@ export default function LatestCourses() {
                         text="منتشر شده"
                     ></SectionTitle>
                     <SectionLinkBtn
-                        href="/Programming-Learning-Site/courses"
+                        href="/courses"
                         icon="#arrow-up-left"
                         text="مشاهده همه"
                     ></SectionLinkBtn>
