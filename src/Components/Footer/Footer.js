@@ -5,6 +5,13 @@ import RoundButton from "../Buttons/RoundButton";
 import Input from "../Input/Input";
 
 export default function Footer() {
+
+    const topScrollHandler = (e) => {
+        e.preventDefault()
+        window.scrollTo({top: 0, behavior: 'smooth'})
+    }
+
+
     return (
         <footer className="pt-20">
             <div className="container">
@@ -15,6 +22,7 @@ export default function Footer() {
                         <SectionLinkBtn
                             text="برگشت به بالا"
                             icon="#chevron-up"
+                            clickEvent={topScrollHandler}
                         ></SectionLinkBtn>
                     </div>
                     {/*  footer content  */}
