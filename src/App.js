@@ -32,11 +32,11 @@ export default function App() {
     return (
         <HashRouter>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/courses" element={<CoursesPage />} />
-                <Route path="/course/:shortName" element={<CourseDetail />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/Programming-Learning-Site" element={<Home />} />
+                <Route path="/Programming-Learning-Site/courses" element={<CoursesPage />} />
+                <Route path="/Programming-Learning-Site/course/:shortName" element={<CourseDetail />} />
+                <Route path="/Programming-Learning-Site/register" element={<Register />} />
+                <Route path="/Programming-Learning-Site/login" element={<Login />} />
             </Routes>
         </HashRouter>
     );
