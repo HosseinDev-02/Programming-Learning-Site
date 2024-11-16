@@ -15,40 +15,8 @@ function Header() {
     const [showMobileCategorySubMenu, setShowMobileCategorySubMenu] =
         useState(false);
     const [userProfileShow, setUserProfileShow] = useState(false);
-    // const [mainUserId, setMainUserId] = useState(localStorage.getItem("token"));
     const [ordersCount, setOrdersCount] = useState(null);
     const navigate = useNavigate();
-
-    useLayoutEffect(() => {
-        // getAllMenus();
-        // if (mainUserId) {
-        // checkUserLogin();
-        // }
-        // getOrdersCount();
-    }, []);
-
-    // async function getAllMenus() {
-    //     const data = await getMenus();
-    //     setMenus(data);
-    // }
-
-    // const getOrdersCount = async () => {
-    //     const data = await getUserOrders();
-    //     if (data) {
-    //         setOrdersCount(data.length);
-    //     }
-    // };
-
-    // const checkUserLogin = async () => {
-    //     let allUsers = await getUsers();
-    //     let isUserLogin = allUsers.some((user) => {
-    //         if (user.user_id === mainUserId) {
-    //             setMainUser(user);
-    //             return true;
-    //         }
-    //     });
-    //     setIsLogin(isUserLogin);
-    // };
 
     const themeHandler = () => {
         if (darkMode === "dark") {
@@ -65,11 +33,6 @@ function Header() {
                 return "dark";
             }
         });
-    };
-
-    const userLogOutHandler = () => {
-        localStorage.removeItem("token");
-        navigate("/login");
     };
 
     return (
@@ -98,7 +61,7 @@ function Header() {
                                             دسته بندی آموزش ها
                                         </span>
                                         <svg className="w-5 h-5 group-hover/categories:rotate-180 transition-all">
-                                            <use href="#chevron-down"></use>
+                                            <use href="#chevron-down-mini"></use>
                                         </svg>
                                     </a>
                                     {/* header categories menu */}
@@ -110,7 +73,7 @@ function Header() {
                                             >
                                                 <span>فرانت اند</span>
                                                 <svg className="w-5 h-5">
-                                                    <use href="#chevron-left"></use>
+                                                    <use href="#chevron-left-mini"></use>
                                                 </svg>
                                             </a>
                                             {/* header categories submenu */}
@@ -166,6 +129,54 @@ function Header() {
                                                         ویو جی اس
                                                     </a>
                                                 </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        نود جی اس
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        جنگو
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        اکسپرس جی اس
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        پی اچ پی
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        لاراول
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        سی شارپ
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li className="group/subcategories">
@@ -175,7 +186,7 @@ function Header() {
                                             >
                                                 <span>بک اند</span>
                                                 <svg className="w-5 h-5">
-                                                    <use href="#chevron-left"></use>
+                                                    <use href="#chevron-left-mini"></use>
                                                 </svg>
                                             </a>
                                             {/* header categories submenu */}
@@ -195,7 +206,57 @@ function Header() {
                                                     <a
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
                                                         href="#"
-                                                    ></a>
+                                                    >
+                                                        جنگو
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        اکسپرس جی اس
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        پی اچ پی
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        لاراول
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        سی شارپ
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        جاوا اسکریپت
+                                                    </a>
+                                                </li>
+                                                <li className="w-1/2">
+                                                    <a
+                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
+                                                        href="#"
+                                                    >
+                                                        نکست جی اس
+                                                    </a>
                                                 </li>
                                                 <li className="w-1/2">
                                                     <a
@@ -231,200 +292,39 @@ function Header() {
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li className="group/subcategories">
+                                        <li>
                                             <a
                                                 className="flex items-center justify-between p-3 hover:text-primary transition-colors"
                                                 href="#"
                                             >
                                                 <span>دیتاساینس</span>
-                                                <svg className="w-5 h-5">
-                                                    <use href="#chevron-left"></use>
-                                                </svg>
                                             </a>
-                                            {/* header categories submenu */}
-                                            <ul className="invisible shadow opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-background border border-border w-96 absolute right-full -top-px -bottom-px text-caption text-sm">
-                                                <li className="absolute top-2 font-YekanBakh-Bold pointer-events-none">
-                                                    محبوب ترین موضوعات
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        جاوا اسکریپت
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        نکست جی اس
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        انگیولار
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        تایپ اسکریپت
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        ری اکت
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        ویو جی اس
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </li>
-                                        <li className="group/subcategories">
+                                        <li>
                                             <a
                                                 className="flex items-center justify-between p-3 hover:text-primary transition-colors"
                                                 href="#"
                                             >
-                                                <span>دیتابیس</span>
-                                                <svg className="w-5 h-5">
-                                                    <use href="#chevron-left"></use>
-                                                </svg>
+                                                <span>
+                                                    زبانهای برنامه نویسی
+                                                </span>
                                             </a>
-                                            {/* header categories submenu */}
-                                            <ul className="invisible shadow opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-background border border-border w-96 absolute right-full -top-px -bottom-px text-caption text-sm">
-                                                <li className="absolute top-2 font-YekanBakh-Bold pointer-events-none">
-                                                    محبوب ترین موضوعات
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        جاوا اسکریپت
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        نکست جی اس
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        انگیولار
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        تایپ اسکریپت
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        ری اکت
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        ویو جی اس
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </li>
-                                        <li className="group/subcategories">
+                                        <li>
                                             <a
                                                 className="flex items-center justify-between p-3 hover:text-primary transition-colors"
                                                 href="#"
                                             >
-                                                <span>پایتون</span>
-                                                <svg className="w-5 h-5">
-                                                    <use href="#chevron-left"></use>
-                                                </svg>
+                                                <span>توسعه بازی</span>
                                             </a>
-                                            {/* header categories submenu */}
-                                            <ul className="invisible shadow opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-background border border-border w-96 absolute right-full -top-px -bottom-px text-caption text-sm">
-                                                <li className="absolute top-2 font-YekanBakh-Bold pointer-events-none">
-                                                    محبوب ترین موضوعات
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        جاوا اسکریپت
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        نکست جی اس
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        انگیولار
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        تایپ اسکریپت
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        ری اکت
-                                                    </a>
-                                                </li>
-                                                <li className="w-1/2">
-                                                    <a
-                                                        className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
-                                                    >
-                                                        ویو جی اس
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a
+                                                className="flex items-center justify-between p-3 hover:text-primary transition-colors"
+                                                href="#"
+                                            >
+                                                <span>برنامه نویسی موبایل</span>
+                                            </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -445,7 +345,7 @@ function Header() {
                                     >
                                         <span className="">لینک های مفید</span>
                                         <svg className="w-5 h-5 group-hover/categories:rotate-180 transition-all">
-                                            <use href="#chevron-down"></use>
+                                            <use href="#chevron-down-mini"></use>
                                         </svg>
                                     </a>
                                     {/* header categories menu */}
@@ -524,19 +424,15 @@ function Header() {
                                 </div>
                             </div>
                             {/* header change theme btn */}
-                            {darkMode === "dark" ? (
-                                <RoundButton
-                                    className={"hidden lg:flex cursor-pointer"}
-                                    clickEvent={themeHandler}
-                                    icon="#sun"
-                                ></RoundButton>
-                            ) : (
-                                <RoundButton
-                                    className={"hidden lg:flex cursor-pointer"}
-                                    clickEvent={themeHandler}
-                                    icon="#moon"
-                                ></RoundButton>
-                            )}
+                            <RoundButton
+                                className={"hidden lg:flex cursor-pointer"}
+                                clickEvent={themeHandler}
+                                icon={`${
+                                    localStorageValue === "dark"
+                                        ? "#sun"
+                                        : "#moon"
+                                }`}
+                            ></RoundButton>
                             {/* header basket btn */}
                             {ordersCount ? (
                                 <RoundButton
@@ -584,7 +480,7 @@ function Header() {
                                         }
                                         className="w-5 h-5 hidden xs:block transition-all"
                                     >
-                                        <use href="#chevron-down"></use>
+                                        <use href="#chevron-down-mini"></use>
                                     </svg>
                                 </button>
                                 {/* header user profile menu */}
@@ -609,7 +505,7 @@ function Header() {
                                     </a>
                                     <a
                                         className="hover:text-primary flex items-center gap-2 py-2 px-3"
-                                        href="/admin-panel"
+                                        href="#"
                                     >
                                         <span>
                                             <svg className="w-5 h-5">
@@ -722,7 +618,7 @@ function Header() {
                                 </span>
                                 <span>
                                     <svg className={`w-5 h-5`}>
-                                        <use href="#chevron-down"></use>
+                                        <use href="#chevron-down-mini"></use>
                                     </svg>
                                 </span>
                             </a>
@@ -748,7 +644,7 @@ function Header() {
                                         href="#"
                                     >
                                         <svg className={`w-4 h-4`}>
-                                            <use href="#chevron-left"></use>
+                                            <use href="#chevron-left-mini"></use>
                                         </svg>
                                         فرانت اند
                                     </a>

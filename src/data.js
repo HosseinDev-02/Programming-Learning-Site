@@ -154,39 +154,39 @@ const userFavoritesCourses = [
 const articles = [
     {
         id: 1,
-        title: 'دوره پروژه محور React و Next Js',
+        title: 'تفاوت بک اند و فرانت اند',
         img: '/images/Courses/01.jpg',
-        time: 20,
+        time: '20:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
         category: 'فرانت اند'
     },
     {
         id: 2,
-        title: 'دوره پروژه محور React و Next Js',
+        title: 'چگونه به یک هکر تبدیل بشیم ؟',
         img: '/images/Courses/02.jpg',
-        time: 15,
+        time: '15:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
         category: 'امنیت'
     },
     {
         id: 3,
-        title: 'دوره پروژه محور React و Next Js',
+        title: 'بازار کار برنامه نویسی وب چگونه است ؟',
         img: '/images/Courses/03.jpg',
-        time: 32,
+        time: '32:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
-        category: 'بک اند'
+        category: 'فرانت اند'
     },
     {
         id: 4,
-        title: 'دوره پروژه محور React و Next Js',
+        title: 'دیتابیس چیست ؟',
         img: '/images/Courses/04.jpg',
-        time: 10,
+        time: '10:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
-        category: 'اندروید'
+        category: 'بک اند'
     },
 ]
 

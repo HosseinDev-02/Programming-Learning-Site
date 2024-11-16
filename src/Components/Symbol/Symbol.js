@@ -29,6 +29,19 @@ function Symbol() {
                 />
             </symbol>
             <symbol
+                id="chevron-down-mini"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+            >
+                <path
+                    fillRule="evenodd"
+                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                    clipRule="evenodd"
+                />
+            </symbol>
+
+            <symbol
                 id="sun"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -112,6 +125,34 @@ function Symbol() {
                     d="M15.75 19.5 8.25 12l7.5-7.5"
                 />
             </symbol>
+            <symbol
+                id="chevron-right"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+            >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+            </symbol>
+
+            <symbol
+                id="chevron-left-mini"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+            >
+                <path
+                    fillRule="evenodd"
+                    d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                    clipRule="evenodd"
+                />
+            </symbol>
+
             <symbol
                 id="chevron-up"
                 xmlns="http://www.w3.org/2000/svg"

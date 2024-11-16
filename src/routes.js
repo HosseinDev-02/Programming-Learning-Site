@@ -23,7 +23,7 @@ let routes = [
     { path: "/login", element: <Login /> },
     { path: "/orders", element: <Orders /> },
     { path: "/articles", element: <ArticlesPage></ArticlesPage> },
-    { path: "/article-detail", element: <ArticleDetail></ArticleDetail> },
+    { path: "/article-detail/:shortName", element: <ArticleDetail></ArticleDetail> },
     {
         path: "/dashboard",
         element: <DashBoard></DashBoard>,
