@@ -1,4 +1,6 @@
+import { useState } from "react";
 import LikeButton from "../../../Components/Buttons/LikeButton";
+import { Loader } from "@aws-amplify/ui-react";
 
 export default function Article({
     title,
@@ -9,27 +11,47 @@ export default function Article({
     category,
     time,
     roundedImg,
-    id
+    id,
 }) {
+    const [isImgLoaded, setIsImgLoaded] = useState(false);
+
+    const imgLoadedHandler = () => setIsImgLoaded(true);
+
     return (
         <div className={`bg-background rounded-xl p-4 ${className}`}>
             <div className="relative">
-                <a href="/article-detail/react-vs-vue">
+                <a
+                    href="/article-detail/react-vs-vue"
+                    className="flex items-center justify-center"
+                >
                     {roundedImg ? (
                         <img
+                            loading="lazy"
                             className="w-full h-full object-cover rounded-xl"
                             src={img}
                             alt={title}
+                            onLoad={imgLoadedHandler}
                         />
                     ) : (
                         <img
                             className="w-full h-full object-cover"
                             src={img}
                             alt={title}
+                            onLoad={imgLoadedHandler}
                         />
                     )}
                 </a>
-                <LikeButton shadow={true} className="w-9 h-9 !absolute -bottom-3 left-3"></LikeButton>
+                {!isImgLoaded && (
+                    <Loader
+                        emptyColor="rgb(var(--color-secondary))"
+                        filledColor="rgb(var(--color-primary))"
+                        className="my-loader"
+                    />
+                )}
+                <LikeButton
+                    shadow={true}
+                    className="w-9 h-9 !absolute -bottom-3 left-3"
+                ></LikeButton>
             </div>
             <div className="space-y-3 mt-3">
                 <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">

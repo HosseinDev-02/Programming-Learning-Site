@@ -11,7 +11,7 @@ export default function LatestCourses() {
     useEffect(() => {
         const mainReverseCourses = courses.slice().reverse()
         setLastCourses(mainReverseCourses)
-    });
+    }, []);
 
     return (
         <section>

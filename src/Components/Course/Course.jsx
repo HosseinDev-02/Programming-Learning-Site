@@ -1,16 +1,26 @@
 import PrimaryButton from "../Buttons/PrimaryButton";
 import LikeButton from "../Buttons/LikeButton";
 import UserInfo from "../UserInfo/UserInfo";
-
+// import { ShimmerThumbnail } from "react-shimmer-effects";
+import { Loader } from "@aws-amplify/ui-react";
+import { useState } from "react";
+import "@aws-amplify/ui-react/styles.css";
+import "./Course.css";
 export default function Course(props) {
+    const [isImgLoaded, setIsImgLoaded] = useState(false);
+
+    const imgLoadedHandler = () => setIsImgLoaded(true);
+
     return (
         <div>
-            <div className="inline-block rounded-3xl overflow-hidden relative">
+            <div className="flex items-center justify-center rounded-3xl overflow-hidden relative">
                 <a href="/course/react-js">
                     <img
+                        loading="lazy"
                         className="w-full h-full object-cover"
                         src={props.img}
                         alt={props.title}
+                        onLoad={imgLoadedHandler}
                     />
                 </a>
                 <a
@@ -26,6 +36,13 @@ export default function Course(props) {
                         {props.category}
                     </span>
                 </a>
+                {!isImgLoaded && (
+                    <Loader
+                        emptyColor="rgb(var(--color-secondary))"
+                        filledColor="rgb(var(--color-primary))"
+                        className="my-loader"
+                    />
+                )}
             </div>
             <div className="bg-gradient-to-b from-background to-secondary mx-5 p-5 rounded-3xl">
                 <div className="flex items-center gap-2">
