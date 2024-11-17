@@ -12,7 +12,7 @@ export default function Article({
     id
 }) {
     return (
-        <div className={`bg-background rounded-xl p-4 ${className} ${id === 2 && 'md:mt-4'} `}>
+        <div className={`bg-background rounded-xl p-4 ${className}`}>
             <div className="relative">
                 <a href="/article-detail/react-vs-vue">
                     {roundedImg ? (

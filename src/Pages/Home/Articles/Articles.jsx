@@ -4,11 +4,17 @@ import { useEffect, useState } from "react";
 import { articles as data } from "../../../data";
 
 export default function Articles() {
-    const [articles, setArticles] = useState([]);
-
+    const [lastArticles, setLastArticles] = useState([])
     useEffect(() => {
-        setArticles(data)
+        getLastArticles();
     }, []);
+
+
+    const getLastArticles = () => {
+        const mainArticles = data.slice().reverse()
+        setLastArticles(mainArticles)
+
+    }
 
     return (
         <section>
@@ -21,8 +27,8 @@ export default function Articles() {
                         textColor="#6b7280"
                     ></SectionTitle>
                     <div className="grid grid-cols-1 grid-rows-2 sm:grid-cols-2 gap-5 sm:pb-8">
-                        {articles.length &&
-                            articles.map((article) => {
+                        {lastArticles.length &&
+                            lastArticles.splice(0, 4).map((article) => {
                                 return (
                                     <Article
                                         roundedImg={true}

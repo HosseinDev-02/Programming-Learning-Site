@@ -37,7 +37,7 @@ function Header() {
 
     return (
         <>
-            <header className="h-20 border-b border-b-border backdrop-blur-xl flex items-center justify-center bg-background/80 z-10 sticky left-0 right-0 top-0">
+            <header className="h-20 border-b border-b-border backdrop-blur-xl flex items-center justify-center bg-background/80 z-20 sticky left-0 right-0 top-0">
                 <div className="container">
                     <nav className="flex items-center justify-between relative">
                         {/* header right side */}
@@ -55,7 +55,7 @@ function Header() {
                                 <li className="group/categories">
                                     <a
                                         className="flex items-center gap-1"
-                                        href="#"
+                                        href="/courses"
                                     >
                                         <span className="">
                                             دسته بندی آموزش ها
@@ -332,7 +332,7 @@ function Header() {
                                 <li className="group">
                                     <a
                                         className="flex items-center gap-1"
-                                        href="#"
+                                        href="/articles"
                                     >
                                         <span className="">مقالات آموزشی</span>
                                     </a>

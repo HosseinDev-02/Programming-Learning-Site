@@ -43,6 +43,81 @@ export const courses = [
         teacherImg: '/images/profile.jpeg',
         category: 'فرانت اند',
         offer: 0
+    },
+    {
+        id: 4,
+        title: 'آموزش ساخت ربات تلگرام با لاراول',
+        price: 890_000,
+        costPrice: 760_000,
+        isFree: false,
+        time: 12,
+        sections: 5,
+        isCompleted: true,
+        teacher: 'حسین رستمی',
+        img: '/images/Courses/laravel.jpg',
+        teacherImg: '/images/profile.jpeg',
+        category: 'اندروید',
+        offer: 12
+    },
+    {
+        id: 5,
+        title: 'دوره آموزش Redux',
+        price: 1_000_000,
+        costPrice: 0,
+        isFree: false,
+        time: 16,
+        sections: 18,
+        isCompleted: false,
+        teacher: 'حسین رستمی',
+        img: '/images/Courses/redux.jpg',
+        teacherImg: '/images/profile.jpeg',
+        category: 'فرانت اند',
+        offer: 0
+    },
+    {
+        id: 6,
+        title: 'دوره آموزش TailwindCss',
+        price: 0,
+        costPrice: 0,
+        isFree: true,
+        time: 15,
+        sections: 7,
+        isCompleted: true,
+        teacher: 'حسین رستمی',
+        img: '/images/Courses/tailwind.jpg',
+        teacherImg: '/images/profile.jpeg',
+        category: 'فرانت اند',
+        offer: 0
+    },
+    {
+        id: 7,
+        title: 'آموزش کامل VsCode',
+        price: 0,
+        costPrice: 0,
+        isFree: true,
+        time: 2,
+        sections: 1,
+        isCompleted: true,
+        teacher: 'حسین رستمی',
+        img: '/images/Courses/vscode.jpg',
+        teacherImg: '/images/profile.jpeg',
+        category: 'فرانت اند',
+        offer: 0
+    },
+    {
+        id: 8,
+        title: 'آموزش جامع ووکامرس',
+        price: 650_000,
+        costPrice: 0,
+        isFree: false,
+        time: 12,
+        sections: 4,
+        isCompleted: true,
+        teacher: 'حسین رستمی',
+        img: '/images/Courses/woocommerce.jpg',
+        teacherImg: '/images/profile.jpeg',
+        category: 'فرانت اند',
+        offer: 0
     }
 ]
 
@@ -155,7 +230,7 @@ const articles = [
     {
         id: 1,
         title: 'تفاوت بک اند و فرانت اند',
-        img: '/images/Courses/01.jpg',
+        img: '/images/Articles/backend-vs-frontend.jpg',
         time: '20:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
@@ -163,17 +238,17 @@ const articles = [
     },
     {
         id: 2,
-        title: 'چگونه به یک هکر تبدیل بشیم ؟',
-        img: '/images/Courses/02.jpg',
+        title: 'Sass چیست ؟',
+        img: '/images/Articles/sass.jpg',
         time: '15:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
-        category: 'امنیت'
+        category: 'فرانت اند'
     },
     {
         id: 3,
-        title: 'بازار کار برنامه نویسی وب چگونه است ؟',
-        img: '/images/Courses/03.jpg',
+        title: 'کار با توابع در جاوااسکریپت',
+        img: '/images/Articles/functions.png',
         time: '32:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
@@ -181,8 +256,44 @@ const articles = [
     },
     {
         id: 4,
-        title: 'دیتابیس چیست ؟',
-        img: '/images/Courses/04.jpg',
+        title: 'تفاوت جاوااسکریپت و اکمااسکریپت',
+        img: '/images/Articles/js-vs-ecma.png',
+        time: '10:00',
+        writer: 'حسین رستمی',
+        writerImg: '/images/profile.jpeg',
+        category: 'بک اند'
+    },
+    {
+        id: 5,
+        title: 'آموزش کار با MarkDown',
+        img: '/images/Articles/markdown.jpg',
+        time: '20:00',
+        writer: 'حسین رستمی',
+        writerImg: '/images/profile.jpeg',
+        category: 'فرانت اند'
+    },
+    {
+        id: 6,
+        title: 'بهترین تم های vscode',
+        img: '/images/Articles/theme.jpg',
+        time: '15:00',
+        writer: 'حسین رستمی',
+        writerImg: '/images/profile.jpeg',
+        category: 'فرانت اند'
+    },
+    {
+        id: 7,
+        title: 'تایپ اسکریپت چیست ؟ (TypeScript)',
+        img: '/images/Articles/typescript.jpg',
+        time: '32:00',
+        writer: 'حسین رستمی',
+        writerImg: '/images/profile.jpeg',
+        category: 'فرانت اند'
+    },
+    {
+        id: 8,
+        title: 'وردپرس چقدر امن است ؟',
+        img: '/images/Articles/wordpress-secure.png',
         time: '10:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',

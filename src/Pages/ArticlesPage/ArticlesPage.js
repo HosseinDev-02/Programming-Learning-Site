@@ -23,9 +23,10 @@ export default function ArticlesPage() {
     const [sortingItems, setSortingItems] = useState(coursesSortFilter);
     const [selectedSorting, setSelectedSorting] = useState("جدیدترین");
 
+
     useEffect(() => {
-        // getAllArticles();
-    }, []);
+        setArticles(data)
+    }, [])
 
 
     return (
@@ -42,7 +43,7 @@ export default function ArticlesPage() {
                         <div className="md:grid grid-cols-12 gap-5 items-start">
                             {/*  Courses Side Bar  */}
                             <div
-                                className={`fixed h-screen top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 z-50 p-4 md:rounded-none md:w-auto md:h-auto md:p-0 md:block col-span-4 lg:col-span-3 md:sticky md:top-24 transition-all ${
+                                className={`fixed h-screen top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 z-10 p-4 md:rounded-none md:w-auto md:h-auto md:p-0 md:block col-span-4 lg:col-span-3 md:sticky md:top-24 transition-all ${
                                     filteringMenu ? "right-0" : "-right-72"
                                 }`}
                             >
@@ -219,7 +220,7 @@ export default function ArticlesPage() {
                                                 "!rounded-none shadow-lg"
                                             }
                                             roundedImg={false}
-                                            key={article.article_id}
+                                            key={article.id}
                                             {...article}
                                         ></Article>
                                     ))}
