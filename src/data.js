@@ -9,8 +9,8 @@ export const courses = [
         sections: 12,
         isCompleted: false,
         teacher: 'حسین رستمی',
-        img: 'images/Courses/03.jpg',
-        teacherImg: 'images/profile.jpeg',
+        img: '/images/Courses/03.jpg',
+        teacherImg: '/images/profile.jpeg',
         category: 'اندروید',
         offer: 12
     },
@@ -24,8 +24,8 @@ export const courses = [
         sections: 24,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: 'images/Courses/01.jpg',
-        teacherImg: 'images/profile.jpeg',
+        img: '/images/Courses/01.jpg',
+        teacherImg: '/images/profile.jpeg',
         category: 'فرانت اند',
         offer: 0
     },
@@ -39,8 +39,8 @@ export const courses = [
         sections: 4,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: 'images/Courses/02.jpg',
-        teacherImg: 'images/profile.jpeg',
+        img: '/images/Courses/02.jpg',
+        teacherImg: '/images/profile.jpeg',
         category: 'فرانت اند',
         offer: 0
     }
@@ -57,8 +57,8 @@ const userBasket = [
         sections: 12,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: 'images/Courses/03.jpg',
-        teacherImg: 'images/profile.jpeg',
+        img: '/images/Courses/03.jpg',
+        teacherImg: '/images/profile.jpeg',
         offer: 12
     },
     {
@@ -71,8 +71,8 @@ const userBasket = [
         sections: 24,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: 'images/Courses/01.jpg',
-        teacherImg: 'images/profile.jpeg',
+        img: '/images/Courses/01.jpg',
+        teacherImg: '/images/profile.jpeg',
         offer: 12
     }, 
 ]
@@ -88,8 +88,8 @@ const userCourses = [
         sections: 12,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: '..images/Courses/03.jpg',
-        teacherImg: '..images/profile.jpeg',
+        img: '/images/Courses/03.jpg',
+        teacherImg: '/images/profile.jpeg',
         completed: '75%'
     },
     {
@@ -102,8 +102,8 @@ const userCourses = [
         sections: 24,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: '..images/Courses/01.jpg',
-        teacherImg: '..images/profile.jpeg',
+        img: '/images/Courses/01.jpg',
+        teacherImg: '/images/profile.jpeg',
         completed: '35%'
     },
     {
@@ -116,8 +116,8 @@ const userCourses = [
         sections: 45,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: '..images/Courses/02.jpg',
-        teacherImg: '..images/profile.jpeg',
+        img: '/images/Courses/02.jpg',
+        teacherImg: '/images/profile.jpeg',
         completed: '50%'
     },
 ]
@@ -133,8 +133,8 @@ const userFavoritesCourses = [
         sections: 24,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: '..images/Courses/01.jpg',
-        teacherImg: '..images/profile.jpeg'
+        img: '/images/Courses/01.jpg',
+        teacherImg: '/images/profile.jpeg'
     },
     {
         id: 2,
@@ -146,8 +146,8 @@ const userFavoritesCourses = [
         sections: 4,
         isCompleted: true,
         teacher: 'حسین رستمی',
-        img: '../..images/Courses/02.jpg',
-        teacherImg: '../..images/profile.jpeg'
+        img: '/images/Courses/02.jpg',
+        teacherImg: '/images/profile.jpeg'
     }
 ]
 
@@ -155,37 +155,37 @@ const articles = [
     {
         id: 1,
         title: 'تفاوت بک اند و فرانت اند',
-        img: 'images/Courses/01.jpg',
+        img: '/images/Courses/01.jpg',
         time: '20:00',
         writer: 'حسین رستمی',
-        writerImg: 'images/profile.jpeg',
+        writerImg: '/images/profile.jpeg',
         category: 'فرانت اند'
     },
     {
         id: 2,
         title: 'چگونه به یک هکر تبدیل بشیم ؟',
-        img: 'images/Courses/02.jpg',
+        img: '/images/Courses/02.jpg',
         time: '15:00',
         writer: 'حسین رستمی',
-        writerImg: 'images/profile.jpeg',
+        writerImg: '/images/profile.jpeg',
         category: 'امنیت'
     },
     {
         id: 3,
         title: 'بازار کار برنامه نویسی وب چگونه است ؟',
-        img: 'images/Courses/03.jpg',
+        img: '/images/Courses/03.jpg',
         time: '32:00',
         writer: 'حسین رستمی',
-        writerImg: 'images/profile.jpeg',
+        writerImg: '/images/profile.jpeg',
         category: 'فرانت اند'
     },
     {
         id: 4,
         title: 'دیتابیس چیست ؟',
-        img: 'images/Courses/04.jpg',
+        img: '/images/Courses/04.jpg',
         time: '10:00',
         writer: 'حسین رستمی',
-        writerImg: 'images/profile.jpeg',
+        writerImg: '/images/profile.jpeg',
         category: 'بک اند'
     },
 ]

@@ -353,9 +353,9 @@ function Header() {
                                         <li>
                                             <a
                                                 className="flex items-center justify-between px-3 py-2 hover:text-primary transition-colors text-xs"
-                                                href="#"
+                                                href="/register"
                                             >
-                                                مشاهده پروفایل
+                                                <span>ورود / ثبت نام</span>
                                             </a>
                                         </li>
                                         <li>
@@ -617,7 +617,12 @@ function Header() {
                                     </span>
                                 </span>
                                 <span>
-                                    <svg className={`w-5 h-5 ${showMobileCategoryMenu && 'rotate-180'}`}>
+                                    <svg
+                                        className={`w-5 h-5 ${
+                                            showMobileCategoryMenu &&
+                                            "rotate-180"
+                                        }`}
+                                    >
                                         <use href="#chevron-down-mini"></use>
                                     </svg>
                                 </span>
@@ -643,7 +648,12 @@ function Header() {
                                         }`}
                                         href="#"
                                     >
-                                        <svg className={`w-4 h-4 ${showMobileCategorySubMenu && '-rotate-45'}`}>
+                                        <svg
+                                            className={`w-4 h-4 ${
+                                                showMobileCategorySubMenu &&
+                                                "-rotate-45"
+                                            }`}
+                                        >
                                             <use href="#chevron-left-mini"></use>
                                         </svg>
                                         فرانت اند
