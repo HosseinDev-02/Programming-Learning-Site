@@ -746,7 +746,7 @@ function Header() {
                         <li>
                             <a
                                 className="flex items-center justify-between"
-                                href="#"
+                                href="/articles"
                             >
                                 <span className="flex items-center gap-2">
                                     <span>
