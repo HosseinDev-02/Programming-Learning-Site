@@ -71,14 +71,14 @@ export default function Register() {
                             <p className="text-xs flex items-center flex-wrap gap-1 text-center justify-center">
                                 ورود شما به معنای پذیرش{" "}
                                 <a
-                                    className="hover:text-primary transition-colors text-title font-YekanBakh-SemiBold text-nowrap"
+                                    className="hover:text-primary transition-colors text-title font-YekanBakh-SemiBold text-nowrap underline"
                                     href="#"
                                 >
                                     شرایط
                                 </a>{" "}
                                 و{" "}
                                 <a
-                                    className="hover:text-primary transition-colors text-title font-YekanBakh-SemiBold text-nowrap"
+                                    className="hover:text-primary transition-colors text-title font-YekanBakh-SemiBold text-nowrap underline"
                                     href="#"
                                 >
                                     قوانین حریم خصوصی
