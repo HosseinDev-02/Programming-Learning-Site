@@ -110,7 +110,7 @@ export default function CourseDetail() {
                                 </ul>
                             </div>
                             {/*  course detail description  */}
-                            <div id="tabOne" className="space-y-5 p-5 mt-5">
+                            <div id="tabOne" className="space-y-5 my-5">
                                 <SubTitle title="معرفی دوره"></SubTitle>
                                 <p className="text-sm">
                                     بدون شک در حال حاضر یکی از پرکاربردترین
