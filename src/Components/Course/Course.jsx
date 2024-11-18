@@ -14,7 +14,7 @@ export default function Course(props) {
     return (
         <div>
             <div className="flex items-center justify-center rounded-3xl overflow-hidden relative">
-                <a href="/course/react-js">
+                <a href="/course-detail/react-js">
                     <img
                         loading="lazy"
                         className="w-full h-full object-cover"
@@ -24,7 +24,7 @@ export default function Course(props) {
                     />
                 </a>
                 <a
-                    href="/course/react-js"
+                    href="/course-detail/react-js"
                     className="absolute left-3 top-3 flex items-center gap-1 bg-black/20 rounded-full h-11 px-4 text-white hover:opacity-80 transition-all"
                 >
                     <span>
@@ -65,7 +65,7 @@ export default function Course(props) {
                 <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
                     <a
                         className="hover:text-primary transition-colors line-clamp-1"
-                        href="/course/react-js"
+                        href="/course-detail/react-js"
                     >
                         {props.title}
                     </a>
@@ -129,7 +129,7 @@ export default function Course(props) {
                 </div>
                 <div className="flex items-center gap-3 mt-3">
                     <PrimaryButton
-                        href="/course/react-js"
+                        href="/course-detail/react-js"
                         icon="#arrow-up-left"
                         title="مشاهده دوره"
                     ></PrimaryButton>

@@ -1,4 +1,6 @@
+import { Loader } from "@aws-amplify/ui-react";
 import PrimaryButton from "../../../Components/Buttons/PrimaryButton";
+import { useState } from "react";
 
 export default function UserCourse({
     img,
@@ -13,18 +15,23 @@ export default function UserCourse({
     category,
     teacherImg
 }) {
+
+    const [isImgLoaded, setIsImgLoaded] = useState(false)
+    const imgLoadedHandler = () => setIsImgLoaded(true)
+
     return (
         <div>
-            <div className="inline-block rounded-3xl overflow-hidden relative">
-                <a href="/course/react-js">
+            <div className="block rounded-3xl overflow-hidden relative">
+                <a href="/course-detail/react-js">
                     <img
                         className="w-full h-full object-cover"
                         src={img}
                         alt={title}
+                        onLoad={imgLoadedHandler}
                     />
                 </a>
                 <a
-                    href='/course/react-js'
+                    href='/course-detail/react-js'
                     className="absolute left-3 top-3 flex items-center gap-1 bg-black/20 rounded-full h-11 px-4 text-white hover:opacity-80 transition-all"
                 >
                     <span>
@@ -36,6 +43,13 @@ export default function UserCourse({
                         {category}
                     </span>
                 </a>
+                {!isImgLoaded && (
+                    <Loader
+                        emptyColor="rgb(var(--color-secondary))"
+                        filledColor="rgb(var(--color-primary))"
+                        className="my-loader"
+                    />
+                )}
             </div>
             <div className="bg-gradient-to-b from-background to-secondary mx-5 p-5 rounded-3xl">
                 <div className="flex items-center gap-2">
@@ -58,7 +72,7 @@ export default function UserCourse({
                 <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
                     <a
                         className="hover:text-primary transition-colors line-clamp-1"
-                        href="/course/react-js"
+                        href="/course-detail/react-js"
                     >
                         {title}
                     </a>

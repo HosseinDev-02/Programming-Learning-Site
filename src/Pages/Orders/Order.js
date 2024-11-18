@@ -19,7 +19,7 @@ function Order({
             <div className="w-full sm:w-4/12 lg:w-4/12 md:w-full">
                 <a
                     className="flex items-center justify-center rounded-3xl overflow-hidden"
-                    href="/course/react-js"
+                    href="/course-detail/react-js"
                 >
                     <img
                         className="w-full h-full object-cover"
@@ -56,7 +56,7 @@ function Order({
                     <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
                         <a
                             className="hover:text-primary transition-colors line-clamp-1"
-                            href="/course/react-js"
+                            href="/course-detail/react-js"
                         >
                             {title}
                         </a>
@@ -140,7 +140,7 @@ function Order({
                     <div className="flex items-center gap-3 mt-3">
                         <PrimaryButton
                             icon="#arrow-up-left"
-                            href="/course/react-js"
+                            href="/course-detail/react-js"
                             title="مشاهده دوره"
                         ></PrimaryButton>
                         <LikeButton></LikeButton>

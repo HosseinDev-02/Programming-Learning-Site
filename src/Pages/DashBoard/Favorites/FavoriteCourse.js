@@ -1,20 +1,37 @@
 import PrimaryButton from "../../../Components/Buttons/PrimaryButton";
 import LikeButton from "../../../Components/Buttons/LikeButton";
-
+import { useState } from "react";
+import { Loader } from "@aws-amplify/ui-react";
+import './FavoriteCourse.css'
 export default function FavoriteCourse(props) {
+
+
+    const [isImgLoaded, setIsImgLoaded] = useState(false)
+
+
+    const imgLoadedHandler = () => setIsImgLoaded(true)
+
     return (
         <div className="flex sm:flex-row lg:flex-row flex-col md:flex-col items-center sm:items-start md:items-center lg:items-start gap-5 lg:gap-8 py-6">
             <div className="w-full sm:w-4/12 lg:w-4/12 md:w-full">
                 <a
                     className="flex items-center justify-center rounded-3xl overflow-hidden"
-                    href="/course/react-js"
+                    href="/course-detail/react-js"
                 >
                     <img
                         className="w-full h-full object-cover"
                         src={props.img}
-                        alt=""
+                        alt={props.title}
+                        onLoad={imgLoadedHandler}
                     />
                 </a>
+                {!isImgLoaded && (
+                    <Loader
+                        emptyColor="rgb(var(--color-secondary))"
+                        filledColor="rgb(var(--color-primary))"
+                        className="my-loader"
+                    />
+                )}
             </div>
             <div className="w-full sm:w-8/12 lg:w-8/12 md:w-full bg-gradient-to-b from-secondary to-background px-5 pb-5 rounded-3xl">
                 <div className="bg-background p-5 rounded-b-3xl">
@@ -27,7 +44,7 @@ export default function FavoriteCourse(props) {
                     <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
                         <a
                             className="hover:text-primary transition-colors line-clamp-1"
-                            href="/course/react-js"
+                            href="/course-detail/react-js"
                         >
                             {props.title}
                         </a>
@@ -102,7 +119,7 @@ export default function FavoriteCourse(props) {
                     <div className="flex items-center gap-3 mt-3">
                         <PrimaryButton
                             icon="#arrow-up-left"
-                            href="/course"
+                            href="/course-detail/react-js"
                             title="مشاهده دوره"
                         ></PrimaryButton>
                         <LikeButton className={"text-red-500"}></LikeButton>

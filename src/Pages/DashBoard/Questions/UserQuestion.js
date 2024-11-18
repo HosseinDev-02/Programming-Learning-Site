@@ -1,15 +1,28 @@
 import PrimaryButton from "../../../Components/Buttons/PrimaryButton";
-
+import { Loader } from "@aws-amplify/ui-react";
+import './UserQuestion.css'
+import { useState } from "react";
 export default function UserQuestion(props) {
+
+    const [isImgLoaded, setIsImgLoaded] = useState(false)
+    const imgLoadedHandler = () => setIsImgLoaded(true)
+
     return (
         <div className='flex md:flex-row flex-col md:items-start gap-5 py-8'>
-            <a className='md:w-4/12 flex items-center justify-center rounded-3xl overflow-hidden' href="#">
-                <img className='w-full h-full object-cover' src={props.img} alt=""/>
+            <a className='md:w-4/12 block rounded-3xl overflow-hidden' href="/course-detail/react-js">
+                <img onLoad={imgLoadedHandler} className='w-full h-full object-cover' src={props.img} alt={props.title} />
+                {!isImgLoaded && (
+                    <Loader
+                        emptyColor="rgb(var(--color-secondary))"
+                        filledColor="rgb(var(--color-primary))"
+                        className="my-loader"
+                    />
+                )}
             </a>
             <div className='md:w-8/12 px-5 rounded-3xl bg-gradient-to-b from-secondary to-background'>
                 <div className='bg-background rounded-b-3xl p-5'>
                     <h3 className='line-clamp-1'>
-                        <a className='font-YekanBakh-Black text-title transition-colors hover:text-primary' href="#">
+                        <a className='font-YekanBakh-Black text-title transition-colors hover:text-primary' href="/course-detail/react-js">
                             {
                                 props.title
                             }
@@ -39,7 +52,7 @@ export default function UserQuestion(props) {
                             props.text
                         }
                     </p>
-                    <PrimaryButton href='/course' icon='#arrow-up-left' title='مشاهده در صفحه دوره'></PrimaryButton>
+                    <PrimaryButton href='/course-detail/react-js' icon='#arrow-up-left' title='مشاهده در صفحه دوره'></PrimaryButton>
                 </div>
             </div>
         </div>
