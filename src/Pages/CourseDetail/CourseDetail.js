@@ -188,7 +188,7 @@ export default function CourseDetail() {
                                         sessionTitle="معرفی دوره"
                                         sessionIndex="فصل اول"
                                     >
-                                        <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                        <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
                                                 <a
@@ -198,7 +198,7 @@ export default function CourseDetail() {
                                                     معرفی دوره
                                                 </a>
                                             </div>
-                                            <div className="flex justify-end md:justify-start items-center gap-5">
+                                            <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
                                                     <span>03:54</span>
                                                     <span>
@@ -222,7 +222,7 @@ export default function CourseDetail() {
                                                 </a>
                                             </div>
                                         </li>
-                                        <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                        <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
                                                 <a
@@ -232,7 +232,7 @@ export default function CourseDetail() {
                                                     پیش نیاز مشاهده این دوره
                                                 </a>
                                             </div>
-                                            <div className="flex justify-end md:justify-start items-center gap-5">
+                                            <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
                                                     <span>03:54</span>
                                                     <span>
@@ -256,7 +256,7 @@ export default function CourseDetail() {
                                                 </a>
                                             </div>
                                         </li>
-                                        <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                        <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
                                                 <a
@@ -267,7 +267,7 @@ export default function CourseDetail() {
                                                     کنیم؟
                                                 </a>
                                             </div>
-                                            <div className="flex justify-end md:justify-start items-center gap-5">
+                                            <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
                                                     <span>03:54</span>
                                                     <span>
@@ -291,7 +291,7 @@ export default function CourseDetail() {
                                                 </a>
                                             </div>
                                         </li>
-                                        <li className="flex md:flex-row flex-col md:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
+                                        <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
                                                 <a
@@ -302,7 +302,7 @@ export default function CourseDetail() {
                                                     هم استفاده می‌شود
                                                 </a>
                                             </div>
-                                            <div className="flex justify-end md:justify-start items-center gap-5">
+                                            <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
                                                     <span>03:54</span>
                                                     <span>
