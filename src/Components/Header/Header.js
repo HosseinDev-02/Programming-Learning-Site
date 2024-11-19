@@ -765,14 +765,7 @@ function Header() {
             </div>
             {/*  mobile menu cover elem  */}
             {/*  Courses Filtering Menu Cover  */}
-            <div
-                onClick={() => setMobileMenuShow((prevState) => !prevState)}
-                className={`fixed inset-0 bg-secondary/80 z-40 transition-all ${
-                    mobileMenuShow
-                        ? "visible opacity-100"
-                        : "invisible opacity-0"
-                }`}
-            ></div>
+            {mobileMenuShow && <Cover setElemStatus={setMobileMenuShow} />}
             {/* <Cover
                 isShow={mobileMenuShow}
                 clickHandler={() =>

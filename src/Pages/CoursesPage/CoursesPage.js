@@ -10,6 +10,9 @@ import {
 import SectionHeader from "../../Components/SectionHeader/SectionHeader";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
 import Accordion from "../../Components/Accordion/Accordion";
+import Cover from "../../Components/Cover/Cover";
+import { Loader } from "@aws-amplify/ui-react";
+import './CoursesPage.css'
 
 export default function CoursesPage() {
     const [courses, setCourses] = useState([]);
@@ -17,10 +20,10 @@ export default function CoursesPage() {
     const [categories, setCategories] = useState(courseCategoriesFilter);
     const [typeItems, setTypeItems] = useState(courseTypesFilter);
     const [sortingItems, setSortingItems] = useState(coursesSortFilter);
-    const [started, setStarted] = useState(false)
+    const [started, setStarted] = useState(false);
 
     useEffect(() => {
-        setCourses(data)
+        setCourses(data);
     }, []);
 
     return (
@@ -203,7 +206,7 @@ export default function CoursesPage() {
                                     </button>
                                 </div>
                                 {/*  Courses wrapper Content  */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
                                     {courses.map((course) => (
                                         <Course
                                             key={course.id}
@@ -211,14 +214,17 @@ export default function CoursesPage() {
                                         ></Course>
                                     ))}
                                 </div>
+                                {/* Courses Content Loader */}
+                                <Loader
+                                    emptyColor="rgb(var(--color-secondary))"
+                                    filledColor="rgb(var(--color-primary))"
+                                    className="courses-page-loader"
+                                />
                             </div>
                             {/*  Courses Filtering Menu Cover  */}
-                            <div
-                                onClick={() =>
-                                    setFilteringMenu((prevState) => !prevState)
-                                }
-                                className={`fixed inset-0 bg-secondary/80 z-40 transition-all ${filteringMenu ? 'visible opacity-100' : 'invisible opacity-0'}`}
-                            ></div>
+                            {filteringMenu && (
+                                <Cover setElemStatus={setFilteringMenu} />
+                            )}
                         </div>
                     </div>
                 </div>
