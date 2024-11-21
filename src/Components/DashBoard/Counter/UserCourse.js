@@ -1,5 +1,5 @@
 import { Loader } from "@aws-amplify/ui-react";
-import PrimaryButton from "../../../Components/Buttons/PrimaryButton";
+import PrimaryButton from "../../Buttons/PrimaryButton";
 import { useState } from "react";
 
 export default function UserCourse({

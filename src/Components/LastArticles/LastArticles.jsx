@@ -1,7 +1,7 @@
-import SectionTitle from "../../../Components/Titles/SectionTitle";
-import Article from "../../../Components/Article/Article";
+import SectionTitle from "../Titles/SectionTitle";
+import Article from "../Article/Article";
 import { useEffect, useState } from "react";
-import { articles as data } from "../../../data";
+import { articles as data } from "../../data";
 
 
 export default function Articles() {

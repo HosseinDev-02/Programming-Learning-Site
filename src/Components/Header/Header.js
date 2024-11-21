@@ -1,8 +1,7 @@
 import Logo from "../Logo/Logo";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useState } from "react";
 import RoundButton from "../Buttons/RoundButton";
-import PrimaryButton from "../Buttons/PrimaryButton";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Input from "../Input/Input";
 import Cover from "../Cover/Cover";
 
@@ -12,11 +11,10 @@ function Header() {
     const [searchModalShow, setSearchModalShow] = useState(false);
     const [darkMode, setDarkMode] = useState(localStorageValue);
     const [showMobileCategoryMenu, setShowMobileCategoryMenu] = useState(false);
+    const [showMobilePagesMenu, setShowMobilePagesMenu] = useState(false);
     const [showMobileCategorySubMenu, setShowMobileCategorySubMenu] =
         useState(false);
     const [userProfileShow, setUserProfileShow] = useState(false);
-    const [ordersCount, setOrdersCount] = useState(null);
-    const navigate = useNavigate();
 
     const themeHandler = () => {
         if (darkMode === "dark") {
@@ -343,7 +341,7 @@ function Header() {
                                         className="flex items-center gap-1"
                                         href="#"
                                     >
-                                        <span className="">لینک های مفید</span>
+                                        <span className="">تمامی صفحات</span>
                                         <svg className="w-5 h-5 group-hover/categories:rotate-180 transition-all">
                                             <use href="#chevron-down-mini"></use>
                                         </svg>
@@ -351,36 +349,68 @@ function Header() {
                                     {/* header categories menu */}
                                     <ul className="invisible shadow opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-background border border-border w-56 flex flex-col delay-75 p-3 transition-all shadow-black/5 text-title z-20 rounded-xl">
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center justify-between px-3 py-2 hover:text-primary transition-colors text-xs"
-                                                href="/register"
+                                                to="/register"
                                             >
-                                                <span>ورود / ثبت نام</span>
-                                            </a>
+                                                ثبت نام
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center justify-between px-3 py-2 hover:text-primary transition-colors text-xs"
-                                                href="#"
+                                                to="/login"
+                                            >
+                                                ورود
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                className="flex items-center justify-between px-3 py-2 hover:text-primary transition-colors text-xs"
+                                                to="/courses"
                                             >
                                                 دوره ها
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center justify-between px-3 py-2 hover:text-primary transition-colors text-xs"
-                                                href="#"
+                                                to="/articles"
                                             >
-                                                مالی
-                                            </a>
+                                                مقاله ها
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center justify-between px-3 py-2 hover:text-primary transition-colors text-xs"
-                                                href="#"
+                                                to="/course-detail/react-js"
                                             >
-                                                پرسش و پاسخ
-                                            </a>
+                                                جزییات دوره
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                className="flex items-center justify-between px-3 py-2 hover:text-primary transition-colors text-xs"
+                                                to="/article-detail/backend-vs-frontend"
+                                            >
+                                                جزییات مقاله
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                className="flex items-center justify-between px-3 py-2 hover:text-primary transition-colors text-xs"
+                                                to="/dashboard/counter"
+                                            >
+                                                پنل کاربری
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                className="flex items-center justify-between px-3 py-2 hover:text-primary transition-colors text-xs"
+                                                to="/orders"
+                                            >
+                                                سبد خرید
+                                            </Link>
                                         </li>
                                     </ul>
                                 </li>
@@ -434,20 +464,12 @@ function Header() {
                                 }`}
                             ></RoundButton>
                             {/* header basket btn */}
-                            {ordersCount ? (
-                                <RoundButton
-                                    link={true}
-                                    href="/orders"
-                                    count={ordersCount}
-                                    icon="#bag"
-                                ></RoundButton>
-                            ) : (
-                                <RoundButton
-                                    link={true}
-                                    href="/orders"
-                                    icon="#bag"
-                                ></RoundButton>
-                            )}
+                            <RoundButton
+                                link={true}
+                                href="/orders"
+                                icon="#bag"
+                                count={2}
+                            ></RoundButton>
                             {/* header user profile btn */}
 
                             <div className="group/profile">
@@ -728,20 +750,117 @@ function Header() {
                         </li>
                         <li>
                             <a
-                                className="flex items-center justify-between"
+                                onClick={(event) => {
+                                    event.preventDefault();
+                                    setShowMobilePagesMenu(
+                                        (prevState) => !prevState
+                                    );
+                                }}
+                                className={`flex items-center justify-between ${
+                                    showMobilePagesMenu ? "text-title" : ""
+                                }`}
                                 href="#"
                             >
                                 <span className="flex items-center gap-2">
                                     <span>
                                         <svg className="w-5 h-5">
-                                            <use href="#question-circle"></use>
+                                            <use href="#papers"></use>
                                         </svg>
                                     </span>
                                     <span className="text-xs font-YekanBakh-SemiBold">
-                                        پرسش و پاسخ
+                                        تمامی صفحات
                                     </span>
                                 </span>
+                                <span>
+                                    <svg
+                                        className={`w-5 h-5 ${
+                                            showMobilePagesMenu && "rotate-180"
+                                        }`}
+                                    >
+                                        <use href="#chevron-down-mini"></use>
+                                    </svg>
+                                </span>
                             </a>
+                            <ul
+                                className={`child:py-2 ${
+                                    showMobilePagesMenu
+                                        ? "inline-block"
+                                        : "hidden"
+                                } relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 child:text-xs text-zinc-400`}
+                            >
+                                <li>
+                                    <Link
+                                        className={`flex items-center gap-1`}
+                                        to="/courses"
+                                    >
+                                        <span className="w-2 h-px bg-border"></span>
+                                        دوره ها
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className={`flex items-center gap-1`}
+                                        to="/articles"
+                                    >
+                                        <span className="w-2 h-px bg-border"></span>
+                                        مقاله ها
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className={`flex items-center gap-1`}
+                                        to="/course-detail/react-js"
+                                    >
+                                        <span className="w-2 h-px bg-border"></span>
+                                        جزییات دوره
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className={`flex items-center gap-1`}
+                                        to="/article-detail/backend-vs-frontend"
+                                    >
+                                        <span className="w-2 h-px bg-border"></span>
+                                        جزییات مقاله
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className={`flex items-center gap-1`}
+                                        to="/orders"
+                                    >
+                                        <span className="w-2 h-px bg-border"></span>
+                                        سبد خرید
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className={`flex items-center gap-1`}
+                                        to="/register"
+                                    >
+                                        <span className="w-2 h-px bg-border"></span>
+                                        ثبت نام
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className={`flex items-center gap-1`}
+                                        to="/login"
+                                    >
+                                        <span className="w-2 h-px bg-border"></span>
+                                        ورود
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className={`flex items-center gap-1`}
+                                        to="/dashboard/counter"
+                                    >
+                                        <span className="w-2 h-px bg-border"></span>
+                                        پنل کاربری
+                                    </Link>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a

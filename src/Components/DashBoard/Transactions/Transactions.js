@@ -1,4 +1,4 @@
-import SubTitle from "../../../Components/Titles/SubTitle";
+import SubTitle from "../../Titles/SubTitle";
 
 export default function Transactions() {
     return (

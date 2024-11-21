@@ -1,16 +1,19 @@
-import PrimaryButton from "../../../Components/Buttons/PrimaryButton";
-import LikeButton from "../../../Components/Buttons/LikeButton";
-import { useState } from "react";
-import { Loader } from "@aws-amplify/ui-react";
-import './FavoriteCourse.css'
-export default function FavoriteCourse(props) {
+import React from "react";
+import RoundButton from "../Buttons/RoundButton";
+import LikeButton from "../Buttons/LikeButton";
+import PrimaryButton from "../Buttons/PrimaryButton";
 
-
-    const [isImgLoaded, setIsImgLoaded] = useState(false)
-
-
-    const imgLoadedHandler = () => setIsImgLoaded(true)
-
+function Order({
+    img,
+    title,
+    price,
+    costPrice,
+    isCompleted,
+    time,
+    sections,
+    teacher,
+    teacherImg
+}) {
     return (
         <div className="flex sm:flex-row lg:flex-row flex-col md:flex-col items-center sm:items-start md:items-center lg:items-start gap-5 lg:gap-8 py-6">
             <div className="w-full sm:w-4/12 lg:w-4/12 md:w-full">
@@ -20,33 +23,42 @@ export default function FavoriteCourse(props) {
                 >
                     <img
                         className="w-full h-full object-cover"
-                        src={props.img}
-                        alt={props.title}
-                        onLoad={imgLoadedHandler}
+                        src={img}
+                        alt={title}
                     />
                 </a>
-                {!isImgLoaded && (
-                    <Loader
-                        emptyColor="rgb(var(--color-secondary))"
-                        filledColor="rgb(var(--color-primary))"
-                        className="my-loader"
-                    />
-                )}
+                <RoundButton
+                    icon="#x-mark"
+                    className={
+                        "-translate-y-1/2 mx-auto w-11 h-11 !bg-red-500 text-white cursor-pointer"
+                    }
+                ></RoundButton>
             </div>
             <div className="w-full sm:w-8/12 lg:w-8/12 md:w-full bg-gradient-to-b from-secondary to-background px-5 pb-5 rounded-3xl">
                 <div className="bg-background p-5 rounded-b-3xl">
                     <div className="flex items-center gap-2">
-                        <span className="block bg-success w-1 h-1 rounded-full"></span>
-                        <span className="text-xs font-YekanBakh-Black text-success">
-                            {props.isCompleted ? "تکمیل شده" : "در حال برگزاری"}
-                        </span>
+                        {isCompleted ? (
+                            <>
+                                <span className="block bg-success w-1 h-1 rounded-full"></span>
+                                <span className="text-xs font-YekanBakh-Black text-success">
+                                    تکمیل شده
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                <span className="block bg-yellow-500 w-1 h-1 rounded-full"></span>
+                                <span className="text-xs font-YekanBakh-Black text-yellow-500">
+                                    در حال برگزاری
+                                </span>
+                            </>
+                        )}
                     </div>
                     <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
                         <a
                             className="hover:text-primary transition-colors line-clamp-1"
                             href="/course-detail/react-js"
                         >
-                            {props.title}
+                            {title}
                         </a>
                     </h6>
                 </div>
@@ -59,7 +71,7 @@ export default function FavoriteCourse(props) {
                                 </svg>
                             </span>
                             <span className="text-xs font-YekanBakh-SemiBold">
-                                {props.sections} فصل
+                                {sections} فصل
                             </span>
                         </div>
                         <div className="flex items-center gap-1">
@@ -69,7 +81,7 @@ export default function FavoriteCourse(props) {
                                 </svg>
                             </span>
                             <span className="text-xs font-YekanBakh-SemiBold">
-                                {props.time} ساعت
+                                {time} ساعت
                             </span>
                         </div>
                     </div>
@@ -78,8 +90,8 @@ export default function FavoriteCourse(props) {
                             <span className="block overflow-hidden w-10 h-10 rounded-full shrink-0">
                                 <img
                                     className="w-full h-full object-cover"
-                                    src={props.teacherImg}
-                                    alt=""
+                                    src={teacherImg}
+                                    alt={teacher}
                                 />
                             </span>
                             <div className="flex flex-col gap-1 text-xs font-YekanBakh-SemiBold">
@@ -87,33 +99,42 @@ export default function FavoriteCourse(props) {
                                     مدرس دوره :
                                 </span>
                                 <span className="text-title font-YekanBakh-Bold line-clamp-1">
-                                    {props.teacher}
+                                    {teacher}
                                 </span>
                             </div>
                         </div>
-                        {props.isFree ? (
-                            <div className="flex items-center justify-center h-14">
-                                <span className="text-success font-YekanBakh-Black text-xl line-clamp-1">
-                                    رایگان !
-                                </span>
-                            </div>
-                        ) : (
-                            <div className="flex items-end h-14 flex-col justify-center">
-                                {props.costPrice && (
+                        <div className="flex items-end h-14 flex-col justify-center">
+                            {costPrice ? (
+                                <>
                                     <div className="flex items-center gap-1">
                                         <span className="line-through">
-                                            {props.costPrice.toLocaleString()}
+                                            {
+                                                price.toLocaleString()
+                                            }
                                         </span>
                                     </div>
-                                )}
-                                <div className="flex items-center gap-1">
-                                    <span className="text-title font-YekanBakh-Black text-xl">
-                                        {props.price.toLocaleString()}
-                                    </span>
-                                    <span className="text-xs">تومان</span>
-                                </div>
-                            </div>
-                        )}
+                                    <div className="flex items-center gap-1">
+                                        <span className="text-title font-YekanBakh-Black text-xl">
+                                            {
+                                                costPrice.toLocaleString()
+                                            }
+                                        </span>
+                                        <span className="text-xs">تومان</span>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="flex items-center gap-1">
+                                        <span className="text-title font-YekanBakh-Black text-xl">
+                                            {
+                                                price
+                                            }
+                                        </span>
+                                        <span className="text-xs">تومان</span>
+                                    </div>
+                                </>
+                            )}
+                        </div>
                     </div>
 
                     <div className="flex items-center gap-3 mt-3">
@@ -122,10 +143,12 @@ export default function FavoriteCourse(props) {
                             href="/course-detail/react-js"
                             title="مشاهده دوره"
                         ></PrimaryButton>
-                        <LikeButton className={"text-red-500"}></LikeButton>
+                        <LikeButton></LikeButton>
                     </div>
                 </div>
             </div>
         </div>
     );
 }
+
+export default Order;

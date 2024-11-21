@@ -1,9 +1,9 @@
-import SectionTitle from "../../../Components/Titles/SectionTitle";
-import SectionLinkBtn from "../../../Components/Buttons/SectionLinkBtn";
-import Course from "../../../Components/Course/Course";
+import SectionTitle from "../Titles/SectionTitle";
+import SectionLinkBtn from "../Buttons/SectionLinkBtn";
+import Course from "../Course/Course";
 import { useEffect, useState } from "react";
-import {courses} from "../../../data";
-import SectionHeader from "../../../Components/SectionHeader/SectionHeader";
+import {courses} from "../../data";
+import SectionHeader from "../SectionHeader/SectionHeader";
 
 export default function LatestCourses() {
     const [lastCourses, setLastCourses] = useState([])

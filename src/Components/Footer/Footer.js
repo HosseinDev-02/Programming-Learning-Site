@@ -13,7 +13,7 @@ export default function Footer() {
 
 
     return (
-        <footer className="pt-20">
+        <footer className="pt-10 md:pt-20">
             <div className="container">
                 <div>
                     {/*  footer top link  */}

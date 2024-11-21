@@ -10,6 +10,8 @@ import {
 import Article from "../../Components/Article/Article";
 import Accordion from "../../Components/Accordion/Accordion";
 import Cover from "../../Components/Cover/Cover";
+import { Loader } from "@aws-amplify/ui-react";
+import './ArticlesPage.css'
 
 export default function ArticlesPage() {
     const [articles, setArticles] = useState([]);
@@ -242,7 +244,7 @@ export default function ArticlesPage() {
                                         </button>
                                     </div>
                                     {/*  Courses wrapper Content  */}
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
                                         {articles.map((article) => (
                                             <Article
                                                 className={
@@ -254,7 +256,14 @@ export default function ArticlesPage() {
                                             ></Article>
                                         ))}
                                     </div>
+                                    {/* Courses Content Loader */}
+                                <Loader
+                                    emptyColor="rgb(var(--color-secondary))"
+                                    filledColor="rgb(var(--color-primary))"
+                                    className="courses-page-loader"
+                                />
                                 </div>
+                                
                                 {/*  Courses Filtering Menu Cover  */}
                                 {filteringMenu && (
                                     <Cover setElemStatus={setFilteringMenu} />

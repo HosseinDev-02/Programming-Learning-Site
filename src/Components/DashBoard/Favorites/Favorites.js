@@ -1,4 +1,4 @@
-import SubTitle from "../../../Components/Titles/SubTitle";
+import SubTitle from "../../Titles/SubTitle";
 import {useEffect, useState} from "react";
 import {userFavoritesCourses} from "../../../data";
 import FavoriteCourse from "./FavoriteCourse";

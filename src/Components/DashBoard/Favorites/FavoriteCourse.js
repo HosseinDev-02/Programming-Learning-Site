@@ -1,19 +1,16 @@
-import React from "react";
-import RoundButton from "../../Components/Buttons/RoundButton";
-import LikeButton from "../../Components/Buttons/LikeButton";
-import PrimaryButton from "../../Components/Buttons/PrimaryButton";
+import PrimaryButton from "../../Buttons/PrimaryButton";
+import LikeButton from "../../Buttons/LikeButton";
+import { useState } from "react";
+import { Loader } from "@aws-amplify/ui-react";
+import './FavoriteCourse.css'
+export default function FavoriteCourse(props) {
 
-function Order({
-    img,
-    title,
-    price,
-    costPrice,
-    isCompleted,
-    time,
-    sections,
-    teacher,
-    teacherImg
-}) {
+
+    const [isImgLoaded, setIsImgLoaded] = useState(false)
+
+
+    const imgLoadedHandler = () => setIsImgLoaded(true)
+
     return (
         <div className="flex sm:flex-row lg:flex-row flex-col md:flex-col items-center sm:items-start md:items-center lg:items-start gap-5 lg:gap-8 py-6">
             <div className="w-full sm:w-4/12 lg:w-4/12 md:w-full">
@@ -23,42 +20,33 @@ function Order({
                 >
                     <img
                         className="w-full h-full object-cover"
-                        src={img}
-                        alt={title}
+                        src={props.img}
+                        alt={props.title}
+                        onLoad={imgLoadedHandler}
                     />
                 </a>
-                <RoundButton
-                    icon="#x-mark"
-                    className={
-                        "-translate-y-1/2 mx-auto w-11 h-11 !bg-red-500 text-white cursor-pointer"
-                    }
-                ></RoundButton>
+                {!isImgLoaded && (
+                    <Loader
+                        emptyColor="rgb(var(--color-secondary))"
+                        filledColor="rgb(var(--color-primary))"
+                        className="my-loader"
+                    />
+                )}
             </div>
             <div className="w-full sm:w-8/12 lg:w-8/12 md:w-full bg-gradient-to-b from-secondary to-background px-5 pb-5 rounded-3xl">
                 <div className="bg-background p-5 rounded-b-3xl">
                     <div className="flex items-center gap-2">
-                        {isCompleted ? (
-                            <>
-                                <span className="block bg-success w-1 h-1 rounded-full"></span>
-                                <span className="text-xs font-YekanBakh-Black text-success">
-                                    تکمیل شده
-                                </span>
-                            </>
-                        ) : (
-                            <>
-                                <span className="block bg-yellow-500 w-1 h-1 rounded-full"></span>
-                                <span className="text-xs font-YekanBakh-Black text-yellow-500">
-                                    در حال برگزاری
-                                </span>
-                            </>
-                        )}
+                        <span className="block bg-success w-1 h-1 rounded-full"></span>
+                        <span className="text-xs font-YekanBakh-Black text-success">
+                            {props.isCompleted ? "تکمیل شده" : "در حال برگزاری"}
+                        </span>
                     </div>
                     <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
                         <a
                             className="hover:text-primary transition-colors line-clamp-1"
                             href="/course-detail/react-js"
                         >
-                            {title}
+                            {props.title}
                         </a>
                     </h6>
                 </div>
@@ -71,7 +59,7 @@ function Order({
                                 </svg>
                             </span>
                             <span className="text-xs font-YekanBakh-SemiBold">
-                                {sections} فصل
+                                {props.sections} فصل
                             </span>
                         </div>
                         <div className="flex items-center gap-1">
@@ -81,7 +69,7 @@ function Order({
                                 </svg>
                             </span>
                             <span className="text-xs font-YekanBakh-SemiBold">
-                                {time} ساعت
+                                {props.time} ساعت
                             </span>
                         </div>
                     </div>
@@ -90,8 +78,8 @@ function Order({
                             <span className="block overflow-hidden w-10 h-10 rounded-full shrink-0">
                                 <img
                                     className="w-full h-full object-cover"
-                                    src={teacherImg}
-                                    alt={teacher}
+                                    src={props.teacherImg}
+                                    alt=""
                                 />
                             </span>
                             <div className="flex flex-col gap-1 text-xs font-YekanBakh-SemiBold">
@@ -99,42 +87,33 @@ function Order({
                                     مدرس دوره :
                                 </span>
                                 <span className="text-title font-YekanBakh-Bold line-clamp-1">
-                                    {teacher}
+                                    {props.teacher}
                                 </span>
                             </div>
                         </div>
-                        <div className="flex items-end h-14 flex-col justify-center">
-                            {costPrice ? (
-                                <>
+                        {props.isFree ? (
+                            <div className="flex items-center justify-center h-14">
+                                <span className="text-success font-YekanBakh-Black text-xl line-clamp-1">
+                                    رایگان !
+                                </span>
+                            </div>
+                        ) : (
+                            <div className="flex items-end h-14 flex-col justify-center">
+                                {props.costPrice && (
                                     <div className="flex items-center gap-1">
                                         <span className="line-through">
-                                            {
-                                                price.toLocaleString()
-                                            }
+                                            {props.costPrice.toLocaleString()}
                                         </span>
                                     </div>
-                                    <div className="flex items-center gap-1">
-                                        <span className="text-title font-YekanBakh-Black text-xl">
-                                            {
-                                                costPrice.toLocaleString()
-                                            }
-                                        </span>
-                                        <span className="text-xs">تومان</span>
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    <div className="flex items-center gap-1">
-                                        <span className="text-title font-YekanBakh-Black text-xl">
-                                            {
-                                                price
-                                            }
-                                        </span>
-                                        <span className="text-xs">تومان</span>
-                                    </div>
-                                </>
-                            )}
-                        </div>
+                                )}
+                                <div className="flex items-center gap-1">
+                                    <span className="text-title font-YekanBakh-Black text-xl">
+                                        {props.price.toLocaleString()}
+                                    </span>
+                                    <span className="text-xs">تومان</span>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     <div className="flex items-center gap-3 mt-3">
@@ -143,12 +122,10 @@ function Order({
                             href="/course-detail/react-js"
                             title="مشاهده دوره"
                         ></PrimaryButton>
-                        <LikeButton></LikeButton>
+                        <LikeButton className={"text-red-500"}></LikeButton>
                     </div>
                 </div>
             </div>
         </div>
     );
 }
-
-export default Order;

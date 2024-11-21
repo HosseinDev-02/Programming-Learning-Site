@@ -1,4 +1,4 @@
-import PrimaryButton from "../../../Components/Buttons/PrimaryButton";
+import PrimaryButton from "../Buttons/PrimaryButton";
 
 export default function Introduction() {
     return (

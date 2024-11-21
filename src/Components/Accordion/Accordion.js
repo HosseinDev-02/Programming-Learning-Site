@@ -5,9 +5,7 @@ export default function Accordion({
     className,
     classNameWrapper,
     children,
-    icon,
-    items,
-    indexKey,
+    icon
 }) {
     const [modalShow, setModalShow] = useState(false);
 

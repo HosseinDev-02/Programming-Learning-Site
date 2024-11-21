@@ -1,8 +1,8 @@
-import Introduction from "./Introduction/Introduction";
-import Services from "./Services/Services";
-import LatestCourses from "./Latest-Courses/LatestCourses";
-import Comments from "./Comments/Comments";
-import Articles from "./Articles/Articles";
+import Introduction from "../../Components/Introduction/Introduction";
+import Services from "../../Components/Services/Services";
+import LastCourses from "../../Components/LastCourses/LastCourses";
+import Comments from "../../Components/Comments/Comments";
+import LastArticles from "../../Components/LastArticles/LastArticles";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
 import PopularCourses from "../../Components/PopularCourses/PopularCourses";
 
@@ -12,9 +12,9 @@ export default function Home() {
             <main className='space-y-14 py-5'>
                 <Introduction></Introduction>
                 <Services></Services>
-                <LatestCourses></LatestCourses>
+                <LastCourses></LastCourses>
                 <Comments></Comments>
-                <Articles></Articles>
+                <LastArticles></LastArticles>
                 <PopularCourses/>
             </main>
         </SiteStructure>

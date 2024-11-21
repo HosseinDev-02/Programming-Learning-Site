@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SectionTitle from "../../../Components/Titles/SectionTitle";
+import SectionTitle from "../Titles/SectionTitle";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 

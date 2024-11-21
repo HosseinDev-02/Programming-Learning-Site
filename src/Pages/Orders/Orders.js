@@ -1,12 +1,12 @@
 import SubTitle from "../../Components/Titles/SubTitle";
 import PrimaryButton from "../../Components/Buttons/PrimaryButton";
 import SectionTitle from "../../Components/Titles/SectionTitle";
-import LatestCourses from "../Home/Latest-Courses/LatestCourses";
+import LastCourses from "../../Components/LastCourses/LastCourses";
 import SectionHeader from "../../Components/SectionHeader/SectionHeader";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
 import { userBasket } from "../../data";
 import { useEffect, useState } from "react";
-import Order from "./Order";
+import Order from "../../Components/Order/Order";
 
 export default function Orders() {
     const [userOrders, setUserOrders] = useState([]);
@@ -102,7 +102,7 @@ export default function Orders() {
                             )}
                         </div>
                     </div>
-                    <LatestCourses></LatestCourses>
+                    <LastCourses></LastCourses>
                 </div>
             </main>
         </SiteStructure>

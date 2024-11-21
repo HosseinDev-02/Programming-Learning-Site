@@ -1,6 +1,6 @@
-import SubTitle from "../../../Components/Titles/SubTitle";
-import PrimaryButton from "../../../Components/Buttons/PrimaryButton";
-import Input from "../../../Components/Input/Input";
+import SubTitle from "../../Titles/SubTitle";
+import PrimaryButton from "../../Buttons/PrimaryButton";
+import Input from "../../Input/Input";
 
 export default function EditProfile() {
     return (

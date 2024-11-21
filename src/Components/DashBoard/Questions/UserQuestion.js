@@ -1,4 +1,4 @@
-import PrimaryButton from "../../../Components/Buttons/PrimaryButton";
+import PrimaryButton from "../../Buttons/PrimaryButton";
 import { Loader } from "@aws-amplify/ui-react";
 import './UserQuestion.css'
 import { useState } from "react";

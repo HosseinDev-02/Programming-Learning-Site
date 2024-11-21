@@ -21,6 +21,11 @@ export default function CoursesPage() {
     const [typeItems, setTypeItems] = useState(courseTypesFilter);
     const [sortingItems, setSortingItems] = useState(coursesSortFilter);
     const [started, setStarted] = useState(false);
+    const [filteringItem, setFilteringItem] = useState('')
+
+    const changeCategoryHandler = () => {
+        console.log('changed')
+    }
 
     useEffect(() => {
         setCourses(data);
@@ -141,6 +146,7 @@ export default function CoursesPage() {
                                                         className="bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]"
                                                         type="radio"
                                                         name="category"
+                                                        onChange={changeCategoryHandler}
                                                     />
                                                     <span>{item.title}</span>
                                                 </label>
@@ -163,7 +169,7 @@ export default function CoursesPage() {
                                             مرتب سازی :
                                         </span>
                                     </div>
-                                    <Accordion title="انتخاب کنید">
+                                    <Accordion title={`${filteringItem ? filteringItem : 'انتخاب کنید'}`}>
                                         <div
                                             className={`p-3 rounded-xl overflow-hidden bg-secondary space-y-2 left-0 right-0 top-full z-50 absolute w-full`}
                                         >
@@ -177,6 +183,7 @@ export default function CoursesPage() {
                                                         className="bg-border w-4 h-4 appearance-none rounded-full checked:bg-transparent transition-all border-primary border-0 checked:border-[5px]"
                                                         type="radio"
                                                         name="category"
+                                                        onChange={() => setFilteringItem(item.title)}
                                                     />
                                                     <span>{item.title}</span>
                                                 </label>
