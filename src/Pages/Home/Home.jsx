@@ -4,6 +4,7 @@ import LatestCourses from "./Latest-Courses/LatestCourses";
 import Comments from "./Comments/Comments";
 import Articles from "./Articles/Articles";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
+import PopularCourses from "../../Components/PopularCourses/PopularCourses";
 
 export default function Home() {
     return (
@@ -14,6 +15,7 @@ export default function Home() {
                 <LatestCourses></LatestCourses>
                 <Comments></Comments>
                 <Articles></Articles>
+                <PopularCourses/>
             </main>
         </SiteStructure>
     )

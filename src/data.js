@@ -248,7 +248,7 @@ const articles = [
     {
         id: 3,
         title: 'کار با توابع در جاوااسکریپت',
-        img: '/images/Articles/functions.png',
+        img: '/images/Articles/functions.jpg',
         time: '32:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
@@ -257,7 +257,7 @@ const articles = [
     {
         id: 4,
         title: 'تفاوت جاوااسکریپت و اکمااسکریپت',
-        img: '/images/Articles/js-vs-ecma.png',
+        img: '/images/Articles/js-vs-ecma.jpg',
         time: '10:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',
@@ -293,7 +293,7 @@ const articles = [
     {
         id: 8,
         title: 'وردپرس چقدر امن است ؟',
-        img: '/images/Articles/wordpress-secure.png',
+        img: '/images/Articles/wordpress-secure.jpg',
         time: '10:00',
         writer: 'حسین رستمی',
         writerImg: '/images/profile.jpeg',

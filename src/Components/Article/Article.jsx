@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LikeButton from "../../../Components/Buttons/LikeButton";
+import LikeButton from "../Buttons/LikeButton";
 import { Loader } from "@aws-amplify/ui-react";
 
 export default function Article({

@@ -516,7 +516,7 @@ function Header() {
                                     </a>
                                     <a
                                         className="hover:text-red-700 text-red-500 flex items-center gap-2 py-2 px-3"
-                                        href="#"
+                                        href="/login"
                                     >
                                         <span>
                                             <svg className="w-5 h-5">
@@ -756,6 +756,23 @@ function Header() {
                                     </span>
                                     <span className="text-xs font-YekanBakh-SemiBold">
                                         مقالات آموزشی
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                className="flex items-center justify-between"
+                                href="/register"
+                            >
+                                <span className="flex items-center gap-2">
+                                    <span>
+                                        <svg className="w-5 h-5">
+                                            <use href="#login"></use>
+                                        </svg>
+                                    </span>
+                                    <span className="text-xs font-YekanBakh-SemiBold">
+                                        ورود / ثبت نام
                                     </span>
                                 </span>
                             </a>

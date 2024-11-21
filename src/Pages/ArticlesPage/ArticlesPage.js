@@ -7,7 +7,7 @@ import {
     courseCategoriesFilter,
     coursesSortFilter,
 } from "../../data";
-import Article from "../Home/Articles/Article";
+import Article from "../../Components/Article/Article";
 import Accordion from "../../Components/Accordion/Accordion";
 import Cover from "../../Components/Cover/Cover";
 
