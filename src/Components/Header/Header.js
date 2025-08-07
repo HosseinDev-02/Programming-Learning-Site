@@ -35,7 +35,7 @@ function Header() {
 
     return (
         <>
-            <header className="h-20 border-b border-b-border backdrop-blur-xl flex items-center justify-center bg-background/80 z-20 sticky left-0 right-0 top-0">
+            <header className="h-20 border-b border-b-border backdrop-blur-xl flex items-center justify-center bg-background/80 z-50 sticky left-0 right-0 top-0">
                 <div className="container">
                     <nav className="flex items-center justify-between relative">
                         {/* header right side */}
@@ -347,7 +347,7 @@ function Header() {
                                         </svg>
                                     </a>
                                     {/* header categories menu */}
-                                    <ul className="invisible shadow opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-background border border-border w-56 flex flex-col delay-75 p-3 transition-all shadow-black/5 text-title z-20 rounded-xl">
+                                    <ul className="invisible shadow opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-background border border-border w-56 flex flex-col delay-75 p-3 transition-all shadow-black/5 text-title z-50 rounded-xl">
                                         <li>
                                             <Link
                                                 className="flex items-center justify-between px-3 py-2 hover:text-primary transition-colors text-xs"
