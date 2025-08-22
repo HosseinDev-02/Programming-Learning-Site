@@ -11,6 +11,8 @@ export default function Course(props) {
 
     const imgLoadedHandler = () => setIsImgLoaded(true);
 
+    
+
     return (
         <div>
             <div className="flex items-center justify-center rounded-3xl overflow-hidden relative">

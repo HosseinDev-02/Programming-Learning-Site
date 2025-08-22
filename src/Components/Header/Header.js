@@ -1,9 +1,10 @@
 import Logo from "../Logo/Logo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RoundButton from "../Buttons/RoundButton";
 import { Link } from "react-router-dom";
 import Input from "../Input/Input";
 import Cover from "../Cover/Cover";
+import { Loader } from "@aws-amplify/ui-react";
 
 function Header() {
     let localStorageValue = localStorage.getItem("theme");
@@ -15,6 +16,7 @@ function Header() {
     const [showMobileCategorySubMenu, setShowMobileCategorySubMenu] =
         useState(false);
     const [userProfileShow, setUserProfileShow] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const themeHandler = () => {
         if (darkMode === "dark") {
@@ -32,6 +34,15 @@ function Header() {
             }
         });
     };
+
+    useEffect(() => {
+        // وقتی کل صفحه (تمام عکس‌ها و فونت‌ها) لود شد
+        const handleLoad = () => setLoading(false);
+
+        window.addEventListener("load", handleLoad);
+
+        return () => window.removeEventListener("load", handleLoad);
+    }, []);
 
     return (
         <>
@@ -902,19 +913,16 @@ function Header() {
             {/*  mobile menu cover elem  */}
             {/*  Courses Filtering Menu Cover  */}
             {mobileMenuShow && <Cover setElemStatus={setMobileMenuShow} />}
-            {/* <Cover
-                isShow={mobileMenuShow}
-                clickHandler={() =>
-                    setMobileMenuShow((prevState) => !prevState)
-                }
-            /> */}
-            {/* User Profile Cover */}
-            {/* <Cover
-                isShow={userProfileShow}
-                clickHandler={() =>
-                    setUserProfileShow((prevState) => !prevState)
-                }
-            /> */}
+
+            {loading && (
+                <div className="fixed inset-0 m-auto bg-black/90 flex items-center justify-center z-50">
+                    <Loader
+                        emptyColor="rgb(var(--color-secondary))"
+                        filledColor="rgb(var(--color-primary))"
+                        className="page-loader"
+                    />
+                </div>
+            )}
         </>
     );
 }
