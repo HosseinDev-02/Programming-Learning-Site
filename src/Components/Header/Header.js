@@ -17,7 +17,7 @@ function Header() {
     const [showMobileCategorySubMenu, setShowMobileCategorySubMenu] =
         useState(false);
     const [userProfileShow, setUserProfileShow] = useState(false);
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
 
     const themeHandler = () => {
         if (darkMode === "dark") {
@@ -38,11 +38,9 @@ function Header() {
 
     useEffect(() => {
         // وقتی کل صفحه (تمام عکس‌ها و فونت‌ها) لود شد
-        const handleLoad = () => setLoading(false);
-
-        window.addEventListener("load", handleLoad);
-
-        return () => window.removeEventListener("load", handleLoad);
+        // const handleLoad = () => setLoading(false);
+        // window.addEventListener("load", handleLoad);
+        // return () => window.removeEventListener("load", handleLoad);
     }, []);
 
     return (
@@ -915,7 +913,7 @@ function Header() {
             {/*  Courses Filtering Menu Cover  */}
             {mobileMenuShow && <Cover setElemStatus={setMobileMenuShow} />}
 
-            {loading && (
+            {/* {loading && (
                 <div className="fixed inset-0 m-auto bg-black/90 flex items-center justify-center z-[19999]">
                     <Loader
                         emptyColor="rgb(var(--color-secondary))"
@@ -923,7 +921,7 @@ function Header() {
                         className="page-loader"
                     />
                 </div>
-            )}
+            )} */}
         </>
     );
 }
