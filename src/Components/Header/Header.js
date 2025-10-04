@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Input from "../Input/Input";
 import Cover from "../Cover/Cover";
 import { Loader } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
 
 function Header() {
     let localStorageValue = localStorage.getItem("theme");
@@ -915,7 +916,7 @@ function Header() {
             {mobileMenuShow && <Cover setElemStatus={setMobileMenuShow} />}
 
             {loading && (
-                <div className="fixed inset-0 m-auto bg-black/90 flex items-center justify-center z-50">
+                <div className="fixed inset-0 m-auto bg-black/90 flex items-center justify-center z-[19999]">
                     <Loader
                         emptyColor="rgb(var(--color-secondary))"
                         filledColor="rgb(var(--color-primary))"
