@@ -39,8 +39,8 @@ function Header() {
     useEffect(() => {
         // وقتی کل صفحه (تمام عکس‌ها و فونت‌ها) لود شد
         const handleLoad = () => setLoading(false);
-        window.addEventListener("load", handleLoad);
-        return () => window.removeEventListener("load", handleLoad);
+        window.addEventListener("DOMContentLoaded", handleLoad);
+        return () => window.removeEventListener("DOMContentLoaded", handleLoad);
     }, []);
 
     return (
