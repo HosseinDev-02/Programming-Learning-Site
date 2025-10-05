@@ -175,7 +175,7 @@ export default function Footer() {
                         </div>
                         {/*  footer content bottom  */}
                         <div className="flex items-center gap-3 py-5">
-                            <p className="text-xs shrink-0">
+                            <p className="text-xs shrink-0 text-nowrap">
                                 © کليه حقوق محفوظ است
                             </p>
                             <div className="h-px w-full border-t border-dashed border-border"></div>
