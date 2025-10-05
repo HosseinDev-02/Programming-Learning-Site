@@ -582,7 +582,7 @@ function Header() {
             {/* Mobile Menu */}
             <div
                 id="mobile-menu"
-                className={`lg:hidden transition-all h-screen overflow-y-auto fixed top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 xs:w-80 p-4 space-y-5 z-50 ${
+                className={`lg:hidden transition-all h-screen overflow-y-auto fixed top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 xs:w-80 p-4 space-y-5 z-[100] ${
                     mobileMenuShow ? "right-0" : "-right-72 xs:-right-80"
                 }`}
             >
@@ -927,7 +927,7 @@ function Header() {
             </div>
             {/*  mobile menu cover elem  */}
             {/*  Courses Filtering Menu Cover  */}
-            {mobileMenuShow && <Cover setElemStatus={setMobileMenuShow} />}
+            {mobileMenuShow && <Cover className='z-50' setElemStatus={setMobileMenuShow} />}
 
             {loading && (
                 <div className="fixed inset-0 m-auto bg-black/90 flex items-center justify-center z-[19999]">

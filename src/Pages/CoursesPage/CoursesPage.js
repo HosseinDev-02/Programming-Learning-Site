@@ -47,7 +47,7 @@ export default function CoursesPage() {
                         <div className="md:grid grid-cols-12 gap-5 items-start">
                             {/*  Courses Side Bar  */}
                             <div
-                                className={`fixed h-screen top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 z-40 p-4 md:rounded-none md:w-auto md:h-auto md:p-0 md:block col-span-4 lg:col-span-3 md:sticky md:top-24 transition-all ${
+                                className={`fixed h-screen top-0 bg-background rounded-tl-xl rounded-bl-xl w-72 z-[100] p-4 md:rounded-none md:w-auto md:h-auto md:p-0 md:block col-span-4 lg:col-span-3 md:sticky md:top-24 transition-all ${
                                     filteringMenu ? "right-0" : "-right-72"
                                 }`}
                             >
@@ -230,7 +230,7 @@ export default function CoursesPage() {
                             </div>
                             {/*  Courses Filtering Menu Cover  */}
                             {filteringMenu && (
-                                <Cover setElemStatus={setFilteringMenu} />
+                                <Cover className='z-50' setElemStatus={setFilteringMenu} />
                             )}
                         </div>
                     </div>
