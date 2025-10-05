@@ -37,14 +37,16 @@ function Header() {
     };
 
     useEffect(() => {
-        // وقتی کل صفحه (تمام عکس‌ها و فونت‌ها) لود شد
+        console.log('theme changed')
+    }, [localStorageValue])
+
+    useEffect(() => {
         const handleLoad = () => setLoading(false);
         const handleDomReady = () => setLoading(false);
 
         window.addEventListener("load", handleLoad);
         document.addEventListener("DOMContentLoaded", handleDomReady);
 
-        // fallback بعد از 5 ثانیه
         const timer = setTimeout(() => setLoading(false), 5000);
 
         return () => {
@@ -549,9 +551,9 @@ function Header() {
                                         </span>
                                         <span>مشاهده پروفایل</span>
                                     </a>
-                                    <a
+                                    <Link
                                         className="hover:text-primary flex items-center gap-2 py-2 px-3"
-                                        href="#"
+                                        to="/dashboard/counter"
                                     >
                                         <span>
                                             <svg className="w-5 h-5">
@@ -559,7 +561,7 @@ function Header() {
                                             </svg>
                                         </span>
                                         <span>پنل کاربری</span>
-                                    </a>
+                                    </Link>
                                     <a
                                         className="hover:text-red-700 text-red-500 flex items-center gap-2 py-2 px-3"
                                         href="/login"
