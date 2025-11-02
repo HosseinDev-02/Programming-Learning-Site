@@ -21,15 +21,25 @@ export default function App() {
     let routerData = useRoutes(routes);
 
     useEffect(() => {
-        if (
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
+        const applyTheme = () => {
+            if (
+                localStorage.theme === "dark" ||
+                (!("theme" in localStorage) &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+                if (!localStorage.theme) {
+                    localStorage.setItem("theme", "dark");
+                }
+                document.documentElement.classList.add("dark");
+            } else {
+                if (!localStorage.theme) {
+                    localStorage.setItem("theme", "light");
+                }
+                document.documentElement.classList.remove("dark");
+            }
+        };
+
+        applyTheme(); // اجرای اولیه
     }, []);
 
     return <>{routerData}</>;
