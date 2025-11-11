@@ -12,6 +12,8 @@ function Header() {
     const [mobileMenuShow, setMobileMenuShow] = useState(false);
     const [searchModalShow, setSearchModalShow] = useState(false);
     const [darkMode, setDarkMode] = useState(localStorageValue);
+    const [theme, setTheme] = useState("light");
+
     const [showMobileCategoryMenu, setShowMobileCategoryMenu] = useState(false);
     const [showMobilePagesMenu, setShowMobilePagesMenu] = useState(false);
     const [showMobileCategorySubMenu, setShowMobileCategorySubMenu] =
@@ -20,27 +22,42 @@ function Header() {
     const [loading, setLoading] = useState(true);
 
     const themeHandler = () => {
-        if (darkMode === "dark") {
+        // if (darkMode === "dark") {
+        //     document.documentElement.classList.remove("dark");
+        //     localStorage.setItem("theme", "light");
+        // } else {
+        //     document.documentElement.classList.add("dark");
+        //     localStorage.setItem("theme", "dark");
+        // }
+        // setDarkMode((prevStat) => {
+        //     if (prevStat === "dark") {
+        //         return "light";
+        //     } else {
+        //         return "dark";
+        //     }
+        // });
+        if (document.documentElement.className.includes("dark")) {
+            document.documentElement.classList.add("light");
             document.documentElement.classList.remove("dark");
+            setTheme("light");
             localStorage.setItem("theme", "light");
         } else {
+            document.documentElement.classList.remove("light");
             document.documentElement.classList.add("dark");
+            setTheme("dark");
             localStorage.setItem("theme", "dark");
         }
-        setDarkMode((prevStat) => {
-            if (prevStat === "dark") {
-                return "light";
-            } else {
-                return "dark";
-            }
-        });
     };
 
     useEffect(() => {
-        console.log('theme changed')
-    }, [localStorageValue])
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark");
+            setTheme("dark");
+        } else {
+            document.documentElement.classList.add("light");
+            setTheme("light");
+        }
 
-    useEffect(() => {
         const handleLoad = () => setLoading(false);
         const handleDomReady = () => setLoading(false);
 
@@ -51,10 +68,7 @@ function Header() {
 
         return () => {
             window.removeEventListener("load", handleLoad);
-            document.removeEventListener(
-                "DOMContentLoaded",
-                handleDomReady
-            );
+            document.removeEventListener("DOMContentLoaded", handleDomReady);
             clearTimeout(timer);
         };
     }, []);
@@ -627,7 +641,7 @@ function Header() {
                     <div className="inline-block cursor-pointer border-2 border-zinc-200 dark:border-primary h-5 w-11 bg-white dark:bg-primary relative rounded-xl transition-all">
                         <span
                             style={
-                                darkMode === "dark"
+                                theme === "dark"
                                     ? {
                                           transform: "translateX(26px)",
                                           backgroundColor: "#000",
@@ -927,7 +941,9 @@ function Header() {
             </div>
             {/*  mobile menu cover elem  */}
             {/*  Courses Filtering Menu Cover  */}
-            {mobileMenuShow && <Cover className='z-50' setElemStatus={setMobileMenuShow} />}
+            {mobileMenuShow && (
+                <Cover className="z-50" setElemStatus={setMobileMenuShow} />
+            )}
 
             {loading && (
                 <div className="fixed inset-0 m-auto bg-black/90 flex items-center justify-center z-[19999]">

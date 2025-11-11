@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Home from "./Pages/Home/Home";
 import routes from "./routes";
 import ReactDOM from "react-dom/client";
@@ -19,23 +19,31 @@ import Login from "./Pages/Login/Login";
 
 export default function App() {
     let routerData = useRoutes(routes);
+    const [theme, setTheme] = useState("light");
 
     useEffect(() => {
         const applyTheme = () => {
-            if (
-                localStorage.theme === "dark" ||
-                (!("theme" in localStorage) &&
-                    window.matchMedia("(prefers-color-scheme: dark)").matches)
-            ) {
-                if (!localStorage.theme) {
-                    localStorage.setItem("theme", "dark");
-                }
-                document.documentElement.classList.add("dark");
+            // if (
+            //     localStorage.theme === "dark" ||
+            //     (!("theme" in localStorage) &&
+            //         window.matchMedia("(prefers-color-scheme: dark)").matches)
+            // ) {
+            //     if (!localStorage.theme) {
+            //         localStorage.setItem("theme", "dark");
+            //     }
+            //     document.documentElement.classList.add("dark");
+            // } else {
+            //     if (!localStorage.theme) {
+            //         localStorage.setItem("theme", "light");
+            //     }
+            //     document.documentElement.classList.remove("dark");
+            // }
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark')
+                setTheme('dark')
             } else {
-                if (!localStorage.theme) {
-                    localStorage.setItem("theme", "light");
-                }
-                document.documentElement.classList.remove("dark");
+                document.documentElement.classList.add('light')
+                setTheme('light')
             }
         };
 
