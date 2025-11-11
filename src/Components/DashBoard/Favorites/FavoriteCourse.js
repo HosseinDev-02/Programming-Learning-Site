@@ -3,6 +3,7 @@ import LikeButton from "../../Buttons/LikeButton";
 import { useState } from "react";
 import { Loader } from "@aws-amplify/ui-react";
 import './FavoriteCourse.css'
+import { Link } from "react-router-dom";
 export default function FavoriteCourse(props) {
 
 
@@ -14,9 +15,9 @@ export default function FavoriteCourse(props) {
     return (
         <div className="flex sm:flex-row lg:flex-row flex-col md:flex-col items-center sm:items-start md:items-center lg:items-start gap-5 lg:gap-8 py-6">
             <div className="w-full sm:w-4/12 lg:w-4/12 md:w-full">
-                <a
+                <Link
                     className="flex items-center justify-center rounded-3xl overflow-hidden"
-                    href="/course-detail/react-js"
+                    to="/course-detail/react-js"
                 >
                     <img
                         className="w-full h-full object-cover"
@@ -24,7 +25,7 @@ export default function FavoriteCourse(props) {
                         alt={props.title}
                         onLoad={imgLoadedHandler}
                     />
-                </a>
+                </Link>
                 {!isImgLoaded && (
                     <Loader
                         emptyColor="rgb(var(--color-secondary))"
@@ -42,12 +43,12 @@ export default function FavoriteCourse(props) {
                         </span>
                     </div>
                     <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
-                        <a
+                        <Link
                             className="hover:text-primary transition-colors line-clamp-1"
-                            href="/course-detail/react-js"
+                            to="/course-detail/react-js"
                         >
                             {props.title}
-                        </a>
+                        </Link>
                     </h6>
                 </div>
                 <div className="pt-5">

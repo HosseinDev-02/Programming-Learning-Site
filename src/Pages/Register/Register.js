@@ -70,19 +70,19 @@ export default function Register() {
                         <div className="bg-secondary rounded-xl p-5 flex items-center justify-center">
                             <p className="text-xs flex items-center flex-wrap gap-1 text-center justify-center">
                                 ورود شما به معنای پذیرش{" "}
-                                <a
+                                <Link
                                     className="hover:text-primary transition-colors text-title font-YekanBakh-SemiBold text-nowrap underline"
-                                    href="#"
+                                    to="#"
                                 >
                                     شرایط
-                                </a>{" "}
+                                </Link>{" "}
                                 و{" "}
-                                <a
+                                <Link
                                     className="hover:text-primary transition-colors text-title font-YekanBakh-SemiBold text-nowrap underline"
-                                    href="#"
+                                    to="#"
                                 >
                                     قوانین حریم خصوصی
-                                </a>{" "}
+                                </Link>{" "}
                                 است.
                             </p>
                         </div>

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function PrimaryButton({title, href, icon, className, clickEvent}) {
     return (
-        <a
-            href={href ? href : "#"}
+        <Link
+            to={href ? href : "#"}
             onClick={clickEvent}
             className={`flex sm:inline-flex items-center justify-center gap-2 bg-primary rounded-full text-white h-11 transition-opacity hover:opacity-80 font-YekanBakh-SemiBold text-xs xl:text-sm px-4 flex-grow ${className}`}
         >
@@ -15,6 +15,6 @@ export default function PrimaryButton({title, href, icon, className, clickEvent}
                     </svg>
                 </span>
             )}
-        </a>
+        </Link>
     );
 }

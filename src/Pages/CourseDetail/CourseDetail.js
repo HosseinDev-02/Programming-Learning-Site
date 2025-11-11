@@ -7,6 +7,7 @@ import SectionLinkBtn from "../../Components/Buttons/SectionLinkBtn";
 import UserInfo from "../../Components/UserInfo/UserInfo";
 import SiteStructure from "../../Components/SiteStructure/SiteStructure";
 import Session from "../../Components/Accordion/Session";
+import { Link } from "react-router-dom";
 
 export default function CourseDetail() {
     const [boxes, setBoxes] = useState([]);
@@ -125,18 +126,14 @@ export default function CourseDetail() {
                                     شک دارید، بهتر است با این دوره آموزشی همراه
                                     باشید.
                                 </p>
-                                <div>
-                                    <h2 className="font-YekanBakh-Black mb-3 text-xl text-title">
+                                <h2 className="font-YekanBakh-Black mb-3 text-xl text-title">
                                         دوره پروژه محور ری اکت و نکست
                                     </h2>
-                                    <div>
-                                        <img
+                                    <img
                                             className="w-full rounded-3xl"
                                             src="/images/Courses/01.jpg"
                                             alt="دوره پروژه محور ری اکت و نکست"
                                         />
-                                    </div>
-                                </div>
                                 <p className="text-sm">
                                     زمانی که شما با موضوعات مختلف یک ابزار
                                     آشنایی پیدا کردید، یک نکته مهم که باید در
@@ -163,8 +160,7 @@ export default function CourseDetail() {
                                     پیش‌نیازهایی را در ابتدا طی کنید.
                                 </p>
                                 {/*  course structure  */}
-                                <div>
-                                    <h3 className="text-lg text-title font-YekanBakh-Black mb-3">
+                                <h3 className="text-lg text-title font-YekanBakh-Black mb-3">
                                         ساختار دوره آموزشی پروژه محور React
                                     </h3>
                                     <p className="text-sm">
@@ -178,7 +174,6 @@ export default function CourseDetail() {
                                         نیز از ساختار دوره صحبت‌های بسیاری شده و
                                         می‌توانید از آن نیز استفاده کنید.
                                     </p>
-                                </div>
                             </div>
                             {/*  course detail sessions  */}
                             <div id="tabTwo">
@@ -191,12 +186,12 @@ export default function CourseDetail() {
                                         <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    to="#"
                                                     className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
                                                 >
                                                     معرفی دوره
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
@@ -207,9 +202,9 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                 </div>
-                                                <a
+                                                <Link
                                                     className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                    href="#"
+                                                    to="#"
                                                 >
                                                     <span className="font-YekanBakh-SemiBold">
                                                         مشاهده
@@ -219,18 +214,18 @@ export default function CourseDetail() {
                                                             <use href="#arrow-up-left"></use>
                                                         </svg>
                                                     </span>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </li>
                                         <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    to="#"
                                                     className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
                                                 >
                                                     پیش نیاز مشاهده این دوره
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
@@ -241,9 +236,9 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                 </div>
-                                                <a
+                                                <Link
                                                     className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                    href="#"
+                                                    to="#"
                                                 >
                                                     <span className="font-YekanBakh-SemiBold">
                                                         مشاهده
@@ -253,19 +248,19 @@ export default function CourseDetail() {
                                                             <use href="#arrow-up-left"></use>
                                                         </svg>
                                                     </span>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </li>
                                         <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    to="#"
                                                     className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
                                                 >
                                                     چرا باید این دوره را مشاهده
                                                     کنیم؟
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
@@ -276,9 +271,9 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                 </div>
-                                                <a
+                                                <Link
                                                     className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                    href="#"
+                                                    to="#"
                                                 >
                                                     <span className="font-YekanBakh-SemiBold">
                                                         مشاهده
@@ -288,19 +283,19 @@ export default function CourseDetail() {
                                                             <use href="#arrow-up-left"></use>
                                                         </svg>
                                                     </span>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </li>
                                         <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    to="#"
                                                     className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
                                                 >
                                                     در این پروژه از typescript
                                                     هم استفاده می‌شود
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
@@ -311,9 +306,9 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                 </div>
-                                                <a
+                                                <Link
                                                     className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                    href="#"
+                                                    to="#"
                                                 >
                                                     <span className="font-YekanBakh-SemiBold">
                                                         مشاهده
@@ -323,7 +318,7 @@ export default function CourseDetail() {
                                                             <use href="#arrow-up-left"></use>
                                                         </svg>
                                                     </span>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </li>
                                     </Session>
@@ -334,12 +329,12 @@ export default function CourseDetail() {
                                         <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    to="#"
                                                     className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
                                                 >
                                                     معرفی دوره
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
@@ -350,9 +345,9 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                 </div>
-                                                <a
+                                                <Link
                                                     className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                    href="#"
+                                                    to="#"
                                                 >
                                                     <span className="font-YekanBakh-SemiBold">
                                                         مشاهده
@@ -362,18 +357,18 @@ export default function CourseDetail() {
                                                             <use href="#arrow-up-left"></use>
                                                         </svg>
                                                     </span>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </li>
                                         <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    to="#"
                                                     className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
                                                 >
                                                     پیش نیاز مشاهده این دوره
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
@@ -384,9 +379,9 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                 </div>
-                                                <a
+                                                <Link
                                                     className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                    href="#"
+                                                    to="#"
                                                 >
                                                     <span className="font-YekanBakh-SemiBold">
                                                         مشاهده
@@ -396,19 +391,19 @@ export default function CourseDetail() {
                                                             <use href="#arrow-up-left"></use>
                                                         </svg>
                                                     </span>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </li>
                                         <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    to="#"
                                                     className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
                                                 >
                                                     چرا باید این دوره را مشاهده
                                                     کنیم؟
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
@@ -419,9 +414,9 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                 </div>
-                                                <a
+                                                <Link
                                                     className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                    href="#"
+                                                    to="#"
                                                 >
                                                     <span className="font-YekanBakh-SemiBold">
                                                         مشاهده
@@ -431,19 +426,19 @@ export default function CourseDetail() {
                                                             <use href="#arrow-up-left"></use>
                                                         </svg>
                                                     </span>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </li>
                                         <li className="flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between border border-border py-3 px-2 md:px-3 md:py-1 rounded-xl text-xs">
                                             <div className="flex items-center gap-2 md:gap-5">
                                                 <span>1</span>
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    to="#"
                                                     className="text-title font-YekanBakh-SemiBold transition-colors hover:text-primary line-clamp-1"
                                                 >
                                                     در این پروژه از typescript
                                                     هم استفاده می‌شود
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div className="flex justify-between sm:justify-end w-full sm:w-auto items-center gap-5">
                                                 <div className="flex items-center gap-1">
@@ -454,9 +449,9 @@ export default function CourseDetail() {
                                                         </svg>
                                                     </span>
                                                 </div>
-                                                <a
+                                                <Link
                                                     className="flex items-center justify-center gap-1 bg-secondary rounded-full text-xs px-4 h-9 hover:text-primary transition-colors shrink-0"
-                                                    href="#"
+                                                    to="#"
                                                 >
                                                     <span className="font-YekanBakh-SemiBold">
                                                         مشاهده
@@ -466,7 +461,7 @@ export default function CourseDetail() {
                                                             <use href="#arrow-up-left"></use>
                                                         </svg>
                                                     </span>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </li>
                                     </Session>

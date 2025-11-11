@@ -77,9 +77,9 @@ function Header() {
                             {/* header menu */}
                             <ul className="hidden lg:flex items-center gap-5 font-YekanBakh-SemiBold text-sm child-hover:text-title child:transition-colors">
                                 <li className="group/categories">
-                                    <a
+                                    <Link
                                         className="flex items-center gap-1"
-                                        href="/courses"
+                                        to="/courses"
                                     >
                                         <span className="">
                                             دسته بندی آموزش ها
@@ -87,291 +87,291 @@ function Header() {
                                         <svg className="w-5 h-5 group-hover/categories:rotate-180 transition-all">
                                             <use href="#chevron-down-mini"></use>
                                         </svg>
-                                    </a>
+                                    </Link>
                                     {/* header categories menu */}
                                     <ul className="invisible shadow opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-background border border-border w-56 flex flex-col gap-1 child:leading-5 delay-75 transition-all shadow-black/5 text-title z-20">
                                         <li className="group/subcategories">
-                                            <a
+                                            <Link
                                                 className="flex items-center justify-between p-3 hover:text-primary transition-colors"
-                                                href="#"
+                                                to="#"
                                             >
                                                 <span>فرانت اند</span>
                                                 <svg className="w-5 h-5">
                                                     <use href="#chevron-left-mini"></use>
                                                 </svg>
-                                            </a>
+                                            </Link>
                                             {/* header categories submenu */}
                                             <ul className="invisible shadow opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-background border border-border w-96 absolute right-full -top-px -bottom-px text-caption text-sm">
                                                 <li className="absolute top-2 font-YekanBakh-Bold pointer-events-none">
                                                     محبوب ترین موضوعات
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         جاوا اسکریپت
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         نکست جی اس
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         انگیولار
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         تایپ اسکریپت
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         ری اکت
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         ویو جی اس
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         نود جی اس
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         جنگو
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         اکسپرس جی اس
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         پی اچ پی
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         لاراول
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         سی شارپ
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li className="group/subcategories">
-                                            <a
+                                            <Link
                                                 className="flex items-center justify-between p-3 hover:text-primary transition-colors"
-                                                href="#"
+                                                to="#"
                                             >
                                                 <span>بک اند</span>
                                                 <svg className="w-5 h-5">
                                                     <use href="#chevron-left-mini"></use>
                                                 </svg>
-                                            </a>
+                                            </Link>
                                             {/* header categories submenu */}
                                             <ul className="invisible shadow opacity-0 group-hover/subcategories:visible group-hover/subcategories:opacity-100 transition-all delay-75 flex flex-col flex-wrap space-y-3 px-3 pt-8 pb-3 bg-background border border-border w-96 absolute right-full -top-px -bottom-px text-caption text-sm">
                                                 <li className="absolute top-2 font-YekanBakh-Bold pointer-events-none">
                                                     محبوب ترین موضوعات
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         نود جی اس
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         جنگو
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         اکسپرس جی اس
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         پی اچ پی
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         لاراول
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         سی شارپ
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         جاوا اسکریپت
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         نکست جی اس
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         انگیولار
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         تایپ اسکریپت
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         ری اکت
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                                 <li className="w-1/2">
-                                                    <a
+                                                    <Link
                                                         className='relative before:w-1 before:h-1 before:bg-gray-600 before:rounded-full before:content-[""] before:inline-block flex items-center gap-2 before:right-0 before:top-0 before:bottom-0 before:my-auto hover:text-primary transition-colors hover:before:bg-primary'
-                                                        href="#"
+                                                        to="#"
                                                     >
                                                         ویو جی اس
-                                                    </a>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center justify-between p-3 hover:text-primary transition-colors"
-                                                href="#"
+                                                to="#"
                                             >
                                                 <span>دیتاساینس</span>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center justify-between p-3 hover:text-primary transition-colors"
-                                                href="#"
+                                                to="#"
                                             >
                                                 <span>
                                                     زبانهای برنامه نویسی
                                                 </span>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center justify-between p-3 hover:text-primary transition-colors"
-                                                href="#"
+                                                to="#"
                                             >
                                                 <span>توسعه بازی</span>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center justify-between p-3 hover:text-primary transition-colors"
-                                                href="#"
+                                                to="#"
                                             >
                                                 <span>برنامه نویسی موبایل</span>
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li className="group">
-                                    <a
+                                    <Link
                                         className="flex items-center gap-1"
-                                        href="/articles"
+                                        to="/articles"
                                     >
                                         <span className="">مقالات آموزشی</span>
-                                    </a>
+                                    </Link>
                                 </li>
 
                                 <li className="group/categories">
-                                    <a
+                                    <Link
                                         className="flex items-center gap-1"
-                                        href="#"
+                                        to="#"
                                     >
                                         <span className="">تمامی صفحات</span>
                                         <svg className="w-5 h-5 group-hover/categories:rotate-180 transition-all">
                                             <use href="#chevron-down-mini"></use>
                                         </svg>
-                                    </a>
+                                    </Link>
                                     {/* header categories menu */}
                                     <ul className="invisible shadow opacity-0 group-hover/categories:visible group-hover/categories:opacity-100 absolute top-full bg-background border border-border w-56 flex flex-col delay-75 p-3 transition-all shadow-black/5 text-title z-50 rounded-xl">
                                         <li>
@@ -540,9 +540,9 @@ function Header() {
                                             : "invisible opacity-0"
                                     }`}
                                 >
-                                    <a
+                                    <Link
                                         className="hover:text-primary flex items-center gap-2 py-2 px-3"
-                                        href="/dashboard/counter"
+                                        to="/dashboard/counter"
                                     >
                                         <span>
                                             <svg className="w-5 h-5">
@@ -550,7 +550,7 @@ function Header() {
                                             </svg>
                                         </span>
                                         <span>مشاهده پروفایل</span>
-                                    </a>
+                                    </Link>
                                     <Link
                                         className="hover:text-primary flex items-center gap-2 py-2 px-3"
                                         to="/dashboard/counter"
@@ -562,9 +562,9 @@ function Header() {
                                         </span>
                                         <span>پنل کاربری</span>
                                     </Link>
-                                    <a
+                                    <Link
                                         className="hover:text-red-700 text-red-500 flex items-center gap-2 py-2 px-3"
-                                        href="/login"
+                                        to="/login"
                                     >
                                         <span>
                                             <svg className="w-5 h-5">
@@ -572,7 +572,7 @@ function Header() {
                                             </svg>
                                         </span>
                                         <span>خروج از حساب</span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -642,7 +642,7 @@ function Header() {
                 <div>
                     <ul className="flex flex-col gap-5">
                         <li>
-                            <a
+                            <Link
                                 onClick={(event) => {
                                     event.preventDefault();
                                     setShowMobileCategoryMenu(
@@ -652,7 +652,7 @@ function Header() {
                                 className={`flex items-center justify-between ${
                                     showMobileCategoryMenu ? "text-title" : ""
                                 }`}
-                                href="#"
+                                to="#"
                             >
                                 <span className="flex items-center gap-2">
                                     <span>
@@ -674,7 +674,7 @@ function Header() {
                                         <use href="#chevron-down-mini"></use>
                                     </svg>
                                 </span>
-                            </a>
+                            </Link>
                             <ul
                                 className={`child:py-2 ${
                                     showMobileCategoryMenu
@@ -683,7 +683,7 @@ function Header() {
                                 } relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 child:text-xs text-zinc-400`}
                             >
                                 <li>
-                                    <a
+                                    <Link
                                         onClick={() => {
                                             setShowMobileCategorySubMenu(
                                                 (prevState) => !prevState
@@ -694,7 +694,7 @@ function Header() {
                                                 ? "text-title"
                                                 : ""
                                         }`}
-                                        href="#"
+                                        to="#"
                                     >
                                         <svg
                                             className={`w-4 h-4 ${
@@ -705,7 +705,7 @@ function Header() {
                                             <use href="#chevron-left-mini"></use>
                                         </svg>
                                         فرانت اند
-                                    </a>
+                                    </Link>
                                     <ul
                                         style={
                                             showMobileCategorySubMenu
@@ -717,65 +717,65 @@ function Header() {
                                         className='child:py-2 relative before:absolute before:content-[""] before:top-0 before:bottom-0 before:right-3 before:bg-zinc-200 dark:before:bg-zinc-900 before:h-full before:w-px pr-8 mt-4 text-xs text-zinc-400 hidden'
                                     >
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center gap-2"
-                                                href="#"
+                                                to="#"
                                             >
                                                 <span className="w-2 h-px bg-border"></span>
                                                 جاوااسکریپت
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center gap-2"
-                                                href="#"
+                                                to="#"
                                             >
                                                 <span className="w-2 h-px bg-border"></span>
                                                 نکست جی اس
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center gap-2"
-                                                href="#"
+                                                to="#"
                                             >
                                                 <span className="w-2 h-px bg-border"></span>
                                                 ری اکت
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="flex items-center gap-2"
-                                                href="#"
+                                                to="#"
                                             >
                                                 <span className="w-2 h-px bg-border"></span>
                                                 ویو حی اس
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         className={`flex items-center gap-1`}
-                                        href="#"
+                                        to="#"
                                     >
                                         <span className="w-2 h-px bg-border"></span>
                                         بک اند
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         className={`flex items-center gap-1`}
-                                        href="#"
+                                        to="#"
                                     >
                                         <span className="w-2 h-px bg-border"></span>
                                         دیتاساینس
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 onClick={(event) => {
                                     event.preventDefault();
                                     setShowMobilePagesMenu(
@@ -785,7 +785,7 @@ function Header() {
                                 className={`flex items-center justify-between ${
                                     showMobilePagesMenu ? "text-title" : ""
                                 }`}
-                                href="#"
+                                to="#"
                             >
                                 <span className="flex items-center gap-2">
                                     <span>
@@ -806,7 +806,7 @@ function Header() {
                                         <use href="#chevron-down-mini"></use>
                                     </svg>
                                 </span>
-                            </a>
+                            </Link>
                             <ul
                                 className={`child:py-2 ${
                                     showMobilePagesMenu
@@ -889,9 +889,9 @@ function Header() {
                             </ul>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 className="flex items-center justify-between"
-                                href="/articles"
+                                to="/articles"
                             >
                                 <span className="flex items-center gap-2">
                                     <span>
@@ -903,12 +903,12 @@ function Header() {
                                         مقالات آموزشی
                                     </span>
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 className="flex items-center justify-between"
-                                href="/register"
+                                to="/register"
                             >
                                 <span className="flex items-center gap-2">
                                     <span>
@@ -920,7 +920,7 @@ function Header() {
                                         ورود / ثبت نام
                                     </span>
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

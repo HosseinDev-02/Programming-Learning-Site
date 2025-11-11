@@ -1,6 +1,7 @@
 import { Loader } from "@aws-amplify/ui-react";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function UserCourse({
     img,
@@ -13,25 +14,24 @@ export default function UserCourse({
     isFree,
     teacher,
     category,
-    teacherImg
+    teacherImg,
 }) {
-
-    const [isImgLoaded, setIsImgLoaded] = useState(false)
-    const imgLoadedHandler = () => setIsImgLoaded(true)
+    const [isImgLoaded, setIsImgLoaded] = useState(false);
+    const imgLoadedHandler = () => setIsImgLoaded(true);
 
     return (
         <div>
             <div className="block rounded-3xl overflow-hidden relative">
-                <a href="/course-detail/react-js">
+                <Link to="/course-detail/react-js">
                     <img
                         className="w-full h-full object-cover"
                         src={img}
                         alt={title}
                         onLoad={imgLoadedHandler}
                     />
-                </a>
-                <a
-                    href='/course-detail/react-js'
+                </Link>
+                <Link
+                    to="/course-detail/react-js"
                     className="absolute left-3 top-3 flex items-center gap-1 bg-black/20 rounded-full h-11 px-4 text-white hover:opacity-80 transition-all"
                 >
                     <span>
@@ -42,7 +42,7 @@ export default function UserCourse({
                     <span className="font-YekanBakh-SemiBold text-sm tracking-wider">
                         {category}
                     </span>
-                </a>
+                </Link>
                 {!isImgLoaded && (
                     <Loader
                         emptyColor="rgb(var(--color-secondary))"
@@ -70,12 +70,12 @@ export default function UserCourse({
                     )}
                 </div>
                 <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
-                    <a
+                    <Link
                         className="hover:text-primary transition-colors line-clamp-1"
-                        href="/course-detail/react-js"
+                        to="/course-detail/react-js"
                     >
                         {title}
-                    </a>
+                    </Link>
                 </h6>
             </div>
             <div className="p-5">
@@ -113,9 +113,7 @@ export default function UserCourse({
                         <div className="flex flex-col gap-1 text-xs font-YekanBakh-SemiBold">
                             <span className="line-clamp-1">مدرس دوره :</span>
                             <span className="text-title font-YekanBakh-Bold line-clamp-1">
-                                {
-                                    teacher
-                                }
+                                {teacher}
                             </span>
                         </div>
                     </div>

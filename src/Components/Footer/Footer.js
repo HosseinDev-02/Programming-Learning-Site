@@ -3,6 +3,7 @@ import SectionLinkBtn from "../Buttons/SectionLinkBtn";
 import SubTitle from "../Titles/SubTitle";
 import RoundButton from "../Buttons/RoundButton";
 import Input from "../Input/Input";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
 
@@ -84,36 +85,36 @@ export default function Footer() {
                                     <SubTitle title="لینک های مفید"></SubTitle>
                                     <ul className="flex flex-col gap-1">
                                         <li>
-                                            <a
+                                            <Link
                                                 className="font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary"
-                                                href="#"
+                                                to="#"
                                             >
                                                 قوانین و مقررات
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary"
-                                                href="#"
+                                                to="#"
                                             >
                                                 مدرسان
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary"
-                                                href="#"
+                                                to="#"
                                             >
                                                 درباره نابغه
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a
+                                            <Link
                                                 className="font-YekanBakh-SemiBold text-sm transition-colors hover:text-primary"
-                                                href="#"
+                                                to="#"
                                             >
                                                 ارتباط با ما
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>

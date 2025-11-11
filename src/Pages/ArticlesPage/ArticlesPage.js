@@ -12,6 +12,7 @@ import Accordion from "../../Components/Accordion/Accordion";
 import Cover from "../../Components/Cover/Cover";
 import { Loader } from "@aws-amplify/ui-react";
 import './ArticlesPage.css'
+import { Link } from "react-router-dom";
 
 export default function ArticlesPage() {
     const [articles, setArticles] = useState([]);
@@ -77,86 +78,86 @@ export default function ArticlesPage() {
                                             تگ های محبوب
                                         </span>
                                         <div className="flex items-center gap-3 flex-wrap mt-5">
-                                            <a
+                                            <Link
                                                 className={`flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold ${
                                                     popularItem === "laravel" &&
                                                     "text-primary"
                                                 }`}
-                                                href="#"
+                                                to="#"
                                                 data-key="laravel"
                                                 onClick={setPopularItemHandler}
                                             >
                                                 <span># لاراول</span>
-                                            </a>
-                                            <a
+                                            </Link>
+                                            <Link
                                                 className={`flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold ${
                                                     popularItem === "php" &&
                                                     "text-primary"
                                                 }`}
-                                                href="#"
+                                                to="#"
                                                 data-key="php"
                                                 onClick={setPopularItemHandler}
                                             >
                                                 <span># پی_اچ_پی</span>
-                                            </a>
-                                            <a
+                                            </Link>
+                                            <Link
                                                 className={`flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold ${
                                                     popularItem ===
                                                         "tailwind" &&
                                                     "text-primary"
                                                 }`}
-                                                href="#"
+                                                to="#"
                                                 data-key="tailwind"
                                                 onClick={setPopularItemHandler}
                                             >
                                                 <span># تلویند</span>
-                                            </a>
-                                            <a
+                                            </Link>
+                                            <Link
                                                 className={`flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold ${
                                                     popularItem ===
                                                         "javascript" &&
                                                     "text-primary"
                                                 }`}
-                                                href="#"
+                                                to="#"
                                                 data-key="javascript"
                                                 onClick={setPopularItemHandler}
                                             >
                                                 <span># جاوااسکریپت</span>
-                                            </a>
-                                            <a
+                                            </Link>
+                                            <Link
                                                 className={`flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold ${
                                                     popularItem === "flutter" &&
                                                     "text-primary"
                                                 }`}
-                                                href="#"
+                                                to="#"
                                                 data-key="flutter"
                                                 onClick={setPopularItemHandler}
                                             >
                                                 <span># فلاتر</span>
-                                            </a>
-                                            <a
+                                            </Link>
+                                            <Link
                                                 className={`flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold ${
                                                     popularItem ===
                                                         "wordpress" &&
                                                     "text-primary"
                                                 }`}
-                                                href="#"
+                                                to="#"
                                                 data-key="wordpress"
                                                 onClick={setPopularItemHandler}
                                             >
                                                 <span># وردپرس</span>
-                                            </a>
-                                            <a
+                                            </Link>
+                                            <Link
                                                 className={`flex hover:text-primary transition-colors items-center justify-center rounded-xl px-4 h-10 bg-secondary text-xs font-YekanBakh-Bold ${
                                                     popularItem === "other" &&
                                                     "text-primary"
                                                 }`}
-                                                href="#"
+                                                to="#"
                                                 data-key="other"
                                                 onClick={setPopularItemHandler}
                                             >
                                                 <span># متفرقه</span>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                     {/*  Courses Accordion boxes  */}

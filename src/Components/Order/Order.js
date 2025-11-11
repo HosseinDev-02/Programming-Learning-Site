@@ -2,6 +2,7 @@ import React from "react";
 import RoundButton from "../Buttons/RoundButton";
 import LikeButton from "../Buttons/LikeButton";
 import PrimaryButton from "../Buttons/PrimaryButton";
+import { Link } from "react-router-dom";
 
 function Order({
     img,
@@ -17,16 +18,16 @@ function Order({
     return (
         <div className="flex sm:flex-row lg:flex-row flex-col md:flex-col items-center sm:items-start md:items-center lg:items-start gap-5 lg:gap-8 py-6">
             <div className="w-full sm:w-4/12 lg:w-4/12 md:w-full">
-                <a
+                <Link
                     className="flex items-center justify-center rounded-3xl overflow-hidden"
-                    href="/course-detail/react-js"
+                    to="/course-detail/react-js"
                 >
                     <img
                         className="w-full h-full object-cover"
                         src={img}
                         alt={title}
                     />
-                </a>
+                </Link>
                 <RoundButton
                     icon="#x-mark"
                     className={
@@ -54,12 +55,12 @@ function Order({
                         )}
                     </div>
                     <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
-                        <a
+                        <Link
                             className="hover:text-primary transition-colors line-clamp-1"
-                            href="/course-detail/react-js"
+                            to="/course-detail/react-js"
                         >
                             {title}
-                        </a>
+                        </Link>
                     </h6>
                 </div>
                 <div className="pt-5">

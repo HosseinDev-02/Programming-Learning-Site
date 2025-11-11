@@ -57,8 +57,8 @@ export default function DashBoard() {
                                         </span>
                                     </Link>
                                 ))}
-                                <a
-                                    href="/login"
+                                <Link
+                                    to="/login"
                                     className="flex items-center gap-3 rounded-full px-5 bg-background hover:bg-red-500 text-red-500 hover:text-white transition-colors w-full h-11 cursor-pointer"
                                 >
                                     <span>
@@ -69,7 +69,7 @@ export default function DashBoard() {
                                     <span className="text-xs font-YekanBakh-SemiBold line-clamp-1">
                                         خروج از حساب
                                     </span>
-                                </a>
+                                </Link>
                             </ul>
                         </div>
                         <div className="md:col-span-8 lg:col-span-9">

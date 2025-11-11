@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LikeButton from "../Buttons/LikeButton";
 import { Loader } from "@aws-amplify/ui-react";
+import { Link } from "react-router-dom";
 
 export default function Article({
     title,
@@ -20,8 +21,8 @@ export default function Article({
     return (
         <div className={`bg-background rounded-xl p-4 ${className}`}>
             <div className="relative">
-                <a
-                    href="/article-detail/react-vs-vue"
+                <Link
+                    to="/article-detail/react-vs-vue"
                     className="flex items-center justify-center"
                 >
                     {roundedImg ? (
@@ -40,7 +41,7 @@ export default function Article({
                             onLoad={imgLoadedHandler}
                         />
                     )}
-                </a>
+                </Link>
                 {!isImgLoaded && (
                     <Loader
                         emptyColor="rgb(var(--color-secondary))"
@@ -55,12 +56,12 @@ export default function Article({
             </div>
             <div className="space-y-3 mt-3">
                 <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
-                    <a
+                    <Link
                         className="hover:text-primary transition-colors"
-                        href="/article-detail/react-vs-vue"
+                        to="/article-detail/react-vs-vue"
                     >
                         {title}
-                    </a>
+                    </Link>
                 </h6>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1">
@@ -71,21 +72,21 @@ export default function Article({
                                 alt={writer}
                             />
                         </span>
-                        <a
+                        <Link
                             className="hover:text-primary transition-colors text-xs font-YekanBakh-Bold text-title"
-                            href="#"
+                            to="#"
                         >
                             {writer}
-                        </a>
+                        </Link>
                     </div>
-                    <a
-                        href="#"
+                    <Link
+                        to="#"
                         className="flex items-center justify-center px-4 h-8 rounded-full bg-primary/10 hover:opacity-80 transition-opacity"
                     >
                         <span className="text-xxs text-primary font-YekanBakh-Bold">
                             {category}
                         </span>
-                    </a>
+                    </Link>
                 </div>
                 <div className="flex items-center gap-1 text-xs justify-end font-YekanBakh-SemiBold">
                     <span>

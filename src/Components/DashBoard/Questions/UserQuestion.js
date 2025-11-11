@@ -2,6 +2,7 @@ import PrimaryButton from "../../Buttons/PrimaryButton";
 import { Loader } from "@aws-amplify/ui-react";
 import './UserQuestion.css'
 import { useState } from "react";
+import { Link } from "react-router-dom";
 export default function UserQuestion(props) {
 
     const [isImgLoaded, setIsImgLoaded] = useState(false)
@@ -9,7 +10,7 @@ export default function UserQuestion(props) {
 
     return (
         <div className='flex md:flex-row flex-col md:items-start gap-5 py-8'>
-            <a className='md:w-4/12 block rounded-3xl overflow-hidden' href="/course-detail/react-js">
+            <Link className='md:w-4/12 block rounded-3xl overflow-hidden' to="/course-detail/react-js">
                 <img onLoad={imgLoadedHandler} className='w-full h-full object-cover' src={props.img} alt={props.title} />
                 {!isImgLoaded && (
                     <Loader
@@ -18,15 +19,15 @@ export default function UserQuestion(props) {
                         className="my-loader"
                     />
                 )}
-            </a>
+            </Link>
             <div className='md:w-8/12 px-5 rounded-3xl bg-gradient-to-b from-secondary to-background'>
                 <div className='bg-background rounded-b-3xl p-5'>
                     <h3 className='line-clamp-1'>
-                        <a className='font-YekanBakh-Black text-title transition-colors hover:text-primary' href="/course-detail/react-js">
+                        <Link className='font-YekanBakh-Black text-title transition-colors hover:text-primary' to="/course-detail/react-js">
                             {
                                 props.title
                             }
-                        </a>
+                        </Link>
                     </h3>
                 </div>
                 <div className='mt-5'>

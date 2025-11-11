@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function UserInfo(props) {
     return (
         <div className='flex items-center gap-2'>
@@ -12,9 +14,9 @@ export default function UserInfo(props) {
                 </span>
                     )
                 }
-                <a href='#' className='text-title hover:text-primary transition-colors font-YekanBakh-Bold line-clamp-1 text-xs'>
+                <Link to='#' className='text-title hover:text-primary transition-colors font-YekanBakh-Bold line-clamp-1 text-xs'>
                     {props.text}
-                </a>
+                </Link>
             </div>
         </div>
     )

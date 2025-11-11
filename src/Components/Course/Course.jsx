@@ -6,6 +6,7 @@ import { Loader } from "@aws-amplify/ui-react";
 import { useState } from "react";
 import "@aws-amplify/ui-react/styles.css";
 import "./Course.css";
+import { Link } from "react-router-dom";
 export default function Course(props) {
     const [isImgLoaded, setIsImgLoaded] = useState(false);
 
@@ -16,7 +17,7 @@ export default function Course(props) {
     return (
         <div>
             <div className="flex items-center justify-center rounded-3xl overflow-hidden relative">
-                <a href="/course-detail/react-js">
+                <Link to="/course-detail/react-js">
                     <img
                         loading="lazy"
                         className="w-full h-full object-cover"
@@ -24,9 +25,9 @@ export default function Course(props) {
                         alt={props.title}
                         onLoad={imgLoadedHandler}
                     />
-                </a>
-                <a
-                    href="/course-detail/react-js"
+                </Link>
+                <Link
+                    to="/course-detail/react-js"
                     className="absolute left-3 top-3 flex items-center gap-1 bg-black/20 rounded-full h-11 px-4 text-white hover:opacity-80 transition-all"
                 >
                     <span>
@@ -37,7 +38,7 @@ export default function Course(props) {
                     <span className="font-YekanBakh-SemiBold text-sm tracking-wider">
                         {props.category}
                     </span>
-                </a>
+                </Link>
                 {!isImgLoaded && (
                     <Loader
                         emptyColor="rgb(var(--color-secondary))"
@@ -65,12 +66,12 @@ export default function Course(props) {
                     )}
                 </div>
                 <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
-                    <a
+                    <Link
                         className="hover:text-primary transition-colors line-clamp-1"
                         href="/course-detail/react-js"
                     >
                         {props.title}
-                    </a>
+                    </Link>
                 </h6>
             </div>
             <div className="p-5">
