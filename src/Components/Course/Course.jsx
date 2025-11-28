@@ -68,7 +68,7 @@ export default function Course(props) {
                 <h6 className="mt-2 text-title text-sm font-YekanBakh-Bold">
                     <Link
                         className="hover:text-primary transition-colors line-clamp-1"
-                        href="/course-detail/react-js"
+                        to="/course-detail/react-js"
                     >
                         {props.title}
                     </Link>
