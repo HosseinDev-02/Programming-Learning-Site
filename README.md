@@ -1,4 +1,4 @@
 # سایت آموزشی آکادمی نابغه در حوضه برنامه نویسی
 ### وب‌سایت آموزشی در حوزه برنامه‌نویسی، ساخته‌شده با React و Tailwind CSS. طراحی شده برای ارائه‌ی محتوای آموزشی و منابع یادگیری با ظاهری ساده و مدرن.
 آدرس سایت :
-[Nabeghe Academy](https://nabeghe-academy.rostamidev2002.workers.dev)
+[Nabeghe Academy](https://hr-genius-academy.netlify.app)
