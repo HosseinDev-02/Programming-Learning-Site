@@ -18,7 +18,12 @@ Tailwind Css, React Js.
 - React
 
 ## Screenshots
-![Home Page](./public/images/ScreenShots/screenshot-01.png)
+<p align="center">
+  <img src="./public/images/ScreenShots/screenshot-01.webp" width="700"/>
+  <img src="./public/images/ScreenShots/screenshot-02.webp" width="700"/>
+  <img src="./public/images/ScreenShots/screenshot-03.webp" width="700"/>
+  <img src="./public/images/ScreenShots/screenshot-04.webp" width="700"/>
+</p>
 ## Installation
 
 ## Folder Structure
