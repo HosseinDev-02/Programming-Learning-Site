@@ -84,4 +84,4 @@ src
 ```
 
 ## Live Demo
-[Genius Academy](https://hr-genius-academy.netlify.app)
+[Genius Academy](https://hr-nabegheacademy.vercel.app/)
